@@ -1,163 +1,1008 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>Your Name | Advisory</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Your Business — Professional Services in Thailand</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet"/>
+  <style>
+    :root {
+      --pearl-orange:   #E8956D;
+      --pearl-light:    #F5C4A1;
+      --pearl-pale:     #FDF0E8;
+      --pearl-deep:     #C4623A;
+      --pearl-warm:     #F0A878;
+      --dark:           #1C1410;
+      --dark-mid:       #3A2A1E;
+      --mid:            #6B4D38;
+      --light-text:     #8C6E5A;
+      --white:          #FFFAF6;
+      --border:         #E8D5C4;
+    }
 
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-<style>
-body {
-  margin: 0;
-  font-family: 'Inter', sans-serif;
-  background: #fff7f3;
-  color: #2d2d2d;
-}
+    html { scroll-behavior: smooth; }
 
-/* NAVBAR */
-nav {
-  display: flex;
-  justify-content: space-between;
-  padding: 20px 50px;
-  background: white;
-  border-bottom: 1px solid #f1e3dc;
-}
+    body {
+      font-family: 'Lato', sans-serif;
+      background: var(--white);
+      color: var(--dark);
+      line-height: 1.7;
+    }
 
-nav a {
-  text-decoration: none;
-  color: #333;
-  margin-left: 25px;
-  font-weight: 500;
-}
+    /* ── TOP BAR ── */
+    .topbar {
+      background: var(--dark-mid);
+      color: var(--pearl-light);
+      font-size: 0.78rem;
+      letter-spacing: 0.04em;
+      padding: 7px 0;
+    }
+    .topbar-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 32px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+    .topbar a {
+      color: var(--pearl-light);
+      text-decoration: none;
+      margin-right: 20px;
+      transition: color 0.2s;
+    }
+    .topbar a:hover { color: var(--pearl-orange); }
+    .topbar-right { display: flex; gap: 16px; align-items: center; }
 
-/* HERO */
-.hero {
-  padding: 120px 20px;
-  text-align: center;
-  background: linear-gradient(to bottom, #fff7f3, #ffffff);
-}
+    /* ── HEADER / NAV ── */
+    header {
+      background: var(--white);
+      border-bottom: 1px solid var(--border);
+      position: sticky;
+      top: 0;
+      z-index: 999;
+      box-shadow: 0 2px 16px rgba(196,98,58,0.07);
+    }
+    .header-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 32px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 80px;
+    }
 
-.hero h1 {
-  font-family: 'Playfair Display', serif;
-  font-size: 48px;
-  margin-bottom: 15px;
-}
+    .logo {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+    .logo-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.55rem;
+      font-weight: 700;
+      color: var(--dark);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      line-height: 1.1;
+    }
+    .logo-name span { color: var(--pearl-orange); }
+    .logo-sub {
+      font-family: 'Lato', sans-serif;
+      font-size: 0.62rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--light-text);
+      margin-top: 2px;
+    }
 
-.hero p {
-  font-size: 18px;
-  color: #7a6a64;
-}
+    nav { display: flex; align-items: center; gap: 2px; }
 
-.cta-btn {
-  margin-top: 30px;
-  display: inline-block;
-  background: #f4a261;
-  color: white;
-  padding: 14px 28px;
-  border-radius: 8px;
-  text-decoration: none;
-}
+    .nav-item {
+      position: relative;
+    }
+    .nav-link {
+      display: block;
+      padding: 10px 16px;
+      font-family: 'Lato', sans-serif;
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--dark-mid);
+      text-decoration: none;
+      transition: color 0.2s;
+      white-space: nowrap;
+    }
+    .nav-link:hover, .nav-link.active { color: var(--pearl-orange); }
+    .nav-link.active::after {
+      content: '';
+      display: block;
+      height: 2px;
+      background: var(--pearl-orange);
+      border-radius: 2px;
+      margin-top: 3px;
+    }
 
-/* SECTION */
-section {
-  max-width: 1000px;
-  margin: auto;
-  padding: 60px 20px;
-}
+    /* Dropdown */
+    .dropdown {
+      position: absolute;
+      top: calc(100% + 8px);
+      left: 0;
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-top: 3px solid var(--pearl-orange);
+      min-width: 240px;
+      box-shadow: 0 8px 32px rgba(28,20,16,0.12);
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(-6px);
+      transition: all 0.22s ease;
+      z-index: 1000;
+    }
+    .nav-item:hover .dropdown {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+    .dropdown a {
+      display: block;
+      padding: 10px 20px;
+      font-size: 0.8rem;
+      letter-spacing: 0.02em;
+      color: var(--dark-mid);
+      text-decoration: none;
+      border-bottom: 1px solid var(--pearl-pale);
+      transition: background 0.15s, color 0.15s;
+      font-family: 'Lato', sans-serif;
+    }
+    .dropdown a:last-child { border-bottom: none; }
+    .dropdown a:hover {
+      background: var(--pearl-pale);
+      color: var(--pearl-deep);
+      padding-left: 26px;
+    }
 
-h2 {
-  font-family: 'Playfair Display', serif;
-  margin-bottom: 10px;
-}
+    /* ── HERO ── */
+    .hero {
+      position: relative;
+      background: linear-gradient(135deg, var(--dark) 0%, var(--dark-mid) 45%, #5C3520 100%);
+      min-height: 540px;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 60% 60% at 80% 50%, rgba(232,149,109,0.18) 0%, transparent 70%),
+        radial-gradient(ellipse 30% 40% at 20% 20%, rgba(240,168,120,0.10) 0%, transparent 60%);
+    }
+    .hero-pattern {
+      position: absolute;
+      inset: 0;
+      opacity: 0.04;
+      background-image: repeating-linear-gradient(
+        45deg,
+        var(--pearl-orange) 0px, var(--pearl-orange) 1px,
+        transparent 1px, transparent 24px
+      );
+    }
+    .hero-inner {
+      position: relative;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 80px 32px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+    }
+    .hero-badge {
+      display: inline-block;
+      background: rgba(232,149,109,0.18);
+      border: 1px solid rgba(232,149,109,0.4);
+      color: var(--pearl-warm);
+      font-size: 0.7rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      padding: 6px 16px;
+      border-radius: 2px;
+      margin-bottom: 20px;
+      font-family: 'Lato', sans-serif;
+    }
+    .hero h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2.2rem, 4vw, 3.4rem);
+      font-weight: 600;
+      color: var(--white);
+      line-height: 1.2;
+      margin-bottom: 20px;
+      letter-spacing: 0.01em;
+    }
+    .hero h1 em {
+      font-style: italic;
+      color: var(--pearl-warm);
+    }
+    .hero p {
+      font-size: 1rem;
+      color: rgba(253,240,232,0.75);
+      margin-bottom: 36px;
+      font-weight: 300;
+      line-height: 1.8;
+    }
+    .hero-cta {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+    .btn-primary {
+      background: var(--pearl-orange);
+      color: var(--white);
+      padding: 14px 32px;
+      font-family: 'Lato', sans-serif;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      text-decoration: none;
+      border: 2px solid var(--pearl-orange);
+      cursor: pointer;
+      transition: all 0.22s;
+    }
+    .btn-primary:hover {
+      background: var(--pearl-deep);
+      border-color: var(--pearl-deep);
+    }
+    .btn-outline {
+      background: transparent;
+      color: var(--pearl-light);
+      padding: 14px 32px;
+      font-family: 'Lato', sans-serif;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      text-decoration: none;
+      border: 2px solid rgba(245,196,161,0.5);
+      cursor: pointer;
+      transition: all 0.22s;
+    }
+    .btn-outline:hover {
+      border-color: var(--pearl-light);
+      color: var(--white);
+    }
+    .hero-stats {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+    .stat-card {
+      background: rgba(255,250,246,0.06);
+      border: 1px solid rgba(232,149,109,0.2);
+      backdrop-filter: blur(6px);
+      padding: 28px 32px;
+      border-left: 4px solid var(--pearl-orange);
+    }
+    .stat-number {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2.6rem;
+      font-weight: 700;
+      color: var(--pearl-warm);
+      line-height: 1;
+    }
+    .stat-label {
+      font-size: 0.78rem;
+      color: rgba(253,240,232,0.65);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-top: 4px;
+    }
 
-/* CARDS */
-.grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 20px;
-}
+    /* ── DIVIDER ── */
+    .divider {
+      height: 4px;
+      background: linear-gradient(90deg, var(--pearl-orange), var(--pearl-warm), var(--pearl-light));
+    }
 
-.card {
-  background: white;
-  padding: 25px;
-  border-radius: 12px;
-  border: 1px solid #f1e3dc;
-}
+    /* ── SERVICES SECTION ── */
+    .section {
+      padding: 80px 32px;
+    }
+    .section-inner { max-width: 1200px; margin: 0 auto; }
 
-/* TRUST */
-.trust {
-  text-align: center;
-  background: #fff1ea;
-  padding: 60px 20px;
-}
+    .section-label {
+      font-size: 0.68rem;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: var(--pearl-orange);
+      font-family: 'Lato', sans-serif;
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+    .section-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2rem, 3vw, 2.8rem);
+      font-weight: 600;
+      color: var(--dark);
+      line-height: 1.2;
+      margin-bottom: 16px;
+    }
+    .section-sub {
+      color: var(--light-text);
+      font-size: 0.95rem;
+      max-width: 560px;
+      font-weight: 300;
+    }
+    .section-head { margin-bottom: 52px; }
+    .section-head.centered { text-align: center; }
+    .section-head.centered .section-sub { margin: 0 auto; }
 
-/* FOOTER */
-footer {
-  text-align: center;
-  padding: 30px;
-  background: #ffffff;
-  color: #7a6a64;
-}
-</style>
+    /* Services Grid */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+    .service-card {
+      border: 1px solid var(--border);
+      background: var(--white);
+      padding: 36px 28px;
+      position: relative;
+      overflow: hidden;
+      transition: all 0.25s ease;
+      cursor: pointer;
+    }
+    .service-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--pearl-orange), var(--pearl-warm));
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.3s ease;
+    }
+    .service-card:hover {
+      box-shadow: 0 12px 40px rgba(196,98,58,0.12);
+      transform: translateY(-3px);
+    }
+    .service-card:hover::before { transform: scaleX(1); }
+
+    .service-icon {
+      width: 48px;
+      height: 48px;
+      background: var(--pearl-pale);
+      border-radius: 2px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 20px;
+      font-size: 1.4rem;
+    }
+    .service-card h3 {
+      font-family: 'Libre Baskerville', serif;
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--dark);
+      margin-bottom: 12px;
+      line-height: 1.35;
+    }
+    .service-card p {
+      font-size: 0.85rem;
+      color: var(--light-text);
+      line-height: 1.75;
+    }
+    .service-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      margin-top: 20px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--pearl-orange);
+      text-decoration: none;
+      transition: gap 0.2s;
+    }
+    .service-link:hover { gap: 10px; }
+
+    /* ── WHY US ── */
+    .why-section {
+      background: var(--pearl-pale);
+      padding: 80px 32px;
+    }
+    .why-inner { max-width: 1200px; margin: 0 auto; }
+    .why-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: center;
+    }
+    .why-text h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2rem, 3vw, 2.8rem);
+      font-weight: 600;
+      color: var(--dark);
+      line-height: 1.2;
+      margin-bottom: 20px;
+    }
+    .why-text p {
+      color: var(--mid);
+      font-size: 0.95rem;
+      font-weight: 300;
+      line-height: 1.85;
+      margin-bottom: 16px;
+    }
+    .why-features { display: flex; flex-direction: column; gap: 16px; }
+    .why-feature {
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+      padding: 20px 24px;
+      background: var(--white);
+      border-left: 4px solid var(--pearl-orange);
+    }
+    .why-feature-icon {
+      font-size: 1.2rem;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+    .why-feature-text h4 {
+      font-family: 'Libre Baskerville', serif;
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: var(--dark);
+      margin-bottom: 4px;
+    }
+    .why-feature-text p {
+      font-size: 0.82rem;
+      color: var(--light-text);
+      line-height: 1.6;
+      margin: 0;
+    }
+
+    /* ── TESTIMONIALS ── */
+    .testimonials {
+      background: var(--dark-mid);
+      padding: 80px 32px;
+    }
+    .testimonials-inner { max-width: 1200px; margin: 0 auto; }
+    .testimonials .section-title { color: var(--white); }
+    .testimonials .section-label { color: var(--pearl-warm); }
+    .testimonials .section-sub { color: rgba(253,240,232,0.6); }
+    .testi-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-top: 48px;
+    }
+    .testi-card {
+      background: rgba(255,250,246,0.05);
+      border: 1px solid rgba(232,149,109,0.2);
+      padding: 32px 28px;
+    }
+    .testi-quote {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 3rem;
+      color: var(--pearl-orange);
+      line-height: 0.6;
+      margin-bottom: 16px;
+    }
+    .testi-text {
+      font-size: 0.88rem;
+      color: rgba(253,240,232,0.75);
+      line-height: 1.8;
+      margin-bottom: 24px;
+      font-weight: 300;
+      font-style: italic;
+    }
+    .testi-author {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .testi-avatar {
+      width: 40px; height: 40px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--pearl-orange), var(--pearl-deep));
+      display: flex; align-items: center; justify-content: center;
+      font-weight: 700; color: white; font-size: 0.9rem;
+    }
+    .testi-name { font-size: 0.8rem; color: var(--pearl-light); font-weight: 700; }
+    .testi-role { font-size: 0.72rem; color: rgba(253,240,232,0.5); letter-spacing: 0.06em; }
+
+    /* ── CONTACT BANNER ── */
+    .contact-banner {
+      background: linear-gradient(135deg, var(--pearl-orange) 0%, var(--pearl-deep) 100%);
+      padding: 64px 32px;
+      text-align: center;
+    }
+    .contact-banner-inner { max-width: 700px; margin: 0 auto; }
+    .contact-banner h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2.4rem;
+      font-weight: 600;
+      color: var(--white);
+      margin-bottom: 14px;
+    }
+    .contact-banner p {
+      color: rgba(255,250,246,0.85);
+      font-size: 0.95rem;
+      margin-bottom: 32px;
+      font-weight: 300;
+    }
+    .contact-btns { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+    .btn-white {
+      background: var(--white);
+      color: var(--pearl-deep);
+      padding: 14px 36px;
+      font-family: 'Lato', sans-serif;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      text-decoration: none;
+      border: 2px solid var(--white);
+      transition: all 0.22s;
+    }
+    .btn-white:hover { background: transparent; color: var(--white); }
+    .btn-outline-white {
+      background: transparent;
+      color: var(--white);
+      padding: 14px 36px;
+      font-family: 'Lato', sans-serif;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      text-decoration: none;
+      border: 2px solid rgba(255,255,255,0.6);
+      transition: all 0.22s;
+    }
+    .btn-outline-white:hover { border-color: white; }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--dark);
+      padding: 64px 32px 32px;
+    }
+    .footer-inner { max-width: 1200px; margin: 0 auto; }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.6fr 1fr 1fr 1fr;
+      gap: 40px;
+      padding-bottom: 48px;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+    .footer-brand .logo-name { font-size: 1.3rem; color: var(--white); }
+    .footer-brand .logo-sub { color: rgba(255,255,255,0.4); }
+    .footer-brand p {
+      margin-top: 16px;
+      font-size: 0.82rem;
+      color: rgba(255,255,255,0.45);
+      line-height: 1.75;
+      font-weight: 300;
+    }
+    .footer-contact-item {
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+      font-size: 0.82rem;
+      color: rgba(255,255,255,0.5);
+      margin-top: 12px;
+    }
+    .footer-contact-item a { color: var(--pearl-warm); text-decoration: none; }
+    .footer-contact-item a:hover { color: var(--pearl-light); }
+
+    .footer-col h4 {
+      font-family: 'Lato', sans-serif;
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--pearl-warm);
+      margin-bottom: 20px;
+    }
+    .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .footer-col ul li a {
+      font-size: 0.82rem;
+      color: rgba(255,255,255,0.45);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .footer-col ul li a:hover { color: var(--pearl-light); }
+
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 28px;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    .footer-bottom p {
+      font-size: 0.75rem;
+      color: rgba(255,255,255,0.25);
+      letter-spacing: 0.04em;
+    }
+
+    /* ── HAMBURGER ── */
+    .menu-toggle {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      padding: 4px;
+    }
+    .menu-toggle span {
+      display: block;
+      width: 24px; height: 2px;
+      background: var(--dark-mid);
+      border-radius: 2px;
+      transition: all 0.3s;
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 1024px) {
+      .services-grid { grid-template-columns: repeat(2, 1fr); }
+      .testi-grid { grid-template-columns: repeat(2, 1fr); }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 768px) {
+      .menu-toggle { display: flex; }
+      nav { display: none; position: absolute; top: 80px; left: 0; right: 0; background: var(--white); border-top: 1px solid var(--border); flex-direction: column; padding: 16px 0; box-shadow: 0 8px 24px rgba(0,0,0,0.1); }
+      nav.open { display: flex; }
+      .nav-link { padding: 12px 24px; }
+      .dropdown { position: static; opacity: 1; visibility: visible; transform: none; box-shadow: none; border: none; border-top: 1px solid var(--border); border-left: 4px solid var(--pearl-orange); margin-left: 16px; }
+      .hero-inner { grid-template-columns: 1fr; gap: 40px; }
+      .hero-stats { flex-direction: row; flex-wrap: wrap; }
+      .stat-card { flex: 1; min-width: 140px; }
+      .why-grid { grid-template-columns: 1fr; gap: 40px; }
+      .services-grid { grid-template-columns: 1fr; }
+      .testi-grid { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 480px) {
+      .footer-grid { grid-template-columns: 1fr; }
+      .hero { min-height: auto; }
+    }
+  </style>
 </head>
-
 <body>
 
-<!-- NAV -->
-<nav>
-  <div><strong>Your Name</strong></div>
-  <div>
-    <a href="#">Home</a>
-    <a href="#">About</a>
-    <a href="#">Services</a>
-    <a href="#">Contact</a>
+<!-- TOP BAR -->
+<div class="topbar">
+  <div class="topbar-inner">
+    <div>
+      <a href="tel:+66000000000">📞 +66 00 000 0000</a>
+      <a href="#">💬 Line: yourlineid</a>
+      <a href="#">📧 info@yourdomain.com</a>
+    </div>
+    <div class="topbar-right">
+      <a href="#">EN</a> | <a href="#">TH</a>
+    </div>
   </div>
-</nav>
+</div>
+
+<!-- HEADER -->
+<header id="header">
+  <div class="header-inner">
+    <a href="#" class="logo">
+      <div class="logo-name">Your <span>Business</span> Name</div>
+      <div class="logo-sub">Professional Services · Thailand</div>
+    </a>
+    <nav id="mainNav">
+      <!-- HOME -->
+      <div class="nav-item">
+        <a href="#" class="nav-link active">Home</a>
+      </div>
+
+      <!-- ACCOUNTING -->
+      <div class="nav-item">
+        <a href="#" class="nav-link">Accounting Services</a>
+        <div class="dropdown">
+          <a href="#">Bookkeeping Services</a>
+          <a href="#">Tax Filing Services</a>
+          <a href="#">Payroll Services</a>
+          <a href="#">Social Security Services</a>
+          <a href="#">Corporate Secretarial Services</a>
+        </div>
+      </div>
+
+      <!-- COMPANY REG -->
+      <div class="nav-item">
+        <a href="#" class="nav-link">Company Registration</a>
+        <div class="dropdown">
+          <a href="#">New Company Registration</a>
+          <a href="#">Update Company Directors</a>
+          <a href="#">Increase Company Capital</a>
+          <a href="#">Update Company Address</a>
+          <a href="#">Update Shareholders</a>
+        </div>
+      </div>
+
+      <!-- FOREIGN BIZ -->
+      <div class="nav-item">
+        <a href="#" class="nav-link">Foreign Business License</a>
+        <div class="dropdown">
+          <a href="#">Thai–US Treaty (Amity)</a>
+          <a href="#">Thai–Australia Treaty</a>
+          <a href="#">Thai–Japan Treaty</a>
+          <a href="#">Business License (Section 17)</a>
+          <a href="#">BOI (Board of Investment)</a>
+          <a href="#">Trademark &amp; Patent</a>
+        </div>
+      </div>
+
+      <!-- BANKING -->
+      <div class="nav-item">
+        <a href="#" class="nav-link">Banking Services</a>
+        <div class="dropdown">
+          <a href="#">Bank Account Opening</a>
+          <a href="#">Company Loan Application</a>
+          <a href="#">Corporate Credit Card</a>
+          <a href="#">Financial Transaction Consulting</a>
+        </div>
+      </div>
+
+      <!-- TAX -->
+      <div class="nav-item">
+        <a href="#" class="nav-link">Tax Consulting</a>
+        <div class="dropdown">
+          <a href="#">Revenue Department Support</a>
+          <a href="#">Business Development Dept.</a>
+          <a href="#">Other Government Departments</a>
+        </div>
+      </div>
+    </nav>
+
+    <div class="menu-toggle" id="menuToggle" onclick="document.getElementById('mainNav').classList.toggle('open')">
+      <span></span><span></span><span></span>
+    </div>
+  </div>
+</header>
 
 <!-- HERO -->
-<div class="hero">
-  <h1>Accounting & Business Advisory</h1>
-  <p>Helping businesses manage tax, cash flow, and financial decisions with clarity</p>
-  <a class="cta-btn" href="#">Contact Us</a>
-</div>
-
-<!-- SERVICES -->
-<section>
-  <h2>Our Services</h2>
-  <div class="grid">
-    <div class="card">
-      <h3>Tax Planning</h3>
-      <p>Optimize your tax structure and reduce risk.</p>
+<section class="hero">
+  <div class="hero-pattern"></div>
+  <div class="hero-inner">
+    <div class="hero-content">
+      <div class="hero-badge">Trusted Business Advisors in Thailand</div>
+      <h1>Your Gateway to<br><em>Business Success</em><br>in Thailand</h1>
+      <p>We provide comprehensive accounting, legal, and business advisory services to help foreign and local enterprises establish and grow their presence in Thailand.</p>
+      <div class="hero-cta">
+        <a href="#services" class="btn-primary">Explore Services</a>
+        <a href="#contact" class="btn-outline">Book Consultation</a>
+      </div>
     </div>
-
-    <div class="card">
-      <h3>Accounting</h3>
-      <p>Accurate and compliant financial reporting.</p>
-    </div>
-
-    <div class="card">
-      <h3>Advisory</h3>
-      <p>Strategic insights to grow your business.</p>
+    <div class="hero-stats">
+      <div class="stat-card">
+        <div class="stat-number">500+</div>
+        <div class="stat-label">Companies Registered</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">15+</div>
+        <div class="stat-label">Years of Experience</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">98%</div>
+        <div class="stat-label">Client Satisfaction Rate</div>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- WHY -->
-<section>
-  <h2>Why Choose Us</h2>
-  <p>We focus on clarity, structured thinking, and real business impact—not just compliance.</p>
+<div class="divider"></div>
+
+<!-- SERVICES -->
+<section class="section" id="services">
+  <div class="section-inner">
+    <div class="section-head">
+      <div class="section-label">What We Offer</div>
+      <h2 class="section-title">Comprehensive Business Services</h2>
+      <p class="section-sub">End-to-end solutions for every stage of your business journey in Thailand — from registration to ongoing compliance.</p>
+    </div>
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="service-icon">📊</div>
+        <h3>Accounting Services</h3>
+        <p>Bookkeeping, tax filing, payroll, social security administration, and corporate secretarial services tailored for Thai compliance.</p>
+        <a href="#" class="service-link">Learn More →</a>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">🏢</div>
+        <h3>Company Registration</h3>
+        <p>Full support for new company formation and all post-registration changes — directors, shareholders, capital, address, and business objectives.</p>
+        <a href="#" class="service-link">Learn More →</a>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">🌏</div>
+        <h3>Foreign Business License</h3>
+        <p>Expert guidance on Amity Treaty certificates, BOI promotion, Section 17 licenses, trademarks, patents, and recruitment licensing.</p>
+        <a href="#" class="service-link">Learn More →</a>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">🏦</div>
+        <h3>Banking Services</h3>
+        <p>Document preparation for corporate bank accounts, loan applications, credit cards, and financial transaction process consulting.</p>
+        <a href="#" class="service-link">Learn More →</a>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">📋</div>
+        <h3>Tax Consulting</h3>
+        <p>Professional representation and support when dealing with the Revenue Department, DBD, and other Thai government agencies.</p>
+        <a href="#" class="service-link">Learn More →</a>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">💡</div>
+        <h3>Knowledge Sharing</h3>
+        <p>Stay informed with our regularly updated guides, articles, and insights on Thai business law, taxation, and regulatory changes.</p>
+        <a href="#" class="service-link">Read Articles →</a>
+      </div>
+    </div>
+  </div>
 </section>
 
-<!-- TRUST -->
-<div class="trust">
-  <h2>Trusted by Business Owners</h2>
-  <p>We help clients make confident financial decisions.</p>
-</div>
+<!-- WHY US -->
+<section class="why-section">
+  <div class="why-inner">
+    <div class="why-grid">
+      <div class="why-text">
+        <div class="section-label">Why Choose Us</div>
+        <h2 class="section-title">Decades of<br>Trusted Expertise</h2>
+        <p>We combine deep knowledge of Thai law with genuine care for our clients' success. Whether you are setting up your first company or managing a complex multi-entity structure, we bring clarity and precision to every engagement.</p>
+        <p>Our bilingual team works closely with you to ensure full compliance and total peace of mind — so you can focus on growing your business.</p>
+        <a href="#contact" class="btn-primary" style="display:inline-block; margin-top: 24px;">Schedule a Free Consultation</a>
+      </div>
+      <div class="why-features">
+        <div class="why-feature">
+          <div class="why-feature-icon">⚖️</div>
+          <div class="why-feature-text">
+            <h4>Licensed & Certified Professionals</h4>
+            <p>All our accountants and advisors hold Thai CPA certifications and maintain active professional registrations.</p>
+          </div>
+        </div>
+        <div class="why-feature">
+          <div class="why-feature-icon">🌐</div>
+          <div class="why-feature-text">
+            <h4>Bilingual Thai–English Service</h4>
+            <p>We bridge language and cultural gaps, ensuring smooth communication between you and Thai authorities.</p>
+          </div>
+        </div>
+        <div class="why-feature">
+          <div class="why-feature-icon">⚡</div>
+          <div class="why-feature-text">
+            <h4>Fast, Transparent Turnaround</h4>
+            <p>Clear timelines, fixed-fee structures, and no hidden costs. You always know where your matter stands.</p>
+          </div>
+        </div>
+        <div class="why-feature">
+          <div class="why-feature-icon">🤝</div>
+          <div class="why-feature-text">
+            <h4>Long-Term Partnership Approach</h4>
+            <p>We build lasting relationships — many of our clients have been with us for over a decade.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testimonials">
+  <div class="testimonials-inner">
+    <div class="section-head centered">
+      <div class="section-label">Client Testimonials</div>
+      <h2 class="section-title">What Our Clients Say</h2>
+      <p class="section-sub">Trusted by entrepreneurs and executives from around the world doing business in Thailand.</p>
+    </div>
+    <div class="testi-grid">
+      <div class="testi-card">
+        <div class="testi-quote">"</div>
+        <p class="testi-text">Setting up our company in Thailand seemed daunting, but the team made the entire process seamless. We were operational in under three weeks.</p>
+        <div class="testi-author">
+          <div class="testi-avatar">JM</div>
+          <div>
+            <div class="testi-name">James M.</div>
+            <div class="testi-role">CEO · Tech Startup, UK</div>
+          </div>
+        </div>
+      </div>
+      <div class="testi-card">
+        <div class="testi-quote">"</div>
+        <p class="testi-text">Their knowledge of the Amity Treaty was exceptional. We secured our Foreign Business Certificate faster than we thought possible. Highly recommended.</p>
+        <div class="testi-author">
+          <div class="testi-avatar">SK</div>
+          <div>
+            <div class="testi-name">Sarah K.</div>
+            <div class="testi-role">Director · Consulting Firm, USA</div>
+          </div>
+        </div>
+      </div>
+      <div class="testi-card">
+        <div class="testi-quote">"</div>
+        <p class="testi-text">Our monthly accounting and payroll have been flawless for three years. I can genuinely focus on my business knowing compliance is handled properly.</p>
+        <div class="testi-author">
+          <div class="testi-avatar">TN</div>
+          <div>
+            <div class="testi-name">Takashi N.</div>
+            <div class="testi-role">Managing Director · Trading Co., Japan</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT BANNER -->
+<section class="contact-banner" id="contact">
+  <div class="contact-banner-inner">
+    <h2>Ready to Get Started?</h2>
+    <p>Speak with one of our advisors today — no obligation, no jargon. Just clear, practical guidance tailored to your situation.</p>
+    <div class="contact-btns">
+      <a href="tel:+66000000000" class="btn-white">Call Us Now</a>
+      <a href="mailto:info@yourdomain.com" class="btn-outline-white">Send an Enquiry</a>
+    </div>
+  </div>
+</section>
 
 <!-- FOOTER -->
 <footer>
-  <p>© 2026 Your Name</p>
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="logo">
+          <div class="logo-name">Your <span>Business</span> Name</div>
+          <div class="logo-sub">Professional Services · Thailand</div>
+        </div>
+        <p>We are a leading professional services firm based in Thailand, dedicated to helping businesses establish, operate, and grow with full legal and financial compliance.</p>
+        <div class="footer-contact-item">📍 Bangkok, Thailand 10xxx</div>
+        <div class="footer-contact-item">📞 <a href="tel:+66000000000">+66 00 000 0000</a></div>
+        <div class="footer-contact-item">📧 <a href="mailto:info@yourdomain.com">info@yourdomain.com</a></div>
+      </div>
+      <div class="footer-col">
+        <h4>Services</h4>
+        <ul>
+          <li><a href="#">Accounting Services</a></li>
+          <li><a href="#">Company Registration</a></li>
+          <li><a href="#">Foreign Business License</a></li>
+          <li><a href="#">Banking Services</a></li>
+          <li><a href="#">Tax Consulting</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="#">About Us</a></li>
+          <li><a href="#">Our Team</a></li>
+          <li><a href="#">Knowledge Sharing</a></li>
+          <li><a href="#">Contact Us</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="#">WhatsApp Us</a></li>
+          <li><a href="#">Line: yourlineid</a></li>
+          <li><a href="#">Book a Consultation</a></li>
+          <li><a href="#">Map & Directions</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 Your Business Name. All rights reserved.</p>
+      <p>Privacy Policy · Terms of Service</p>
+    </div>
+  </div>
 </footer>
 
 </body>
