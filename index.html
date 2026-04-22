@@ -1,29 +1,128 @@
 <!DOCTYPE html>
+<!-- 
+  DOCTYPE tells the web browser: "This is a modern HTML5 webpage."
+  Without this line, some browsers may display the page incorrectly.
+-->
+
 <html lang="en">
+<!-- 
+  <html> is the ROOT TAG — it wraps everything on the entire page.
+  lang="en" tells browsers (and screen readers for blind users) that
+  the page content is written in English.
+-->
+
 <head>
+  <!-- 
+    ============================================================
+    THE <head> SECTION — INVISIBLE SETUP INSTRUCTIONS
+    ============================================================
+    Everything inside <head> is NOT visible on the webpage itself.
+    It contains behind-the-scenes instructions for the browser,
+    such as: the page title, fonts to load, and all the styling rules.
+  -->
+
   <meta charset="UTF-8" />
+  <!-- 
+    charset="UTF-8" sets the CHARACTER ENCODING.
+    This means the page can display any character from any language
+    (Thai, Japanese, emoji, special symbols like ©, etc.)
+    without showing garbled text like â€™ instead of '.
+  -->
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <!-- 
+    This is the MOBILE RESPONSIVENESS tag.
+    "width=device-width" tells the browser: make the page width
+    match the actual screen width of the device (phone, tablet, desktop).
+    "initial-scale=1.0" means don't zoom in or out by default.
+    Without this, your website would appear tiny on a mobile phone.
+  -->
+
   <title>Your Business — Professional Services in Thailand</title>
+  <!-- 
+    The TITLE TAG sets the text shown in:
+    1. The browser tab at the top of the window
+    2. Google search results (as the blue clickable headline)
+    3. Bookmarks when someone saves the page
+    Change this to your actual business name.
+  -->
+
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet"/>
+  <!-- 
+    This loads 3 CUSTOM FONTS from Google Fonts (a free font service).
+    Without internet, these fonts won't load and the browser will use
+    a default font instead. The three fonts loaded are:
+    1. "Cormorant Garamond" — elegant serif font used for headings & logo
+    2. "Libre Baskerville" — classic serif used for card titles
+    3. "Lato" — clean sans-serif used for body text, buttons, nav links
+  -->
+
   <style>
+    /* 
+      ============================================================
+      EVERYTHING INSIDE <style> IS CSS (Cascading Style Sheets)
+      CSS controls how things LOOK: colors, fonts, sizes, spacing,
+      layout, animations. CSS does NOT affect page content or logic.
+      
+      HOW TO READ CSS:
+        selector { property: value; }
+      Example:
+        body { background: white; }  ← makes the page background white
+      
+      /* This is a CSS comment — it explains code but has no effect */
+    */
+
+    /* ─────────────────────────────────────────────────────────
+       COLOR PALETTE — THE BRAND COLORS DEFINED IN ONE PLACE
+       ─────────────────────────────────────────────────────────
+       :root is a special selector that means "the whole page".
+       CSS variables (--name: value) let us define colors ONCE here
+       and reuse them everywhere below.
+       
+       WHY THIS IS USEFUL: If you want to change the main orange color,
+       you only change it here in ONE place, and it updates automatically
+       everywhere on the page. You don't have to hunt through hundreds
+       of lines to replace it manually.
+    */
     :root {
-      --pearl-orange:   #E8956D;
-      --pearl-light:    #F5C4A1;
-      --pearl-pale:     #FDF0E8;
-      --pearl-deep:     #C4623A;
-      --pearl-warm:     #F0A878;
-      --dark:           #1C1410;
-      --dark-mid:       #3A2A1E;
-      --mid:            #6B4D38;
-      --light-text:     #8C6E5A;
-      --white:          #FFFAF6;
-      --border:         #E8D5C4;
+      --pearl-orange:   #E8956D;  /* Main brand orange — used for buttons, accents, highlights */
+      --pearl-light:    #F5C4A1;  /* Lighter orange — used for soft highlights */
+      --pearl-pale:     #FDF0E8;  /* Very pale peach — used as a light section background */
+      --pearl-deep:     #C4623A;  /* Darker, richer orange — used for hover states on buttons */
+      --pearl-warm:     #F0A878;  /* Medium warm orange — used for stat numbers, testimonial marks */
+      --dark:           #1C1410;  /* Almost black (dark brown) — used for body text and footer */
+      --dark-mid:       #3A2A1E;  /* Dark warm brown — used for nav text and topbar background */
+      --mid:            #6B4D38;  /* Medium brown — used for paragraph text in "Why Us" section */
+      --light-text:     #8C6E5A;  /* Muted brown — used for secondary/supporting text */
+      --white:          #FFFAF6;  /* Off-white with a warm tint — used as the page background */
+      --border:         #E8D5C4;  /* Light beige — used for dividing lines and card borders */
     }
 
+    /* 
+      THE CSS RESET — Removing browser default spacing
+      Every browser (Chrome, Safari, Firefox) adds its own default
+      margins and padding to elements. This rule removes all of them
+      so we start with a perfectly clean, predictable layout.
+      "box-sizing: border-box" means: when you set a width of 200px,
+      padding and borders are INCLUDED in that 200px (not added on top).
+    */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
+    /* 
+      Makes clicking anchor links (e.g., the "Explore Services" button
+      that jumps to the #services section) scroll smoothly instead of
+      jumping instantly to that spot on the page.
+    */
     html { scroll-behavior: smooth; }
 
+    /* 
+      BODY — The main visible area of the page.
+      font-family: sets the default font (Lato, then fallback fonts)
+      background: the page's background color (our warm off-white)
+      color: the default text color (near-black dark brown)
+      line-height: space between lines of text (1.7 = 170% of font size,
+      making paragraphs easy to read without feeling too cramped)
+    */
     body {
       font-family: 'Lato', sans-serif;
       background: var(--white);
@@ -31,125 +130,174 @@
       line-height: 1.7;
     }
 
-    /* ── TOP BAR ── */
+    /* ══════════════════════════════════════════════════════════
+       TOP BAR — The very thin bar at the absolute top of the page
+       showing phone, Line, and email contact details
+       ══════════════════════════════════════════════════════════ */
     .topbar {
-      background: var(--dark-mid);
-      color: var(--pearl-light);
-      font-size: 0.78rem;
-      letter-spacing: 0.04em;
-      padding: 7px 0;
+      background: var(--dark-mid);   /* Dark brown background */
+      color: var(--pearl-light);     /* Light orange text color */
+      font-size: 0.78rem;            /* Small font (0.78 × base size = about 12.5px) */
+      letter-spacing: 0.04em;        /* Slightly wider gaps between letters */
+      padding: 7px 0;                /* 7px space above and below content, 0 on sides */
     }
+
+    /* 
+      .topbar-inner is a container div INSIDE .topbar that:
+      - limits the maximum width to 1200px (so content isn't too wide on big screens)
+      - centers itself with "margin: 0 auto"
+      - uses flexbox to put the left side (contact info) and right side (language switcher)
+        on opposite ends of the same line
+    */
     .topbar-inner {
       max-width: 1200px;
       margin: 0 auto;
       padding: 0 32px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 6px;
+      display: flex;               /* Flexbox: lays children out in a row by default */
+      justify-content: space-between; /* Pushes left items to left, right items to right */
+      align-items: center;         /* Vertically centers items within the bar */
+      flex-wrap: wrap;             /* On small screens, items wrap to next line if needed */
+      gap: 6px;                    /* 6px space between items when they wrap */
     }
+
+    /* Styling for links (phone, Line, email) inside the top bar */
     .topbar a {
-      color: var(--pearl-light);
-      text-decoration: none;
-      margin-right: 20px;
-      transition: color 0.2s;
+      color: var(--pearl-light);   /* Light orange color by default */
+      text-decoration: none;       /* Removes the underline from links */
+      margin-right: 20px;          /* 20px gap between each contact link */
+      transition: color 0.2s;      /* When color changes (on hover), animate it over 0.2 seconds */
     }
+    /* When the mouse hovers over a topbar link, change it to brighter orange */
     .topbar a:hover { color: var(--pearl-orange); }
+
+    /* The right side of the topbar containing EN / TH language switch links */
     .topbar-right { display: flex; gap: 16px; align-items: center; }
 
-    /* ── HEADER / NAV ── */
+
+    /* ══════════════════════════════════════════════════════════
+       HEADER / NAVIGATION BAR — The sticky bar with logo + menu
+       ══════════════════════════════════════════════════════════ */
     header {
-      background: var(--white);
-      border-bottom: 1px solid var(--border);
-      position: sticky;
-      top: 0;
-      z-index: 999;
-      box-shadow: 0 2px 16px rgba(196,98,58,0.07);
+      background: var(--white);          /* White background */
+      border-bottom: 1px solid var(--border); /* Thin line separating header from page content */
+      position: sticky;                  /* STICKY means it stays at the top of the screen
+                                           even when the user scrolls down the page */
+      top: 0;                            /* Sticks 0px from the top of the screen */
+      z-index: 999;                      /* z-index controls layering. 999 means this header
+                                           appears ON TOP of all other page content */
+      box-shadow: 0 2px 16px rgba(196,98,58,0.07); /* Subtle shadow below the header for depth */
     }
+
+    /* Inner container: limits width, centers content, and sets the 80px tall header height */
     .header-inner {
       max-width: 1200px;
       margin: 0 auto;
       padding: 0 32px;
       display: flex;
       align-items: center;
-      justify-content: space-between;
-      height: 80px;
+      justify-content: space-between; /* Logo on left, nav on right */
+      height: 80px;                   /* The header is exactly 80px tall */
     }
 
+    /* ─── LOGO ─────────────────────────────────────────────── */
+    /* The logo is made of two text lines stacked vertically */
     .logo {
       display: flex;
-      flex-direction: column;
+      flex-direction: column; /* Stack children vertically (column) */
       gap: 0;
     }
+
+    /* The main business name in the logo (e.g., "Your Business Name") */
     .logo-name {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.55rem;
-      font-weight: 700;
-      color: var(--dark);
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
+      font-family: 'Cormorant Garamond', serif; /* Elegant serif font */
+      font-size: 1.55rem;         /* Large text */
+      font-weight: 700;           /* Bold */
+      color: var(--dark);         /* Dark color for the non-highlighted words */
+      letter-spacing: 0.06em;     /* Slightly wide letter spacing for elegance */
+      text-transform: uppercase;  /* ALL CAPS */
       line-height: 1.1;
     }
+    /* The <span> tag inside logo-name wraps the accented word,
+       making it appear in orange (e.g., the word "Business") */
     .logo-name span { color: var(--pearl-orange); }
+
+    /* The small tagline below the business name (e.g., "Professional Services · Thailand") */
     .logo-sub {
       font-family: 'Lato', sans-serif;
-      font-size: 0.62rem;
-      letter-spacing: 0.22em;
-      text-transform: uppercase;
-      color: var(--light-text);
+      font-size: 0.62rem;          /* Very small text */
+      letter-spacing: 0.22em;      /* Wide letter spacing gives it a refined look */
+      text-transform: uppercase;   /* ALL CAPS */
+      color: var(--light-text);    /* Muted brown color */
       margin-top: 2px;
     }
 
+    /* ─── NAVIGATION MENU ───────────────────────────────────── */
+    /* The horizontal row of menu items (Home, Accounting, etc.) */
     nav { display: flex; align-items: center; gap: 2px; }
 
+    /* Each individual menu item wrapper (holds the link + dropdown) */
     .nav-item {
-      position: relative;
+      position: relative; /* "relative" lets us position the dropdown RELATIVE to this item */
     }
+
+    /* Each clickable navigation link text */
     .nav-link {
       display: block;
-      padding: 10px 16px;
+      padding: 10px 16px;           /* 10px top/bottom, 16px left/right clickable area */
       font-family: 'Lato', sans-serif;
       font-size: 0.82rem;
-      font-weight: 700;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
+      font-weight: 700;             /* Bold text */
+      letter-spacing: 0.08em;       /* Wide letter spacing */
+      text-transform: uppercase;    /* ALL CAPS */
       color: var(--dark-mid);
-      text-decoration: none;
-      transition: color 0.2s;
-      white-space: nowrap;
+      text-decoration: none;        /* No underline */
+      transition: color 0.2s;       /* Smooth color change on hover */
+      white-space: nowrap;          /* Prevent the nav text from wrapping to two lines */
     }
+    /* When hovering or the link is the "active" (current) page, turn it orange */
     .nav-link:hover, .nav-link.active { color: var(--pearl-orange); }
+    /* The "active" link also gets an orange underline below it */
     .nav-link.active::after {
-      content: '';
+      content: '';              /* Creates an empty decorative element */
       display: block;
-      height: 2px;
+      height: 2px;              /* The underline is 2px thick */
       background: var(--pearl-orange);
       border-radius: 2px;
       margin-top: 3px;
     }
 
-    /* Dropdown */
+    /* ─── DROPDOWN MENU ─────────────────────────────────────── */
+    /*
+      The dropdown is a hidden box that appears BELOW each nav item
+      when you hover your mouse over it. It lists sub-pages.
+      By default it is INVISIBLE (opacity: 0, visibility: hidden).
+    */
     .dropdown {
-      position: absolute;
-      top: calc(100% + 8px);
+      position: absolute;       /* Positions itself relative to .nav-item */
+      top: calc(100% + 8px);    /* Places it 8px below the nav link */
       left: 0;
       background: var(--white);
       border: 1px solid var(--border);
-      border-top: 3px solid var(--pearl-orange);
+      border-top: 3px solid var(--pearl-orange); /* Orange accent on top edge */
       min-width: 240px;
-      box-shadow: 0 8px 32px rgba(28,20,16,0.12);
-      opacity: 0;
-      visibility: hidden;
-      transform: translateY(-6px);
-      transition: all 0.22s ease;
-      z-index: 1000;
+      box-shadow: 0 8px 32px rgba(28,20,16,0.12); /* Shadow for depth */
+      opacity: 0;               /* Fully transparent = invisible */
+      visibility: hidden;       /* Also hidden from screen readers when closed */
+      transform: translateY(-6px); /* Shifted 6px upward (for the slide-in animation) */
+      transition: all 0.22s ease;  /* Animate all changes over 0.22 seconds */
+      z-index: 1000;            /* Appears on top of page content */
     }
+    /* 
+      When the user hovers over a nav item, SHOW its dropdown.
+      This makes the dropdown fade in and slide down 6px into position.
+    */
     .nav-item:hover .dropdown {
-      opacity: 1;
+      opacity: 1;               /* Fully visible */
       visibility: visible;
-      transform: translateY(0);
+      transform: translateY(0); /* Back to normal position */
     }
+
+    /* Styling for each link inside the dropdown */
     .dropdown a {
       display: block;
       padding: 10px 20px;
@@ -157,57 +305,91 @@
       letter-spacing: 0.02em;
       color: var(--dark-mid);
       text-decoration: none;
-      border-bottom: 1px solid var(--pearl-pale);
+      border-bottom: 1px solid var(--pearl-pale); /* Thin separator line between items */
       transition: background 0.15s, color 0.15s;
       font-family: 'Lato', sans-serif;
     }
+    /* Remove the separator line on the LAST item in the dropdown */
     .dropdown a:last-child { border-bottom: none; }
+    /* On hover: highlight item with pale background + indent it slightly */
     .dropdown a:hover {
-      background: var(--pearl-pale);
-      color: var(--pearl-deep);
-      padding-left: 26px;
+      background: var(--pearl-pale);  /* Pale peach background */
+      color: var(--pearl-deep);       /* Darker orange text */
+      padding-left: 26px;             /* Indent 26px (was 20px) — creates a "slide right" feel */
     }
 
-    /* ── HERO ── */
+
+    /* ══════════════════════════════════════════════════════════
+       HERO SECTION — The large banner at the top of the page
+       with the headline, description, buttons, and stats
+       ══════════════════════════════════════════════════════════ */
     .hero {
-      position: relative;
+      position: relative;   /* Needed so child elements can be positioned inside it */
+      /* 
+        This creates the dark gradient background using 3 colors blending diagonally.
+        135deg = diagonal angle (top-left to bottom-right)
+      */
       background: linear-gradient(135deg, var(--dark) 0%, var(--dark-mid) 45%, #5C3520 100%);
-      min-height: 540px;
+      min-height: 540px;    /* Hero is at least 540px tall */
       display: flex;
-      align-items: center;
-      overflow: hidden;
+      align-items: center;  /* Vertically centers the content within the hero */
+      overflow: hidden;     /* Hides any decorative elements that extend beyond the edges */
     }
+
+    /* 
+      ::before creates a PSEUDO-ELEMENT — an invisible decorative layer
+      placed on top of the gradient background to add a soft orange glow effect
+      in the top-left and center-right areas of the hero.
+    */
     .hero::before {
       content: '';
       position: absolute;
-      inset: 0;
+      inset: 0;  /* Stretches to fill the entire hero area */
       background:
         radial-gradient(ellipse 60% 60% at 80% 50%, rgba(232,149,109,0.18) 0%, transparent 70%),
         radial-gradient(ellipse 30% 40% at 20% 20%, rgba(240,168,120,0.10) 0%, transparent 60%);
+      /* radial-gradient creates a circular/oval glow that fades outward */
     }
+
+    /* 
+      A diagonal stripe pattern overlaid on the hero background.
+      opacity: 0.04 makes it almost invisible — just a subtle texture.
+    */
     .hero-pattern {
       position: absolute;
       inset: 0;
       opacity: 0.04;
       background-image: repeating-linear-gradient(
         45deg,
-        var(--pearl-orange) 0px, var(--pearl-orange) 1px,
-        transparent 1px, transparent 24px
+        var(--pearl-orange) 0px, var(--pearl-orange) 1px, /* Draw 1px orange line */
+        transparent 1px, transparent 24px                 /* Then 24px of nothing, repeat */
       );
     }
+
+    /* 
+      The inner content wrapper inside the hero.
+      Uses CSS Grid with 2 equal columns:
+      Left column = headline + buttons  |  Right column = stat cards
+    */
     .hero-inner {
-      position: relative;
+      position: relative;           /* Sits above the decorative ::before layer */
       max-width: 1200px;
       margin: 0 auto;
       padding: 80px 32px;
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 60px;
+      grid-template-columns: 1fr 1fr; /* Two equal-width columns */
+      gap: 60px;                      /* 60px space between the two columns */
       align-items: center;
     }
+
+    /* 
+      The small pill-shaped label above the main headline.
+      e.g., "TRUSTED BUSINESS ADVISORS IN THAILAND"
+      Semi-transparent orange border gives it a glassy look.
+    */
     .hero-badge {
       display: inline-block;
-      background: rgba(232,149,109,0.18);
+      background: rgba(232,149,109,0.18);  /* Very transparent orange fill */
       border: 1px solid rgba(232,149,109,0.4);
       color: var(--pearl-warm);
       font-size: 0.7rem;
@@ -218,33 +400,51 @@
       margin-bottom: 20px;
       font-family: 'Lato', sans-serif;
     }
+
+    /* The big hero headline: "Your Gateway to Business Success in Thailand" */
     .hero h1 {
       font-family: 'Cormorant Garamond', serif;
       font-size: clamp(2.2rem, 4vw, 3.4rem);
+      /* 
+        clamp(min, preferred, max): responsive font sizing.
+        - Never smaller than 2.2rem
+        - Tries to be 4% of the viewport width (scales with screen size)
+        - Never larger than 3.4rem
+      */
       font-weight: 600;
       color: var(--white);
       line-height: 1.2;
       margin-bottom: 20px;
       letter-spacing: 0.01em;
     }
+    /* The <em> (italic) tag wraps the stylized part of the headline ("Business Success") */
     .hero h1 em {
       font-style: italic;
-      color: var(--pearl-warm);
+      color: var(--pearl-warm); /* Warm orange color to stand out */
     }
+
+    /* The paragraph description text below the headline */
     .hero p {
       font-size: 1rem;
-      color: rgba(253,240,232,0.75);
+      color: rgba(253,240,232,0.75); /* Off-white at 75% opacity (slightly transparent) */
       margin-bottom: 36px;
-      font-weight: 300;
+      font-weight: 300;              /* Light weight (thin) */
       line-height: 1.8;
     }
+
+    /* 
+      The row of two buttons: "Explore Services" and "Book Consultation"
+      flex + flex-wrap lets them stack vertically on small screens
+    */
     .hero-cta {
       display: flex;
       gap: 14px;
       flex-wrap: wrap;
     }
+
+    /* PRIMARY BUTTON (solid orange) — "Explore Services" */
     .btn-primary {
-      background: var(--pearl-orange);
+      background: var(--pearl-orange);   /* Solid orange fill */
       color: var(--white);
       padding: 14px 32px;
       font-family: 'Lato', sans-serif;
@@ -252,15 +452,18 @@
       font-weight: 700;
       letter-spacing: 0.12em;
       text-transform: uppercase;
-      text-decoration: none;
+      text-decoration: none;             /* No underline */
       border: 2px solid var(--pearl-orange);
       cursor: pointer;
-      transition: all 0.22s;
+      transition: all 0.22s;             /* Smooth transition for hover effects */
     }
+    /* Hover: darken the button to a deeper orange */
     .btn-primary:hover {
       background: var(--pearl-deep);
       border-color: var(--pearl-deep);
     }
+
+    /* OUTLINE BUTTON (transparent with border) — "Book Consultation" */
     .btn-outline {
       background: transparent;
       color: var(--pearl-light);
@@ -271,26 +474,36 @@
       letter-spacing: 0.12em;
       text-transform: uppercase;
       text-decoration: none;
-      border: 2px solid rgba(245,196,161,0.5);
+      border: 2px solid rgba(245,196,161,0.5); /* Semi-transparent border */
       cursor: pointer;
       transition: all 0.22s;
     }
+    /* Hover: make the border fully visible and text brighter white */
     .btn-outline:hover {
       border-color: var(--pearl-light);
       color: var(--white);
     }
+
+    /* 
+      The right column of the hero — contains the 3 stat cards
+      (500+ Companies, 15+ Years, 98% Satisfaction)
+    */
     .hero-stats {
       display: flex;
-      flex-direction: column;
-      gap: 24px;
+      flex-direction: column; /* Stack cards vertically */
+      gap: 24px;              /* 24px between each card */
     }
+
+    /* Each individual stat card */
     .stat-card {
-      background: rgba(255,250,246,0.06);
+      background: rgba(255,250,246,0.06); /* Very slightly transparent white — glassy look */
       border: 1px solid rgba(232,149,109,0.2);
-      backdrop-filter: blur(6px);
+      backdrop-filter: blur(6px);         /* Blurs whatever is behind the card (frosted glass) */
       padding: 28px 32px;
-      border-left: 4px solid var(--pearl-orange);
+      border-left: 4px solid var(--pearl-orange); /* Bold orange stripe on left edge */
     }
+
+    /* The large number in each stat card (e.g., "500+") */
     .stat-number {
       font-family: 'Cormorant Garamond', serif;
       font-size: 2.6rem;
@@ -298,6 +511,8 @@
       color: var(--pearl-warm);
       line-height: 1;
     }
+
+    /* The label below each number (e.g., "Companies Registered") */
     .stat-label {
       font-size: 0.78rem;
       color: rgba(253,240,232,0.65);
@@ -306,18 +521,29 @@
       margin-top: 4px;
     }
 
-    /* ── DIVIDER ── */
+
+    /* ══════════════════════════════════════════════════════════
+       DECORATIVE DIVIDER — The 4px thick orange gradient strip
+       separating the hero from the services section
+       ══════════════════════════════════════════════════════════ */
     .divider {
       height: 4px;
+      /* Creates a left-to-right gradient from deep orange → warm orange → light orange */
       background: linear-gradient(90deg, var(--pearl-orange), var(--pearl-warm), var(--pearl-light));
     }
 
-    /* ── SERVICES SECTION ── */
+
+    /* ══════════════════════════════════════════════════════════
+       GENERIC SECTION STYLES — Reusable for all page sections
+       ══════════════════════════════════════════════════════════ */
+    /* The outer section wrapper — adds space above and below content */
     .section {
-      padding: 80px 32px;
+      padding: 80px 32px; /* 80px top/bottom, 32px left/right */
     }
+    /* Inner container that caps width and centers the content */
     .section-inner { max-width: 1200px; margin: 0 auto; }
 
+    /* The small uppercase label above section titles (e.g., "WHAT WE OFFER") */
     .section-label {
       font-size: 0.68rem;
       letter-spacing: 0.28em;
@@ -327,6 +553,8 @@
       font-weight: 700;
       margin-bottom: 12px;
     }
+
+    /* The main large heading of each section */
     .section-title {
       font-family: 'Cormorant Garamond', serif;
       font-size: clamp(2rem, 3vw, 2.8rem);
@@ -335,51 +563,70 @@
       line-height: 1.2;
       margin-bottom: 16px;
     }
+
+    /* The smaller subtitle/description below the section title */
     .section-sub {
       color: var(--light-text);
       font-size: 0.95rem;
-      max-width: 560px;
+      max-width: 560px;   /* Limits width for readability (wide text is hard to read) */
       font-weight: 300;
     }
-    .section-head { margin-bottom: 52px; }
-    .section-head.centered { text-align: center; }
-    .section-head.centered .section-sub { margin: 0 auto; }
 
-    /* Services Grid */
+    /* The group of label + title + subtitle at the top of each section */
+    .section-head { margin-bottom: 52px; }
+    /* When a section head is centered (like in Testimonials) */
+    .section-head.centered { text-align: center; }
+    .section-head.centered .section-sub { margin: 0 auto; } /* Center the subtitle too */
+
+
+    /* ══════════════════════════════════════════════════════════
+       SERVICES GRID — The 3-column grid of service cards
+       ══════════════════════════════════════════════════════════ */
     .services-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(3, 1fr); /* 3 equal-width columns */
       gap: 24px;
     }
+
+    /* Each individual service card (e.g., "Accounting Services") */
     .service-card {
       border: 1px solid var(--border);
       background: var(--white);
       padding: 36px 28px;
-      position: relative;
-      overflow: hidden;
+      position: relative;    /* Needed for the ::before top-line animation */
+      overflow: hidden;      /* Hides the orange top line until hover */
       transition: all 0.25s ease;
       cursor: pointer;
     }
+
+    /* 
+      The colored bar that SLIDES IN across the top of a card on hover.
+      By default: scaleX(0) = invisible (zero width).
+      On hover: scaleX(1) = full width.
+      "transform-origin: left" makes it grow from the left side.
+    */
     .service-card::before {
       content: '';
       position: absolute;
       top: 0; left: 0; right: 0;
       height: 3px;
       background: linear-gradient(90deg, var(--pearl-orange), var(--pearl-warm));
-      transform: scaleX(0);
-      transform-origin: left;
+      transform: scaleX(0);           /* Starts at 0 width (invisible) */
+      transform-origin: left;         /* Grows from left to right */
       transition: transform 0.3s ease;
     }
+    /* On hover: lift the card up 3px + add shadow + reveal the orange top bar */
     .service-card:hover {
       box-shadow: 0 12px 40px rgba(196,98,58,0.12);
-      transform: translateY(-3px);
+      transform: translateY(-3px);    /* Move the card 3px upward */
     }
-    .service-card:hover::before { transform: scaleX(1); }
+    .service-card:hover::before { transform: scaleX(1); } /* Show the top bar */
 
+    /* The emoji icon box at the top of each service card */
     .service-icon {
       width: 48px;
       height: 48px;
-      background: var(--pearl-pale);
+      background: var(--pearl-pale); /* Pale peach background */
       border-radius: 2px;
       display: flex;
       align-items: center;
@@ -387,6 +634,8 @@
       margin-bottom: 20px;
       font-size: 1.4rem;
     }
+
+    /* Service card title (e.g., "Accounting Services") */
     .service-card h3 {
       font-family: 'Libre Baskerville', serif;
       font-size: 1.05rem;
@@ -395,15 +644,19 @@
       margin-bottom: 12px;
       line-height: 1.35;
     }
+
+    /* Service card description paragraph */
     .service-card p {
       font-size: 0.85rem;
       color: var(--light-text);
       line-height: 1.75;
     }
+
+    /* The "Learn More →" link at the bottom of each service card */
     .service-link {
       display: inline-flex;
       align-items: center;
-      gap: 6px;
+      gap: 6px;               /* Space between text and arrow */
       margin-top: 20px;
       font-size: 0.75rem;
       font-weight: 700;
@@ -411,22 +664,31 @@
       text-transform: uppercase;
       color: var(--pearl-orange);
       text-decoration: none;
-      transition: gap 0.2s;
+      transition: gap 0.2s;   /* Animates the gap on hover */
     }
+    /* On hover: increase the gap between text and arrow (→ moves right slightly) */
     .service-link:hover { gap: 10px; }
 
-    /* ── WHY US ── */
+
+    /* ══════════════════════════════════════════════════════════
+       "WHY CHOOSE US" SECTION — pale peach background section
+       with text on left and feature cards on right
+       ══════════════════════════════════════════════════════════ */
     .why-section {
-      background: var(--pearl-pale);
+      background: var(--pearl-pale); /* Pale peach background */
       padding: 80px 32px;
     }
     .why-inner { max-width: 1200px; margin: 0 auto; }
+
+    /* Two-column layout: text left, feature cards right */
     .why-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 64px;
       align-items: center;
     }
+
+    /* Left column: the text block */
     .why-text h2 {
       font-family: 'Cormorant Garamond', serif;
       font-size: clamp(2rem, 3vw, 2.8rem);
@@ -442,20 +704,28 @@
       line-height: 1.85;
       margin-bottom: 16px;
     }
+
+    /* Right column: the stacked feature items */
     .why-features { display: flex; flex-direction: column; gap: 16px; }
+
+    /* Each feature item row (icon + heading + description) */
     .why-feature {
       display: flex;
       gap: 16px;
       align-items: flex-start;
       padding: 20px 24px;
       background: var(--white);
-      border-left: 4px solid var(--pearl-orange);
+      border-left: 4px solid var(--pearl-orange); /* Orange stripe on left */
     }
+
+    /* The emoji icon in each feature item */
     .why-feature-icon {
       font-size: 1.2rem;
-      flex-shrink: 0;
+      flex-shrink: 0;   /* Prevents the icon from shrinking if space is tight */
       margin-top: 2px;
     }
+
+    /* The text group (heading + paragraph) inside each feature item */
     .why-feature-text h4 {
       font-family: 'Libre Baskerville', serif;
       font-size: 0.9rem;
@@ -470,33 +740,46 @@
       margin: 0;
     }
 
-    /* ── TESTIMONIALS ── */
+
+    /* ══════════════════════════════════════════════════════════
+       TESTIMONIALS SECTION — Dark background with 3 quote cards
+       ══════════════════════════════════════════════════════════ */
     .testimonials {
-      background: var(--dark-mid);
+      background: var(--dark-mid); /* Dark brown background */
       padding: 80px 32px;
     }
     .testimonials-inner { max-width: 1200px; margin: 0 auto; }
+
+    /* Override section title/subtitle colors for dark background */
     .testimonials .section-title { color: var(--white); }
     .testimonials .section-label { color: var(--pearl-warm); }
     .testimonials .section-sub { color: rgba(253,240,232,0.6); }
+
+    /* 3-column grid for testimonial cards */
     .testi-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 24px;
       margin-top: 48px;
     }
+
+    /* Each testimonial card */
     .testi-card {
-      background: rgba(255,250,246,0.05);
+      background: rgba(255,250,246,0.05); /* Very transparent white — subtle glass effect */
       border: 1px solid rgba(232,149,109,0.2);
       padding: 32px 28px;
     }
+
+    /* The large decorative opening quotation mark " at top of each card */
     .testi-quote {
       font-family: 'Cormorant Garamond', serif;
       font-size: 3rem;
       color: var(--pearl-orange);
-      line-height: 0.6;
+      line-height: 0.6; /* Pulls it closer to the quote text below */
       margin-bottom: 16px;
     }
+
+    /* The actual testimonial quote text (italic, light weight) */
     .testi-text {
       font-size: 0.88rem;
       color: rgba(253,240,232,0.75);
@@ -505,28 +788,40 @@
       font-weight: 300;
       font-style: italic;
     }
+
+    /* Row containing the avatar circle + name/role text */
     .testi-author {
       display: flex;
       align-items: center;
       gap: 12px;
     }
+
+    /* The circular avatar with the client's initials (e.g., "JM") */
     .testi-avatar {
       width: 40px; height: 40px;
-      border-radius: 50%;
+      border-radius: 50%;  /* 50% border-radius makes a perfect circle */
       background: linear-gradient(135deg, var(--pearl-orange), var(--pearl-deep));
       display: flex; align-items: center; justify-content: center;
       font-weight: 700; color: white; font-size: 0.9rem;
     }
+
+    /* Client name below the quote (e.g., "James M.") */
     .testi-name { font-size: 0.8rem; color: var(--pearl-light); font-weight: 700; }
+    /* Client role/company below the name (e.g., "CEO · Tech Startup, UK") */
     .testi-role { font-size: 0.72rem; color: rgba(253,240,232,0.5); letter-spacing: 0.06em; }
 
-    /* ── CONTACT BANNER ── */
+
+    /* ══════════════════════════════════════════════════════════
+       CONTACT CALL-TO-ACTION BANNER — Orange gradient strip
+       with "Ready to Get Started?" heading and two buttons
+       ══════════════════════════════════════════════════════════ */
     .contact-banner {
       background: linear-gradient(135deg, var(--pearl-orange) 0%, var(--pearl-deep) 100%);
       padding: 64px 32px;
       text-align: center;
     }
     .contact-banner-inner { max-width: 700px; margin: 0 auto; }
+
     .contact-banner h2 {
       font-family: 'Cormorant Garamond', serif;
       font-size: 2.4rem;
@@ -540,7 +835,11 @@
       margin-bottom: 32px;
       font-weight: 300;
     }
+
+    /* Row of two buttons, centered */
     .contact-btns { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+
+    /* White solid button ("Call Us Now") on orange background */
     .btn-white {
       background: var(--white);
       color: var(--pearl-deep);
@@ -554,7 +853,10 @@
       border: 2px solid var(--white);
       transition: all 0.22s;
     }
+    /* On hover: become transparent (see-through) with white text */
     .btn-white:hover { background: transparent; color: var(--white); }
+
+    /* Outline-only white button ("Send an Enquiry") on orange background */
     .btn-outline-white {
       background: transparent;
       color: var(--white);
@@ -568,30 +870,45 @@
       border: 2px solid rgba(255,255,255,0.6);
       transition: all 0.22s;
     }
+    /* On hover: make the border fully white (more visible) */
     .btn-outline-white:hover { border-color: white; }
 
-    /* ── FOOTER ── */
+
+    /* ══════════════════════════════════════════════════════════
+       FOOTER — Dark bottom section with 4-column layout
+       ══════════════════════════════════════════════════════════ */
     footer {
-      background: var(--dark);
-      padding: 64px 32px 32px;
+      background: var(--dark); /* Near-black dark background */
+      padding: 64px 32px 32px; /* More padding on top, less on bottom */
     }
     .footer-inner { max-width: 1200px; margin: 0 auto; }
+
+    /* 
+      4-column footer grid:
+      Column 1 (wider): Brand description + contact info
+      Columns 2–4: Services links | Company links | Contact links
+      "1.6fr" means column 1 is 1.6× wider than each of the other columns
+    */
     .footer-grid {
       display: grid;
       grid-template-columns: 1.6fr 1fr 1fr 1fr;
       gap: 40px;
       padding-bottom: 48px;
-      border-bottom: 1px solid rgba(255,255,255,0.08);
+      border-bottom: 1px solid rgba(255,255,255,0.08); /* Subtle separator above copyright */
     }
+
+    /* Column 1: Logo + description + contact details */
     .footer-brand .logo-name { font-size: 1.3rem; color: var(--white); }
     .footer-brand .logo-sub { color: rgba(255,255,255,0.4); }
     .footer-brand p {
       margin-top: 16px;
       font-size: 0.82rem;
-      color: rgba(255,255,255,0.45);
+      color: rgba(255,255,255,0.45); /* Dim white for secondary text on dark background */
       line-height: 1.75;
       font-weight: 300;
     }
+
+    /* Each line of contact info in the footer (icon + text/link) */
     .footer-contact-item {
       display: flex;
       gap: 10px;
@@ -603,6 +920,7 @@
     .footer-contact-item a { color: var(--pearl-warm); text-decoration: none; }
     .footer-contact-item a:hover { color: var(--pearl-light); }
 
+    /* Columns 2–4: Heading + list of links */
     .footer-col h4 {
       font-family: 'Lato', sans-serif;
       font-size: 0.68rem;
@@ -621,6 +939,7 @@
     }
     .footer-col ul li a:hover { color: var(--pearl-light); }
 
+    /* The bottom row: copyright text on left, policy links on right */
     .footer-bottom {
       display: flex;
       justify-content: space-between;
@@ -631,18 +950,23 @@
     }
     .footer-bottom p {
       font-size: 0.75rem;
-      color: rgba(255,255,255,0.25);
+      color: rgba(255,255,255,0.25); /* Very dim — less important legal text */
       letter-spacing: 0.04em;
     }
 
-    /* ── HAMBURGER ── */
+
+    /* ══════════════════════════════════════════════════════════
+       HAMBURGER MENU — The 3-line icon shown on mobile screens
+       (hidden on desktop, visible on screens smaller than 768px)
+       ══════════════════════════════════════════════════════════ */
     .menu-toggle {
-      display: none;
+      display: none;        /* HIDDEN by default on desktop */
       flex-direction: column;
       gap: 5px;
       cursor: pointer;
       padding: 4px;
     }
+    /* Each of the 3 horizontal lines in the hamburger icon */
     .menu-toggle span {
       display: block;
       width: 24px; height: 2px;
@@ -651,64 +975,143 @@
       transition: all 0.3s;
     }
 
-    /* ── RESPONSIVE ── */
+
+    /* ══════════════════════════════════════════════════════════
+       RESPONSIVE BREAKPOINTS — Layout changes for smaller screens
+       
+       @media rules say: "ONLY apply these styles when the screen
+       is at most X pixels wide."
+       ══════════════════════════════════════════════════════════ */
+
+    /* ─── TABLET (screens up to 1024px wide, e.g., iPad landscape) ─── */
     @media (max-width: 1024px) {
-      .services-grid { grid-template-columns: repeat(2, 1fr); }
-      .testi-grid { grid-template-columns: repeat(2, 1fr); }
-      .footer-grid { grid-template-columns: 1fr 1fr; }
+      .services-grid { grid-template-columns: repeat(2, 1fr); } /* 3 columns → 2 columns */
+      .testi-grid { grid-template-columns: repeat(2, 1fr); }    /* 3 columns → 2 columns */
+      .footer-grid { grid-template-columns: 1fr 1fr; }          /* 4 columns → 2 columns */
     }
+
+    /* ─── MOBILE (screens up to 768px wide, e.g., phone in landscape) ─── */
     @media (max-width: 768px) {
+      /* Show the hamburger icon */
       .menu-toggle { display: flex; }
-      nav { display: none; position: absolute; top: 80px; left: 0; right: 0; background: var(--white); border-top: 1px solid var(--border); flex-direction: column; padding: 16px 0; box-shadow: 0 8px 24px rgba(0,0,0,0.1); }
-      nav.open { display: flex; }
+
+      /* 
+        Hide the nav menu by default on mobile.
+        When the hamburger is clicked, JavaScript adds the "open" class
+        to the <nav> element, which makes it display again.
+      */
+      nav {
+        display: none;
+        position: absolute;
+        top: 80px;              /* Position it just below the 80px header */
+        left: 0; right: 0;
+        background: var(--white);
+        border-top: 1px solid var(--border);
+        flex-direction: column; /* Stack nav items vertically */
+        padding: 16px 0;
+        box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+      }
+      nav.open { display: flex; } /* Show the menu when .open class is added */
+
+      /* Make nav links taller (easier to tap on touchscreen) */
       .nav-link { padding: 12px 24px; }
-      .dropdown { position: static; opacity: 1; visibility: visible; transform: none; box-shadow: none; border: none; border-top: 1px solid var(--border); border-left: 4px solid var(--pearl-orange); margin-left: 16px; }
+
+      /* On mobile, dropdowns show inline (not floating) */
+      .dropdown {
+        position: static;    /* No longer absolutely positioned */
+        opacity: 1;          /* Always visible (no hover needed on mobile) */
+        visibility: visible;
+        transform: none;
+        box-shadow: none;
+        border: none;
+        border-top: 1px solid var(--border);
+        border-left: 4px solid var(--pearl-orange); /* Keep the orange left stripe */
+        margin-left: 16px;
+      }
+
+      /* Hero: stack columns vertically */
       .hero-inner { grid-template-columns: 1fr; gap: 40px; }
+      /* Stat cards: switch to horizontal row (side by side) */
       .hero-stats { flex-direction: row; flex-wrap: wrap; }
       .stat-card { flex: 1; min-width: 140px; }
+
+      /* All grids become single-column on mobile */
       .why-grid { grid-template-columns: 1fr; gap: 40px; }
       .services-grid { grid-template-columns: 1fr; }
       .testi-grid { grid-template-columns: 1fr; }
       .footer-grid { grid-template-columns: 1fr 1fr; }
     }
+
+    /* ─── SMALL PHONES (screens up to 480px wide) ─── */
     @media (max-width: 480px) {
-      .footer-grid { grid-template-columns: 1fr; }
-      .hero { min-height: auto; }
+      .footer-grid { grid-template-columns: 1fr; } /* Footer becomes fully single-column */
+      .hero { min-height: auto; } /* Hero height becomes flexible (content-driven) */
     }
+
   </style>
 </head>
 <body>
+<!-- 
+  ============================================================
+  START OF THE VISIBLE PAGE CONTENT
+  Everything below here is what visitors actually SEE and interact
+  with on the website.
+  ============================================================
+-->
 
-<!-- TOP BAR -->
+
+<!-- ══════════════════════════════════════════════════════════
+     TOP BAR
+     The thin dark strip at the very top of the page.
+     Shows: phone number | Line ID | email | EN/TH language switch
+     ══════════════════════════════════════════════════════════ -->
 <div class="topbar">
   <div class="topbar-inner">
+    <!-- Left side: contact links. Replace with your real details. -->
     <div>
       <a href="tel:+66000000000">📞 +66 00 000 0000</a>
+      <!-- href="tel:..." makes the phone number clickable to call on mobile -->
       <a href="#">💬 Line: yourlineid</a>
       <a href="#">📧 info@yourdomain.com</a>
     </div>
+    <!-- Right side: language switcher -->
     <div class="topbar-right">
       <a href="#">EN</a> | <a href="#">TH</a>
     </div>
   </div>
 </div>
 
-<!-- HEADER -->
+
+<!-- ══════════════════════════════════════════════════════════
+     HEADER (STICKY NAVIGATION BAR)
+     Stays fixed at the top of the screen as the user scrolls.
+     Contains: Logo (left) | Navigation menu (right)
+     id="header" allows JavaScript to reference this element.
+     ══════════════════════════════════════════════════════════ -->
 <header id="header">
   <div class="header-inner">
+
+    <!-- LOGO: clicking it returns to the homepage (href="#" = top of page) -->
     <a href="#" class="logo">
       <div class="logo-name">Your <span>Business</span> Name</div>
+      <!-- The word "Business" is wrapped in <span> so CSS can color it orange -->
       <div class="logo-sub">Professional Services · Thailand</div>
     </a>
+
+    <!-- MAIN NAVIGATION MENU -->
+    <!-- id="mainNav" lets the hamburger button toggle the "open" class via JS -->
     <nav id="mainNav">
-      <!-- HOME -->
+
+      <!-- HOME menu item (no dropdown) -->
       <div class="nav-item">
         <a href="#" class="nav-link active">Home</a>
+        <!-- class="active" adds the orange underline to mark the current page -->
       </div>
 
-      <!-- ACCOUNTING -->
+      <!-- ACCOUNTING SERVICES — with dropdown sub-menu -->
       <div class="nav-item">
         <a href="#" class="nav-link">Accounting Services</a>
+        <!-- The .dropdown div appears when you hover over the parent .nav-item -->
         <div class="dropdown">
           <a href="#">Bookkeeping Services</a>
           <a href="#">Tax Filing Services</a>
@@ -718,7 +1121,7 @@
         </div>
       </div>
 
-      <!-- COMPANY REG -->
+      <!-- COMPANY REGISTRATION — with dropdown sub-menu -->
       <div class="nav-item">
         <a href="#" class="nav-link">Company Registration</a>
         <div class="dropdown">
@@ -730,7 +1133,7 @@
         </div>
       </div>
 
-      <!-- FOREIGN BIZ -->
+      <!-- FOREIGN BUSINESS LICENSE — with dropdown sub-menu -->
       <div class="nav-item">
         <a href="#" class="nav-link">Foreign Business License</a>
         <div class="dropdown">
@@ -740,10 +1143,15 @@
           <a href="#">Business License (Section 17)</a>
           <a href="#">BOI (Board of Investment)</a>
           <a href="#">Trademark &amp; Patent</a>
+          <!-- 
+            &amp; is the HTML "escape code" for the & symbol.
+            You must use &amp; instead of a bare & in HTML text
+            to avoid confusing the browser's HTML parser.
+          -->
         </div>
       </div>
 
-      <!-- BANKING -->
+      <!-- BANKING SERVICES — with dropdown sub-menu -->
       <div class="nav-item">
         <a href="#" class="nav-link">Banking Services</a>
         <div class="dropdown">
@@ -754,7 +1162,7 @@
         </div>
       </div>
 
-      <!-- TAX -->
+      <!-- TAX CONSULTING — with dropdown sub-menu -->
       <div class="nav-item">
         <a href="#" class="nav-link">Tax Consulting</a>
         <div class="dropdown">
@@ -763,107 +1171,186 @@
           <a href="#">Other Government Departments</a>
         </div>
       </div>
-    </nav>
 
+    </nav><!-- end nav -->
+
+    <!-- 
+      HAMBURGER MENU BUTTON (visible only on mobile screens)
+      Contains 3 <span> elements that look like 3 horizontal lines.
+      onclick: toggles (adds/removes) the "open" class on the nav element,
+      which shows or hides the mobile menu.
+    -->
     <div class="menu-toggle" id="menuToggle" onclick="document.getElementById('mainNav').classList.toggle('open')">
-      <span></span><span></span><span></span>
+      <span></span><!-- Line 1 of hamburger icon -->
+      <span></span><!-- Line 2 of hamburger icon -->
+      <span></span><!-- Line 3 of hamburger icon -->
     </div>
-  </div>
-</header>
 
-<!-- HERO -->
+  </div>
+</header><!-- end header -->
+
+
+<!-- ══════════════════════════════════════════════════════════
+     HERO SECTION
+     The large full-width banner at the top of the page.
+     Left side: badge + headline + description + 2 buttons
+     Right side: 3 stat cards (500+ companies, 15+ years, 98%)
+     ══════════════════════════════════════════════════════════ -->
 <section class="hero">
+
+  <!-- Decorative diagonal stripe pattern (very faint, visual texture only) -->
   <div class="hero-pattern"></div>
+
   <div class="hero-inner">
+
+    <!-- LEFT COLUMN: Main message and call-to-action buttons -->
     <div class="hero-content">
+
+      <!-- Small badge/pill label above the headline -->
       <div class="hero-badge">Trusted Business Advisors in Thailand</div>
+
+      <!-- Main headline. <br> forces a line break. <em> makes text italic + orange. -->
       <h1>Your Gateway to<br><em>Business Success</em><br>in Thailand</h1>
+
+      <!-- Supporting description paragraph -->
       <p>We provide comprehensive accounting, legal, and business advisory services to help foreign and local enterprises establish and grow their presence in Thailand.</p>
+
+      <!-- Two CTA (Call To Action) buttons -->
       <div class="hero-cta">
+        <!-- href="#services" scrolls smoothly down to the <section id="services"> below -->
         <a href="#services" class="btn-primary">Explore Services</a>
+        <!-- href="#contact" scrolls to the contact banner further down the page -->
         <a href="#contact" class="btn-outline">Book Consultation</a>
       </div>
-    </div>
+
+    </div><!-- end hero-content -->
+
+    <!-- RIGHT COLUMN: Three stat cards showing social proof numbers -->
     <div class="hero-stats">
+
       <div class="stat-card">
         <div class="stat-number">500+</div>
         <div class="stat-label">Companies Registered</div>
       </div>
+
       <div class="stat-card">
         <div class="stat-number">15+</div>
         <div class="stat-label">Years of Experience</div>
       </div>
+
       <div class="stat-card">
         <div class="stat-number">98%</div>
         <div class="stat-label">Client Satisfaction Rate</div>
       </div>
-    </div>
-  </div>
-</section>
 
+    </div><!-- end hero-stats -->
+
+  </div><!-- end hero-inner -->
+
+</section><!-- end hero -->
+
+
+<!-- Decorative 4px orange gradient divider line between hero and services -->
 <div class="divider"></div>
 
-<!-- SERVICES -->
+
+<!-- ══════════════════════════════════════════════════════════
+     SERVICES SECTION
+     6-card grid showing each main service offered.
+     id="services" is the scroll target for the "Explore Services" button.
+     ══════════════════════════════════════════════════════════ -->
 <section class="section" id="services">
   <div class="section-inner">
+
+    <!-- Section header: label + title + subtitle -->
     <div class="section-head">
       <div class="section-label">What We Offer</div>
       <h2 class="section-title">Comprehensive Business Services</h2>
       <p class="section-sub">End-to-end solutions for every stage of your business journey in Thailand — from registration to ongoing compliance.</p>
     </div>
+
+    <!-- 3-column grid of service cards (becomes 2-col on tablet, 1-col on mobile) -->
     <div class="services-grid">
+
+      <!-- SERVICE CARD 1: Accounting -->
       <div class="service-card">
         <div class="service-icon">📊</div>
         <h3>Accounting Services</h3>
         <p>Bookkeeping, tax filing, payroll, social security administration, and corporate secretarial services tailored for Thai compliance.</p>
         <a href="#" class="service-link">Learn More →</a>
       </div>
+
+      <!-- SERVICE CARD 2: Company Registration -->
       <div class="service-card">
         <div class="service-icon">🏢</div>
         <h3>Company Registration</h3>
         <p>Full support for new company formation and all post-registration changes — directors, shareholders, capital, address, and business objectives.</p>
         <a href="#" class="service-link">Learn More →</a>
       </div>
+
+      <!-- SERVICE CARD 3: Foreign Business License -->
       <div class="service-card">
         <div class="service-icon">🌏</div>
         <h3>Foreign Business License</h3>
         <p>Expert guidance on Amity Treaty certificates, BOI promotion, Section 17 licenses, trademarks, patents, and recruitment licensing.</p>
         <a href="#" class="service-link">Learn More →</a>
       </div>
+
+      <!-- SERVICE CARD 4: Banking -->
       <div class="service-card">
         <div class="service-icon">🏦</div>
         <h3>Banking Services</h3>
         <p>Document preparation for corporate bank accounts, loan applications, credit cards, and financial transaction process consulting.</p>
         <a href="#" class="service-link">Learn More →</a>
       </div>
+
+      <!-- SERVICE CARD 5: Tax Consulting -->
       <div class="service-card">
         <div class="service-icon">📋</div>
         <h3>Tax Consulting</h3>
         <p>Professional representation and support when dealing with the Revenue Department, DBD, and other Thai government agencies.</p>
         <a href="#" class="service-link">Learn More →</a>
       </div>
+
+      <!-- SERVICE CARD 6: Knowledge Sharing / Blog -->
       <div class="service-card">
         <div class="service-icon">💡</div>
         <h3>Knowledge Sharing</h3>
         <p>Stay informed with our regularly updated guides, articles, and insights on Thai business law, taxation, and regulatory changes.</p>
         <a href="#" class="service-link">Read Articles →</a>
       </div>
-    </div>
-  </div>
-</section>
 
-<!-- WHY US -->
+    </div><!-- end services-grid -->
+
+  </div><!-- end section-inner -->
+</section><!-- end services section -->
+
+
+<!-- ══════════════════════════════════════════════════════════
+     "WHY CHOOSE US" SECTION
+     Pale peach background section.
+     Left: company description + CTA button
+     Right: 4 feature items (certifications, bilingual, speed, partnership)
+     ══════════════════════════════════════════════════════════ -->
 <section class="why-section">
   <div class="why-inner">
     <div class="why-grid">
+
+      <!-- LEFT: Text description -->
       <div class="why-text">
         <div class="section-label">Why Choose Us</div>
         <h2 class="section-title">Decades of<br>Trusted Expertise</h2>
         <p>We combine deep knowledge of Thai law with genuine care for our clients' success. Whether you are setting up your first company or managing a complex multi-entity structure, we bring clarity and precision to every engagement.</p>
         <p>Our bilingual team works closely with you to ensure full compliance and total peace of mind — so you can focus on growing your business.</p>
+        <!-- Inline style overrides (one-time tweaks): makes the button a block-level element
+             so it appears on its own line with proper spacing -->
         <a href="#contact" class="btn-primary" style="display:inline-block; margin-top: 24px;">Schedule a Free Consultation</a>
       </div>
+
+      <!-- RIGHT: Stacked feature items with orange left border -->
       <div class="why-features">
+
+        <!-- FEATURE 1: Licensing -->
         <div class="why-feature">
           <div class="why-feature-icon">⚖️</div>
           <div class="why-feature-text">
@@ -871,6 +1358,8 @@
             <p>All our accountants and advisors hold Thai CPA certifications and maintain active professional registrations.</p>
           </div>
         </div>
+
+        <!-- FEATURE 2: Bilingual -->
         <div class="why-feature">
           <div class="why-feature-icon">🌐</div>
           <div class="why-feature-text">
@@ -878,6 +1367,8 @@
             <p>We bridge language and cultural gaps, ensuring smooth communication between you and Thai authorities.</p>
           </div>
         </div>
+
+        <!-- FEATURE 3: Speed & Transparency -->
         <div class="why-feature">
           <div class="why-feature-icon">⚡</div>
           <div class="why-feature-text">
@@ -885,6 +1376,8 @@
             <p>Clear timelines, fixed-fee structures, and no hidden costs. You always know where your matter stands.</p>
           </div>
         </div>
+
+        <!-- FEATURE 4: Long-term relationship -->
         <div class="why-feature">
           <div class="why-feature-icon">🤝</div>
           <div class="why-feature-text">
@@ -892,24 +1385,38 @@
             <p>We build lasting relationships — many of our clients have been with us for over a decade.</p>
           </div>
         </div>
-      </div>
-    </div>
-  </div>
-</section>
 
-<!-- TESTIMONIALS -->
+      </div><!-- end why-features -->
+
+    </div><!-- end why-grid -->
+  </div><!-- end why-inner -->
+</section><!-- end why-section -->
+
+
+<!-- ══════════════════════════════════════════════════════════
+     TESTIMONIALS SECTION
+     Dark background with 3 client quote cards side by side.
+     Replace the quote text, names, and initials with real clients.
+     ══════════════════════════════════════════════════════════ -->
 <section class="testimonials">
   <div class="testimonials-inner">
+
+    <!-- Centered section heading -->
     <div class="section-head centered">
       <div class="section-label">Client Testimonials</div>
       <h2 class="section-title">What Our Clients Say</h2>
       <p class="section-sub">Trusted by entrepreneurs and executives from around the world doing business in Thailand.</p>
     </div>
+
+    <!-- 3-column grid of testimonial cards -->
     <div class="testi-grid">
+
+      <!-- TESTIMONIAL 1 -->
       <div class="testi-card">
-        <div class="testi-quote">"</div>
+        <div class="testi-quote">"</div><!-- Large decorative opening quote mark -->
         <p class="testi-text">Setting up our company in Thailand seemed daunting, but the team made the entire process seamless. We were operational in under three weeks.</p>
         <div class="testi-author">
+          <!-- Avatar circle with client initials -->
           <div class="testi-avatar">JM</div>
           <div>
             <div class="testi-name">James M.</div>
@@ -917,6 +1424,8 @@
           </div>
         </div>
       </div>
+
+      <!-- TESTIMONIAL 2 -->
       <div class="testi-card">
         <div class="testi-quote">"</div>
         <p class="testi-text">Their knowledge of the Amity Treaty was exceptional. We secured our Foreign Business Certificate faster than we thought possible. Highly recommended.</p>
@@ -928,6 +1437,8 @@
           </div>
         </div>
       </div>
+
+      <!-- TESTIMONIAL 3 -->
       <div class="testi-card">
         <div class="testi-quote">"</div>
         <p class="testi-text">Our monthly accounting and payroll have been flawless for three years. I can genuinely focus on my business knowing compliance is handled properly.</p>
@@ -939,36 +1450,64 @@
           </div>
         </div>
       </div>
-    </div>
-  </div>
-</section>
 
-<!-- CONTACT BANNER -->
+    </div><!-- end testi-grid -->
+
+  </div><!-- end testimonials-inner -->
+</section><!-- end testimonials -->
+
+
+<!-- ══════════════════════════════════════════════════════════
+     CONTACT CALL-TO-ACTION BANNER
+     Orange gradient full-width strip.
+     id="contact" is the scroll target for "Book Consultation" buttons.
+     Contains two buttons: phone call + email enquiry.
+     ══════════════════════════════════════════════════════════ -->
 <section class="contact-banner" id="contact">
   <div class="contact-banner-inner">
     <h2>Ready to Get Started?</h2>
     <p>Speak with one of our advisors today — no obligation, no jargon. Just clear, practical guidance tailored to your situation.</p>
     <div class="contact-btns">
+      <!-- Clicking this dials the phone number on mobile devices -->
       <a href="tel:+66000000000" class="btn-white">Call Us Now</a>
+      <!-- Clicking this opens the user's email client with this address pre-filled -->
       <a href="mailto:info@yourdomain.com" class="btn-outline-white">Send an Enquiry</a>
     </div>
   </div>
-</section>
+</section><!-- end contact-banner -->
 
-<!-- FOOTER -->
+
+<!-- ══════════════════════════════════════════════════════════
+     FOOTER
+     Dark 4-column bottom section of the page.
+     Column 1: Brand + contact info
+     Column 2: Services links
+     Column 3: Company links (About, Team, etc.)
+     Column 4: Contact / social links
+     Bottom row: copyright + legal links
+     ══════════════════════════════════════════════════════════ -->
 <footer>
   <div class="footer-inner">
+
+    <!-- The 4-column grid -->
     <div class="footer-grid">
+
+      <!-- COLUMN 1: Brand description and contact details -->
       <div class="footer-brand">
+        <!-- Logo repeated in footer -->
         <div class="logo">
           <div class="logo-name">Your <span>Business</span> Name</div>
           <div class="logo-sub">Professional Services · Thailand</div>
         </div>
+        <!-- Short company description -->
         <p>We are a leading professional services firm based in Thailand, dedicated to helping businesses establish, operate, and grow with full legal and financial compliance.</p>
+        <!-- Contact lines: each is an icon + text/link row -->
         <div class="footer-contact-item">📍 Bangkok, Thailand 10xxx</div>
         <div class="footer-contact-item">📞 <a href="tel:+66000000000">+66 00 000 0000</a></div>
         <div class="footer-contact-item">📧 <a href="mailto:info@yourdomain.com">info@yourdomain.com</a></div>
-      </div>
+      </div><!-- end footer-brand -->
+
+      <!-- COLUMN 2: Services links -->
       <div class="footer-col">
         <h4>Services</h4>
         <ul>
@@ -979,6 +1518,8 @@
           <li><a href="#">Tax Consulting</a></li>
         </ul>
       </div>
+
+      <!-- COLUMN 3: Company / internal links -->
       <div class="footer-col">
         <h4>Company</h4>
         <ul>
@@ -988,6 +1529,8 @@
           <li><a href="#">Contact Us</a></li>
         </ul>
       </div>
+
+      <!-- COLUMN 4: Contact / social media links -->
       <div class="footer-col">
         <h4>Contact</h4>
         <ul>
@@ -997,13 +1540,23 @@
           <li><a href="#">Map & Directions</a></li>
         </ul>
       </div>
-    </div>
+
+    </div><!-- end footer-grid -->
+
+    <!-- Bottom row: copyright notice + legal policy links -->
     <div class="footer-bottom">
       <p>© 2025 Your Business Name. All rights reserved.</p>
       <p>Privacy Policy · Terms of Service</p>
     </div>
-  </div>
-</footer>
+
+  </div><!-- end footer-inner -->
+</footer><!-- end footer -->
+
 
 </body>
+<!-- 
+  </body> closes the visible page content section.
+  </html> closes the entire HTML document.
+  The browser stops reading here.
+-->
 </html>
