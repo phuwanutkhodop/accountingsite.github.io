@@ -15,68 +15,88 @@ body {
   color: #2d2d2d;
 }
 
+/* NAVBAR */
 nav {
   display: flex;
   justify-content: space-between;
-  padding: 20px 40px;
+  padding: 20px 50px;
   background: white;
   border-bottom: 1px solid #f1e3dc;
 }
 
 nav a {
-  color: #2d2d2d;
-  margin-left: 20px;
   text-decoration: none;
+  color: #333;
+  margin-left: 25px;
   font-weight: 500;
 }
 
-header {
+/* HERO */
+.hero {
+  padding: 120px 20px;
   text-align: center;
-  padding: 100px 20px;
+  background: linear-gradient(to bottom, #fff7f3, #ffffff);
 }
 
-h1 {
+.hero h1 {
   font-family: 'Playfair Display', serif;
-  font-size: 42px;
-  margin-bottom: 10px;
+  font-size: 48px;
+  margin-bottom: 15px;
 }
 
-header p {
-  color: #7a6a64;
+.hero p {
   font-size: 18px;
+  color: #7a6a64;
 }
 
-.cta a {
+.cta-btn {
+  margin-top: 30px;
   display: inline-block;
-  margin-top: 25px;
   background: #f4a261;
   color: white;
-  padding: 12px 24px;
+  padding: 14px 28px;
   border-radius: 8px;
   text-decoration: none;
 }
 
+/* SECTION */
 section {
-  padding: 40px;
-  max-width: 900px;
+  max-width: 1000px;
   margin: auto;
+  padding: 60px 20px;
+}
+
+h2 {
+  font-family: 'Playfair Display', serif;
+  margin-bottom: 10px;
+}
+
+/* CARDS */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
 }
 
 .card {
   background: white;
   padding: 25px;
-  margin-bottom: 20px;
   border-radius: 12px;
   border: 1px solid #f1e3dc;
 }
 
-h2 {
-  font-family: 'Playfair Display', serif;
+/* TRUST */
+.trust {
+  text-align: center;
+  background: #fff1ea;
+  padding: 60px 20px;
 }
 
+/* FOOTER */
 footer {
   text-align: center;
-  padding: 20px;
+  padding: 30px;
+  background: #ffffff;
   color: #7a6a64;
 }
 </style>
@@ -84,37 +104,58 @@ footer {
 
 <body>
 
+<!-- NAV -->
 <nav>
   <div><strong>Your Name</strong></div>
   <div>
-    <a href="index.html">Home</a>
-    <a href="about.html">About</a>
-    <a href="services.html">Services</a>
-    <a href="contact.html">Contact</a>
+    <a href="#">Home</a>
+    <a href="#">About</a>
+    <a href="#">Services</a>
+    <a href="#">Contact</a>
   </div>
 </nav>
 
-<header>
+<!-- HERO -->
+<div class="hero">
   <h1>Accounting & Business Advisory</h1>
   <p>Helping businesses manage tax, cash flow, and financial decisions with clarity</p>
+  <a class="cta-btn" href="#">Contact Us</a>
+</div>
 
-  <div class="cta">
-    <a href="contact.html">Contact Me</a>
-  </div>
-</header>
-
+<!-- SERVICES -->
 <section>
-  <div class="card">
-    <h2>Our Services</h2>
-    <p>Tax planning, accounting, and business advisory tailored to your business.</p>
-  </div>
+  <h2>Our Services</h2>
+  <div class="grid">
+    <div class="card">
+      <h3>Tax Planning</h3>
+      <p>Optimize your tax structure and reduce risk.</p>
+    </div>
 
-  <div class="card">
-    <h2>Why Choose Us</h2>
-    <p>We focus on clarity, strategy, and long-term financial improvement.</p>
+    <div class="card">
+      <h3>Accounting</h3>
+      <p>Accurate and compliant financial reporting.</p>
+    </div>
+
+    <div class="card">
+      <h3>Advisory</h3>
+      <p>Strategic insights to grow your business.</p>
+    </div>
   </div>
 </section>
 
+<!-- WHY -->
+<section>
+  <h2>Why Choose Us</h2>
+  <p>We focus on clarity, structured thinking, and real business impact—not just compliance.</p>
+</section>
+
+<!-- TRUST -->
+<div class="trust">
+  <h2>Trusted by Business Owners</h2>
+  <p>We help clients make confident financial decisions.</p>
+</div>
+
+<!-- FOOTER -->
 <footer>
   <p>© 2026 Your Name</p>
 </footer>
