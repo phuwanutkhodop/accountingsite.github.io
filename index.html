@@ -10,7 +10,81 @@
 
        HOW THIS FILE IS ORGANISED
        Everything between big banner comments like the one above is a
-       "section." Sections are self-contained — you can delete one,
+       "section." Sections are self-contained — you can delete one,<!DOCTYPE html>
+<html lang="en">
+<!--
+  ============================================================================
+  ROOT REDIRECT  —  /index.html
+  ============================================================================
+
+  👋 Hello. This is a tiny "front door" file. It has no content of its own.
+
+  Its only job is to send a visitor who lands at the bare URL
+  (e.g. https://yoursite.com) straight into the English version of the site
+  at /en/.
+
+  Later, once Thai and Chinese are activated, this file can be upgraded to
+  auto-detect the visitor's browser language and send them to /en/, /th/,
+  or /cn/ accordingly. For now it always goes to /en/.
+
+  WHY THIS EXISTS:
+  The actual homepage lives at /en/index.html. Without this redirect file,
+  visitors who type your bare domain would get a "404 Not Found" error
+  because there would be no file at the root.
+
+  YOU DO NOT NEED TO EDIT THIS FILE.
+  Not per article, not per language, not ever — unless you one day want to
+  change where the root URL should send people. If so, change the two
+  /en/ values below (in the <meta refresh> tag and the JavaScript line).
+
+  HOW THE REDIRECT WORKS:
+  Three layers, belt-and-braces:
+    1. <meta http-equiv="refresh"> — works even with JavaScript disabled
+    2. <script> window.location.replace — instant redirect, no flash
+    3. <link rel="canonical"> — tells search engines the real page is /en/
+  ============================================================================
+-->
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Redirecting…</title>
+
+  <!-- Tell the browser to go to /en/ immediately (0 second delay) -->
+  <meta http-equiv="refresh" content="0; url=./en/">
+
+  <!-- Tell search engines the real homepage is /en/ — they follow this -->
+  <link rel="canonical" href="./en/">
+
+  <!-- JavaScript fallback for instant redirect with no visible flicker -->
+  <script>
+    window.location.replace("./en/");
+  </script>
+
+  <!-- Tiny visual fallback so if everything above somehow fails,
+       the visitor still sees a clean message and a link they can click. -->
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: #F4EFE6;
+      color: #1A1F2E;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      margin: 0;
+      text-align: center;
+    }
+    a { color: #1E3A5F; }
+  </style>
+</head>
+<body>
+  <noscript>
+    <!-- Only shown if JavaScript is off AND meta refresh fails -->
+    <p>Redirecting… if nothing happens, <a href="./en/">click here to continue</a>.</p>
+  </noscript>
+</body>
+</html>
+
        move one, or duplicate one without breaking the others.
 
        EDITING RULES
