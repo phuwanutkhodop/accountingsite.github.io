@@ -263,13 +263,13 @@
      <div data-animate="fade-up" data-delay="2">I will animate 240ms later</div>
    
    The JavaScript file will watch for these data-animate attributes, wait
-   until the element is visible on screen, then add an "in-view" class to
+   until the element is visible on screen, then add an "is-revealed" class to
    trigger the animation.
 ============================================================================ */
 
 
 /* Elements with data-animate start invisible.
-   They only become visible when JS adds the in-view class. */
+   They only become visible when JS adds the is-revealed class. */
 [data-animate] {
   opacity: 0;
   will-change: opacity, transform;   /* Hint to browser: this will animate */
@@ -300,9 +300,9 @@
 }
 
 
-/* When JavaScript adds the in-view class, everything transitions to its
+/* When JavaScript adds the is-revealed class, everything transitions to its
    final state. */
-[data-animate].in-view {
+[data-animate].is-revealed {
   opacity: 1;
   transform: none;
 }
