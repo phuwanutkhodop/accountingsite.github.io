@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<!--
+═══════════════════════════════════════════════════════════════════════════════
+  knowledge.html — Insights index page
+  ─────────────────────────────────────────────────────────────────────────────
+  This page is the firm's article archive. It is the heaviest SEO/AEO page
+  on the site after the homepage.
+
+  HOW IT WORKS
+    Every article reference on this page is built dynamically by
+    /core/article-loader.js, which reads /en/posts/articles.json. You
+    never edit this file when you publish a new article. You only edit
+    articles.json (see /en/posts/ARTICLES-README.txt for the format).
+
+  WHAT THIS FILE CONTAINS
+    1. Full SEO/AEO head — meta tags, Open Graph, Twitter Card, JSON-LD
+    2. Page header band — eyebrow, heading, lede
+    3. Marquee band — rotating article titles (auto-fed from manifest)
+    4. Search affordance — visible text input, filters the grid live
+    5. Featured article slot — auto-promoted from the manifest
+    6. Article grid — all remaining articles, newest first
+    7. Soft contact CTA — same pattern as the article template
+    8. Site footer
+
+  EDITING THIS FILE
+    🟢 SAFE: page heading text, lede text, search label, CTA copy
+    🟡 CARE: meta tag values (description, keywords) — these affect SEO
+    🔴 DON'T EDIT: the data-articles="…" attributes, the JSON-LD shell,
+                   the body's data-seo-context attribute. These are how
+                   article-loader.js finds what to fill.
+
+  PATHS
+    All paths in this file are RELATIVE. This page sits at /en/knowledge.html
+    so:  ../theme/theme.css   means  /theme/theme.css
+         ../core/animations.js means  /core/animations.js
+         ./posts/[slug].html   means  /en/posts/[slug].html
+
+═══════════════════════════════════════════════════════════════════════════════
+-->
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!--
+    ─────────────────────────────────────────────────────────────────────────
+    🟢 EDIT — SEO meta tags
+    These are the most important strings on the page for SEO. Change them
+    when you change the firm name, the page title, or what the page is about.
+    ─────────────────────────────────────────────────────────────────────────
+  -->
+  <title>Insights · Your Firm Name</title>
+  <meta name="description" content="Plain-English guidance on Thailand's business landscape — tax, legal, foreign investment, and the practical questions that come up in real engagements." />
+  <meta name="keywords" content="Thailand business, foreign investment Thailand, Thai tax, BOI, Bangkok law firm, foreign founders Thailand" />
+  <meta name="author" content="Your Firm Name" />
+
+  <!-- Canonical URL — tells search engines which version of this page is authoritative.
+       🟡 UPDATE BEFORE LAUNCH: change example.com to the real domain. -->
+  <link rel="canonical" href="https://example.com/en/knowledge.html" />
+
+  <!-- Site-wide identity meta tags. Read by article-loader.js to build absolute
+       URLs in the structured data. 🟡 UPDATE BEFORE LAUNCH. -->
+  <meta name="site-url" content="https://example.com" />
+  <meta name="firm-name" content="Your Firm Name" />
+
+  <!--
+    Open Graph — controls how this page previews when someone shares the link
+    on Facebook, LinkedIn, Slack, etc. Without these, the preview is generic
+    and unappealing.
+  -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Insights · Your Firm Name" />
+  <meta property="og:description" content="Plain-English guidance on Thailand's business landscape." />
+  <meta property="og:url" content="https://example.com/en/knowledge.html" />
+  <meta property="og:site_name" content="Your Firm Name" />
+  <meta property="og:locale" content="en_US" />
+
+  <!-- Twitter Card — same idea, for Twitter/X link previews. -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Insights · Your Firm Name" />
+  <meta name="twitter:description" content="Plain-English guidance on Thailand's business landscape." />
+
+  <!--
+    ─────────────────────────────────────────────────────────────────────────
+    🔴 STRUCTURE — JSON-LD STRUCTURED DATA SHELL
+    This static block tells crawlers (Google, Bing) and AI answer engines
+    (ChatGPT, Claude, Perplexity, Google AI Overview) what kind of page this
+    is, BEFORE the JavaScript runs. article-loader.js then injects a SECOND
+    JSON-LD block with the full ItemList of articles after the manifest loads.
+
+    Two JSON-LD blocks on the same page is valid and recommended — crawlers
+    merge them. The static one ensures bots that don't run JS still know
+    this is a CollectionPage owned by an Organization.
+    ─────────────────────────────────────────────────────────────────────────
+  -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "name": "Insights",
+    "description": "Plain-English guidance on Thailand's business landscape.",
+    "url": "https://example.com/en/knowledge.html",
+    "inLanguage": "en",
+    "isPartOf": {
+      "@type": "WebSite",
+      "name": "Your Firm Name",
+      "url": "https://example.com"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Your Firm Name",
+      "url": "https://example.com"
+    }
+  }
+  </script>
+
+  <!-- Stylesheets — order matters: theme first, then motion. -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600&display=swap" />
+
+  <link rel="stylesheet" href="../theme/theme.css" />
+  <link rel="stylesheet" href="../theme/motion.css" />
+</head>
+
+<!--
+  ───────────────────────────────────────────────────────────────────────────
+  🔴 STRUCTURE — body tag carries the SEO context attribute
+  data-seo-context="knowledge-index" tells article-loader.js to inject the
+  full CollectionPage + ItemList structured data. Don't remove this attribute.
+  ───────────────────────────────────────────────────────────────────────────
+-->
+<body data-seo-context="knowledge-index">
+
+  <!-- Scroll progress bar — animations.js fills its width as the visitor scrolls. -->
+  <div class="scroll-progress" id="scrollProgress"></div>
+
+  <!-- Ambient background blobs — pure decoration. theme.css positions them,
+       motion.css drifts them. aria-hidden so screen readers ignore them. -->
+  <div class="ambient-blob ambient-blob--navy" aria-hidden="true"></div>
+  <div class="ambient-blob ambient-blob--gold" aria-hidden="true"></div>
+
+
+  <!-- ══════════════════════════════════════════════════════════════════
+       SITE HEADER
+       Same pattern as homepage. Relative paths.
+       ══════════════════════════════════════════════════════════════════ -->
+  <header class="site-header">
+    <div class="site-header__inner">
+      <!-- 🟢 EDIT: firm name -->
+      <a href="./" class="site-header__logo" aria-label="Home">
+        Your Firm Name
+      </a>
+      <nav class="site-header__nav" aria-label="Primary">
+        <a href="./#services">Services</a>
+        <a href="./knowledge.html" aria-current="page">Insights</a>
+        <a href="./#about">About</a>
+        <a href="./#contact" class="site-header__cta">Contact</a>
+      </nav>
+      <!-- Language switcher (dormant — activated when Thai version exists). -->
+      <div class="site-header__lang" aria-hidden="true">
+        <span>EN</span>
+      </div>
+    </div>
+  </header>
+
+
+  <!-- ══════════════════════════════════════════════════════════════════
+       PAGE HEADER BAND
+       Eyebrow + serif heading + lede. The italic em on the heading
+       picks up the gold accent from theme.css.
+       ══════════════════════════════════════════════════════════════════ -->
+  <section class="knowledge-header" data-animate="fade-up">
+    <div class="knowledge-header__inner">
+      <!-- 🟢 EDIT: page eyebrow -->
+      <p class="knowledge-header__eyebrow">Insights</p>
+
+      <!-- 🟢 EDIT: page heading. The <em> wrapping a word turns it gold. -->
+      <h1 class="knowledge-header__heading">
+        Plain-English guidance on Thailand's <em>business landscape</em>.
+      </h1>
+
+      <!-- 🟢 EDIT: lede paragraph. Aim for one sentence, two at most. -->
+      <p class="knowledge-header__lede">
+        Tax, legal, foreign investment, and the practical questions that come up
+        in real engagements. Written for the people who have to make the call.
+      </p>
+    </div>
+  </section>
+
+
+  <!-- ══════════════════════════════════════════════════════════════════
+       MARQUEE BAND
+       The .marquee + .marquee-track structure comes from motion.css.
+       article-loader.js fills the track with rotating article titles.
+
+       🔴 DON'T REMOVE: the data-articles="marquee" attribute is how the
+       loader finds this container. If the manifest is empty, this whole
+       section hides itself silently.
+       ══════════════════════════════════════════════════════════════════ -->
+  <section class="knowledge-marquee" aria-label="Recent article titles">
+    <div class="marquee">
+      <div class="marquee-track" data-articles="marquee">
+        <!-- Filled by article-loader.js -->
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ══════════════════════════════════════════════════════════════════
+       FEATURED ARTICLE SLOT
+       One wide card showing whichever article has "featured": true in
+       articles.json — or the newest one if none is flagged.
+
+       🔴 DON'T REMOVE: the data-articles="featured" attribute.
+       ══════════════════════════════════════════════════════════════════ -->
+  <section class="knowledge-featured" data-animate="fade-up">
+    <div class="knowledge-featured__inner">
+      <p class="knowledge-featured__eyebrow">Featured</p>
+      <div data-articles="featured">
+        <!-- Filled by article-loader.js -->
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ══════════════════════════════════════════════════════════════════
+       FEED — search bar + article grid
+       The search input filters the grid live as the visitor types. The
+       grid is filled by article-loader.js with every article EXCEPT the
+       one in the featured slot above (to avoid showing it twice).
+
+       🔴 DON'T REMOVE: data-articles-search and data-articles="knowledge-grid"
+       ══════════════════════════════════════════════════════════════════ -->
+  <section class="knowledge-feed">
+    <div class="knowledge-feed__inner">
+
+      <!-- Search affordance -->
+      <div class="knowledge-search" data-animate="fade-up">
+        <label for="article-search" class="knowledge-search__label">
+          Search articles
+        </label>
+        <input
+          type="search"
+          id="article-search"
+          class="knowledge-search__input"
+          placeholder="Search by topic, title, or keyword…"
+          data-articles-search
+          aria-label="Search articles"
+        />
+      </div>
+
+      <!-- Article grid -->
+      <div class="knowledge-grid" data-articles="knowledge-grid">
+        <!-- Filled by article-loader.js -->
+      </div>
+
+      <!-- "No matches" message — hidden by default, shown by article-loader.js
+           when search returns nothing. -->
+      <p class="knowledge-no-match" data-articles-no-match>
+        No articles match that search. Try a different word, or clear the search to see everything.
+      </p>
+
+    </div>
+  </section>
+
+
+  <!-- ══════════════════════════════════════════════════════════════════
+       SOFT CONTACT CTA
+       Same pattern as the article template's closing CTA. Single
+       sentence, single link, no aggressive sales language.
+       ══════════════════════════════════════════════════════════════════ -->
+  <section class="section section--cta" data-animate="fade-up">
+    <div class="section__inner">
+      <p class="section__eyebrow">Conversation</p>
+      <!-- 🟢 EDIT: CTA heading and body -->
+      <h2 class="section__heading">
+        Have a question we should <em>write about</em>?
+      </h2>
+      <p class="section__lede">
+        We pick most article topics from real questions clients ask us.
+        If something here didn't quite answer yours, tell us — and it might
+        be the next one we publish.
+      </p>
+      <p>
+        <!-- 🟢 EDIT: contact email -->
+        <a class="btn btn--glow" href="mailto:hello@yourfirm.com">
+          hello@yourfirm.com
+        </a>
+      </p>
+    </div>
+  </section>
+
+
+  <!-- ══════════════════════════════════════════════════════════════════
+       SITE FOOTER
+       Same pattern as homepage. Relative paths.
+       ══════════════════════════════════════════════════════════════════ -->
+  <footer class="site-footer">
+    <div class="site-footer__inner">
+      <div class="site-footer__col site-footer__brand">
+        <!-- 🟢 EDIT: firm name and tagline -->
+        <p class="site-footer__logo">Your Firm Name</p>
+        <p class="site-footer__tagline">
+          Tax, legal, and onboarding for foreign businesses in Thailand.
+        </p>
+      </div>
+
+      <div class="site-footer__col">
+        <p class="site-footer__heading">Site</p>
+        <ul class="site-footer__list">
+          <li><a href="./">Home</a></li>
+          <li><a href="./#services">Services</a></li>
+          <li><a href="./knowledge.html">Insights</a></li>
+          <li><a href="./#about">About</a></li>
+          <li><a href="./#contact">Contact</a></li>
+        </ul>
+      </div>
+
+      <div class="site-footer__col site-footer__contact">
+        <p class="site-footer__heading">Contact</p>
+        <ul class="site-footer__list">
+          <!-- 🟢 EDIT: contact lines -->
+          <li><a href="mailto:hello@yourfirm.com">hello@yourfirm.com</a></li>
+          <li>Bangkok, Thailand</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="site-footer__base">
+      <!-- 🟢 EDIT: copyright year and firm name -->
+      <p>© 2026 Your Firm Name. All rights reserved.</p>
+      <p>
+        <a href="./privacy.html">Privacy</a>
+        <span aria-hidden="true">·</span>
+        <a href="./terms.html">Terms</a>
+      </p>
+    </div>
+  </footer>
+
+
+  <!-- ══════════════════════════════════════════════════════════════════
+       SCRIPTS
+       Order matters. animations.js initialises scroll-reveal first, then
+       article-loader.js loads the manifest and calls window.__rescanScrollReveal()
+       so newly-rendered cards inherit the same fade-up behaviour.
+       ══════════════════════════════════════════════════════════════════ -->
+  <script src="../core/animations.js" defer></script>
+  <script src="../core/article-loader.js" defer></script>
+
+</body>
+</html>
