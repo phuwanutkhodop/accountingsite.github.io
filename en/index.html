@@ -1,0 +1,596 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <!-- ══════════════════════════════════════════════════════════════════
+       HOMEPAGE — English
+       ──────────────────────────────────────────────────────────────────
+       This is the front door of your website. It's the first page
+       visitors land on after the root redirect sends them to /en/.
+
+       HOW THIS FILE IS ORGANISED
+       Everything between big banner comments like the one above is a
+       "section." Sections are self-contained — you can delete one,
+       move one, or duplicate one without breaking the others.
+
+       EDITING RULES
+       • 🟢 Safe to edit: anything inside "EDIT" markers (the green-dot HTML comments further down)
+       • 🟡 Edit with care: section structure, class names
+       • 🔴 Don't touch: <head> tags, script references, the animation
+         data-attributes (they power the motion effects)
+
+       WHERE EACH VISUAL COMES FROM
+       • Colours, fonts, spacing → /theme/theme.css
+       • All animations & motion → /theme/motion.css
+       • The 5 JavaScript helpers → /core/animations.js
+       • Reusable config values → /site.config.js
+
+       LANGUAGE
+       This is the English version. Thai (/th/) and Chinese (/cn/)
+       folders exist but are dormant until activated.
+  ══════════════════════════════════════════════════════════════════ -->
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- ─── PAGE META ─────────────────────────────────────────────────
+       🟢 EDIT: These are the text Google shows in search results.
+       Keep the title under 60 characters and description under 160.
+  ──────────────────────────────────────────────────────────────── -->
+  <title>Thailand, made straightforward — Tax, Legal & Onboarding for Foreign Companies</title>
+  <meta name="description" content="We guide foreign companies through tax, legal, and onboarding in Thailand — from first visa to first audit. Based in Bangkok, serving clients from the UK, USA, Japan, and beyond.">
+
+  <!-- ─── SEO / AEO ENHANCEMENTS (Stage 5) ───────────────────────────
+       Canonical URL, Open Graph, Twitter Card, and structured data.
+       These help Google AND AI answer engines (ChatGPT, Claude,
+       Perplexity, Google AI Overview) understand the page.
+       🟡 UPDATE BEFORE LAUNCH: change example.com → real domain.
+       🟢 EDIT: keywords if your firm's positioning shifts.
+  ──────────────────────────────────────────────────────────────── -->
+  <meta name="keywords" content="Thailand business setup, foreign investment Thailand, Thai tax, BOI, Bangkok law firm, foreign founders Thailand, work permit Thailand">
+  <meta name="author" content="Your Firm Name">
+
+  <link rel="canonical" href="https://example.com/en/">
+
+  <!-- Identity meta — read by article-loader.js to build absolute URLs
+       in the structured data. 🟡 UPDATE BEFORE LAUNCH. -->
+  <meta name="site-url" content="https://example.com">
+  <meta name="firm-name" content="Your Firm Name">
+
+  <!-- Open Graph (Facebook, LinkedIn link previews) -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Thailand, made straightforward — Tax, Legal & Onboarding for Foreign Companies">
+  <meta property="og:description" content="We guide foreign companies through tax, legal, and onboarding in Thailand.">
+  <meta property="og:url" content="https://example.com/en/">
+  <meta property="og:site_name" content="Your Firm Name">
+  <meta property="og:locale" content="en_US">
+
+  <!-- Twitter Card (Twitter/X link previews) -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Thailand, made straightforward">
+  <meta name="twitter:description" content="Tax, legal, and onboarding for foreign companies in Thailand.">
+
+  <!-- Static JSON-LD shell. Declares the firm as an Organization and
+       this page as the WebSite landing. article-loader.js injects an
+       additional ItemList of recent articles at runtime. -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "Your Firm Name",
+    "url": "https://example.com/en/",
+    "inLanguage": "en",
+    "description": "Tax, legal, and onboarding for foreign companies in Thailand.",
+    "publisher": {
+      "@type": "Organization",
+      "name": "Your Firm Name",
+      "url": "https://example.com/en/"
+    }
+  }
+  </script>
+
+  <!-- ─── FONTS (Google Fonts) ──────────────────────────────────────
+       🔴 Don't edit. Font choices are locked in theme.css.
+       These two <link> tags just fetch them from Google.
+  ──────────────────────────────────────────────────────────────── -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <!-- ─── STYLESHEETS ───────────────────────────────────────────────
+       🔴 Don't edit the order. Theme first, motion second.
+  ──────────────────────────────────────────────────────────────── -->
+  <link rel="stylesheet" href="../theme/theme.css">
+  <link rel="stylesheet" href="../theme/motion.css">
+
+</head>
+
+<body data-seo-context="homepage">
+
+  <!-- ══════════════════════════════════════════════════════════════════
+       SCROLL PROGRESS BAR
+       ──────────────────────────────────────────────────────────────────
+       A thin gold line at the very top of the page that fills up as
+       the visitor scrolls down. Powered by animations.js.
+       🟡 You can delete this whole block if you want a cleaner look.
+  ══════════════════════════════════════════════════════════════════ -->
+  <div class="scroll-progress" id="scrollProgress"></div>
+
+
+  <!-- ══════════════════════════════════════════════════════════════════
+       AMBIENT BACKGROUND BLOBS
+       ──────────────────────────────────────────────────────────────────
+       Two soft, drifting coloured shapes behind everything. Pure CSS.
+       They give the page "ambient life" — quiet motion that makes the
+       site feel alive without distracting from the content.
+       🟡 Delete this block if you want a completely static background.
+  ══════════════════════════════════════════════════════════════════ -->
+  <div class="ambient-blob ambient-blob--navy" aria-hidden="true"></div>
+  <div class="ambient-blob ambient-blob--gold" aria-hidden="true"></div>
+
+
+  <!-- ══════════════════════════════════════════════════════════════════
+       SITE HEADER (Navigation)
+       ──────────────────────────────────────────────────────────────────
+       The top bar with logo on the left, menu links on the right.
+       🟢 EDIT: Change the logo text, menu items, or add new links.
+  ══════════════════════════════════════════════════════════════════ -->
+  <header class="site-header">
+    <div class="site-header__inner">
+
+      <!-- Logo / firm name -->
+      <a href="./" class="site-header__logo">
+        <!-- 🟢 EDIT: Replace with your firm's name, or an <img> tag for a logo image. -->
+        Your Firm Name
+      </a>
+
+      <!-- Main navigation -->
+      <nav class="site-header__nav" aria-label="Main navigation">
+        <!-- 🟢 EDIT: Add, remove, or rename these menu items. -->
+        <a href="./#services">Services</a>
+        <a href="./knowledge.html">Insights</a>
+        <a href="./#about">About</a>
+        <a href="./#contact" class="site-header__cta">Contact</a>
+      </nav>
+
+      <!-- Language switcher — currently hidden (only English is live).
+           🔴 Will activate automatically when /th/ or /cn/ go live.
+           Do not delete; the config-loader will unhide it. -->
+      <div class="site-header__lang" data-lang-switcher hidden>
+        <span>EN</span>
+      </div>
+
+    </div>
+  </header>
+
+
+  <!-- ══════════════════════════════════════════════════════════════════
+       SECTION 1: HERO
+       ──────────────────────────────────────────────────────────────────
+       The first thing visitors see. Large serif headline with a
+       cursor-parallax effect on the italic word, plus eyebrow,
+       sub-headline, and two call-to-action buttons.
+       🟢 EDIT: All text is inside clearly-marked EDIT zones below.
+  ══════════════════════════════════════════════════════════════════ -->
+  <section class="hero" id="hero">
+    <div class="hero__inner">
+
+      <!-- Eyebrow (small gold text above headline) -->
+      <!-- 🟢 EDIT: Change the services list or city. Separate items with " · ". -->
+      <p class="hero__eyebrow animate-fade-up delay-1">
+        Tax · Legal · Onboarding · Bangkok
+      </p>
+
+      <!-- Main headline.
+           🔴 Don't remove the <span class="hero__cursor-parallax"> wrapper —
+           it's what gives the italic word its mouse-follow drift.
+           🟢 EDIT the words themselves freely. -->
+      <h1 class="hero__headline animate-serif-unfold delay-2">
+        Thailand, made
+        <span class="hero__cursor-parallax" data-cursor-parallax>
+          <em>straightforward.</em>
+        </span>
+      </h1>
+
+      <!-- Sub-headline (the explanatory sentence under the big title) -->
+      <!-- 🟢 EDIT: Rewrite as needed. Aim for 1–2 sentences, 30–45 words. -->
+      <p class="hero__subheadline animate-fade-up delay-3">
+        We guide foreign companies through tax and audit,
+        legal and regulatory counsel, and the practical onboarding —
+        visas, permits, company setup — that quietly decides how
+        smoothly the first year goes.
+      </p>
+
+      <!-- Call-to-action buttons -->
+      <div class="hero__actions animate-fade-up delay-4">
+        <!-- 🟢 EDIT: Change button text. Keep the class names — they power the hover glow. -->
+        <a href="./#contact" class="btn btn--primary btn--glow">
+          Book a consultation
+        </a>
+        <a href="./knowledge.html" class="btn btn--link">
+          Read our insights →
+        </a>
+      </div>
+
+      <!-- Quiet scroll cue -->
+      <div class="hero__scroll-cue animate-fade-up delay-6" aria-hidden="true">
+        <span class="hero__scroll-cue-line"></span>
+        <span class="hero__scroll-cue-label">Scroll</span>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ══════════════════════════════════════════════════════════════════
+       SECTION 2: SERVICES
+       ──────────────────────────────────────────────────────────────────
+       Three cards summarising what you do. Each card has an icon
+       line, a heading, a short description, and a "learn more" link.
+       🟢 EDIT: Replace the three cards with your real services.
+  ══════════════════════════════════════════════════════════════════ -->
+  <section class="section section--services" id="services">
+    <div class="section__inner">
+
+      <!-- Section label + heading -->
+      <p class="section__eyebrow" data-animate="fade-up">What we do</p>
+      <h2 class="section__heading" data-animate="serif-unfold">
+        Three pillars, one firm.
+      </h2>
+      <p class="section__lede" data-animate="fade-up">
+        <!-- 🟢 EDIT: Optional lede paragraph under the section heading. -->
+        Foreign companies come to us because navigating Thailand
+        shouldn't require navigating three different advisors.
+      </p>
+
+      <!-- Services grid -->
+      <div class="services-grid">
+
+        <!-- ─── Card 1: Tax, Accounting & Audit ─── -->
+        <!-- 🟢 EDIT: Replace title, description, and link. -->
+        <article class="service-card" data-animate="fade-up" data-delay="1">
+          <span class="service-card__rule"></span>
+          <h3 class="service-card__title">Tax, accounting & audit</h3>
+          <p class="service-card__body">
+            Corporate tax, monthly accounting, and statutory audit —
+            handled quietly in the background while you focus on
+            building the business.
+          </p>
+          <a href="./knowledge.html" class="service-card__link">
+            Explore the practice →
+          </a>
+        </article>
+
+        <!-- ─── Card 2: Legal & Regulatory ─── -->
+        <!-- 🟢 EDIT: Replace title, description, and link. -->
+        <article class="service-card" data-animate="fade-up" data-delay="2">
+          <span class="service-card__rule"></span>
+          <h3 class="service-card__title">Legal & regulatory</h3>
+          <p class="service-card__body">
+            Company structure, contracts, licensing, and the regulatory
+            detail that determines whether your Thai entity actually
+            does what your head office intended.
+          </p>
+          <a href="./knowledge.html" class="service-card__link">
+            Explore the practice →
+          </a>
+        </article>
+
+        <!-- ─── Card 3: Onboarding ─── -->
+        <!-- 🟢 EDIT: Replace title, description, and link. -->
+        <article class="service-card" data-animate="fade-up" data-delay="3">
+          <span class="service-card__rule"></span>
+          <h3 class="service-card__title">Onboarding foreigners</h3>
+          <p class="service-card__body">
+            Visas, work permits, company setup, banking introductions,
+            and the practical first-month groundwork that turns
+            "relocating" into "operating."
+          </p>
+          <a href="./knowledge.html" class="service-card__link">
+            Explore the practice →
+          </a>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ══════════════════════════════════════════════════════════════════
+       SECTION 3: CLIENT STRIP (Trust Layer)
+       ──────────────────────────────────────────────────────────────────
+       A quiet band showing client names or logos. Builds credibility
+       without being loud. Sits between Services and Insights.
+       🟢 EDIT: Replace the five placeholders with real client names
+       or <img> tags pointing to logo files in /assets/clients/.
+       🟡 Want to remove this whole section? Delete from the banner
+       comment above down to the matching closing banner below.
+  ══════════════════════════════════════════════════════════════════ -->
+  <section class="section section--clients">
+    <div class="section__inner section__inner--wide">
+
+      <p class="section__eyebrow section__eyebrow--centered" data-animate="fade-up">
+        Trusted by teams from
+      </p>
+
+      <div class="client-strip" data-animate="fade-up">
+        <!-- 🟢 EDIT: Replace each name with a real client name, or
+             swap the <span> for an <img src="../assets/clients/name.svg"> tag. -->
+        <span class="client-strip__item">Client Name</span>
+        <span class="client-strip__item">Client Name</span>
+        <span class="client-strip__item">Client Name</span>
+        <span class="client-strip__item">Client Name</span>
+        <span class="client-strip__item">Client Name</span>
+      </div>
+
+      <!-- Optional trust line -->
+      <!-- 🟢 EDIT or delete this line freely. -->
+      <p class="clients__note" data-animate="fade-up">
+        Working with enterprises from the United Kingdom, United States, Japan, and across Asia-Pacific.
+      </p>
+
+    </div>
+  </section>
+
+
+  <!-- ══════════════════════════════════════════════════════════════════
+       SECTION 4: INSIGHTS PREVIEW
+       ──────────────────────────────────────────────────────────────────
+       Two preview cards for your most recent published articles,
+       with a link to the full Insights index.
+       🟢 EDIT: Update the two card titles/descriptions as you publish.
+       A future build script may automate this — for now, edit manually.
+  ══════════════════════════════════════════════════════════════════ -->
+  <section class="section section--insights">
+    <div class="section__inner">
+
+      <div class="section__header-row">
+        <div>
+          <p class="section__eyebrow" data-animate="fade-up">Insights</p>
+          <h2 class="section__heading" data-animate="serif-unfold">
+            Plain-English guidance on Thailand's business landscape.
+          </h2>
+        </div>
+        <a href="./knowledge.html" class="section__header-link" data-animate="fade-up">
+          All articles →
+        </a>
+      </div>
+
+      <!-- ══════════════════════════════════════════════════════════════
+           INSIGHTS PREVIEW — auto-loaded from /en/posts/articles.json
+           ──────────────────────────────────────────────────────────────
+           This container is filled at page load by /core/article-loader.js.
+           The two newest articles in articles.json appear here as cards,
+           styled identically to the article grid on /en/knowledge.html.
+
+           🔴 DON'T REMOVE: the data-articles="homepage-preview" attribute
+              is how the loader finds this container.
+           🟢 TO CHANGE WHICH ARTICLES APPEAR: edit /en/posts/articles.json
+              (do NOT edit this HTML — the loader handles everything).
+           📎 EMPTY MANIFEST: if articles.json has zero entries, the
+              loader hides this whole section automatically (the .section
+              wrapper above gets display:none).
+      ══════════════════════════════════════════════════════════════ -->
+      <div class="insights-grid" data-articles="homepage-preview">
+        <!-- Filled at runtime by article-loader.js -->
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ══════════════════════════════════════════════════════════════════
+       SECTION 5: ABOUT
+       ──────────────────────────────────────────────────────────────────
+       A short, human introduction to the firm. Two columns: heading
+       on the left, paragraph and stats on the right.
+       🟢 EDIT: Rewrite the paragraph and adjust the three stat numbers.
+  ══════════════════════════════════════════════════════════════════ -->
+  <section class="section section--about" id="about">
+    <div class="section__inner about__grid">
+
+      <div class="about__intro">
+        <p class="section__eyebrow" data-animate="fade-up">About the firm</p>
+        <h2 class="section__heading" data-animate="serif-unfold">
+          A quiet partner for the complicated parts.
+        </h2>
+      </div>
+
+      <div class="about__body">
+
+        <!-- 🟢 EDIT: Three sentences maximum. Keep it human. -->
+        <p data-animate="fade-up">
+          We're a Bangkok-based professional services firm built around
+          a simple idea: foreign companies shouldn't have to stitch
+          together a tax advisor, a lawyer, and a visa agent to run a
+          business in Thailand.
+        </p>
+        <p data-animate="fade-up" data-delay="1">
+          For over a decade, we've handled the technical and regulatory
+          work that sits between "we'd like to expand" and "we're
+          operating well" — for clients from the UK, the US, Japan,
+          and across the region.
+        </p>
+
+        <!-- Stats row -->
+        <!-- 🟢 EDIT: Change the numbers (data-target) and labels. -->
+        <div class="about__stats" data-animate="fade-up" data-delay="2">
+          <div class="about__stat">
+            <span class="about__stat-number" data-counter data-target="12">0</span>
+            <span class="about__stat-label">Years established</span>
+          </div>
+          <div class="about__stat">
+            <span class="about__stat-number" data-counter data-target="140">0</span>
+            <span class="about__stat-label">Clients served</span>
+          </div>
+          <div class="about__stat">
+            <span class="about__stat-number" data-counter data-target="18">0</span>
+            <span class="about__stat-label">Countries represented</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ══════════════════════════════════════════════════════════════════
+       SECTION 6: TESTIMONIAL
+       ──────────────────────────────────────────────────────────────────
+       A single pull-quote from a client. Heavy serif. Understated.
+       🟢 EDIT: Replace the quote, the attribution, and the role.
+       🟡 To add a second testimonial, duplicate the <blockquote>.
+  ══════════════════════════════════════════════════════════════════ -->
+  <section class="section section--testimonial">
+    <div class="section__inner section__inner--narrow">
+
+      <blockquote class="testimonial" data-animate="fade-up">
+        <p class="testimonial__quote">
+          <!-- 🟢 EDIT: Replace with a real client testimonial. -->
+          “They quietly handled everything we didn't know we had to
+          handle. Twelve months in, our Thai entity runs the way
+          our London office does — and we couldn't tell you which
+          of the dozen things they sorted out first.”
+        </p>
+        <footer class="testimonial__attribution">
+          <!-- 🟢 EDIT: Real name, real role, real company. -->
+          <span class="testimonial__name">Client Name</span>
+          <span class="testimonial__role">Managing Director, Client Company (United Kingdom)</span>
+        </footer>
+      </blockquote>
+
+    </div>
+  </section>
+
+
+  <!-- ══════════════════════════════════════════════════════════════════
+       SECTION 7: CONTACT
+       ──────────────────────────────────────────────────────────────────
+       A warm closing call-to-action. Left side: heading and short
+       paragraph. Right side: direct contact details (email, phone,
+       office address). No form — a form adds complexity we don't need
+       for a firm where most enquiries come via email.
+       🟢 EDIT: Replace email, phone, and address with real details.
+  ══════════════════════════════════════════════════════════════════ -->
+  <section class="section section--contact" id="contact">
+    <div class="section__inner contact__grid">
+
+      <div class="contact__intro">
+        <p class="section__eyebrow" data-animate="fade-up">Let's talk</p>
+        <h2 class="section__heading" data-animate="serif-unfold">
+          An initial conversation is
+          <em>always free.</em>
+        </h2>
+        <p class="section__lede" data-animate="fade-up">
+          Tell us where you are in your Thailand plans — we'll tell
+          you what's likely to matter in the next three, six, and
+          twelve months.
+        </p>
+      </div>
+
+      <div class="contact__details" data-animate="fade-up" data-delay="1">
+
+        <!-- 🟢 EDIT: Replace with real email. -->
+        <div class="contact__item">
+          <span class="contact__label">Email</span>
+          <a href="mailto:hello@yourfirm.com" class="contact__value">
+            hello@yourfirm.com
+          </a>
+        </div>
+
+        <!-- 🟢 EDIT: Replace with real phone. -->
+        <div class="contact__item">
+          <span class="contact__label">Phone</span>
+          <a href="tel:+6620000000" class="contact__value">
+            +66 (0) 2 000 0000
+          </a>
+        </div>
+
+        <!-- 🟢 EDIT: Replace with real office address. -->
+        <div class="contact__item">
+          <span class="contact__label">Office</span>
+          <address class="contact__value">
+            123 Silom Road<br>
+            Bangkok 10500, Thailand
+          </address>
+        </div>
+
+        <!-- 🟢 EDIT: Optional office hours line. -->
+        <div class="contact__item">
+          <span class="contact__label">Hours</span>
+          <span class="contact__value">
+            Monday–Friday · 09:00–18:00 ICT
+          </span>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ══════════════════════════════════════════════════════════════════
+       SITE FOOTER
+       ──────────────────────────────────────────────────────────────────
+       Simple, three-column footer. Firm name + tagline, quick links,
+       small print. Deliberately restrained — let the content above
+       carry the weight.
+       🟢 EDIT: Text, links, and copyright year.
+  ══════════════════════════════════════════════════════════════════ -->
+  <footer class="site-footer">
+    <div class="site-footer__inner">
+
+      <div class="site-footer__col site-footer__col--brand">
+        <p class="site-footer__logo">
+          <!-- 🟢 EDIT: Firm name. -->
+          Your Firm Name
+        </p>
+        <p class="site-footer__tagline">
+          <!-- 🟢 EDIT: Short tagline. -->
+          Tax, legal & onboarding advisory for foreign companies in Thailand.
+        </p>
+      </div>
+
+      <div class="site-footer__col">
+        <p class="site-footer__col-title">Site</p>
+        <nav aria-label="Footer navigation">
+          <a href="./">Home</a>
+          <a href="./#services">Services</a>
+          <a href="./knowledge.html">Insights</a>
+          <a href="./#about">About</a>
+          <a href="./#contact">Contact</a>
+        </nav>
+      </div>
+
+      <div class="site-footer__col">
+        <p class="site-footer__col-title">Contact</p>
+        <a href="mailto:hello@yourfirm.com">hello@yourfirm.com</a>
+        <a href="tel:+6620000000">+66 (0) 2 000 0000</a>
+        <span>Bangkok, Thailand</span>
+      </div>
+
+    </div>
+
+    <div class="site-footer__base">
+      <p>
+        <!-- 🟢 EDIT: Update the year each January. -->
+        © 2026 Your Firm Name. All rights reserved.
+      </p>
+      <p class="site-footer__base-right">
+        <a href="./privacy.html">Privacy</a>
+        <span aria-hidden="true"> · </span>
+        <a href="./terms.html">Terms</a>
+      </p>
+    </div>
+  </footer>
+
+
+  <!-- ─── SCRIPTS ───────────────────────────────────────────────────
+       🔴 Don't edit the order or paths.
+       animations.js powers: scroll reveals, cursor glow on buttons,
+       headline parallax, scroll progress bar, stats counter.
+  ──────────────────────────────────────────────────────────────── -->
+  <script src="../core/animations.js" defer></script>
+  <script src="../core/article-loader.js" defer></script>
+
+</body>
+</html>
