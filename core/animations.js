@@ -71,6 +71,13 @@
     // If reduced motion: just reveal everything immediately, no observer.
     if (prefersReducedMotion) {
       animatedEls.forEach(el => el.classList.add('is-revealed'));
+      // Even with reduced motion, the rescan hook should still reveal
+      // cards added later by article-loader.js.
+      window.__rescanScrollReveal = function () {
+        document.querySelectorAll('[data-animate]:not(.is-revealed)').forEach(
+          el => el.classList.add('is-revealed')
+        );
+      };
       return;
     }
 
@@ -79,11 +86,20 @@
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             const el = entry.target;
-            const delay = el.getAttribute('data-animate-delay');
 
-            // Apply delay class if specified (e.g. data-animate-delay="2" → delay-2)
+            // Read the stagger slot. Canonical attribute is data-delay
+            // (matches the [data-delay="N"] selectors in motion.css).
+            // We also accept the legacy data-animate-delay attribute so
+            // older HTML (the original homepage cards) keeps staggering
+            // correctly until they're updated. Either attribute results
+            // in the SAME data-delay attribute being set, which is what
+            // motion.css's transition-delay rules look for.
+            const delay =
+              el.getAttribute('data-delay') ||
+              el.getAttribute('data-animate-delay');
+
             if (delay) {
-              el.classList.add(`delay-${delay}`);
+              el.setAttribute('data-delay', delay);
             }
 
             el.classList.add('is-revealed');
@@ -103,6 +119,22 @@
     );
 
     animatedEls.forEach((el) => observer.observe(el));
+
+    /* ─── Rescan hook for dynamically-rendered content ─────────────
+       article-loader.js inserts cards into the DOM AFTER this init
+       has already finished, so those new cards aren't observed yet.
+       After it inserts cards, it calls window.__rescanScrollReveal()
+       and we observe any [data-animate] elements that aren't already
+       observed (we know that by checking for .is-revealed, since the
+       observer un-observes elements after revealing them; uncovered
+       new ones will neither be revealed nor observed).
+    ──────────────────────────────────────────────────────────────── */
+    window.__rescanScrollReveal = function () {
+      const newEls = document.querySelectorAll(
+        '[data-animate]:not(.is-revealed)'
+      );
+      newEls.forEach((el) => observer.observe(el));
+    };
   }
 
 
