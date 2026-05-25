@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="en">
+<!--
+═══════════════════════════════════════════════════════════════════════════════
+  terms.html — Terms of Use
+  ─────────────────────────────────────────────────────────────────────────────
+  Sister page to privacy.html. Same Stage 6 sub-page wrapper, same .legal-prose
+  reading column, same voice. Different content: rules of using the website,
+  intellectual property, the no-advice disclaimer, accuracy disclaimers,
+  third-party links, governing law, and limitation of liability.
+
+  THE NO-ADVICE DISCLAIMER (§3) is the most load-bearing section in this file.
+  It is what prevents a reader — or an AI engine that paraphrases the firm's
+  articles — from claiming "the firm advised me to do X." Don't soften it.
+  Don't delete it. If it ever gets edited, edit it to be MORE explicit, not
+  less.
+
+  ⚠️  IMPORTANT CAVEAT FOR THE FIRM
+    This is a DEFENSIBLE TEMPLATE. Before launch, have qualified counsel
+    review it — especially §3 (no-advice), §10 (limitation of liability),
+    and §11 (governing law). The exact phrasing of liability limitations
+    matters, and it matters more in some client jurisdictions than others.
+
+  EDITING THIS FILE
+    🟢 SAFE     — body text, contact details, dates
+    🟡 CARE     — meta tags, JSON-LD values
+    🔴 DON'T    — wrapper structure, the body data attribute, script tags,
+                   or §3's no-advice framing
+
+  PATHS — sits at /en/terms.html (same depth as privacy.html).
+═══════════════════════════════════════════════════════════════════════════════
+-->
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- 🟡 SEO meta tags. Same format as privacy.html. -->
+  <title>Terms of Use · Your Firm Name</title>
+  <meta name="description" content="The terms that apply when you use this website and the materials we publish on it. Plain-English notice for a Thailand-registered advisory firm." />
+  <meta name="keywords" content="terms of use, website terms, legal notice, Thailand advisory firm" />
+  <meta name="author" content="Your Firm Name" />
+
+  <!-- 🟡 UPDATE BEFORE LAUNCH: real domain. -->
+  <link rel="canonical" href="https://example.com/en/terms.html" />
+  <meta name="site-url" content="https://example.com" />
+  <meta name="firm-name" content="Your Firm Name" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Terms of Use · Your Firm Name" />
+  <meta property="og:description" content="The terms that apply when you use this website." />
+  <meta property="og:url" content="https://example.com/en/terms.html" />
+  <meta property="og:site_name" content="Your Firm Name" />
+  <meta property="og:locale" content="en_US" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Terms of Use · Your Firm Name" />
+  <meta name="twitter:description" content="The terms that apply when you use this website." />
+
+  <!--
+    🔴 STRUCTURED DATA — JSON-LD
+    Schema.org's "TermsOfService" type. Tells crawlers and AI answer engines
+    exactly what kind of document this is.
+  -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "TermsOfService",
+    "name": "Terms of Use",
+    "url": "https://example.com/en/terms.html",
+    "inLanguage": "en",
+    "isPartOf": {
+      "@type": "WebSite",
+      "name": "Your Firm Name",
+      "url": "https://example.com"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Your Firm Name",
+      "url": "https://example.com"
+    }
+  }
+  </script>
+
+  <!-- Stylesheets — order matters: theme first, then motion. -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600&display=swap" />
+
+  <link rel="stylesheet" href="../theme/theme.css" />
+  <link rel="stylesheet" href="../theme/motion.css" />
+
+  <!--
+    📎 Page-local typography helpers — IDENTICAL to the block in
+    privacy.html so both pages render the same way. If you ever change
+    one, change the other to match.
+  -->
+  <style>
+    .legal-prose {
+      max-width: 720px;
+      margin: 0 auto;
+    }
+
+    .legal-prose h2 {
+      font-family: var(--font-heading);
+      font-size: var(--text-xl);
+      line-height: var(--line-tight);
+      color: var(--color-navy);
+      margin-top: var(--space-xl);
+      margin-bottom: var(--space-sm);
+    }
+
+    .legal-prose > h2:first-child {
+      margin-top: 0;
+    }
+
+    .legal-prose h3 {
+      font-family: var(--font-heading);
+      font-size: var(--text-lg);
+      color: var(--color-navy);
+      margin-top: var(--space-lg);
+      margin-bottom: var(--space-xs);
+    }
+
+    .legal-prose p {
+      font-family: var(--font-body);
+      font-size: var(--text-base);
+      line-height: 1.65;
+      color: var(--color-ink);
+      margin-bottom: var(--space-sm);
+    }
+
+    .legal-prose ul,
+    .legal-prose ol {
+      margin: var(--space-sm) 0 var(--space-md);
+      padding-left: var(--space-md);
+    }
+
+    .legal-prose li {
+      font-family: var(--font-body);
+      font-size: var(--text-base);
+      line-height: 1.65;
+      color: var(--color-ink);
+      margin-bottom: var(--space-xs);
+    }
+
+    .legal-prose li::marker {
+      color: var(--color-gold);
+    }
+
+    .legal-meta {
+      font-family: var(--font-body);
+      font-size: var(--text-sm);
+      color: var(--color-faint);
+      margin-bottom: var(--space-lg);
+      text-align: center;
+    }
+
+    .legal-note {
+      background: var(--color-stone-lighter);
+      border-left: 3px solid var(--color-gold);
+      padding: var(--space-md) var(--space-md);
+      margin: var(--space-md) 0 var(--space-lg);
+      font-size: var(--text-sm);
+      line-height: 1.6;
+      color: var(--color-ink);
+    }
+
+    .legal-note strong {
+      font-weight: var(--weight-medium);
+      color: var(--color-navy);
+    }
+
+    /*
+      Page-specific to terms — the no-advice callout in §3.
+      Same component family as .legal-note, but visually heavier so
+      readers can't miss it. Navy left border instead of gold, slightly
+      darker stone background.
+    */
+    .legal-note--strong {
+      background: var(--color-stone-darker);
+      border-left: 3px solid var(--color-navy);
+    }
+  </style>
+</head>
+
+<body data-seo-context="static-page">
+
+  <!-- Scroll progress bar + ambient blobs — same as every page. -->
+  <div class="scroll-progress" id="scrollProgress"></div>
+  <div class="ambient-blob ambient-blob--navy" aria-hidden="true"></div>
+  <div class="ambient-blob ambient-blob--gold" aria-hidden="true"></div>
+
+
+  <!-- ══════════════════════════════════════════════════════════════════
+       SITE HEADER
+       ══════════════════════════════════════════════════════════════════ -->
+  <header class="site-header">
+    <div class="site-header__inner">
+
+      <a href="./" class="site-header__logo" aria-label="Home">
+        <!-- 🟢 EDIT: firm name -->
+        Your Firm Name
+      </a>
+
+      <nav class="site-header__nav" aria-label="Main navigation">
+        <a href="./#services">Services</a>
+        <a href="./knowledge.html">Insights</a>
+        <a href="./#about">About</a>
+        <a href="./#contact" class="site-header__cta">Contact</a>
+      </nav>
+
+      <div class="site-header__lang" data-lang-switcher hidden>
+        <span>EN</span>
+      </div>
+
+    </div>
+  </header>
+
+
+  <!-- ══════════════════════════════════════════════════════════════════
+       PAGE OPENING (Pattern B band)
+       ══════════════════════════════════════════════════════════════════ -->
+  <section class="knowledge-header" data-animate="fade-up">
+    <div class="knowledge-header__inner">
+
+      <p class="knowledge-header__eyebrow">Terms</p>
+
+      <!-- 🟢 EDIT: page heading. -->
+      <h1 class="knowledge-header__heading">
+        Using this website, in <em>plain terms</em>.
+      </h1>
+
+      <!-- 🟢 EDIT: lede. -->
+      <p class="knowledge-header__lede">
+        The rules that apply when you read what we publish here, and
+        what we mean — and don't mean — when we publish it.
+      </p>
+
+    </div>
+  </section>
+
+
+  <!-- ══════════════════════════════════════════════════════════════════
+       TERMS BODY
+       ══════════════════════════════════════════════════════════════════ -->
+  <section class="section">
+    <div class="section__inner">
+      <div class="legal-prose" data-animate="fade-up">
+
+        <!-- 🟢 EDIT: update when you make a material change. -->
+        <p class="legal-meta">Last updated: 26 April 2026</p>
+
+        <!-- Opening note — sister to privacy.html's. -->
+        <div class="legal-note">
+          <strong>About this notice.</strong> This page sets out the
+          terms that apply when you use the website of Your Firm Name
+          (the "firm," "we," "us," or "our"). By using the site, you
+          agree to these terms. If you do not agree with them, please
+          do not use the site.
+        </div>
+
+
+        <!-- ─── 1. Who we are ─── -->
+        <h2>1. Who we are</h2>
+        <p>
+          <!-- 🟢 EDIT: firm description, registered name, head office. -->
+          Your Firm Name is a Thailand-registered advisory firm based
+          in Bangkok. We provide tax, accounting, and onboarding
+          services to foreign-owned businesses operating in Thailand
+          and to foreign companies preparing to enter the Thai market.
+        </p>
+
+
+        <!-- ─── 2. About this website ─── -->
+        <h2>2. About this website</h2>
+        <p>
+          This website exists to introduce the firm and to share
+          articles, guides, and commentary on the topics we work on.
+          Most of the content here is written for an audience of
+          foreign founders, executives, and finance leaders who are
+          considering or already operating in Thailand.
+        </p>
+        <p>
+          We try to keep the site accurate, useful, and reasonably
+          up to date. We don't promise that every article will reflect
+          the latest position on every point of Thai law, regulation,
+          or practice — laws change, regulations are reinterpreted,
+          and our articles reflect the position at the time we wrote
+          them. The publication date is shown on every article so you
+          can judge for yourself.
+        </p>
+
+
+        <!-- ─── 3. NO ADVICE — the load-bearing section ─── -->
+        <h2>3. The articles are not advice</h2>
+
+        <!-- The strong callout — visually unmissable. -->
+        <div class="legal-note legal-note--strong">
+          <strong>Nothing on this website is legal, tax, accounting,
+          or professional advice.</strong> The articles, guides, and
+          commentary we publish here are general explanations of how
+          things work in Thailand for foreign-owned businesses. They
+          are not specific advice on your situation, your company, or
+          your transaction.
+        </div>
+
+        <p>
+          Specific advice depends on the specific facts. The same
+          question — about a tax filing, a work permit, a
+          shareholding structure — can have a different answer
+          depending on the company's history, the people involved,
+          the timing, and a dozen other things that don't fit into a
+          public article.
+        </p>
+        <p>
+          If you are facing a real decision and the answer matters,
+          please don't rely on what we publish here. Please write to
+          us, or speak with another qualified advisor, so the answer
+          you act on is shaped to your situation rather than to a
+          general audience.
+        </p>
+        <p>
+          Reading this website does not create a client relationship
+          between you and the firm. A client relationship begins only
+          when we have agreed an engagement in writing.
+        </p>
+
+
+        <!-- ─── 4. AI engines and third-party paraphrasing ─── -->
+        <h2>4. When AI assistants quote our work</h2>
+        <p>
+          Our articles are written for the public web, and they are
+          increasingly read — and paraphrased — by AI search engines
+          and assistants. We are glad when our work is useful in
+          those contexts.
+        </p>
+        <p>
+          A paraphrase by a third party is not advice from the firm.
+          When an AI assistant summarises one of our articles, the
+          summary belongs to the assistant, not to us. If you read a
+          summary of our work elsewhere and the question matters,
+          please come back to the original article, check the date,
+          and — if the answer affects a real decision — write to us.
+        </p>
+
+
+        <!-- ─── 5. Use of the website ─── -->
+        <h2>5. How you may use this website</h2>
+        <p>
+          You may read, share, and quote from the articles for your
+          own purposes — personal reading, internal discussion at
+          your company, sharing with colleagues. We ask only that you
+          do not:
+        </p>
+        <ul>
+          <li>republish full articles on another website without our
+            written permission;</li>
+          <li>remove our name, the publication date, or attribution
+            when you share an excerpt;</li>
+          <li>use the firm's name, logo, or marks in a way that
+            suggests we have endorsed something we have not.</li>
+        </ul>
+        <p>
+          Short, attributed excerpts — for example, a quoted
+          paragraph in your own article, blog post, or research note,
+          with a link back to the original — are welcome and require
+          no permission.
+        </p>
+
+
+        <!-- ─── 6. Intellectual property ─── -->
+        <h2>6. Intellectual property</h2>
+        <p>
+          The articles, guides, design, and code on this website are
+          the firm's intellectual property, except where we credit a
+          third party. The firm's name and visual identity are also
+          the firm's property.
+        </p>
+        <p>
+          Some elements of the site rely on third-party tools and
+          services that have their own licences — including the
+          fonts, hosting, and any libraries we use. Those remain the
+          property of their respective owners and are used here under
+          their licence terms.
+        </p>
+
+
+        <!-- ─── 7. Third-party links ─── -->
+        <h2>7. Links to other websites</h2>
+        <p>
+          Some articles link to government registries, professional
+          bodies, or other reference sources. We include those links
+          because we think they are useful at the time of writing.
+          We do not control those websites, we don't monitor them,
+          and we are not responsible for what appears on them.
+        </p>
+
+
+        <!-- ─── 8. Submissions and enquiries ─── -->
+        <h2>8. Things you send us</h2>
+        <p>
+          When you contact us by email, the email itself, and any
+          information you choose to share in it, becomes part of the
+          firm's records. We treat enquiries confidentially.
+        </p>
+        <p>
+          Please do not send us highly sensitive information — such
+          as detailed financial records, personal identification
+          documents, or commercially sensitive material — until we
+          have agreed an engagement and a secure way to share it.
+          A casual email is not the right channel for sensitive data.
+        </p>
+
+
+        <!-- ─── 9. Availability and changes ─── -->
+        <h2>9. The site itself</h2>
+        <p>
+          We do our best to keep the site available and to keep the
+          content current, but we don't guarantee that the site will
+          always be online, error-free, or up to date. We may add,
+          remove, or rewrite articles at any time. We may change
+          these terms at any time; the date at the top of this page
+          shows when we last did.
+        </p>
+
+
+        <!-- ─── 10. Limitation of liability ─── -->
+        <h2>10. Limitation of liability</h2>
+        <p>
+          To the fullest extent permitted by Thai law, the firm is
+          not liable for any loss or damage that arises from your
+          use of this website or from your reliance on anything
+          published on it. This includes — but is not limited to —
+          decisions you make based on the articles, the timing of
+          decisions you take, and any consequence of acting on
+          information that has since changed.
+        </p>
+        <p>
+          This limitation does not affect any liability that cannot
+          be excluded under Thai law, and it does not limit the
+          firm's responsibility to its clients under signed
+          engagements — which are governed by their own terms.
+        </p>
+
+
+        <!-- ─── 11. Governing law ─── -->
+        <h2>11. Governing law</h2>
+        <p>
+          These terms, and any dispute about them or about your use
+          of this website, are governed by the laws of Thailand. The
+          courts of Thailand have non-exclusive jurisdiction over any
+          such dispute.
+        </p>
+
+
+        <!-- ─── 12. Contact ─── -->
+        <h2>12. How to contact us</h2>
+        <p>
+          For any question about these terms — or for permission to
+          republish or use our work in a way that goes beyond the
+          short attributed excerpt described in §5 — please write to
+          us at the email address below.
+        </p>
+        <p>
+          <!-- 🟢 EDIT: real contact email at launch. -->
+          Email: <a href="mailto:hello@yourfirm.com">hello@yourfirm.com</a>
+        </p>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ══════════════════════════════════════════════════════════════════
+       CLOSING CTA
+       ══════════════════════════════════════════════════════════════════ -->
+  <section class="section section--cta" data-animate="fade-up">
+    <div class="section__inner">
+      <p class="section__eyebrow">Conversation</p>
+      <!-- 🟢 EDIT: CTA copy. -->
+      <h2 class="section__heading">
+        Have a real question? <em>Write to us</em>.
+      </h2>
+      <p class="section__lede">
+        General articles can only take a question so far. If yours
+        is real and yours is specific, an email is faster than
+        re-reading a guide.
+      </p>
+      <p>
+        <!-- 🟢 EDIT: contact email -->
+        <a class="btn btn--glow" href="mailto:hello@yourfirm.com">
+          hello@yourfirm.com
+        </a>
+      </p>
+    </div>
+  </section>
+
+
+  <!-- ══════════════════════════════════════════════════════════════════
+       SITE FOOTER
+       Same as privacy.html and homepage. aria-current marks the active
+       legal page in the footer base.
+       ══════════════════════════════════════════════════════════════════ -->
+  <footer class="site-footer">
+    <div class="site-footer__inner">
+
+      <div class="site-footer__col site-footer__col--brand">
+        <p class="site-footer__logo">
+          <!-- 🟢 EDIT: firm name. -->
+          Your Firm Name
+        </p>
+        <p class="site-footer__tagline">
+          <!-- 🟢 EDIT: tagline. -->
+          Tax & onboarding advisory for foreign companies in Thailand.
+        </p>
+      </div>
+
+      <div class="site-footer__col">
+        <p class="site-footer__col-title">Site</p>
+        <nav aria-label="Footer navigation">
+          <a href="./">Home</a>
+          <a href="./#services">Services</a>
+          <a href="./knowledge.html">Insights</a>
+          <a href="./#about">About</a>
+          <a href="./#contact">Contact</a>
+        </nav>
+      </div>
+
+      <div class="site-footer__col">
+        <p class="site-footer__col-title">Contact</p>
+        <a href="mailto:hello@yourfirm.com">hello@yourfirm.com</a>
+        <a href="tel:+6620000000">+66 (0) 2 000 0000</a>
+        <span>Bangkok, Thailand</span>
+      </div>
+
+    </div>
+
+    <div class="site-footer__base">
+      <p>
+        <!-- 🟢 EDIT: update year each January. -->
+        © 2026 Your Firm Name. All rights reserved.
+      </p>
+      <p class="site-footer__base-right">
+        <a href="./privacy.html">Privacy</a>
+        <span aria-hidden="true"> · </span>
+        <a href="./terms.html" aria-current="page">Terms</a>
+      </p>
+    </div>
+  </footer>
+
+
+  <!-- ─── SCRIPTS ─── -->
+  <script src="../core/animations.js" defer></script>
+  <script src="../core/article-loader.js" defer></script>
+
+</body>
+</html>

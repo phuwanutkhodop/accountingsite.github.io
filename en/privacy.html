@@ -1,0 +1,689 @@
+<!DOCTYPE html>
+<html lang="en">
+<!--
+═══════════════════════════════════════════════════════════════════════════════
+  privacy.html — Privacy Policy
+  ─────────────────────────────────────────────────────────────────────────────
+  This is a SUB-PAGE built on the canonical Stage 6 wrapper pattern. The
+  same shell is reused on terms.html, about.html, services.html,
+  services/tax.html, services/onboarding.html, and contact.html.
+
+  THE CANONICAL SUB-PAGE WRAPPER (read once, reuse everywhere)
+    1. SEO head: title, description, keywords, author, canonical,
+       site-url + firm-name (read by article-loader.js), Open Graph,
+       Twitter Card, JSON-LD shell typed for the page.
+    2. Body opens with: scroll progress bar, two ambient blobs.
+    3. Site header: same as homepage (BEM convention with __col--brand,
+       __col-title, etc. — NOT knowledge.html's __brand / __heading / __list
+       variant; the homepage is the canonical reference per Stage 4.5).
+    4. Page opening: PATTERN B band — .knowledge-header with eyebrow +
+       heading + lede. (PATTERN A — the hero with cursor parallax — is
+       reserved for the homepage only.)
+    5. Page body: one or more .section blocks. Inside each, .section__inner
+       wraps everything, then .section__eyebrow / .section__heading /
+       .section__lede / content.
+    6. Closing CTA: .section.section--cta with email button.
+    7. Footer: same as homepage.
+    8. Scripts: animations.js + article-loader.js (yes, both — the loader
+       also injects the firm-level Organization JSON-LD).
+
+  WHAT THIS FILE CONTAINS (Privacy Policy specifically)
+    The standard sections of a defensible privacy notice for a Thai
+    registered firm whose audience includes UK / EU / US visitors:
+    who we are, what we collect, how we use it, legal bases, sharing,
+    international transfers, retention, your rights, cookies, children's
+    data, changes, contact.
+
+  ⚠️  IMPORTANT CAVEAT FOR THE FIRM
+    This is a DEFENSIBLE TEMPLATE — written in plain English, structured
+    for PDPA (Thailand) and aware of GDPR (UK/EU visitors). It is NOT a
+    substitute for review by qualified privacy counsel. Before launch:
+      a. Have a Thai data-protection lawyer review the PDPA framing.
+      b. Have UK/EU counsel confirm the GDPR-adjacent language is fine
+         for visitors from those jurisdictions.
+      c. Set the specific retention periods, named DPO contact (if any),
+         and analytics tooling once those are decided.
+
+  EDITING THIS FILE
+    🟢 SAFE     — body text, contact details, retention periods, dates
+    🟡 CARE     — meta tags, JSON-LD values (these affect SEO and AEO)
+    🔴 DON'T    — the wrapper structure (header, footer, body data
+                   attribute), script tags, or the .knowledge-header
+                   classes (they're how article-loader.js + animations.js
+                   find what they need to do their work)
+
+  PATHS
+    This file sits at /en/privacy.html. So:
+      ../theme/theme.css        →  /theme/theme.css
+      ../core/animations.js     →  /core/animations.js
+      ./                        →  /en/   (the homepage)
+      ./knowledge.html          →  /en/knowledge.html
+═══════════════════════════════════════════════════════════════════════════════
+-->
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!--
+    ─────────────────────────────────────────────────────────────────────────
+    🟡 CARE — SEO meta tags
+    Title format: "[page name] · [firm name]" matches knowledge.html.
+    Keep title under 60 characters and description under 160.
+    ─────────────────────────────────────────────────────────────────────────
+  -->
+  <title>Privacy Policy · Your Firm Name</title>
+  <meta name="description" content="How we collect, use, and protect personal information about visitors to this site and clients of our firm. Plain-English privacy notice for a Thailand-registered advisory firm." />
+  <meta name="keywords" content="privacy policy, PDPA Thailand, data protection Thailand, foreign business privacy" />
+  <meta name="author" content="Your Firm Name" />
+
+  <!-- Canonical URL — tells search engines which version of this page is authoritative.
+       🟡 UPDATE BEFORE LAUNCH: change example.com to the real domain. -->
+  <link rel="canonical" href="https://example.com/en/privacy.html" />
+
+  <!-- Site-wide identity meta tags. Read by article-loader.js to build absolute
+       URLs in the structured data. 🟡 UPDATE BEFORE LAUNCH. -->
+  <meta name="site-url" content="https://example.com" />
+  <meta name="firm-name" content="Your Firm Name" />
+
+  <!--
+    Open Graph — controls the link preview on Facebook, LinkedIn, Slack, etc.
+    Without these, the preview is generic and unappealing.
+  -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Privacy Policy · Your Firm Name" />
+  <meta property="og:description" content="How we collect, use, and protect personal information." />
+  <meta property="og:url" content="https://example.com/en/privacy.html" />
+  <meta property="og:site_name" content="Your Firm Name" />
+  <meta property="og:locale" content="en_US" />
+
+  <!-- Twitter Card — same idea, for Twitter / X link previews. -->
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Privacy Policy · Your Firm Name" />
+  <meta name="twitter:description" content="How we collect, use, and protect personal information." />
+
+  <!--
+    ─────────────────────────────────────────────────────────────────────────
+    🔴 STRUCTURE — JSON-LD STRUCTURED DATA
+    Schema.org type "PrivacyPolicy" tells crawlers and AI answer engines
+    exactly what kind of page this is. Helps Google show the right favicon,
+    helps AI engines categorise the document correctly when it's referenced.
+    ─────────────────────────────────────────────────────────────────────────
+  -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "PrivacyPolicy",
+    "name": "Privacy Policy",
+    "url": "https://example.com/en/privacy.html",
+    "inLanguage": "en",
+    "isPartOf": {
+      "@type": "WebSite",
+      "name": "Your Firm Name",
+      "url": "https://example.com"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Your Firm Name",
+      "url": "https://example.com"
+    }
+  }
+  </script>
+
+  <!-- Stylesheets — order matters: theme first, then motion. -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600&display=swap" />
+
+  <link rel="stylesheet" href="../theme/theme.css" />
+  <link rel="stylesheet" href="../theme/motion.css" />
+
+  <!--
+    📎 NOTE — page-local typography helpers
+    A small inline <style> block for the long-form prose sections of this
+    page. These styles ONLY affect content inside .legal-prose, so they
+    can't leak into other pages. They use existing design tokens — no new
+    colours, no new fonts, no new sizes. If anything here ever feels wrong,
+    delete the whole <style> block; the page still renders, just with the
+    site's default body styling.
+  -->
+  <style>
+    /* The reading column — narrower than .section__inner so long policy
+       text stays comfortable to read. Width matches what the article
+       template uses for body copy. */
+    .legal-prose {
+      max-width: 720px;
+      margin: 0 auto;
+    }
+
+    /* Section headings inside the policy — the h2 inside each numbered
+       section. Slightly smaller than .section__heading so they read as
+       sub-points within the policy, not as separate page sections. */
+    .legal-prose h2 {
+      font-family: var(--font-heading);
+      font-size: var(--text-xl);
+      line-height: var(--line-tight);
+      color: var(--color-navy);
+      margin-top: var(--space-xl);
+      margin-bottom: var(--space-sm);
+    }
+
+    /* The first h2 doesn't need a giant top-gap — the section already
+       has its own padding above it. */
+    .legal-prose > h2:first-child {
+      margin-top: 0;
+    }
+
+    /* Sub-headings inside a numbered section. */
+    .legal-prose h3 {
+      font-family: var(--font-heading);
+      font-size: var(--text-lg);
+      color: var(--color-navy);
+      margin-top: var(--space-lg);
+      margin-bottom: var(--space-xs);
+    }
+
+    /* Body paragraphs in the policy — slightly tighter line-height than
+       articles, since policy prose tends to be denser by nature. */
+    .legal-prose p {
+      font-family: var(--font-body);
+      font-size: var(--text-base);
+      line-height: 1.65;
+      color: var(--color-ink);
+      margin-bottom: var(--space-sm);
+    }
+
+    /* Lists in the policy — gold marker, indented, comfortable spacing. */
+    .legal-prose ul,
+    .legal-prose ol {
+      margin: var(--space-sm) 0 var(--space-md);
+      padding-left: var(--space-md);
+    }
+
+    .legal-prose li {
+      font-family: var(--font-body);
+      font-size: var(--text-base);
+      line-height: 1.65;
+      color: var(--color-ink);
+      margin-bottom: var(--space-xs);
+    }
+
+    .legal-prose li::marker {
+      color: var(--color-gold);
+    }
+
+    /* The "last updated" line at the top of the policy. Small, muted,
+       sits quietly under the page heading. */
+    .legal-meta {
+      font-family: var(--font-body);
+      font-size: var(--text-sm);
+      color: var(--color-faint);
+      margin-bottom: var(--space-lg);
+      text-align: center;
+    }
+
+    /* The opening note — calls out the template caveat. Subtle stone
+       background, gold left border, tight padding. Same visual register
+       as the article template's callout box. */
+    .legal-note {
+      background: var(--color-stone-lighter);
+      border-left: 3px solid var(--color-gold);
+      padding: var(--space-md) var(--space-md);
+      margin: var(--space-md) 0 var(--space-lg);
+      font-size: var(--text-sm);
+      line-height: 1.6;
+      color: var(--color-ink);
+    }
+
+    .legal-note strong {
+      font-weight: var(--weight-medium);
+      color: var(--color-navy);
+    }
+  </style>
+</head>
+
+<!--
+  ───────────────────────────────────────────────────────────────────────────
+  🔴 STRUCTURE — body tag carries the SEO context attribute
+  data-seo-context="static-page" tells article-loader.js that this is a
+  static page (not the homepage, not the knowledge index, not an article).
+  The loader still runs to inject the firm-level Organization JSON-LD, but
+  it doesn't try to render any article cards or marquees here.
+  ───────────────────────────────────────────────────────────────────────────
+-->
+<body data-seo-context="static-page">
+
+  <!-- Scroll progress bar — animations.js fills its width as the visitor scrolls. -->
+  <div class="scroll-progress" id="scrollProgress"></div>
+
+  <!-- Ambient background blobs — pure decoration. theme.css positions them,
+       motion.css drifts them. aria-hidden so screen readers ignore them. -->
+  <div class="ambient-blob ambient-blob--navy" aria-hidden="true"></div>
+  <div class="ambient-blob ambient-blob--gold" aria-hidden="true"></div>
+
+
+  <!-- ══════════════════════════════════════════════════════════════════
+       SITE HEADER
+       Same pattern as homepage. Relative paths.
+       🟢 EDIT: firm name in the logo, nav labels.
+       ══════════════════════════════════════════════════════════════════ -->
+  <header class="site-header">
+    <div class="site-header__inner">
+
+      <a href="./" class="site-header__logo" aria-label="Home">
+        <!-- 🟢 EDIT: firm name -->
+        Your Firm Name
+      </a>
+
+      <nav class="site-header__nav" aria-label="Main navigation">
+        <a href="./#services">Services</a>
+        <a href="./knowledge.html">Insights</a>
+        <a href="./#about">About</a>
+        <a href="./#contact" class="site-header__cta">Contact</a>
+      </nav>
+
+      <!-- Language switcher — currently hidden (only English is live).
+           🔴 Will activate automatically when /th/ or /cn/ go live. -->
+      <div class="site-header__lang" data-lang-switcher hidden>
+        <span>EN</span>
+      </div>
+
+    </div>
+  </header>
+
+
+  <!-- ══════════════════════════════════════════════════════════════════
+       PAGE OPENING (Pattern B band)
+       Eyebrow + serif heading + lede. The italic em on the heading
+       picks up the gold accent from theme.css.
+       ══════════════════════════════════════════════════════════════════ -->
+  <section class="knowledge-header" data-animate="fade-up">
+    <div class="knowledge-header__inner">
+
+      <p class="knowledge-header__eyebrow">Privacy</p>
+
+      <!-- 🟢 EDIT: page heading. The <em> wrapping a word turns it gold. -->
+      <h1 class="knowledge-header__heading">
+        How we handle <em>your information</em>.
+      </h1>
+
+      <!-- 🟢 EDIT: lede paragraph. -->
+      <p class="knowledge-header__lede">
+        A plain-English summary of what we collect, why we collect it,
+        and the rights you have over it. Written for the people who
+        actually have to read this.
+      </p>
+
+    </div>
+  </section>
+
+
+  <!-- ══════════════════════════════════════════════════════════════════
+       POLICY BODY
+       One .section that contains the full policy in a narrower
+       reading column (.legal-prose). Numbered sections, each with a
+       clear h2 heading.
+       ══════════════════════════════════════════════════════════════════ -->
+  <section class="section">
+    <div class="section__inner">
+      <div class="legal-prose" data-animate="fade-up">
+
+        <!-- 🟢 EDIT: update this date when you make a material change to the policy. -->
+        <p class="legal-meta">Last updated: 26 April 2026</p>
+
+        <!--
+          🟢 EDIT: the opening note. Keeps the document honest by telling
+          visitors how to read it. Remove if you'd rather not flag the
+          template origin — but most professional firms include something
+          like this.
+        -->
+        <div class="legal-note">
+          <strong>About this notice.</strong> This page explains how
+          Your Firm Name (the "firm," "we," "us," or "our") handles
+          personal information collected through this website and through
+          our professional engagements. If anything here is unclear, or
+          you would like more detail about how we hold information about
+          you specifically, please contact us using the details at the
+          bottom of this page.
+        </div>
+
+
+        <!-- ─── 1. Who we are ─── -->
+        <h2>1. Who we are</h2>
+        <p>
+          <!-- 🟢 EDIT: replace the firm description with your registered
+               company name, head office, and a one-line summary of what
+               you do. Keep this paragraph short — visitors who want more
+               about the firm can read the About page. -->
+          Your Firm Name is a Thailand-registered advisory firm based in
+          Bangkok. We provide tax, accounting, and onboarding services
+          to foreign-owned businesses operating in Thailand, and to
+          foreign companies preparing to enter the Thai market.
+        </p>
+        <p>
+          For the purposes of this notice, the firm is the
+          <strong>data controller</strong> of personal information
+          collected through this website and through our engagements
+          with clients and prospective clients.
+        </p>
+
+
+        <!-- ─── 2. What information we collect ─── -->
+        <h2>2. What information we collect</h2>
+
+        <h3>Information you give us directly</h3>
+        <p>
+          When you contact us by email, telephone, or in person — or
+          when you become a client of the firm — you may share your
+          name, your role, your employer, your contact details, and
+          information about your business situation that is relevant
+          to the question or engagement.
+        </p>
+
+        <h3>Information we collect automatically</h3>
+        <p>
+          When you visit this website, our hosting and analytics
+          services may record technical information about your visit:
+          your IP address, your browser type, the pages you view, the
+          time you spent on each page, and the page that referred you
+          here. We do not use this information to identify individual
+          visitors.
+        </p>
+
+        <h3>Information we receive from third parties</h3>
+        <p>
+          In the course of an engagement, we may receive information
+          about you from your employer, your colleagues, your other
+          professional advisors, or from public registers (such as the
+          Thai Department of Business Development).
+        </p>
+
+
+        <!-- ─── 3. How we use your information ─── -->
+        <h2>3. How we use your information</h2>
+        <p>We use personal information to:</p>
+        <ul>
+          <li>respond to enquiries you send us;</li>
+          <li>deliver the services you have engaged us to provide;</li>
+          <li>communicate with you about ongoing matters;</li>
+          <li>meet our legal, regulatory, and professional obligations
+            (including record-keeping obligations under Thai law and
+            anti-money-laundering rules);</li>
+          <li>improve this website and the way we communicate;</li>
+          <li>send occasional updates about our work, only if you have
+            asked to receive them.</li>
+        </ul>
+
+
+        <!-- ─── 4. Legal bases for processing ─── -->
+        <h2>4. Why we are allowed to use your information</h2>
+        <p>
+          Under Thailand's Personal Data Protection Act (PDPA), we
+          process personal information on one or more of the following
+          legal bases:
+        </p>
+        <ul>
+          <li>your <strong>consent</strong>, where you have asked us to
+            do something specific (such as send you an article);</li>
+          <li>the <strong>performance of a contract</strong> with you,
+            where you have engaged the firm for a specific piece of
+            work;</li>
+          <li>our <strong>legitimate interests</strong> in running and
+            promoting a professional services firm, where those
+            interests are not outweighed by your rights;</li>
+          <li>compliance with a <strong>legal obligation</strong> the
+            firm is subject to (for example, tax record-keeping, audit
+            evidence retention, AML/KYC obligations).</li>
+        </ul>
+        <p>
+          If you are a visitor from the United Kingdom or the European
+          Union, the equivalent legal bases under the UK GDPR or EU
+          GDPR apply. We work with foreign-owned businesses regularly,
+          and the substance of these protections is the same.
+        </p>
+
+
+        <!-- ─── 5. Sharing your information ─── -->
+        <h2>5. Who we share your information with</h2>
+        <p>
+          We do not sell personal information, and we do not share it
+          for marketing purposes. We may share information with:
+        </p>
+        <ul>
+          <li><strong>Service providers</strong> who support the firm's
+            operations (such as our IT and email providers, and our
+            secure document storage providers), under written
+            confidentiality obligations.</li>
+          <li><strong>Government authorities and regulators</strong>
+            where we are required to do so by law — for example, when
+            filing tax returns, statutory accounts, audit reports, or
+            responding to a lawful order.</li>
+          <li><strong>Other professional advisors</strong> involved in
+            the same engagement, but only with your knowledge and only
+            to the extent necessary for the work.</li>
+          <li><strong>A successor firm</strong>, if the practice is
+            ever transferred or acquired — in which case continuing
+            obligations of confidentiality apply.</li>
+        </ul>
+
+
+        <!-- ─── 6. International transfers ─── -->
+        <h2>6. Where your information is held</h2>
+        <p>
+          The firm is based in Thailand and most of the information we
+          hold is processed in Thailand. Some service providers we use
+          (for example, email and document-storage providers) may store
+          information on servers located outside Thailand, including in
+          jurisdictions whose data-protection regimes may differ from
+          your home jurisdiction.
+        </p>
+        <p>
+          Where information is transferred outside Thailand, we take
+          steps to ensure that an appropriate level of protection is
+          maintained — typically by selecting service providers with
+          recognised security and privacy practices and contractual
+          confidentiality obligations.
+        </p>
+
+
+        <!-- ─── 7. Retention ─── -->
+        <h2>7. How long we keep your information</h2>
+        <p>
+          We keep personal information only for as long as we need it
+          for the purposes set out in this notice — and, where the law
+          requires, for the minimum period the law specifies.
+        </p>
+        <p>
+          <!-- 🟢 EDIT: replace this paragraph with your firm's actual
+               retention practice once it is set. Common Thai professional
+               retention periods include five years for general accounting
+               records and ten years for audit working papers — but the
+               firm's specific retention schedule should reflect its own
+               practice and the engagements it accepts. -->
+          For client engagement records, we typically retain working
+          files for the period required under Thai accounting and
+          professional rules. For website visitor data and general
+          enquiries, we retain information for no longer than is
+          reasonably necessary.
+        </p>
+
+
+        <!-- ─── 8. Your rights ─── -->
+        <h2>8. Your rights</h2>
+        <p>
+          Under the PDPA — and, for visitors from the UK and EU, under
+          the equivalent provisions of the UK GDPR and EU GDPR — you
+          have the right to:
+        </p>
+        <ul>
+          <li>ask whether we hold personal information about you, and
+            request a copy of it;</li>
+          <li>ask us to correct information that is inaccurate or
+            incomplete;</li>
+          <li>ask us to delete information we no longer need;</li>
+          <li>ask us to restrict how we use your information in certain
+            circumstances;</li>
+          <li>object to our use of your information for purposes based
+            on our legitimate interests;</li>
+          <li>withdraw consent at any time, where consent is the basis
+            for our processing;</li>
+          <li>complain to a data-protection authority, including
+            Thailand's Personal Data Protection Committee (PDPC).</li>
+        </ul>
+        <p>
+          To exercise any of these rights, please contact us using the
+          details below. We will normally respond within thirty days.
+        </p>
+
+
+        <!-- ─── 9. Cookies and analytics ─── -->
+        <h2>9. Cookies and website analytics</h2>
+        <p>
+          <!-- 🟢 EDIT after analytics tooling is chosen.
+               This block is deliberately generic until the firm decides
+               whether to use Google Analytics, Plausible, Umami, or
+               nothing at all. Once the choice is made, replace this
+               paragraph with: (a) which tool is used, (b) what it
+               collects, (c) whether visitors can opt out and how. -->
+          This website may use lightweight analytics to understand
+          which articles and pages visitors find useful. We do not use
+          analytics that build advertising profiles about you across
+          other websites. We do not use cookies for marketing purposes.
+        </p>
+
+
+        <!-- ─── 10. Children's data ─── -->
+        <h2>10. Children's information</h2>
+        <p>
+          Our services are aimed at businesses and professional users.
+          We do not knowingly collect personal information from
+          children. If you believe a child has provided personal
+          information to us, please contact us and we will delete it.
+        </p>
+
+
+        <!-- ─── 11. Changes to this notice ─── -->
+        <h2>11. Changes to this notice</h2>
+        <p>
+          We may update this notice from time to time — typically when
+          our practices change, when the law changes, or when we update
+          the website. The "last updated" date at the top of this page
+          tells you when the most recent change was made. If a change
+          is significant, we will say so plainly at the top of the
+          page.
+        </p>
+
+
+        <!-- ─── 12. Contact ─── -->
+        <h2>12. How to contact us</h2>
+        <p>
+          For any privacy question, request, or complaint, please write
+          to us at the email address below. We treat privacy enquiries
+          as a priority and will respond promptly.
+        </p>
+        <p>
+          <!-- 🟢 EDIT: contact email. Replace with the firm's real
+               email at launch. If the firm has a designated DPO or
+               privacy contact, mention them by name here. -->
+          Email: <a href="mailto:hello@yourfirm.com">hello@yourfirm.com</a>
+        </p>
+        <p>
+          You may also contact Thailand's Personal Data Protection
+          Committee (PDPC) directly if you are not satisfied with our
+          response.
+        </p>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ══════════════════════════════════════════════════════════════════
+       CLOSING CTA
+       Same pattern as knowledge.html. A soft, single-line invitation
+       to talk — not aggressive, not sales-y.
+       ══════════════════════════════════════════════════════════════════ -->
+  <section class="section section--cta" data-animate="fade-up">
+    <div class="section__inner">
+      <p class="section__eyebrow">Conversation</p>
+      <!-- 🟢 EDIT: CTA heading and body -->
+      <h2 class="section__heading">
+        Have a question about <em>your information</em>?
+      </h2>
+      <p class="section__lede">
+        Privacy questions reach us faster than most. If something on
+        this page isn't clear, or you'd like to know exactly what we
+        hold about you, just write.
+      </p>
+      <p>
+        <!-- 🟢 EDIT: contact email -->
+        <a class="btn btn--glow" href="mailto:hello@yourfirm.com">
+          hello@yourfirm.com
+        </a>
+      </p>
+    </div>
+  </section>
+
+
+  <!-- ══════════════════════════════════════════════════════════════════
+       SITE FOOTER
+       Same pattern as homepage (homepage's BEM convention is canonical
+       per Stage 4.5). Relative paths.
+       ══════════════════════════════════════════════════════════════════ -->
+  <footer class="site-footer">
+    <div class="site-footer__inner">
+
+      <div class="site-footer__col site-footer__col--brand">
+        <p class="site-footer__logo">
+          <!-- 🟢 EDIT: Firm name. -->
+          Your Firm Name
+        </p>
+        <p class="site-footer__tagline">
+          <!-- 🟢 EDIT: Short tagline. -->
+          Tax & onboarding advisory for foreign companies in Thailand.
+        </p>
+      </div>
+
+      <div class="site-footer__col">
+        <p class="site-footer__col-title">Site</p>
+        <nav aria-label="Footer navigation">
+          <a href="./">Home</a>
+          <a href="./#services">Services</a>
+          <a href="./knowledge.html">Insights</a>
+          <a href="./#about">About</a>
+          <a href="./#contact">Contact</a>
+        </nav>
+      </div>
+
+      <div class="site-footer__col">
+        <p class="site-footer__col-title">Contact</p>
+        <a href="mailto:hello@yourfirm.com">hello@yourfirm.com</a>
+        <a href="tel:+6620000000">+66 (0) 2 000 0000</a>
+        <span>Bangkok, Thailand</span>
+      </div>
+
+    </div>
+
+    <div class="site-footer__base">
+      <p>
+        <!-- 🟢 EDIT: Update the year each January. -->
+        © 2026 Your Firm Name. All rights reserved.
+      </p>
+      <p class="site-footer__base-right">
+        <a href="./privacy.html" aria-current="page">Privacy</a>
+        <span aria-hidden="true"> · </span>
+        <a href="./terms.html">Terms</a>
+      </p>
+    </div>
+  </footer>
+
+
+  <!-- ─── SCRIPTS ───────────────────────────────────────────────────
+       🔴 Don't edit the order or paths.
+       animations.js: scroll reveals, scroll progress bar.
+       article-loader.js: injects firm-level Organization JSON-LD.
+  ──────────────────────────────────────────────────────────────── -->
+  <script src="../core/animations.js" defer></script>
+  <script src="../core/article-loader.js" defer></script>
+
+</body>
+</html>

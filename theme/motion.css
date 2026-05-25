@@ -1,0 +1,579 @@
+/* ============================================================================
+   MOTION.CSS — The Animation System
+   ============================================================================
+   
+   This file controls every animation and motion effect on the site.
+   
+   DESIGN PHILOSOPHY:
+   We chose a combination called "Editorial flourish + Ambient life":
+   
+   - Editorial flourish: dramatic entrance moments that make pages feel
+     composed and crafted. Gold lines draw in, serif headings unfold,
+     stats count up, eyebrow labels fade in with a drawing line.
+   
+   - Ambient life: quiet, continuous motion that makes the page feel alive
+     even when no one is interacting with it. Background shapes drift,
+     cursors leave gentle glows, scroll progress ticks upward.
+   
+   RULES WE FOLLOW:
+   1. Nothing bounces. No spring easings, no wobble, no cartoon effects.
+   2. Everything uses the same easing curve (smooth ease-out) for consistency.
+   3. Durations are 400ms for small interactions, 700-1100ms for entrances.
+   4. If a user has "reduced motion" enabled in their OS, all animations
+      soften to simple fades or disappear entirely.
+   
+   HOW THESE WORK:
+   Animations are applied by adding a class to an HTML element.
+   Example: <h1 class="animate-fade-up">My heading</h1> gets the fade-up effect.
+   
+   For scroll-triggered animations, you add a "data-animate" attribute and the
+   JavaScript in /core/animations.js (to be written in Stage 3) will handle
+   triggering the animation when the element scrolls into view.
+============================================================================ */
+
+
+/* ----------------------------------------------------------------------------
+   1. MOTION TOKENS — the building blocks of every animation
+   ----------------------------------------------------------------------------
+   
+   Every animation on the site uses one of these timing values and easing
+   curves. Keeping them consistent is what makes the whole site feel
+   "designed by the same person" rather than a random collection of effects.
+---------------------------------------------------------------------------- */
+
+:root {
+
+  /* ==== DURATIONS =========================================================
+     How long animations take. Measured in milliseconds (1000ms = 1 second).
+     
+     - Fast: hover effects, small state changes (button press, link hover)
+     - Medium: entrance animations for individual elements
+     - Slow: large reveals, hero entrances
+     - Ambient: drifting backgrounds and continuous ambient animations
+  */
+
+  --duration-fast:     200ms;
+  --duration-base:     400ms;
+  --duration-medium:   700ms;
+  --duration-slow:    1100ms;
+  --duration-ambient: 20000ms;   /* 20 seconds — for background drift */
+
+
+  /* ==== EASING CURVES =====================================================
+     The "shape" of how an animation progresses. A well-chosen easing is
+     what makes motion feel natural vs. robotic.
+     
+     cubic-bezier(0.16, 1, 0.3, 1) is a refined ease-out curve — it starts
+     fast and slows down gracefully, like objects settling in the real world.
+     We use this for almost everything. If you see linear or ease-in-out
+     anywhere, it's deliberate and rare.
+  */
+
+  --ease-out-refined:  cubic-bezier(0.16, 1, 0.3, 1);   /* The main curve */
+  --ease-out-soft:     cubic-bezier(0.25, 0.8, 0.4, 1); /* Slightly gentler */
+  --ease-linear:       linear;                          /* Used only for marquees */
+
+
+  /* ==== STAGGER DELAYS ====================================================
+     When animating a list of items (like cards or stats), we delay each one
+     slightly so they cascade in one after another. This is called "staggering"
+     and is what makes animations feel orchestrated rather than sudden.
+  */
+
+  --stagger-step: 120ms;   /* Gap between each item in a stagger */
+
+}
+
+
+/* ============================================================================
+   2. THE BASE ANIMATION KEYFRAMES
+   ============================================================================
+   
+   Keyframes are the actual "movements" of an animation — they say
+   "start here, end there." We define a small library of them below,
+   and the classes further down apply them with the right timing.
+============================================================================ */
+
+
+/* Fade up — content rises gently into view as it fades in.
+   The signature animation. Used almost everywhere. */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+/* Fade in — simple opacity fade, no movement. Used as the reduced-motion
+   fallback, and for small inline elements where translation would feel off. */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+
+/* Serif unfold — headings scale from slightly larger to their final size
+   while fading in. Gives the Instrument Serif a sense of "arriving." */
+@keyframes serifUnfold {
+  from {
+    opacity: 0;
+    transform: scale(1.04);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+
+/* Line draw — a horizontal line grows from zero width to full width.
+   Used for the gold underline under headings, and for eyebrow label lines. */
+@keyframes lineDrawHorizontal {
+  from { transform: scaleX(0); }
+  to   { transform: scaleX(1); }
+}
+
+
+/* Word in — used for word-by-word heading reveals.
+   Each word fades up with a slight blur that clears — feels crisp and
+   editorial. */
+@keyframes wordIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+    filter: blur(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+}
+
+
+/* Drift 1 & 2 — for ambient background shapes. Very slow, very subtle.
+   Shapes drift to a new position and slowly scale, then reverse. Creates
+   the sense of something gently breathing in the background. */
+@keyframes driftA {
+  from { transform: translate(0, 0) scale(1); }
+  to   { transform: translate(-40px, 30px) scale(1.1); }
+}
+
+@keyframes driftB {
+  from { transform: translate(0, 0) scale(1); }
+  to   { transform: translate(50px, -20px) scale(0.9); }
+}
+
+
+/* Marquee scroll — continuous horizontal scrolling for the ticker band.
+   The trick: the ticker content contains its items twice, and we scroll
+   halfway across. This creates a seamless infinite loop with no jump. */
+@keyframes marqueeScroll {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+
+/* ============================================================================
+   3. APPLY-BY-CLASS ANIMATIONS (entrance animations)
+   ============================================================================
+   
+   These are the animations you apply by adding a class to an element.
+   Example: <div class="animate-fade-up">...</div>
+   
+   Most of these set opacity to 0 and use "forwards" to hold the final state
+   after the animation finishes — otherwise the element would snap back to
+   invisible when the animation ends.
+============================================================================ */
+
+
+/* The main entrance animation — element fades in while rising slightly.
+   This is the workhorse. Use it on almost any element that should appear
+   as the user scrolls to it. */
+.animate-fade-up {
+  opacity: 0;
+  animation: fadeUp var(--duration-medium) var(--ease-out-refined) forwards;
+}
+
+
+/* A simpler fade with no vertical movement. */
+.animate-fade-in {
+  opacity: 0;
+  animation: fadeIn var(--duration-medium) var(--ease-out-refined) forwards;
+}
+
+
+/* Serif unfold — use on large headings where you want the typography to
+   "arrive" with presence. Slightly slower than a normal fade-up. */
+.animate-serif-unfold {
+  opacity: 0;
+  animation: serifUnfold var(--duration-slow) var(--ease-out-refined) forwards;
+}
+
+
+/* Gold underline draw — apply to the short gold line under section
+   headings (usually the <span class="gold-underline animate-line-draw">).
+   The transform-origin: left makes the line grow from left to right. */
+.animate-line-draw {
+  transform: scaleX(0);
+  transform-origin: left center;
+  animation: lineDrawHorizontal var(--duration-medium) var(--ease-out-refined) forwards;
+}
+
+
+/* ==== STAGGER DELAYS =====================================================
+   Apply these along with animate-fade-up (or any other animation class) to
+   make a list of elements cascade in one after another.
+   
+   Example: <div class="animate-fade-up delay-3">Third card</div>
+   
+   The third card will start its entrance animation 360ms after the default
+   delay — just after the second card starts, creating the cascade effect.
+*/
+
+.delay-1  { animation-delay: calc(var(--stagger-step) * 1); }
+.delay-2  { animation-delay: calc(var(--stagger-step) * 2); }
+.delay-3  { animation-delay: calc(var(--stagger-step) * 3); }
+.delay-4  { animation-delay: calc(var(--stagger-step) * 4); }
+.delay-5  { animation-delay: calc(var(--stagger-step) * 5); }
+.delay-6  { animation-delay: calc(var(--stagger-step) * 6); }
+
+
+/* ============================================================================
+   4. SCROLL-TRIGGERED ANIMATIONS
+   ============================================================================
+   
+   The problem with animation classes above is that they run the moment the
+   page loads — even for elements below the fold that the visitor hasn't
+   scrolled to yet. By the time the user scrolls down, those animations
+   have already played silently.
+   
+   The fix: we hide the element until JavaScript (in /core/animations.js)
+   adds a class telling the browser the element is "in view" and ready to
+   animate.
+   
+   How to use in HTML:
+   
+     <div data-animate="fade-up">I will animate when scrolled into view</div>
+     <div data-animate="fade-up" data-delay="2">I will animate 240ms later</div>
+   
+   The JavaScript file will watch for these data-animate attributes, wait
+   until the element is visible on screen, then add an "is-revealed" class to
+   trigger the animation.
+============================================================================ */
+
+
+/* Elements with data-animate start invisible.
+   They only become visible when JS adds the is-revealed class. */
+[data-animate] {
+  opacity: 0;
+  will-change: opacity, transform;   /* Hint to browser: this will animate */
+}
+
+[data-animate="fade-up"] {
+  transform: translateY(24px);
+  transition:
+    opacity var(--duration-medium) var(--ease-out-refined),
+    transform var(--duration-medium) var(--ease-out-refined);
+}
+
+[data-animate="fade-in"] {
+  transition: opacity var(--duration-medium) var(--ease-out-refined);
+}
+
+[data-animate="serif-unfold"] {
+  transform: scale(1.04);
+  transition:
+    opacity var(--duration-slow) var(--ease-out-refined),
+    transform var(--duration-slow) var(--ease-out-refined);
+}
+
+[data-animate="line-draw"] {
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform var(--duration-medium) var(--ease-out-refined);
+}
+
+
+/* When JavaScript adds the is-revealed class, everything transitions to its
+   final state. */
+[data-animate].is-revealed {
+  opacity: 1;
+  transform: none;
+}
+
+
+/* Stagger delays for scroll-triggered animations. Same idea as above,
+   applied via data-delay attribute so you don't need extra class names. */
+[data-delay="1"] { transition-delay: calc(var(--stagger-step) * 1); }
+[data-delay="2"] { transition-delay: calc(var(--stagger-step) * 2); }
+[data-delay="3"] { transition-delay: calc(var(--stagger-step) * 3); }
+[data-delay="4"] { transition-delay: calc(var(--stagger-step) * 4); }
+[data-delay="5"] { transition-delay: calc(var(--stagger-step) * 5); }
+[data-delay="6"] { transition-delay: calc(var(--stagger-step) * 6); }
+
+
+/* ============================================================================
+   5. HOVER AND INTERACTIVE EFFECTS
+   ============================================================================
+   
+   Small interactions that respond to the visitor's cursor.
+   These make the site feel alive and tactile.
+============================================================================ */
+
+
+/* ==== LINK UNDERLINE DRAW ================================================
+   Links get a navy underline that draws from left to right on hover.
+   Way more refined than the default underline-on-hover.
+   
+   Apply class="link" to any <a> tag you want this treatment on.
+*/
+.link {
+  position: relative;
+  display: inline-block;
+  padding-bottom: 2px;
+  color: var(--color-navy);
+}
+
+.link::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 1px;
+  background: currentColor;    /* Uses the link's text color */
+  transform: scaleX(0);
+  transform-origin: right center;
+  transition: transform var(--duration-base) var(--ease-out-refined);
+}
+
+.link:hover::after {
+  transform: scaleX(1);
+  transform-origin: left center;   /* Flips origin so it feels directional */
+}
+
+
+/* ==== HOVER LIFT =========================================================
+   Cards rise slightly and gain a soft shadow on hover. Subtle but tactile.
+   
+   Apply class="hover-lift" to any card-like element.
+*/
+.hover-lift {
+  transition:
+    transform var(--duration-base) var(--ease-out-refined),
+    box-shadow var(--duration-base) var(--ease-out-refined);
+}
+
+.hover-lift:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-md);
+}
+
+
+/* ==== BUTTON HOVER — cursor-following gold glow =========================
+   The button has a radial gold glow that follows the cursor across its
+   surface. Requires JavaScript to update --x and --y on mouse move.
+   That JS will live in /core/animations.js in Stage 3.
+   
+   This effect is applied to .btn-primary and .btn-secondary automatically.
+*/
+.btn {
+  transition: transform var(--duration-base) var(--ease-out-refined);
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+}
+
+.btn::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    circle at var(--x, 50%) var(--y, 50%),
+    rgba(184, 144, 47, 0.45),
+    transparent 55%
+  );
+  opacity: 0;
+  transition: opacity var(--duration-base) var(--ease-out-refined);
+  pointer-events: none;   /* Don't block clicks on the button */
+}
+
+.btn:hover::before {
+  opacity: 1;
+}
+
+
+/* ==== HEADLINE CURSOR PARALLAX ===========================================
+   Large hero headings shift slightly in response to cursor position.
+   Very subtle — a few pixels at most. Requires JS to update transform
+   based on mouse coordinates. That JS will live in /core/animations.js.
+   
+   Apply class="hero-headline" to any h1 you want this treatment on.
+*/
+.hero-headline {
+  transition: transform var(--duration-medium) var(--ease-out-refined);
+  will-change: transform;
+}
+
+
+/* ============================================================================
+   6. AMBIENT MOTION — always-moving background elements
+   ============================================================================
+   
+   These animations never stop — they create the "always alive" feel.
+============================================================================ */
+
+
+/* ==== DRIFTING BACKGROUND BLOBS ==========================================
+   Soft blurred shapes that drift slowly in the background of hero sections.
+   Two variants (A and B) drift in opposite directions for visual interest.
+   
+   Apply via HTML like:
+     <div class="ambient-blob ambient-blob-a"></div>
+     <div class="ambient-blob ambient-blob-b"></div>
+   
+   Positioning (where the blob sits on the page) is set per-page, not here.
+*/
+.ambient-blob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(50px);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.ambient-blob-a {
+  background: var(--color-navy);
+  opacity: 0.32;
+  animation: driftA var(--duration-ambient) var(--ease-out-soft) infinite alternate;
+}
+
+.ambient-blob-b {
+  background: var(--color-gold);
+  opacity: 0.20;
+  animation: driftB calc(var(--duration-ambient) + 4000ms) var(--ease-out-soft) infinite alternate;
+}
+
+
+/* ==== SCROLL PROGRESS INDICATOR ==========================================
+   Thin gold line at the top of the page that fills as the visitor scrolls
+   through an article. Shows reading progress.
+   
+   HTML: <div class="scroll-progress"></div> (placed at top of page)
+   Requires JS to update its width. That JS will live in /core/animations.js.
+*/
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 2px;
+  width: 0%;     /* JS updates this based on scroll position */
+  background: var(--color-gold);
+  z-index: 1000;
+  transition: width 100ms linear;
+}
+
+
+/* ==== MARQUEE TICKER =====================================================
+   Slowly-scrolling horizontal band of text (e.g. service categories, client
+   logos). Goes on as long as the visitor stays on the page.
+   
+   HTML structure:
+     <div class="marquee">
+       <div class="marquee-track">
+         [items duplicated twice so the loop is seamless]
+       </div>
+     </div>
+*/
+.marquee {
+  overflow: hidden;
+  position: relative;
+}
+
+.marquee-track {
+  display: flex;
+  gap: var(--space-lg);
+  white-space: nowrap;
+  width: max-content;
+  animation: marqueeScroll 35s linear infinite;
+}
+
+
+/* ============================================================================
+   7. REDUCED MOTION — accessibility and respect
+   ============================================================================
+   
+   Some visitors have motion sickness, vertigo, or simply prefer less
+   movement. Every modern operating system has a "reduce motion" setting.
+   
+   When that's on, we override all our animations to be either instant
+   or a simple fade. The site still works; it just doesn't move as much.
+   
+   This is also good for SEO — search engines reward sites that respect
+   accessibility preferences.
+============================================================================ */
+
+
+@media (prefers-reduced-motion: reduce) {
+
+  /* Disable entrance animations — elements just appear.
+     We use a tiny duration (0.01ms) rather than 0ms, because some browsers
+     treat 0ms as "no animation at all" and skip the "forwards" fill,
+     leaving elements stuck at opacity: 0. */
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  /* Make sure scroll-triggered elements are still visible */
+  [data-animate] {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  /* Stop ambient background motion entirely — no drift, no marquee */
+  .ambient-blob,
+  .marquee-track {
+    animation: none !important;
+  }
+
+  /* Hide the marquee entirely if the visitor prefers reduced motion —
+     a non-scrolling marquee just looks like an awkward list */
+  .marquee {
+    display: none;
+  }
+
+}
+
+
+/* ============================================================================
+   END OF MOTION.CSS
+   ============================================================================
+   
+   Summary of what this file did:
+   - Defined animation timing and easing tokens for consistency
+   - Created reusable keyframe animations (fade up, serif unfold, line draw,
+     word-by-word, background drift, marquee scroll)
+   - Provided class-based animations for immediate use
+   - Provided data-attribute-based animations for scroll-triggered reveals
+   - Styled hover states: link underline draw, card hover lift, button
+     cursor-glow, hero headline parallax
+   - Set up ambient motion: drifting background blobs, scroll progress bar,
+     marquee ticker
+   - Respects the visitor's "reduce motion" preference
+   
+   Some of the effects in here need JavaScript helpers to fully work
+   (scroll progress, button cursor glow, headline parallax, scroll triggers).
+   That JavaScript lives in /core/animations.js and will be written in Stage 3.
+============================================================================ */
