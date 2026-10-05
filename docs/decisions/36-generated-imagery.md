@@ -287,3 +287,29 @@ Claude proposed meanings for the letters, the overlap, the flower motif and the 
 - Spec §1 now records the letters as the founders' names.
 - The overlap is proposed to mean the two founders working as one.
 - Earlier readings of "diamond" and "atom" as symbols are superseded.
+
+## 7. Seal, round 1 (2026-10-05)
+
+**Owner's answers:**
+- A **brand seal**: decorative use on report covers, certificates, the website and packaging. It is not the registered company seal.
+- **English text only.**
+- **No founding year.**
+
+**Claude (160–171), built from the locked 153 language** (D A monogram = the two founders; two diamond frames; eight-point flower; rose and silver):
+
+| # | Option | Idea |
+|---|---|---|
+| 160 | Classic | Double rings with the name on an arc and the plain monogram. |
+| 161 | Classic, patterned | 160 with the patterned 153 monogram. |
+| 162 | Lattice disc | The monogram cut out of a 153-patterned disc. |
+| 163 | Lattice band | The pattern as a ring around the monogram. |
+| 164 | Diamond shape | Two diamond frames, the name along the upper edges. |
+| 165 | Octagon | An emerald-cut frame. |
+| 166 | Rosette | A 32-point scalloped edge. |
+| 167 | Two founders | Two rings overlapping, D in one and A in the other. |
+| 168 | Wax seal | |
+| 169 | Emboss / foil | Line only. |
+| 170 | Flower seal | |
+| 171 | Hallmark plate | |
+
+Arc lettering is real Cormorant SemiBold outlines placed along the arc, so it does not depend on web fonts.

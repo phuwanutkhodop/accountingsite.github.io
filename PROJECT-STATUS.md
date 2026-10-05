@@ -2,7 +2,7 @@
 
 **Last updated:** Sunday, 5 October 2026
 **Last session:** Ticket #12 (Admin information architecture) started with the owner: frame locked (two levels — My Sites + per-site Admin; 9-area menu; always-visible page tree; Dashboard = live preview + "Needs attention"), then split into sub-tickets #24–#30 (12a–12g). A review pass added #31 (multi-site hosting model) and #32 (translation workflow), wired blocking edges, and set the landing rule (open the last-used site directly). Record: `docs/decisions/12-admin-ia.md`
-**Next session:** D.A. logo **locked as 153** (spec `docs/brand/da-logo-153.md`, masters `brand/logo/`). Next piece: the **seal**, one piece at a time, then patterns/stationery. Owner to confirm Claude’s proposed meanings for D, A, overlap, flower motif and colours (spec §1). Then #35 directions with the locked mark. #24 open items after the identity.
+**Next session:** logo **locked as 153** (spec `docs/brand/da-logo-153.md`). **Seal round 1** (160–171) on the D.A. Logo board — owner picks direction(s), then refine. Brand seal, English only, no year. Owner to confirm proposed meanings (spec §1).
 
 ---
 
