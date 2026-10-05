@@ -173,3 +173,18 @@ These are references for the logic only. No shape is copied.
 - The overlap "window" in 45 is only a hairline sliver, so a gem set in it does not read; that option was dropped.
 - Tones are overlays of the paper or deep colour on the letter colour, so they hold on paper, oxblood and night.
 - Fine facets fill in below about 48 px. A chosen pattern will need a plain small-size version.
+
+**Round 9 verdict (owner):** "We're on the right track." Asked for 10 more, including repeating diamond patterns.
+
+**Round 10 (95–104):**
+- 95 argyle lozenge grid
+- 96 harlequin, small · 97 harlequin, large
+- 98 tumbling blocks
+- 99 pavé
+- 100 small brilliants repeated
+- 101 quilted with studs
+- 102 nested diamonds
+- 103 triangle lattice
+- 104 tonal facets with cut lines
+
+All sit inside the letters of 45 and use flat tones or hairline cuts, with no gradients.
