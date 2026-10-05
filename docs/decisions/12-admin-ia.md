@@ -1,6 +1,6 @@
 # 12 — Admin information architecture (umbrella)
 
-**Ticket:** GitHub issue #12 (Wayfinder grilling), split into sub-tickets 12a–12g
+**Ticket:** GitHub issue #12 (Wayfinder grilling), split into sub-tickets 12a–12g (#24–#30)
 **Date:** 5 October 2026
 **Decided by:** the owner, in a grilling session with Claude
 **Inputs:** research #2 (premium builders), #9 (design libraries), decisions #10, #11
@@ -37,13 +37,13 @@
 
 | Ticket | Scope |
 |---|---|
-| **12a** Shell and navigation | Top bar, left menu, page-tree panel, Dashboard layout, Thai/English toggle, empty/error/loading states, keyboard shortcuts |
-| **12b** System level — My Sites | Site list, add/switch/remove, per-site backup entry point, first-run, token connection per site |
-| **12c** Pages and section editing | Add-section picker, editing text/images, overrides, translation table, page-only presets |
-| **12d** Articles and Media | Word-like editor, upload and resize, media library, alt text, budget bar |
-| **12e** Publish, Versions and Preview | "What changed" screen, validation-gate messages, version list and restore, device preview behaviour |
-| **12f** SEO, Settings and onboarding | Four SEO fields with Google preview, languages, integrations placeholder, GitHub connection, onboarding |
-| **12g** Quality and safety extras | Unsaved indicator and undo/redo, global search, activity log, link checker, accessibility and speed report, whole-site backup/export |
+| **12a (#24)** Shell and navigation | Top bar, left menu, page-tree panel, Dashboard layout, Thai/English toggle, empty/error/loading states, keyboard shortcuts |
+| **12b (#25)** System level — My Sites | Site list, add/switch/remove, per-site backup entry point, first-run, token connection per site |
+| **12c (#26)** Pages and section editing | Add-section picker, editing text/images, overrides, translation table, page-only presets |
+| **12d (#27)** Articles and Media | Word-like editor, upload and resize, media library, alt text, budget bar |
+| **12e (#28)** Publish, Versions and Preview | "What changed" screen, validation-gate messages, version list and restore, device preview behaviour |
+| **12f (#29)** SEO, Settings and onboarding | Four SEO fields with Google preview, languages, integrations placeholder, GitHub connection, onboarding |
+| **12g (#30)** Quality and safety extras | Unsaved indicator and undo/redo, global search, activity log, link checker, accessibility and speed report, whole-site backup/export |
 
 12a goes first; 12b–12g are blocked by it. Existing tickets #18 and #22 stay blocked by #12 as a whole.
 

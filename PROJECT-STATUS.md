@@ -1,8 +1,8 @@
 # PROJECT-STATUS.md
 
 **Last updated:** Sunday, 5 October 2026
-**Last session:** Ticket #11 decided with the owner — rendering strategy: pre-render at publish, full regeneration with minimal commit, all three languages required to publish, Gregorian years on Thai pages (`docs/decisions/11-rendering-strategy.md`)
-**Next session:** Work the map: https://github.com/phuwanutkhodop/accountingsite.github.io/issues/1 — take the first unblocked ticket
+**Last session:** Ticket #12 (Admin information architecture) started with the owner: frame locked (two levels — My Sites + per-site Admin; 9-area menu; always-visible page tree; Dashboard = live preview + "Needs attention"), then split into sub-tickets #24–#30 (12a–12g). Record: `docs/decisions/12-admin-ia.md`
+**Next session:** Resolve #24 (12a — Admin shell and navigation); then #25–#30. Other unblocked tickets: #13, #14, #15, #16, #17, #20. Map: https://github.com/phuwanutkhodop/accountingsite.github.io/issues/1
 
 ---
 
