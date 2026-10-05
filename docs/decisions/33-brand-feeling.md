@@ -98,5 +98,5 @@ Contrast (WCAG): light ink 14.9, muted 5.5, oxblood text 8.7, button 8.8, brass 
 
 ## 4. Still open
 
-- Term 2: "bold and confident", defined the same way, on top of term 1.
+- Term 2: "bold and confident". Round 6 picker (four levers: scale C1–C3, colour weight C4–C6, voice C7–C9, composition C10–C12): https://claude.ai/artifact/H3FFB6GhZ8TeyMbKQu2LW9
 - How "minimal" and "bold" coexist.

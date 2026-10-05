@@ -2,7 +2,7 @@
 
 **Last updated:** Sunday, 5 October 2026
 **Last session:** Ticket #12 (Admin information architecture) started with the owner: frame locked (two levels — My Sites + per-site Admin; 9-area menu; always-visible page tree; Dashboard = live preview + "Needs attention"), then split into sub-tickets #24–#30 (12a–12g). A review pass added #31 (multi-site hosting model) and #32 (translation workflow), wired blocking edges, and set the landing rule (open the last-used site directly). Record: `docs/decisions/12-admin-ia.md`
-**Next session:** Continue #33 (define "minimal premium, not modern" and "bold & confident" with the owner, one term at a time), then finish #24 (Admin shell: Dashboard detail, states, shortcuts remain). Other unblocked tickets: #13, #14, #15, #16, #17, #20, #31, #32. Blocking edges are written in ticket bodies only (no native links yet) — check them by hand. Map: https://github.com/phuwanutkhodop/accountingsite.github.io/issues/1
+**Next session:** Continue #33 term 2 ("bold & confident") from the owner's picks on the round 6 picker; term 1 is complete (Oxblood day / Night Library, brass details, five signature details). Then #34 research, #35 directions. #24 (Admin shell) has open items after the identity.
 
 ---
 
