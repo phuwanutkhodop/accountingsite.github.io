@@ -362,3 +362,24 @@ Arc lettering is real Cormorant SemiBold outlines placed along the arc, so it do
   - Rebuilt the 24 seals (172–195) as fixed-size boards with no overflow: 640 × 860, the seal large on paper, oxblood and night below.
   - Laid them out in a strict 4-column grid in number order. The logo 153 spec sheet sits separately at the end.
 - **Rule from now on:** keep only the files that are on the board. Retire old rounds by deleting their files, not just removing them from `canvas.json`. The decision trail stays in this record.
+
+**Seal round 3 verdict (owner):** still not liked. Go a little outside the box.
+
+**Seal round 4 (196–207), leaving the round badge behind:**
+
+| # | Shape |
+|---|---|
+| 196 | ประจำยาม four-lobe seal (the flower's own outline) |
+| 197 | Eight-lobe rosette |
+| 198 | Coin with a milled edge |
+| 199 | Arch, like a library doorway |
+| 200 | Tall diamond medallion |
+| 201 | Oval cartouche with a lattice band |
+| 202 | Postage stamp |
+| 203 | A necklace of diamonds as the only border |
+| 204 | Banknote rosette |
+| 205 | Two founders, two rings |
+| 206 | Hallmark tablet |
+| 207 | Wax seal pressed with the pattern |
+
+Board: per the new rule, the round-2/3 files (172–195) were deleted. The board shows 196–207 and the logo spec.
