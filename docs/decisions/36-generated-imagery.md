@@ -87,3 +87,18 @@ Next: the owner picks one; Claude refines it (construction grid, clear space, mi
 - The electron is a small brilliant.
 
 **Known issue:** below about 48 px the detail fills in. A simplified small-size version is planned once a direction is chosen.
+
+**Round 3c (owner):** round 2 also misses. Drop 04/05 and think outside the frame.
+
+**Claude:** eight fresh directions (13–20, now the top row; earlier rounds moved below):
+
+| # | Direction | Idea |
+|---|---|---|
+| 13 | Carbon | A diamond is pure carbon. The emblem is a carbon atom (2 + 4 electrons) with a brilliant as its nucleus, so D and A are one thing. |
+| 14 | Crystal lattice | The diamond's crystal unit cell, drawn in isometric. |
+| 15 | Counters | Heavy letters: D's counter is a diamond; the A's crossbar is an atom. |
+| 16 | Cut letters | D bevel-cut like a gem; A drawn as the carbon tetrahedron. |
+| 17 | Deco inline | 1920s bank lettering, three engraved lines per stroke, diamond full stops. |
+| 18 | Hallmark | The lozenge assay mark (proof that metal is genuine, as an audit is for accounts); D over A with an atom between. |
+| 19 | Pavé | The letters set with small brilliants like jewellery; a brass stone is the nucleus. |
+| 20 | Ball and stick | The letters built from atoms and bonds. |
