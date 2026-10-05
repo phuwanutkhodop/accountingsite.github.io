@@ -502,3 +502,13 @@ Rule 2 is relaxed to "the ring pair is allowed, not required". Rules 1 (full 153
 - **Red band vs reversed band (cream, lattice in red, flowers in rose), in pairs:** standard (316/317), larger with the name moved out (318/319), with a flower clasp at the top (320/321), thin (322/323), wide (324/325), with gem diamonds in the arc (329/330).
 - **Red band only:** larger pattern (326); band close around D A (327); wider arc with a larger foot flower (331); one fine outer ring instead of the pair (332); the 153 diamond tile itself at the foot (335).
 - **Other:** two layers, red outside and reversed inside (328); reversed with rose edges (333); reversed with swapped arc colours (334).
+(Round 11 boards were first published at 2–8 MB each and the board would not open; the band now uses one repeating SVG pattern tile, about 320 KB per board.)
+
+**Seal round 11 → owner:** **321** (reversed band with a flower clasp at the top, one large foot flower). Go deeper, about 5 variations.
+
+**Seal round 12 (336–340), all built on 321:**
+- 336: the clasp and the foot flower set in matching medallions.
+- 337: the clasp is the 153 diamond tile itself.
+- 338: a larger pattern in the band.
+- 339: the band edged with fine double lines.
+- 340: band colours turned (rose diamond rings, flowers in the letter colour).
