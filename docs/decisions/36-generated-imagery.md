@@ -425,3 +425,27 @@ The board shows only 208–219 and the logo spec. Round 4 files were deleted.
 | 231 | The flower clasp with the patterned monogram. |
 
 **Calibration noted:** rounds 1–3 were too conventional, and rounds 4–5 too far out. The target is a classic seal with one restrained detail.
+
+### Seal rules (owner, locked)
+
+1. **The D A monogram is always the locked 153 version, in full detail** (patterned: rose rings, silver flowers). Never strip or simplify its detail in the seal.
+2. **One ring pair only:** a thick line and a thin line, side by side. No further inner rings.
+3. **No "CO., LTD."**
+4. **Flowers and diamonds** are used more than in round 6, but never crowded.
+
+**Seal round 7 (232–243), under these rules:**
+
+| # | Detail |
+|---|---|
+| 232 | Five graded flowers below. |
+| 233 | An arc of nine small diamonds. |
+| 234 | A ring of small flowers inside. |
+| 235 | Three lattice diamonds below. |
+| 236 | A flower clasp with graded flowers. |
+| 237 | A circle of tiny diamonds with one flower. |
+| 238 | Flowers flanking the monogram. |
+| 239 | A crescent of lattice below. |
+| 240 | Flowers at three quarters. |
+| 241 | A half-necklace with a flower clasp. |
+| 242 | A whisper of lattice with graded flowers. |
+| 243 | One large flower with small ones. |
