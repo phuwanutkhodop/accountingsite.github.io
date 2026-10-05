@@ -144,3 +144,13 @@ These are references for the logic only. No shape is copied.
 | 47 | Interlock in Cormorant | 41 set in Cormorant, for comparison. |
 
 41–45 are set in Bodoni Moda Bold, a free font. The name line is Cormorant capitals.
+
+**Round 6 verdict (owner):** **45 (overlap window) looks good.** The owner asked for more variations and styles of that idea.
+
+**Round 7 (50–64), variations on 45:**
+- **Depth of overlap:** 50 light, 51 medium (= 45), 52 deep.
+- **Typeface (all free):** 53 Playfair Display, 54 DM Serif Display, 55 Cinzel, 56 Libre Caslon Display, 57 Cormorant.
+- **Arrangement:** 58 offset, 59 stacked, 60 A inside D, 61 italic.
+- **Frame:** 62 reversed out of a square block, 63 reversed out of a disc, 64 with the accountant's double underline.
+
+**Tool note:** marks are real glyph outlines combined with an even-odd fill, so the overlap knocks out cleanly in one path and one colour.
