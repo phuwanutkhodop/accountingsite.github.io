@@ -595,3 +595,19 @@ Patterns are numbered from 401, separate from the logo and seal numbers.
 - **Spec:** `docs/brand/da-patterns.md`, covering geometry, colours, minimum scale and use. The suggested role for each pattern is a proposal, still to be confirmed by the owner.
 - **Board:** now shows only the three locked sheets: patterns, seal 346 and logo 153.
 - **Next:** back to the Site Builder.
+
+### Brand preserved (owner: "keep the assets safe, tell every part, reusable any time, preserve the originals 100%")
+
+- **`brand/` holds the read-only originals**, with an index at `brand/README.md`.
+- **`brand/reference/`:** picture records of the logo, the seal and the patterns.
+- **`brand/MANIFEST.sha256`:** a SHA-256 fingerprint for each of the 34 files.
+- **`.gitattributes`:** stops line-ending conversion on `brand/**`, for example on Windows.
+- **`tools/brand/`:** the exact exporters and design modules, with the fonts and their OFL licences.
+  - `build.py --check` rebuilds from a fresh copy and compares byte for byte. Result on 2026-10-05: 31 of 31 identical, and 34 of 34 checksums match.
+  - A tamper test, changing one byte in a copy, was caught by both checks.
+  - The exporters refuse to write into `brand/`.
+- **Who was told:**
+  - `CLAUDE.md`, so every session reads the brand rules first.
+  - `PROJECT-STATUS.md`.
+  - The GitHub issues: #36, the identity tickets, and the Wayfinder map.
+- **Git tag `brand-v1.0`** marks this commit.
