@@ -228,3 +228,12 @@ All sit inside the letters of 45 and use flat tones or hairline cuts, with no gr
   - 123 D only (D for Diamond)
   - 124 taller lozenges with a finer line
 - **Colour rule:** each line colour is defined per background. On oxblood letters, gold is light brass #e3c891. On cream letters (oxblood and night backgrounds), it is brass #7d5f28. Rose, deep and whisper are paper, oxblood or deep overlays, so no new colours are introduced.
+
+**Round 12 verdict (owner):** go with **122** (gold nested diamonds with a ประจำยาม four-petal centre). Asked how many good variants exist when going deeper.
+
+**Round 13 (125–136), with 122 at the left:**
+- **Flower shape:** 125 rounded petals · 126 eight points · 127 a centre ring (letter colour) with a gold dot · 128 outline only.
+- **Rhythm and scale:** 129 one ring with a larger flower · 130 three rings with a smaller flower · 131 flower and gem alternating · 132 smaller scale.
+- **Colour:** 133 deep tone on tone · 134 soft rose · 135 quiet deep rings with gold flowers · 136 D only.
+
+The board now shows round 13 and round 12 only, to keep it loading.
