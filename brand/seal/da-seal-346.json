@@ -1,0 +1,95 @@
+{
+ "design": "346",
+ "unit": "S = seal diameter (outer edge of the thick ring); 285.2 units in the master files",
+ "S_units": 285.2,
+ "centre_units": [
+  150,
+  150
+ ],
+ "ratios_of_S": {
+  "thick_ring": {
+   "radius": 0.4944,
+   "stroke": 0.0112
+  },
+  "thin_ring": {
+   "radius": 0.4716,
+   "stroke": 0.0035
+  },
+  "name": {
+   "baseline_radius": 0.3997,
+   "font_size": 0.0473,
+   "tracking_em": 0.14,
+   "text": "D.A. ACCOUNTING & CONSULTING"
+  },
+  "lower_arc": {
+   "radius": 0.4348,
+   "pieces": 15,
+   "span_deg": 150,
+   "flower_radius_centre": 0.0189,
+   "diamond_half_height_centre": 0.0161,
+   "diamond_half_width": "0.62 of half-height",
+   "grading": "size x (1 - 0.9 |t|), t = -0.5 ... 0.5 along the arc (100% at the foot, 55% at the ends)",
+   "order": "flower, diamond, flower ... ending on flowers; the centre piece is replaced by the large foot flower"
+  },
+  "band": {
+   "inner_radius": 0.3015,
+   "outer_radius": 0.3787,
+   "tile_width": 0.0842,
+   "tile_height": 0.1178,
+   "tile_centre": "at the seal centre",
+   "ring_1": "94% of tile half-width/height",
+   "ring_2": "62%",
+   "lattice_stroke": 0.0021,
+   "flower_radius": 0.0143,
+   "edge_stroke": 0.0035,
+   "fine_lines": {
+    "gap": 0.0091,
+    "stroke": 0.0018
+   }
+  },
+  "top_clasp": {
+   "centre_radius": 0.3401,
+   "flower_radius": 0.0368,
+   "background_disc": 0.0403
+  },
+  "foot_flower": {
+   "centre_radius": 0.4348,
+   "flower_radius": 0.0386,
+   "background_disc": 0.0386
+  },
+  "monogram": {
+   "width": 0.4067,
+   "centre_offset_y": -0.014,
+   "definition": "logo 153, full detail (docs/brand/da-logo-153.md)"
+  }
+ },
+ "colours": {
+  "paper": {
+   "background": "#f2eeea",
+   "letter_colour": "#7a2229",
+   "rose": "#b07e80",
+   "silver_in_monogram": "#d4d5d8"
+  },
+  "oxblood": {
+   "background": "#7a2229",
+   "letter_colour": "#f6efe8",
+   "rose": "#c29998",
+   "silver_in_monogram": "#85878c"
+  },
+  "night": {
+   "background": "#1b1112",
+   "letter_colour": "#efe6dc",
+   "rose": "#be9491",
+   "silver_in_monogram": "#85878c"
+  }
+ },
+ "colour_use": {
+  "rings_name_band_lines_edge_lines_clasp_foot_arc_flowers": "letter colour",
+  "arc_diamonds_band_flowers": "rose",
+  "band_ground_and_discs": "background"
+ },
+ "min_size": {
+  "screen_px": 160,
+  "print_mm": 30
+ }
+}

@@ -526,3 +526,13 @@ Rule 2 is relaxed to "the ring pair is allowed, not required". Rules 1 (full 153
 - The lattice bent to follow the circle. One row of 153 tiles with the long axis toward the centre, at the logo's 1.4 ratio; the half rows tucked in at the edges:
   - 347: band 16 wide.
   - 348: band 21 wide.
+
+**Seal round 13 → owner:** **lock 346.**
+
+### Seal locked: 346
+
+- **Master files:** `brand/seal/da-seal-346-{paper,oxblood,night}.svg` and `da-seal-346.json`.
+- **Spec:** `docs/brand/da-seal-346.md`, giving every measure as a ratio of the seal diameter.
+- **Geometry:** identical to board 346. The masters only leave out the arc's centre piece, which the foot flower covers completely.
+- **Board:** now shows only the two locked sheets, Seal 346 and Logo 153.
+- **Fix made at the same time:** the logo lockup SVGs (`brand/logo/da-lockup-153-*.svg`) had an unescaped `&` in their title. They were not valid XML and did not open as standalone files. The title is now escaped; nothing else in those files changed.
