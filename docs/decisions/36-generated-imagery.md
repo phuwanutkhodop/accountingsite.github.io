@@ -282,3 +282,8 @@ The board now shows round 13 and round 12 only, to keep it loading.
 Claude proposed meanings for the letters, the overlap, the flower motif and the colours. They are marked as proposed until the owner confirms them.
 
 **Next:** the seal (one piece at a time, as the owner asked), then the other pieces.
+
+**Owner, 2026-10-05:** D = Diamond and A = Atom are **the names of the owner and their partner, the two founders**.
+- Spec §1 now records the letters as the founders' names.
+- The overlap is proposed to mean the two founders working as one.
+- Earlier readings of "diamond" and "atom" as symbols are superseded.

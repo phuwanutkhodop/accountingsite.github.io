@@ -1,7 +1,7 @@
 # D.A. logo — locked design 153
 
 **Status:** locked by the owner, 2026-10-05. The geometry and colours below are the logo; do not redraw by eye.
-**Firm:** D.A. Accounting & Consulting Co., Ltd. — D for **Diamond**, A for **Atom**.
+**Firm:** D.A. Accounting & Consulting Co., Ltd. — **D is Diamond and A is Atom: the names of the two founders** (owner, 2026-10-05).
 **Master files:** `brand/logo/` (SVG, exact outlines) · machine-readable spec: `brand/logo/da-logo-153.json`.
 
 ## 1. What the elements mean (owner's definitions, pinned)
@@ -15,13 +15,17 @@ These are the owner's words and are the official meaning of each element. Quote 
 | 3 | Diamond frame, ring 2 (inner) | กรอบ Diamond ชั้นที่ 2 เป็นตัวแทนกฎระเบียบและมาตรฐานของการทำงาน เพื่อสร้างคุณภาพของงานที่สม่ำเสมอ | The rules and standards of our work, which make quality consistent. |
 | 4 | Flower at the centre of each diamond | ดอกไม้ตรงกลางกรอบ Diamond เป็นตัวแทนของผลงานที่ดี ส่งมอบมูลค่าแก่ลูกค้า ผ่านคุณค่าของกรอบ Diamond ทั้ง 2 ชั้นที่บริษัทยึดมั่น | Good work that delivers value to clients, made possible by the two diamond frames the firm holds to. |
 
+**Fact (owner):**
+
+| Element | Meaning |
+|---|---|
+| The letters D and A | **Diamond** and **Atom**, the two founders. The firm carries their names. |
+
 **Proposed by Claude for the remaining elements. Not yet confirmed by the owner:**
 
 | Element | Proposed meaning |
 |---|---|
-| The letter D | Diamond: clarity, and value that lasts. |
-| The letter A | Atom: the smallest detail, done correctly. |
-| D and A overlapping, with the overlap opened | Two disciplines working as one, with nothing hidden where they meet. |
+| D and A overlapping, with the overlap opened | The two founders working as one. Where they meet, nothing is hidden. |
 | Eight-point flower (4 petals + 4 small points) | In the spirit of ลายประจำยาม, the Thai guardian motif. |
 | Oxblood | Seriousness and permanence: the colour of ledger bindings. |
 | Silver flowers | Quiet, lasting value. |
