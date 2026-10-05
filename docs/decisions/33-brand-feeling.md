@@ -98,5 +98,7 @@ Contrast (WCAG): light ink 14.9, muted 5.5, oxblood text 8.7, button 8.8, brass 
 
 ## 4. Still open
 
-- Term 2: "bold and confident". Round 6 picker (four levers: scale C1–C3, colour weight C4–C6, voice C7–C9, composition C10–C12): https://claude.ai/artifact/H3FFB6GhZ8TeyMbKQu2LW9
+- Term 2: "bold and confident".
+  - Round 6 (isolated thumbnails, one lever each) **rejected by the owner**: small abstract tiles did not reflect real use. Lesson for later rounds and for #35: show complete pages with real content, not isolated levers.
+  - Round 7: the same full homepage (header, opening, services, tax calendar, how we work, insights, credentials, contact, footer) at three coherent levels — L1 Quiet authority · L2 Assured · L3 Commanding — with day/night, phone view and section labels (L2·4 etc.) so the owner can mix by section: https://claude.ai/artifact/R4gbwqyDNUect5KoLE2j4R
 - How "minimal" and "bold" coexist.
