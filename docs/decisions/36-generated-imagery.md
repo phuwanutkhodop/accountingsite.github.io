@@ -340,3 +340,17 @@ Arc lettering is real Cormorant SemiBold outlines placed along the arc, so it do
 **Trust devices:**
 - Microtext and guilloche come from banknote security printing. They read as "genuine, hard to copy".
 - At most one guilloche element on a page (rule from round 2 of the marks).
+
+**Owner:** the board layout was hard to read. Sort by number, with no side-by-side with older designs. Try arranging flowers along the bottom.
+
+**Board:** 172–195 now sit in number order, 4 per row. The logo spec sheet is at the end.
+
+**Seal round 3 (188–195), flowers along the bottom:**
+- 188 seven flowers in place of "CO., LTD."
+- 189 five flowers, graded
+- 190 "CO., LTD." with flowers either side
+- 191 a bottom row of flowers, plus a row under the monogram
+- 192 with the necklace of diamonds
+- 193 with graded flowers and microtext
+- 194 with the flower seal
+- 195 with the lattice band
