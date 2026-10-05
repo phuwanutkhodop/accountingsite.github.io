@@ -121,3 +121,26 @@ Next: the owner picks one; Claude refines it (construction grid, clear space, mi
 | 32 | Two columns | D and A on either side of a ledger column rule. |
 | 33 | Crossbar total | The A's crossbar is a double underline. |
 | 34 | Cut D | The D's bowl is cut into flat facets. |
+
+**Round 5 → owner references:** the owner likes the marks of Gucci (interlocked GG), Louis Vuitton (overlapping LV), Balenciaga (mirrored BB) and New Balance (NB cut by stripes).
+
+**What they have in common (Claude):**
+- Both initials are joined into one bold monogram.
+- Each is a single colour.
+- The brand name sits beneath in capitals.
+- There is no pictogram.
+
+These are references for the logic only. No shape is copied.
+
+**Round 6, monograms (41–47):**
+
+| # | Option | Idea |
+|---|---|---|
+| 41 | Interlock | D and A woven (A over the D at the top, under it at the foot). |
+| 42 | Offset | The A set lower and to the right, laid over the D. |
+| 43 | Mirror diamond | The A and its reflection make a diamond. Their meeting serifs form a double rule at the girdle, like the accountant's double underline. |
+| 44 | Ledger lines | Bold italic DA cut by ruled lines, as on ledger paper. |
+| 45 | Overlap window | Where the A crosses the D, the overlap opens. |
+| 47 | Interlock in Cormorant | 41 set in Cormorant, for comparison. |
+
+41–45 are set in Bodoni Moda Bold, a free font. The name line is Cormorant capitals.
