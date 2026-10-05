@@ -2,7 +2,7 @@
 
 **Last updated:** Sunday, 5 October 2026
 **Last session:** Ticket #12 (Admin information architecture) started with the owner: frame locked (two levels — My Sites + per-site Admin; 9-area menu; always-visible page tree; Dashboard = live preview + "Needs attention"), then split into sub-tickets #24–#30 (12a–12g). A review pass added #31 (multi-site hosting model) and #32 (translation workflow), wired blocking edges, and set the landing rule (open the last-used site directly). Record: `docs/decisions/12-admin-ia.md`
-**Next session:** #36 round 3 (D.A. logo) — owner picks one of five concepts at https://claude.ai/artifact/EZHW3FVuUPbSsSXUfS2dBB; Claude refines it, then the seal, then the rest one at a time. Then #35 three directions. #24 (Admin shell) has open items after the identity.
+**Next session:** #36 round 3 (D.A. logo) — owner picks one of round 2 (06–12, between 04 and 05) at https://claude.ai/artifact/EZHW3FVuUPbSsSXUfS2dBB; Claude refines it, then the seal, then the rest one at a time. Then #35 three directions. #24 (Admin shell) has open items after the identity.
 
 ---
 

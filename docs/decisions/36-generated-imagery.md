@@ -76,3 +76,14 @@ Still needed from the owner: Thai registered name, Chinese name (if any), foundi
 | 05 | Orbit around D.A. | One brass orbit weaving through the letters "D.A." |
 
 Next: the owner picks one; Claude refines it (construction grid, clear space, minimum size, lockups), then moves to the seal.
+
+**Round 3b (owner):** 04 and 05 are on the right track. 04 looks too dense and 05 looks cheap and too simple.
+
+**Claude's response:** seven new options that sit between the two (06–12, on the same canvas; round 1 has moved below). 06–09 step the stone down from ¾ detail to just the girdle ring. 10–11 rework 05 with a double-line engraved orbit. 12 sets the stone above the name.
+
+**Better tooling:**
+- The letters are now real Cormorant glyph outlines (fontTools), so the mark renders the same everywhere, without depending on web fonts.
+- The orbit truly interlaces: its back half passes behind the stone and letters, and its front half passes over them with a cut gap.
+- The electron is a small brilliant.
+
+**Known issue:** below about 48 px the detail fills in. A simplified small-size version is planned once a direction is chosen.
