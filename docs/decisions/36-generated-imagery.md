@@ -541,3 +541,48 @@ Rule 2 is relaxed to "the ring pair is allowed, not required". Rules 1 (full 153
 - **Meanings:** Claude's proposed meanings in the logo spec §1 are confirmed (the overlap, the flower, oxblood, silver).
 - **Seal:** no one-colour rubber-stamp version is needed.
 - **Next:** the company pattern(s), then back to the Site Builder.
+
+## 8. Brand pattern
+
+**Owner's brief (2026-10-05):**
+- **Uses:** website backgrounds, documents and letterheads, social posts and slides. Business cards come later and are not urgent.
+- **Sources:** try all three: built from the 153 lattice, new patterns from the same motifs, and patterns with D A.
+- **D A:** try patterns both with and without it.
+
+Patterns are numbered from 401, separate from the logo and seal numbers.
+
+**Building rules:**
+- Every pattern is one repeating SVG tile, so the files stay light.
+- Colours come only from the locked palette.
+- Wherever D A appears, it is always the full 153 monogram.
+
+**How each board shows a pattern:**
+- a large swatch on paper;
+- the oxblood version;
+- the night version;
+- a quiet tone-on-tone version (the paper version at 14% on paper), for web backgrounds and documents.
+
+**Pattern round 1 (401–420):**
+- **From the 153 lattice:**
+  - 401: as a fabric (as inside D A).
+  - 402: reversed.
+  - 403: reversed, large scale.
+  - 404: fine scale.
+  - 405: rings only.
+  - 406: flowers only.
+  - 407: solid and open diamonds alternating.
+  - 408: one ring, with tall diamonds.
+- **New, from the same motifs:**
+  - 409: flower and diamond alternating (from the seal).
+  - 410: a trellis.
+  - 411: ruled rows of the alternation.
+  - 412: medallions.
+  - 413: large nested diamonds.
+  - 414: cut gems and flowers.
+  - 415: a ledger (ruled lines, column rules, flowers).
+  - 416: ruled lines carrying diamonds.
+- **With D A:**
+  - 417: a monogram canvas.
+  - 418: D A rows with the alternation.
+  - 419: D A set into the lattice.
+  - 420: D A inside the diamond rings.
