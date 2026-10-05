@@ -154,3 +154,10 @@ These are references for the logic only. No shape is copied.
 - **Frame:** 62 reversed out of a square block, 63 reversed out of a disc, 64 with the accountant's double underline.
 
 **Tool note:** marks are real glyph outlines combined with an even-odd fill, so the overlap knocks out cleanly in one path and one colour.
+
+**Round 8 (owner):** add the smallest possible detail that hints at diamond or finance. Show directions first.
+
+**Claude:** base 51 (= 45), plus exactly one detail each:
+- **Diamond:** 70 a diamond cut under the A's apex · 71 a four-point glint in the D's stem · 72 a stone on the A's crossbar · 73 one diamond full stop · 74 the D's top-left corner cut like a facet.
+- **Finance:** 75 a fine vertical stroke through the D, as in the baht sign ฿ · 76 two currency bars across the D's stem · 77 the accountant's double underline under the A · 78 two ledger lines cut across the mark.
+- **Both:** 79 baht stroke + apex diamond.
