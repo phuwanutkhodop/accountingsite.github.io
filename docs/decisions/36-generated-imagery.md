@@ -106,3 +106,18 @@ Next: the owner picks one; Claude refines it (construction grid, clear space, mi
 **Round 4 brief (owner):** blend diamond with finance. **Finance leads, diamond supports.** (The atom is not part of this brief. Ask whether it stays.)
 
 **Claude:** 21 rising bars cut along one line, the last bar brass · 22 a ring chart that is also a brilliant seen from above · 23 ledger paper (double margin rule, ruling, accountant's double underline, a small diamond to close) · 24 the auditor's tick, cut in two tones · 25 a growth line whose last point is a diamond · 26 a diamond standing on its table, pointing up like a growth arrow · 27 Σ (sum) with a diamond at its turning point · 28 growth bars, the last crowned with a stone's crown.
+
+**Round 4 verdict (owner):** none pass. They are "too much" and do not sit together.
+
+**Round 5 approach (Claude):**
+- Rounds 1–4 swung between too plain (05) and too busy (04, 13–28). Each busy round added a pictogram beside the name.
+- Round 5 holds to three constraints: one colour, one idea, and the idea lives inside the name or a single shape.
+
+| # | Option | Idea |
+|---|---|---|
+| 29 | Ruled | Full stops cut as diamonds, closed with the accountant's double underline. |
+| 30 | Cut box | A solid box mark with one corner cut as a facet. |
+| 31 | Emerald plaque | An emerald-cut outline with its step facet as a second rule. |
+| 32 | Two columns | D and A on either side of a ledger column rule. |
+| 33 | Crossbar total | The A's crossbar is a double underline. |
+| 34 | Cut D | The D's bowl is cut into flat facets. |
