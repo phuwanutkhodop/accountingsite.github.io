@@ -3,7 +3,7 @@
 **Ticket:** GitHub issue #33 (Wayfinder grilling)
 **Date:** 5 October 2026
 **Decided by:** the owner, in a grilling session with Claude
-**Status:** **in progress.** Term 1 ("minimal premium, not modern"): **complete** (colour, details, exclusions). Term 2 ("bold & confident"): **complete** (round 8). Brief in §5 awaits owner confirmation before #33 closes.
+**Status:** **locked** (owner confirmed the §5 brief, 5 October 2026).
 
 ---
 
@@ -126,4 +126,4 @@ Contrast (WCAG): light ink 14.9, muted 5.5, oxblood text 8.7, button 8.8, brass 
 
 ## 4. Still open
 
-- Owner confirmation of the §5 brief, then close #33 and start #34.
+- Nothing. Fonts, photography and the three complete directions continue in #34 → #35.
