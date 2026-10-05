@@ -36,10 +36,8 @@ The decision trail (every round, and every owner decision) is in `docs/decisions
 ## Proof that nothing has changed
 
 - **`MANIFEST.sha256`:** the fingerprint (SHA-256) of every file in this folder.
-- **Git tag `brand-v1.0`:** marks the commit that holds these originals (`737e1d3`).
-  - **Status:** the tag is still to be created on GitHub. The cloud session could not push tags.
-  - **To create it:** on GitHub, go to Releases → *Draft a new release* → tag `brand-v1.0`, target branch `claude/awesome-cori-83tjqx` (or `main` once the branch is merged) → *Publish*.
-  - **Why it matters:** once created, the tag keeps this exact version even if a branch is changed or deleted.
+- **Frozen snapshot: branch `brand-v1.0` on GitHub.** It holds this exact version of the brand. Never commit to it: it stays as the reference copy. (It replaces a git tag, which the cloud session could not push.)
+- **Where it lives:** these originals are merged into `main`, the repository's main line.
 - **Checking:**
   - Check the fingerprints: `python tools/brand/build.py --verify`.
   - Rebuild everything and compare it byte for byte: `python tools/brand/build.py --check`.

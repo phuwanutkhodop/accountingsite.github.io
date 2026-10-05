@@ -610,4 +610,5 @@ Patterns are numbered from 401, separate from the logo and seal numbers.
   - `CLAUDE.md`, so every session reads the brand rules first.
   - `PROJECT-STATUS.md`.
   - The GitHub issues: #36, the identity tickets, and the Wayfinder map.
-- **Git tag `brand-v1.0`:** created locally on commit `737e1d3`. Pushing it was refused, because the cloud session may push only its own branch. The owner creates it on GitHub (Releases → new release → tag `brand-v1.0`).
+- **Frozen snapshot branch `brand-v1.0`:** stands in for a git tag, because the cloud session may not push tags. It was created with the owner's approval and must never receive commits.
+- **Merged into `main`** with the owner's approval.
