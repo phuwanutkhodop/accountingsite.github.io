@@ -259,3 +259,26 @@ The board now shows round 13 and round 12 only, to keep it loading.
 - Silver #d4d5d8 on oxblood letters.
 - A deeper silver #85878c on cream letters (oxblood and night backgrounds), so the flowers stay visible.
 - This is the first colour added outside the locked #33 palette. Record it in #35 if silver is kept.
+
+## 6. Logo locked: 153 (2026-10-05)
+
+**Owner:** "Lock 153." Record the exact colour codes and dimensions so the logo keeps its proportions at any size. Pin the meaning of each element.
+
+**Locked design:**
+- 45's overlapping Bodoni D and A, with the overlap opened by an even-odd fill.
+- Filled with a staggered diamond lattice: two rings (rose).
+- An eight-point flower (silver) at each tile centre.
+
+**Source of truth:**
+- Spec: `docs/brand/da-logo-153.md`
+- Master SVGs and JSON: `brand/logo/`. Every measure is a ratio of H, the cap height of the D.
+
+**Owner's definitions (pinned in the spec, §1):**
+1. The even, repeating pattern stands for consistent standards of work.
+2. Diamond ring 1 stands for the commitment to delivering high-value work.
+3. Diamond ring 2 stands for the rules and standards that make quality consistent.
+4. The centre flower stands for good work that delivers value through both rings.
+
+Claude proposed meanings for the letters, the overlap, the flower motif and the colours. They are marked as proposed until the owner confirms them.
+
+**Next:** the seal (one piece at a time, as the owner asked), then the other pieces.
