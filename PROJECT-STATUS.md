@@ -1,8 +1,26 @@
 # PROJECT-STATUS.md
 
-**Last updated:** Saturday, 25 April 2026
-**Last session:** Stage 5 complete — Knowledge index page + AEO/SEO foundations
-**Next session:** Stage 6 — Sub-pages (discovery + design + build)
+**Last updated:** Sunday, 5 October 2026
+**Last session:** Pivot — charted the Wayfinder map for the **Site Builder** effort (see below)
+**Next session:** Work the map: https://github.com/phuwanutkhodop/accountingsite.github.io/issues/1 — take the first unblocked ticket
+
+---
+
+## Site Builder effort (started 5 Oct 2026) — READ THIS FIRST
+
+The owner re-stated the original goal: **(1) build a ready-made website-builder system first, (2) then build the real firm website with it.** Stages 6–10 below are therefore **paused**, not cancelled; they resume *inside* the builder once it exists.
+
+**What the builder is:** a no-server Admin at `/admin/` on the published site, WordPress-premium in feel, publishing to GitHub Pages with one click via a repo-scoped GitHub token. Curated sections, a growing Design Library, deep Site Structure editing, EN/TH/ZH from day one, Thai Admin UI. Full destination, locked principles, fog and out-of-scope list are on the map issue.
+
+**How work is organised:** the plan is a Wayfinder map on GitHub Issues — issue #1 is the map; tickets #2–#23 are its children with native "blocked by" links, so the frontier is visible in GitHub's UI. Labels: `wayfinder:research` (agent-resolved), `wayfinder:grilling` (decided with the owner), `wayfinder:prototype` (something to react to), `wayfinder:task`. **One ticket per session.** Resolution = comment the answer, close the ticket, add one line to the map's "Decisions so far".
+
+**Research reports** land in `docs/research/` (one file per research ticket) and are linked from the ticket.
+
+**Rules that still bind during the builder effort:** read every file before editing; relative paths only; Navy & Soft Linen; Instrument Serif + Inter for Latin (TH/ZH typography is ticket #15); static only.
+
+---
+
+## (Previous plan — paused) Stage 6 onward
 
 ---
 

@@ -52,7 +52,15 @@ accountingsite/
 ```
 
 ## Current stage
-See PROJECT-STATUS.md for the current stage. As of last update: Stage 5 complete, Stage 6 (sub-pages) is next.
+**The project pivoted on 2026-10-05.** Before building more pages, the owner wants a
+**Site Builder** — a no-server, WordPress-premium-grade website builder that runs in the
+browser and publishes to GitHub Pages. The real firm website will be built *with* that
+builder afterwards. The existing site becomes Theme #1 and the builder's test bed.
+
+The plan for the builder lives on the GitHub issue tracker as a **Wayfinder map**:
+https://github.com/phuwanutkhodop/accountingsite.github.io/issues/1
+Every session on the builder: read the map first, pick the next unblocked ticket, resolve
+one ticket per session. See PROJECT-STATUS.md → "Site Builder effort".
 
 ## User profile
 - Non-technical user. Avoid jargon. Explain in plain language.
