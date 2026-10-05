@@ -2,7 +2,7 @@
 
 **Last updated:** Sunday, 5 October 2026
 **Last session:** Ticket #12 (Admin information architecture) started with the owner: frame locked (two levels — My Sites + per-site Admin; 9-area menu; always-visible page tree; Dashboard = live preview + "Needs attention"), then split into sub-tickets #24–#30 (12a–12g). A review pass added #31 (multi-site hosting model) and #32 (translation workflow), wired blocking edges, and set the landing rule (open the last-used site directly). Record: `docs/decisions/12-admin-ia.md`
-**Next session:** logo **locked as 153** (`docs/brand/da-logo-153.md`) and brand seal **locked as 346** (`docs/brand/da-seal-346.md`, masters in `brand/seal/`). Next brand piece: owner to choose (e.g. patterns, stationery; a one-colour seal for stamps when needed). Owner still to confirm the proposed meanings in the logo spec §1.
+**Next session:** logo **locked as 153** (`docs/brand/da-logo-153.md`) and brand seal **locked as 346** (`docs/brand/da-seal-346.md`, masters in `brand/seal/`). Logo meanings confirmed by the owner. No rubber-stamp seal. **Next brand piece: the company pattern(s).** After that, back to the Site Builder (Wayfinder map, issue #1) unless something better comes up.
 
 ---
 

@@ -92,7 +92,7 @@ Each master file includes its own background disc, so it can sit on any surface.
 - rotate the band pattern;
 - change the size of the pattern.
 
-**Still to make, when needed:** a one-colour version for rubber stamps, embossing or foil. It needs its own drawing of the band and the monogram as cut-outs. Make it from this spec; do not simplify by eye.
+**One-colour version (rubber stamp, embossing, foil):** not needed. The owner decided on 2026-10-05 not to make one.
 
 ## 5. Where it came from
 

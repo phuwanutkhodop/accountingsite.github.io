@@ -536,3 +536,8 @@ Rule 2 is relaxed to "the ring pair is allowed, not required". Rules 1 (full 153
 - **Geometry:** identical to board 346. The masters only leave out the arc's centre piece, which the foot flower covers completely.
 - **Board:** now shows only the two locked sheets, Seal 346 and Logo 153.
 - **Fix made at the same time:** the logo lockup SVGs (`brand/logo/da-lockup-153-*.svg`) had an unescaped `&` in their title. They were not valid XML and did not open as standalone files. The title is now escaped; nothing else in those files changed.
+
+**Owner, after the seal lock:**
+- **Meanings:** Claude's proposed meanings in the logo spec §1 are confirmed (the overlap, the flower, oxblood, silver).
+- **Seal:** no one-colour rubber-stamp version is needed.
+- **Next:** the company pattern(s), then back to the Site Builder.

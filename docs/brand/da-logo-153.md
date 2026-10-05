@@ -21,9 +21,9 @@ These are the owner's words and are the official meaning of each element. Quote 
 |---|---|
 | The letters D and A | **Diamond** and **Atom**, the two founders. The firm carries their names. |
 
-**Proposed by Claude for the remaining elements. Not yet confirmed by the owner:**
+**Remaining elements (proposed by Claude, confirmed by the owner, 2026-10-05):**
 
-| Element | Proposed meaning |
+| Element | Meaning |
 |---|---|
 | D and A overlapping, with the overlap opened | The two founders working as one. Where they meet, nothing is hidden. |
 | Eight-point flower (4 petals + 4 small points) | In the spirit of ลายประจำยาม, the Thai guardian motif. |
