@@ -313,3 +313,30 @@ Claude proposed meanings for the letters, the overlap, the flower motif and the 
 | 171 | Hallmark plate | |
 
 Arc lettering is real Cormorant SemiBold outlines placed along the arc, so it does not depend on web fonts.
+
+**Seal round 1 verdict (owner):** 161, 163 and 170 are OK. Go deeper. Use flowers more variously and try arranging them, plus anything else beautiful and trustworthy.
+
+**Seal round 2 (172–187):**
+- **From 161:**
+  - 172 a flower band all round
+  - 173 four flowers set like a compass
+  - 174 a flower chain round the monogram
+  - 175 two-tone, with rose rings
+  - 176 a microtext ring
+- **From 163:**
+  - 177 a wider band with a larger lattice
+  - 178 a band of flowers only
+  - 179 a necklace of diamonds, each with a flower
+  - 180 a light band in rose
+  - 181 a lattice ring plus a flower chain
+- **From 170:**
+  - 182 petals softly filled
+  - 183 a flower of flowers
+  - 184 a sixteen-point rosette
+  - 185 the lattice inside the petals
+  - 186 a guilloche flower
+  - 187 a microtext ring
+
+**Trust devices:**
+- Microtext and guilloche come from banknote security printing. They read as "genuine, hard to copy".
+- At most one guilloche element on a page (rule from round 2 of the marks).
