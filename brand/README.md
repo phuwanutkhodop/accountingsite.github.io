@@ -12,6 +12,8 @@
 | **Brand seal 346** | `seal/` | `docs/brand/da-seal-346.md` | `reference/seal.png` |
 | **Patterns 401 · 406 · 417 · 420** | `pattern/` | `docs/brand/da-patterns.md` | `reference/patterns.png` |
 
+**Ready-to-use files for other programs (PNG, PDF, compatible SVG):** `export/`. Start at `export/README.md`, which says which file to use in which program (Canva, PowerPoint, Word, Illustrator, Figma, print). These are derived from the masters and verified against them. The masters above remain the originals.
+
 **Colours:** the logo spec §2 is the single source for the colours.
 
 | | Hex |

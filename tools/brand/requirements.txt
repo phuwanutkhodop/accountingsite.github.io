@@ -1,1 +1,6 @@
 fonttools==4.66.1
+# export pack (export_pack.py --finish, verify_export.py)
+pypdf
+skia-pathops
+Pillow
+cairosvg

@@ -612,3 +612,26 @@ Patterns are numbered from 401, separate from the logo and seal numbers.
   - The GitHub issues: #36, the identity tickets, and the Wayfinder map.
 - **Frozen snapshot branch `brand-v1.0`:** stands in for a git tag, because the cloud session may not push tags. It was created with the owner's approval and must never receive commits.
 - **Merged into `main`** with the owner's approval.
+
+### Export pack for every program (owner: "usable in the web or any image program, exactly")
+
+**Testing showed the masters were exact on the web but not portable.**
+- Chromium and cairo drew them correctly.
+- ImageMagick could not open them.
+- cairo-family programs ignore the even-odd rule. That fills the D–A opening and spills the seal band.
+
+**Built `brand/export/`, derived from the masters:**
+- **PNG:** the logo, lockup and small logo, on a background or transparent, at 1000 and 4000 px. The seal. Pattern tiles at whole-pixel sizes, and 3000 px swatches.
+- **Vector PDF:** at the exact artwork size.
+- **Compatible SVG:** with no use, pattern, CSS or even-odd rule. Those shapes are computed exactly with skia-pathops instead.
+
+**Defects found and fixed along the way:**
+- Fractional pattern tiles left seams.
+- Chromium clipped PDFs at the last whole pixel and shrank them by 0.02%.
+- The even-odd rule was ignored by other programs.
+
+**Verified by `tools/brand/verify_export.py`: 510 of 510 checks passed.** These include second-engine renders (cairo for the SVGs, poppler for the PDFs), pure-vector PDFs at a scale of exactly 0.75 pt, seamless tiles, and exact background colours.
+
+**Originals:** unchanged. 34/34 fingerprints match and the rebuild is 31/31 identical.
+
+**Print colours (CMYK/Pantone):** to be agreed with the printer on the first job.

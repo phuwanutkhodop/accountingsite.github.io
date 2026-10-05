@@ -30,6 +30,8 @@ Run these three commands in order:
   - Start at `brand/README.md`. It indexes the master files, the specs in `docs/brand/`, and the colours.
   - `brand/` holds the **original masters and is read-only**. Never edit, redraw, recolour or replace a file there.
   - Need a new size or format? Use `tools/brand/` and write the output elsewhere.
+  - Ready-made PNG, PDF and compatible SVG files for Canva, PowerPoint, Word, Illustrator, Figma and print are in
+    `brand/export/`. `brand/export/README.md` says which file to use where.
   - Before any commit that touches `brand/` or `tools/brand/`, run `python tools/brand/build.py --check`.
   - D A is always the full logo 153. The seal has no "CO., LTD." and no year.
 - No backend features. This is a static site — no servers, no databases.
