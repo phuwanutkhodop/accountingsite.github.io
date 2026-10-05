@@ -183,8 +183,8 @@ def main(out):
 
 
 def finish(out):
-    """Chromium rounds a PDF page up (e.g. 312.07 px -> 313.28 px), leaving an empty strip on the right and bottom.
-    Set the page box to the artwork's exact size (1 unit = 1 CSS px = 0.75 pt). The drawing itself is not touched."""
+    """Step 2 prints each artwork at the top-left of a page with spare room. Set the page box to the artwork's exact
+    size (1 unit = 1 CSS px = 0.75 pt). The drawing itself is not touched."""
     from pypdf import PdfReader, PdfWriter
     from pypdf.generic import RectangleObject
     n = 0

@@ -31,10 +31,13 @@ const sized = (svg, W, H) => svg.replace('<svg ', `<svg width="${W}" height="${H
       await p.setContent(page0(sized(svg, W, H), j.page_bg || 'transparent'));   // background variants: page matches, so no edge blends with white
       await p.screenshot({ path: target, clip: { x: 0, y: 0, width: W, height: H }, omitBackground: !!j.transparent });
       await p.close();
-    } else {                                        // vector PDF, page = artwork size (1 unit = 1 CSS px)
+    } else {                                        // vector PDF, 1 unit = 1 CSS px = 0.75 pt
+      // Chromium clips a PDF page's content at the last whole pixel and shrinks it slightly when the page size is
+      // fractional; so print on a whole-pixel page with spare room, artwork at the top-left, untouched. Step 3
+      // (export_pack.py --finish) then trims the page to the artwork's exact size.
       const p = await browser.newPage();
       await p.setContent(page0(sized(svg, w, h)));
-      await p.pdf({ path: target, width: `${w}px`, height: `${h}px`, printBackground: true, margin: { top: 0, right: 0, bottom: 0, left: 0 }, pageRanges: '1' });
+      await p.pdf({ path: target, width: `${Math.ceil(w) + 2}px`, height: `${Math.ceil(h) + 2}px`, printBackground: true, margin: { top: 0, right: 0, bottom: 0, left: 0 }, pageRanges: '1' });
       await p.close();
     }
   }
