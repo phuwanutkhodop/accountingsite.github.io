@@ -383,3 +383,24 @@ Arc lettering is real Cormorant SemiBold outlines placed along the arc, so it do
 | 207 | Wax seal pressed with the pattern |
 
 Board: per the new rule, the round-2/3 files (172–195) were deleted. The board shows 196–207 and the logo spec.
+
+**Seal round 4 → owner clarifies:** keep the **circle**, but not the conventional composition. Use the flower or the diamond lattice inside the seal in many ways.
+
+**Seal round 5 (208–219), circle used freshly:**
+
+| # | Composition |
+|---|---|
+| 208 | The whole disc is lattice, with the monogram cut out in paper. |
+| 209 | Half lattice, half clear field, divided by the accountant's double rule. |
+| 210 | A rose window of diamonds. |
+| 211 | A field of flowers in rings. |
+| 212 | One great lattice diamond inside the circle. |
+| 213 | Quarters of lattice and flowers. |
+| 214 | A sash of lattice across the circle. |
+| 215 | Eight diamond petals (ประจำยาม drawn in diamonds). |
+| 216 | A wreath of flowers. |
+| 217 | The lattice at large scale. |
+| 218 | A layered rose window. |
+| 219 | A crescent of lattice. |
+
+The board shows only 208–219 and the logo spec. Round 4 files were deleted.
