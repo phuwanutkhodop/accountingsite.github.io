@@ -354,3 +354,11 @@ Arc lettering is real Cormorant SemiBold outlines placed along the arc, so it do
 - 193 with graded flowers and microtext
 - 194 with the flower seal
 - 195 with the lattice band
+
+**Board clean-up (owner: "unreadable, rearrange it properly"):**
+- **Cause:** the Design board shows every `.dc.html` file in `project/`, even files not listed in `canvas.json`. Old rounds piled on top of the new grid.
+- **Fix:**
+  - Deleted all superseded files (101–171).
+  - Rebuilt the 24 seals (172–195) as fixed-size boards with no overflow: 640 × 860, the seal large on paper, oxblood and night below.
+  - Laid them out in a strict 4-column grid in number order. The logo 153 spec sheet sits separately at the end.
+- **Rule from now on:** keep only the files that are on the board. Retire old rounds by deleting their files, not just removing them from `canvas.json`. The decision trail stays in this record.
