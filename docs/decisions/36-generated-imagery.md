@@ -449,3 +449,18 @@ The board shows only 208–219 and the logo spec. Round 4 files were deleted.
 | 241 | A half-necklace with a flower clasp. |
 | 242 | A whisper of lattice with graded flowers. |
 | 243 | One large flower with small ones. |
+
+**Seal round 7 verdict (owner):** none liked yet.
+- The two-line circle is still allowed, but don't cling to it.
+- Make 20–30 more.
+
+Rule 2 is relaxed to "the ring pair is allowed, not required". Rules 1 (full 153 monogram) and 3 (no CO., LTD.) still hold.
+
+**Seal round 8 (244–271), 28 directions in 7 groups:**
+- **A. A circle made of elements, not lines:** flowers, diamonds, the name itself, pearls, a lattice band.
+- **B. Broken or partial circles:** a gap for the name, a gap for a flower, two arcs (one per founder), a three-quarter ring, a ring broken by four flowers.
+- **C. The circle filled:** a solid disc with the monogram reversed (still full 153 detail, cream palette), a light rose disc, a petalled edge.
+- **D. The name placed differently:** straight under the monogram, on the bottom arc with a flower crown, in two lines, or omitted (pure emblem).
+- **E. The ring pair varied:** reversed, flowers set on the ring, a necklace between the lines, the name over a whisper of lattice.
+- **F. Two founders:** two overlapping circles; lattice for D and flowers for A.
+- **G. Others:** a compass of diamonds, engraved rays, the monogram breaking out of the ring, a wreath of flowers, a small flower ring inside.
