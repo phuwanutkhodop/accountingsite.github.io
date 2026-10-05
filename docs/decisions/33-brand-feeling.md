@@ -15,6 +15,7 @@
 4. **ความหรูมาจาก:** พื้นที่ว่างและความยับยั้ง + รายละเอียดประณีตและผิววัสดุ
 5. **ห้ามใช้:** การ์ดมุมมนกับเงานุ่ม · ไล่สี กระจก แสงเรือง · ตัวไม่มีเชิงทั้งเว็บ · ภาพการ์ตูนและไอคอนเรียงแถว
 6. **สีที่เลือก:** Oxblood Library — **โหมดสว่างใช้ O1 (แดงเลือดนกต้นฉบับ) โหมดมืดใช้ O9 (ห้องสมุดยามค่ำ) และสลับไปมาได้**
+7. **ตัวเลขและตราประทับใช้สีทองเหลืองทั้งสองโหมด** · ผู้เข้าชมครั้งแรกเห็นโหมดตามเครื่องของเขา
 
 ---
 
@@ -32,6 +33,8 @@
 | 8 | Colour | Owner rejected abstract colour moods: colour must be answered as **complete colour sets that fit the concept**. Round 2 shows six sets in context. |
 | 9 | Colour family | **B2 Oxblood Library** (owner, round 2). Owner asked for more variations within it → round 3. |
 | 10 | Colour, final | **Two modes, switchable:** light = **O1 Oxblood** (original B2), dark = **O9 Night Library** (owner, round 3). |
+| 11 | Detail colour | **Brass in both modes** for figures and the seal (option B, round 4): `#7d5f28` by day (5.1:1), `#c4a06a` by night (7.6:1). Oxblood carries buttons, rules and bands; brass carries figures and marks. |
+| 12 | First visit | **Follow the visitor's device setting**; a visible switch lets them change it, and the choice is remembered in their browser. |
 
 ---
 
@@ -69,11 +72,11 @@ All light variations pass AA for body text, muted text and button text. O7's bra
 | Hairline | `#d6ccc4` | `#4a3232` |
 | Oxblood (buttons, rules) | `#7a2229` | `#8f2a31` |
 | Text on oxblood | `#f6efe8` | `#f6efe8` |
-| Figures & seal | `#7a2229` | `#c4a06a` (brass) |
+| Figures & seal (brass) | `#7d5f28` | `#c4a06a` |
 | Deep band | `#3a1316` | `#4b171c` |
 | Text on deep band | `#f2e8e0` | `#f2e8e0` |
 
-Contrast (WCAG): light ink 14.9, muted 5.5, oxblood text 8.7, button 8.8, band 13.5. Dark ink 15.0, muted 8.2, button 7.2, brass figures 7.6, band 12.1. **Dark-mode rule:** oxblood (2.2:1 on dark paper) is never a text colour, only a fill.
+Contrast (WCAG): light ink 14.9, muted 5.5, oxblood text 8.7, button 8.8, brass figures 5.1, band 13.5. Dark ink 15.0, muted 8.2, button 7.2, brass figures 7.6, band 12.1. **Dark-mode rule:** oxblood (2.2:1 on dark paper) is never a text colour, only a fill.
 
 **Consequences for the builder (Claude, technical):**
 
@@ -88,4 +91,3 @@ Contrast (WCAG): light ink 14.9, muted 5.5, oxblood text 8.7, button 8.8, band 1
 - What "something else" on the "not modern" list is.
 - Term 2: "bold and confident", defined the same way, on top of term 1.
 - How "minimal" and "bold" coexist.
-- Default mode for a first-time visitor, and whether the brand detail colour (figures, seal) should differ between modes. Round 4 preview, Oxblood Day & Night: https://claude.ai/artifact/SrYLgdiHfgFyCmFwHUAzyL. Options: A oxblood day / brass night (as chosen) · B brass both (`#7d5f28` day, AA 5.1) · C oxblood both (rose-oxblood `#c98288` night, 6.2).
