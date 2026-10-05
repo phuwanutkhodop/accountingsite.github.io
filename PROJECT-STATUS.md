@@ -1,7 +1,7 @@
 # PROJECT-STATUS.md
 
 **Last updated:** Sunday, 5 October 2026
-**Last session:** Pivot — charted the Wayfinder map for the **Site Builder** effort (see below)
+**Last session:** Ticket #10 decided with the owner — content model and file layout of a site (`docs/decisions/10-site-content-model.md`)
 **Next session:** Work the map: https://github.com/phuwanutkhodop/accountingsite.github.io/issues/1 — take the first unblocked ticket
 
 ---
@@ -15,6 +15,8 @@ The owner re-stated the original goal: **(1) build a ready-made website-builder 
 **How work is organised:** the plan is a Wayfinder map on GitHub Issues — issue #1 is the map; tickets #2–#23 are its children with native "blocked by" links, so the frontier is visible in GitHub's UI. Labels: `wayfinder:research` (agent-resolved), `wayfinder:grilling` (decided with the owner), `wayfinder:prototype` (something to react to), `wayfinder:task`. **One ticket per session.** Resolution = comment the answer, close the ticket, add one line to the map's "Decisions so far".
 
 **Research reports** land in `docs/research/` (one file per research ticket) and are linked from the ticket.
+
+**Decision records** for grilling tickets land in `docs/decisions/` (one file per ticket) and are linked from the ticket.
 
 **Rules that still bind during the builder effort:** read every file before editing; relative paths only; Navy & Soft Linen; Instrument Serif + Inter for Latin (TH/ZH typography is ticket #15); static only.
 
