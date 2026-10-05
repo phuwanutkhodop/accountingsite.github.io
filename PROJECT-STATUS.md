@@ -244,7 +244,7 @@ These are real but non-urgent. They are documented so they don't get lost across
 ### Pre-launch fixes (must address before launching the site)
 
 - **`example.com` placeholders** in canonical URLs, Open Graph URLs, JSON-LD URLs across `index.html` and `knowledge.html`. Replace with real domain. Quick find-and-replace once the domain is known.
-- **`Your Firm Name` placeholders** in `<meta name="firm-name">`, JSON-LD `Organization` entries, and HTML `🟢 EDIT: firm name` markers. Replace once the real firm name is known.
+- **Firm name now known (owner, 5 Oct 2026): DA Accounting & Consulting Co., Ltd.** Thai and Chinese registered names, founding year and licence numbers still to be supplied. Old note: **`Your Firm Name` placeholders** in `<meta name="firm-name">`, JSON-LD `Organization` entries, and HTML `🟢 EDIT: firm name` markers. Replace once the real firm name is known.
 - **`hello@yourfirm.com` placeholders** in CTAs and contact links. Replace with real email.
 - **Privacy and Terms pages referenced but not yet existing.** Footer links to `./privacy.html` and `./terms.html` will 404 until those pages are built. Either build them in Stage 6 or remove the footer links until they exist.
 

@@ -22,6 +22,7 @@
 |---|---|---|
 | 1 | Paid assets | **None for now** (2026-10-05): no paid fonts, no photographer, no paid stock. Answers #34 §12 questions 1 and 3 for now. #35 Direction C uses Cormorant Garamond 600/700, not a paid face. |
 | 2 | Imagery source | **Claude generates the brand imagery in code** (SVG), at luxury-house quality. Real partner and office photography is deferred, not cancelled. |
+| 3 | Firm name | **DA Accounting & Consulting Co., Ltd.** (owner, 2026-10-05). Replaces the "FN" placeholder. Owner asked for a full redesign drawing on external inspiration (round 2). Thai/Chinese names and founding year not yet given. |
 
 Still open from #34 §12 (owner): partners' faces, heritage material, seal letters/script, homepage video. Round 1 below offers seal scripts to react to.
 
