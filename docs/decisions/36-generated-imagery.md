@@ -209,3 +209,22 @@ All sit inside the letters of 45 and use flat tones or hairline cuts, with no gr
 1. The owner narrows to one or two.
 2. Final craft: overlap and spacing, a plain small-size version, clear space, minimum size and lockups.
 3. Then the seal.
+
+**Round 11 → owner:** the board stopped loading at 100 designs, so it was trimmed to the current round. Earlier files are kept, and this record lists them.
+
+**Owner's pick: 102 (nested diamonds).** "Beautiful, feels Thai, shows attention to detail and consistency; it expresses good character." Asked for about 10 deep variations: try lines other than white (soft red, sober tones), a larger or smaller pattern, and other ideas.
+
+**Round 12 (115–124), with 102 at the left for comparison:**
+- **Line colour:**
+  - 115 light gold on red, which echoes Thai red-and-gold lacquer
+  - 116 soft rose
+  - 117 deep, tone on tone
+  - 118 whisper
+- **Structure, in gold:**
+  - 119 smaller pattern
+  - 120 larger pattern
+  - 121 four rings and a small gem at each centre
+  - 122 a four-petal centre in the spirit of ลายประจำยาม
+  - 123 D only (D for Diamond)
+  - 124 taller lozenges with a finer line
+- **Colour rule:** each line colour is defined per background. On oxblood letters, gold is light brass #e3c891. On cream letters (oxblood and night backgrounds), it is brass #7d5f28. Rose, deep and whisper are paper, oxblood or deep overlays, so no new colours are introduced.
