@@ -464,3 +464,15 @@ Rule 2 is relaxed to "the ring pair is allowed, not required". Rules 1 (full 153
 - **E. The ring pair varied:** reversed, flowers set on the ring, a necklace between the lines, the name over a whisper of lattice.
 - **F. Two founders:** two overlapping circles; lattice for D and flowers for A.
 - **G. Others:** a compass of diamonds, engraved rays, the monogram breaking out of the ring, a wreath of flowers, a small flower ring inside.
+
+**Seal round 8 verdict (owner):** 270, 271 and 244 are interesting.
+- Try a border of diamonds alternating with flowers.
+- Use that alternation beyond the border too.
+- Go deeper on the three picks.
+
+**Seal round 9 (272–295):**
+1. **Alternating border (272–277):** plain alternation; larger toward the foot; two rows (flowers outside, diamonds inside); gems with an inner flower ring; gems and flowers; a touching chain.
+2. **From 244 (278–281):** large and small flowers alternating; two-tone flowers; one large flower at the foot; flowers closing under the name.
+3. **From 270 (282–285):** a wreath of flowers and gems; a fuller wreath with a gem at the top; the wreath with the name above; the wreath with an inner row of diamonds.
+4. **From 271 (286–289):** an alternating inner ring; an alternating border with inner flowers; a flower border with an alternating inner ring; an inner ring of tiny diamonds.
+5. **Alternation beyond the border (290–295):** a diamond and flowers between the words of the name; a ribbon under the monogram; diamonds north and south with flowers east and west; rays ending in diamonds and flowers; alternating layers; alternation along the lower half.
