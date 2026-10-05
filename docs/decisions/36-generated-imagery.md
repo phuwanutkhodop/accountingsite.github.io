@@ -495,3 +495,10 @@ Rule 2 is relaxed to "the ring pair is allowed, not required". Rules 1 (full 153
   - Layout: two rows; the arc close under D A.
   - Density: 21 pieces, or 9 larger ones.
   - A flower clasp splitting the name.
+
+**Seal round 10 → owner:** the inner layer they meant is a **band like 314**, not a filled circle (296–299 redone that way). Try the band in **reverse colours** too. The lower arc gets **one large flower at the bottom centre, as in 304**.
+
+**Seal round 11 (316–335):** every seal has the 295 arc with one large foot flower, and a pattern band inside the name.
+- **Red band vs reversed band (cream, lattice in red, flowers in rose), in pairs:** standard (316/317), larger with the name moved out (318/319), with a flower clasp at the top (320/321), thin (322/323), wide (324/325), with gem diamonds in the arc (329/330).
+- **Red band only:** larger pattern (326); band close around D A (327); wider arc with a larger foot flower (331); one fine outer ring instead of the pair (332); the 153 diamond tile itself at the foot (335).
+- **Other:** two layers, red outside and reversed inside (328); reversed with rose edges (333); reversed with swapped arc colours (334).
