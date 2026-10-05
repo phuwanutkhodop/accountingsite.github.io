@@ -250,3 +250,12 @@ The board now shows round 13 and round 12 only, to keep it loading.
 - **Frequency:** 142 denser (34 tile) · 143 sparser (56) · 144 few and bold (72).
 - **Flower size:** 145 small · 146 large · 147 large with one ring.
 - **Proportion and line:** 148 taller diamonds · 149 squarer · 150 finer lines with three rings · 151 flowers only, no rings.
+
+**Round 15 (owner):** redo 137–144 with every flower in **silver**.
+
+**Claude (152–159):** the same rings as 137–144, with silver flowers. On the board, each silver version sits directly under its gold counterpart.
+
+**New colour, by owner request:**
+- Silver #d4d5d8 on oxblood letters.
+- A deeper silver #85878c on cream letters (oxblood and night backgrounds), so the flowers stay visible.
+- This is the first colour added outside the locked #33 palette. Record it in #35 if silver is kept.
