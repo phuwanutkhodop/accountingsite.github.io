@@ -60,3 +60,19 @@ DA Brand Marks (private artifact): https://claude.ai/artifact/59ZFoNcbQYsCJs17ig
 - The double rule doubles as the accountant's double underline under final totals.
 
 Still needed from the owner: Thai registered name, Chinese name (if any), founding year, licence numbers (the "CPA" and "Licence No. 0000" in the mock-ups are placeholders).
+
+## 5. Round 3 — the D.A. logo, one piece at a time
+
+**Owner (2026-10-05):** the name is written **D.A.** (with full stops). **D stands for Diamond, A for Atom.** Build the pieces one at a time, in detail: logo first, then the seal, then the rest.
+
+**Tool (Claude):** a Design canvas, one artboard per concept. Each artboard shows the mark large, on oxblood, at night, at three small sizes, and in a lockup with "Accounting & Consulting Co., Ltd." — D.A. Logo (private artifact): https://claude.ai/artifact/EZHW3FVuUPbSsSXUfS2dBB
+
+| # | Concept | Idea |
+|---|---|---|
+| 01 | Full stops | "D.A." in Cormorant; the first full stop is a cut diamond, the second an atom |
+| 02 | The diamond holds the atom | A brass diamond in profile with two oxblood orbits through it |
+| 03 | Cut D, orbit A | A D cut with facets; the A's crossbar is an orbit |
+| 04 | Brilliant with orbit | A round brilliant from above, "D.A." in its table, one orbit with a diamond electron |
+| 05 | Orbit around D.A. | One brass orbit weaving through the letters "D.A." |
+
+Next: the owner picks one; Claude refines it (construction grid, clear space, minimum size, lockups), then moves to the seal.
