@@ -102,3 +102,7 @@ Next: the owner picks one; Claude refines it (construction grid, clear space, mi
 | 18 | Hallmark | The lozenge assay mark (proof that metal is genuine, as an audit is for accounts); D over A with an atom between. |
 | 19 | Pavé | The letters set with small brilliants like jewellery; a brass stone is the nucleus. |
 | 20 | Ball and stick | The letters built from atoms and bonds. |
+
+**Round 4 brief (owner):** blend diamond with finance. **Finance leads, diamond supports.** (The atom is not part of this brief. Ask whether it stays.)
+
+**Claude:** 21 rising bars cut along one line, the last bar brass · 22 a ring chart that is also a brilliant seen from above · 23 ledger paper (double margin rule, ruling, accountant's double underline, a small diamond to close) · 24 the auditor's tick, cut in two tones · 25 a growth line whose last point is a diamond · 26 a diamond standing on its table, pointing up like a growth arrow · 27 Σ (sum) with a diamond at its turning point · 28 growth bars, the last crowned with a stone's crown.
