@@ -1,7 +1,7 @@
 # PROJECT-STATUS.md
 
 **Last updated:** Sunday, 5 October 2026
-**Last session:** Ticket #10 decided with the owner — content model and file layout of a site (`docs/decisions/10-site-content-model.md`)
+**Last session:** Ticket #11 decided with the owner — rendering strategy: pre-render at publish, full regeneration with minimal commit, all three languages required to publish, Gregorian years on Thai pages (`docs/decisions/11-rendering-strategy.md`)
 **Next session:** Work the map: https://github.com/phuwanutkhodop/accountingsite.github.io/issues/1 — take the first unblocked ticket
 
 ---
@@ -17,6 +17,8 @@ The owner re-stated the original goal: **(1) build a ready-made website-builder 
 **Research reports** land in `docs/research/` (one file per research ticket) and are linked from the ticket.
 
 **Decision records** for grilling tickets land in `docs/decisions/` (one file per ticket) and are linked from the ticket.
+
+**Owner working preference (stated 5 Oct 2026):** the owner is not a coder or engineer. Claude decides technical questions itself, rigorously, and records the reasons; ask the owner only about what visitors see or what the owner must do.
 
 **Rules that still bind during the builder effort:** read every file before editing; relative paths only; Navy & Soft Linen; Instrument Serif + Inter for Latin (TH/ZH typography is ticket #15); static only.
 
