@@ -476,3 +476,22 @@ Rule 2 is relaxed to "the ring pair is allowed, not required". Rules 1 (full 153
 3. **From 270 (282–285):** a wreath of flowers and gems; a fuller wreath with a gem at the top; the wreath with the name above; the wreath with an inner row of diamonds.
 4. **From 271 (286–289):** an alternating inner ring; an alternating border with inner flowers; a flower border with an alternating inner ring; an inner ring of tiny diamonds.
 5. **Alternation beyond the border (290–295):** a diamond and flowers between the words of the name; a ribbon under the monogram; diamonds north and south with flowers east and west; rays ending in diamonds and flowers; alternating layers; alternation along the lower half.
+
+**Seal round 9 → owner:** go deeper on **295**, with many variations. Also try an **inner circle filled with the diamond pattern on red, as inside the D A**, and its colour/pattern **reverse**.
+
+**Seal round 10 (296–315):**
+- **The owner's test:**
+  - 296: red inner circle with the 153 interior (rose diamonds, silver flowers). D A sits on it reversed in cream, still in full 153 detail.
+  - 297: the reverse. A cream inner circle with the lattice drawn in red and the flowers in rose; D A as normal.
+  - 298: a larger red circle.
+  - 299: a red circle with a flower clasp.
+  - 312: the alternation round the red circle's edge.
+  - 313: reversed, with swapped colours.
+  - 314: a thin red-pattern band.
+- **295 deepened:**
+  - Arc span: 120°, 180°, or rising to the name (232°).
+  - Sizing: even sizes; one large flower at the foot.
+  - Colours and diamond style: swapped colours; gem diamonds; outline diamonds.
+  - Layout: two rows; the arc close under D A.
+  - Density: 21 pieces, or 9 larger ones.
+  - A flower clasp splitting the name.
