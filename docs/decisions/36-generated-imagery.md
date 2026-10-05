@@ -512,3 +512,17 @@ Rule 2 is relaxed to "the ring pair is allowed, not required". Rules 1 (full 153
 - 338: a larger pattern in the band.
 - 339: the band edged with fine double lines.
 - 340: band colours turned (rose diamond rings, flowers in the letter colour).
+
+**Seal round 12 → owner:** **339**, but with a larger diamond pattern in the band; try several sizes.
+
+**Seal round 13 (341–348), all 339 with a larger pattern:**
+- Straight lattice, growing (tile width s; the band widens where the tile needs room):
+  - 341: s 12.
+  - 342: s 14.
+  - 343: s 16.
+  - 344: s 18.
+  - 345: s 20.
+  - 346: s 24.
+- The lattice bent to follow the circle. One row of 153 tiles with the long axis toward the centre, at the logo's 1.4 ratio; the half rows tucked in at the edges:
+  - 347: band 16 wide.
+  - 348: band 21 wide.
