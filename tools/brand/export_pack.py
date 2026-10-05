@@ -178,6 +178,8 @@ def main(out):
                 jobs.append({'src': f, 'png': os.path.join(out, 'png', 'pattern', f'da-pattern-{n}-{v}-tile-{int(pw)}x{int(ph)}px.png'), 'width': int(pw), 'master': src, 'transparent': False})
             jobs.append({'src': f, 'pdf': os.path.join(out, 'pdf', 'pattern', f'da-pattern-{n}-{v}-tile.pdf')})
             jobs.append({'tile': src, 'png': os.path.join(out, 'png', 'pattern', f'da-pattern-{n}-{v}-swatch-3000px.png'), 'width': 3000, 'scale': TILE_SCALES[n][0]})
+    rel = lambda v: os.path.relpath(v, out).replace(os.sep, '/') if isinstance(v, str) and os.path.isabs(v) else v
+    jobs = [{k: rel(v) for k, v in j.items()} for j in jobs]          # paths relative to the pack: works from any copy
     json.dump(jobs, open(os.path.join(out, 'jobs.json'), 'w'), indent=1)
     print(len(jobs), 'render jobs')
 
@@ -190,6 +192,7 @@ def finish(out):
     n = 0
     for j in json.load(open(os.path.join(out, 'jobs.json'))):
         if not j.get('pdf'): continue
+        j = {k: os.path.join(out, v) if k in ('src', 'pdf', 'png', 'master', 'tile') else v for k, v in j.items()}
         vb = [float(x) for x in ET.parse(j['src']).getroot().get('viewBox').split()]
         w, h = vb[2] * .75, vb[3] * .75
         r = PdfReader(j['pdf']); wr = PdfWriter()

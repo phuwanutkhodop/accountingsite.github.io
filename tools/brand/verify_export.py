@@ -27,9 +27,13 @@ def ok(cond, what):
     else: fails.append(what)
 
 
-def close(a, b, what):
+def close(a, b, what, edge=0):
+    """edge: ignore this many pixels at the border, where a raster's whole-pixel size rounds the artwork's edge by a
+    fraction of a pixel (e.g. 620.6 px of artwork in a 621 px image)."""
     a, b = a.convert('RGB'), b.convert('RGB')
     if a.size != b.size: b = b.resize(a.size, Image.LANCZOS)
+    if edge:
+        box = (edge, edge, a.width - edge, a.height - edge); a, b = a.crop(box), b.crop(box)
     d = ImageChops.difference(a.filter(ImageFilter.GaussianBlur(1.5)), b.filter(ImageFilter.GaussianBlur(1.5))).convert('L')
     ok(max(d.get_flattened_data()) <= TOL, f'{what}: pictures differ (max {max(d.get_flattened_data())})')
 
@@ -39,7 +43,8 @@ def flat(img, rgb):
 
 
 def main(pack):
-    jobs = json.load(open(os.path.join(pack, 'jobs.json')))
+    jobs = [{k: os.path.join(pack, v) if k in ('src', 'png', 'pdf', 'master', 'tile') else v for k, v in j.items()}
+            for j in json.load(open(os.path.join(pack, 'jobs.json')))]
     try: import cairosvg
     except ImportError: cairosvg = None; skipped.add('second SVG engine (pip install cairosvg)')
     poppler = shutil.which('pdftoppm') and shutil.which('pdfimages') and shutil.which('pdfinfo')
@@ -95,7 +100,7 @@ def main(pack):
                     subprocess.run(['pdftoppm', '-png', '-singlefile', '-scale-to-x', str(ref.width), '-scale-to-y', str(ref.height), j['pdf'], os.path.join(t, 'p')], check=True)
                     p = Image.open(os.path.join(t, 'p.png'))
                 # poppler draws see-through areas on white, so the PNG is put on white for this comparison
-                close(flat(ref, (255, 255, 255)), p.convert('RGB'), f'{name}: poppler render vs PNG')
+                close(flat(ref, (255, 255, 255)), p.convert('RGB'), f'{name}: poppler render vs PNG', edge=2)
     for root, _, files in os.walk(os.path.join(pack, 'svg-compatible')):
         for f in files:
             s = open(os.path.join(root, f), encoding='utf-8').read()

@@ -5,7 +5,8 @@ const fs = require('fs'), path = require('path');
 const { chromium } = require('playwright');
 
 const out = path.resolve(process.argv[2]);
-const jobs = JSON.parse(fs.readFileSync(path.join(out, 'jobs.json'), 'utf8'));
+const jobs = JSON.parse(fs.readFileSync(path.join(out, 'jobs.json'), 'utf8'))
+  .map(j => Object.fromEntries(Object.entries(j).map(([k, v]) => [k, ['src', 'png', 'pdf', 'master', 'tile'].includes(k) ? path.resolve(out, v) : v])));
 const size = svg => { const m = svg.match(/viewBox="([\d.\s-]+)"/)[1].trim().split(/\s+/).map(Number); return [m[2], m[3]]; };
 const page0 = (body, bg = 'transparent') => `<!doctype html><html><head><meta charset="utf-8"><style>html,body{margin:0;padding:0;background:${bg}}svg{display:block}</style></head><body>${body}</body></html>`;
 // set the artwork's pixel size on its <svg> (replacing any width/height already there)

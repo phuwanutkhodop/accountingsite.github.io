@@ -1,0 +1,800 @@
+[
+ {
+  "src": "svg-compatible/logo/da-logo-153-paper-background.svg",
+  "png": "png/logo/da-logo-153-paper-background-1000px.png",
+  "width": 1000,
+  "master": "../logo/da-logo-153-paper.svg",
+  "transparent": false,
+  "page_bg": "#f2eeea"
+ },
+ {
+  "src": "svg-compatible/logo/da-logo-153-paper-background.svg",
+  "png": "png/logo/da-logo-153-paper-background-4000px.png",
+  "width": 4000,
+  "master": "../logo/da-logo-153-paper.svg",
+  "transparent": false,
+  "page_bg": "#f2eeea"
+ },
+ {
+  "src": "svg-compatible/logo/da-logo-153-paper-background.svg",
+  "pdf": "pdf/logo/da-logo-153-paper-background.pdf"
+ },
+ {
+  "src": "svg-compatible/logo/da-logo-153-paper-transparent.svg",
+  "png": "png/logo/da-logo-153-paper-transparent-1000px.png",
+  "width": 1000,
+  "master": "../logo/da-logo-153-paper.svg",
+  "transparent": true,
+  "page_bg": null
+ },
+ {
+  "src": "svg-compatible/logo/da-logo-153-paper-transparent.svg",
+  "png": "png/logo/da-logo-153-paper-transparent-4000px.png",
+  "width": 4000,
+  "master": "../logo/da-logo-153-paper.svg",
+  "transparent": true,
+  "page_bg": null
+ },
+ {
+  "src": "svg-compatible/logo/da-logo-153-paper-transparent.svg",
+  "pdf": "pdf/logo/da-logo-153-paper-transparent.pdf"
+ },
+ {
+  "src": "svg-compatible/logo/da-logo-153-oxblood-background.svg",
+  "png": "png/logo/da-logo-153-oxblood-background-1000px.png",
+  "width": 1000,
+  "master": "../logo/da-logo-153-oxblood.svg",
+  "transparent": false,
+  "page_bg": "#7a2229"
+ },
+ {
+  "src": "svg-compatible/logo/da-logo-153-oxblood-background.svg",
+  "png": "png/logo/da-logo-153-oxblood-background-4000px.png",
+  "width": 4000,
+  "master": "../logo/da-logo-153-oxblood.svg",
+  "transparent": false,
+  "page_bg": "#7a2229"
+ },
+ {
+  "src": "svg-compatible/logo/da-logo-153-oxblood-background.svg",
+  "pdf": "pdf/logo/da-logo-153-oxblood-background.pdf"
+ },
+ {
+  "src": "svg-compatible/logo/da-logo-153-oxblood-transparent.svg",
+  "png": "png/logo/da-logo-153-oxblood-transparent-1000px.png",
+  "width": 1000,
+  "master": "../logo/da-logo-153-oxblood.svg",
+  "transparent": true,
+  "page_bg": null
+ },
+ {
+  "src": "svg-compatible/logo/da-logo-153-oxblood-transparent.svg",
+  "png": "png/logo/da-logo-153-oxblood-transparent-4000px.png",
+  "width": 4000,
+  "master": "../logo/da-logo-153-oxblood.svg",
+  "transparent": true,
+  "page_bg": null
+ },
+ {
+  "src": "svg-compatible/logo/da-logo-153-oxblood-transparent.svg",
+  "pdf": "pdf/logo/da-logo-153-oxblood-transparent.pdf"
+ },
+ {
+  "src": "svg-compatible/logo/da-logo-153-night-background.svg",
+  "png": "png/logo/da-logo-153-night-background-1000px.png",
+  "width": 1000,
+  "master": "../logo/da-logo-153-night.svg",
+  "transparent": false,
+  "page_bg": "#1b1112"
+ },
+ {
+  "src": "svg-compatible/logo/da-logo-153-night-background.svg",
+  "png": "png/logo/da-logo-153-night-background-4000px.png",
+  "width": 4000,
+  "master": "../logo/da-logo-153-night.svg",
+  "transparent": false,
+  "page_bg": "#1b1112"
+ },
+ {
+  "src": "svg-compatible/logo/da-logo-153-night-background.svg",
+  "pdf": "pdf/logo/da-logo-153-night-background.pdf"
+ },
+ {
+  "src": "svg-compatible/logo/da-logo-153-night-transparent.svg",
+  "png": "png/logo/da-logo-153-night-transparent-1000px.png",
+  "width": 1000,
+  "master": "../logo/da-logo-153-night.svg",
+  "transparent": true,
+  "page_bg": null
+ },
+ {
+  "src": "svg-compatible/logo/da-logo-153-night-transparent.svg",
+  "png": "png/logo/da-logo-153-night-transparent-4000px.png",
+  "width": 4000,
+  "master": "../logo/da-logo-153-night.svg",
+  "transparent": true,
+  "page_bg": null
+ },
+ {
+  "src": "svg-compatible/logo/da-logo-153-night-transparent.svg",
+  "pdf": "pdf/logo/da-logo-153-night-transparent.pdf"
+ },
+ {
+  "src": "svg-compatible/logo/da-lockup-153-paper-background.svg",
+  "png": "png/logo/da-lockup-153-paper-background-1000px.png",
+  "width": 1000,
+  "master": "../logo/da-lockup-153-paper.svg",
+  "transparent": false,
+  "page_bg": "#f2eeea"
+ },
+ {
+  "src": "svg-compatible/logo/da-lockup-153-paper-background.svg",
+  "png": "png/logo/da-lockup-153-paper-background-4000px.png",
+  "width": 4000,
+  "master": "../logo/da-lockup-153-paper.svg",
+  "transparent": false,
+  "page_bg": "#f2eeea"
+ },
+ {
+  "src": "svg-compatible/logo/da-lockup-153-paper-background.svg",
+  "pdf": "pdf/logo/da-lockup-153-paper-background.pdf"
+ },
+ {
+  "src": "svg-compatible/logo/da-lockup-153-paper-transparent.svg",
+  "png": "png/logo/da-lockup-153-paper-transparent-1000px.png",
+  "width": 1000,
+  "master": "../logo/da-lockup-153-paper.svg",
+  "transparent": true,
+  "page_bg": null
+ },
+ {
+  "src": "svg-compatible/logo/da-lockup-153-paper-transparent.svg",
+  "png": "png/logo/da-lockup-153-paper-transparent-4000px.png",
+  "width": 4000,
+  "master": "../logo/da-lockup-153-paper.svg",
+  "transparent": true,
+  "page_bg": null
+ },
+ {
+  "src": "svg-compatible/logo/da-lockup-153-paper-transparent.svg",
+  "pdf": "pdf/logo/da-lockup-153-paper-transparent.pdf"
+ },
+ {
+  "src": "svg-compatible/logo/da-lockup-153-oxblood-background.svg",
+  "png": "png/logo/da-lockup-153-oxblood-background-1000px.png",
+  "width": 1000,
+  "master": "../logo/da-lockup-153-oxblood.svg",
+  "transparent": false,
+  "page_bg": "#7a2229"
+ },
+ {
+  "src": "svg-compatible/logo/da-lockup-153-oxblood-background.svg",
+  "png": "png/logo/da-lockup-153-oxblood-background-4000px.png",
+  "width": 4000,
+  "master": "../logo/da-lockup-153-oxblood.svg",
+  "transparent": false,
+  "page_bg": "#7a2229"
+ },
+ {
+  "src": "svg-compatible/logo/da-lockup-153-oxblood-background.svg",
+  "pdf": "pdf/logo/da-lockup-153-oxblood-background.pdf"
+ },
+ {
+  "src": "svg-compatible/logo/da-lockup-153-oxblood-transparent.svg",
+  "png": "png/logo/da-lockup-153-oxblood-transparent-1000px.png",
+  "width": 1000,
+  "master": "../logo/da-lockup-153-oxblood.svg",
+  "transparent": true,
+  "page_bg": null
+ },
+ {
+  "src": "svg-compatible/logo/da-lockup-153-oxblood-transparent.svg",
+  "png": "png/logo/da-lockup-153-oxblood-transparent-4000px.png",
+  "width": 4000,
+  "master": "../logo/da-lockup-153-oxblood.svg",
+  "transparent": true,
+  "page_bg": null
+ },
+ {
+  "src": "svg-compatible/logo/da-lockup-153-oxblood-transparent.svg",
+  "pdf": "pdf/logo/da-lockup-153-oxblood-transparent.pdf"
+ },
+ {
+  "src": "svg-compatible/logo/da-lockup-153-night-background.svg",
+  "png": "png/logo/da-lockup-153-night-background-1000px.png",
+  "width": 1000,
+  "master": "../logo/da-lockup-153-night.svg",
+  "transparent": false,
+  "page_bg": "#1b1112"
+ },
+ {
+  "src": "svg-compatible/logo/da-lockup-153-night-background.svg",
+  "png": "png/logo/da-lockup-153-night-background-4000px.png",
+  "width": 4000,
+  "master": "../logo/da-lockup-153-night.svg",
+  "transparent": false,
+  "page_bg": "#1b1112"
+ },
+ {
+  "src": "svg-compatible/logo/da-lockup-153-night-background.svg",
+  "pdf": "pdf/logo/da-lockup-153-night-background.pdf"
+ },
+ {
+  "src": "svg-compatible/logo/da-lockup-153-night-transparent.svg",
+  "png": "png/logo/da-lockup-153-night-transparent-1000px.png",
+  "width": 1000,
+  "master": "../logo/da-lockup-153-night.svg",
+  "transparent": true,
+  "page_bg": null
+ },
+ {
+  "src": "svg-compatible/logo/da-lockup-153-night-transparent.svg",
+  "png": "png/logo/da-lockup-153-night-transparent-4000px.png",
+  "width": 4000,
+  "master": "../logo/da-lockup-153-night.svg",
+  "transparent": true,
+  "page_bg": null
+ },
+ {
+  "src": "svg-compatible/logo/da-lockup-153-night-transparent.svg",
+  "pdf": "pdf/logo/da-lockup-153-night-transparent.pdf"
+ },
+ {
+  "src": "svg-compatible/logo/da-logo-small-paper-background.svg",
+  "png": "png/logo/da-logo-small-paper-background-1000px.png",
+  "width": 1000,
+  "master": "../logo/da-logo-small-paper.svg",
+  "transparent": false,
+  "page_bg": "#f2eeea"
+ },
+ {
+  "src": "svg-compatible/logo/da-logo-small-paper-background.svg",
+  "png": "png/logo/da-logo-small-paper-background-4000px.png",
+  "width": 4000,
+  "master": "../logo/da-logo-small-paper.svg",
+  "transparent": false,
+  "page_bg": "#f2eeea"
+ },
+ {
+  "src": "svg-compatible/logo/da-logo-small-paper-background.svg",
+  "pdf": "pdf/logo/da-logo-small-paper-background.pdf"
+ },
+ {
+  "src": "svg-compatible/logo/da-logo-small-paper-transparent.svg",
+  "png": "png/logo/da-logo-small-paper-transparent-1000px.png",
+  "width": 1000,
+  "master": "../logo/da-logo-small-paper.svg",
+  "transparent": true,
+  "page_bg": null
+ },
+ {
+  "src": "svg-compatible/logo/da-logo-small-paper-transparent.svg",
+  "png": "png/logo/da-logo-small-paper-transparent-4000px.png",
+  "width": 4000,
+  "master": "../logo/da-logo-small-paper.svg",
+  "transparent": true,
+  "page_bg": null
+ },
+ {
+  "src": "svg-compatible/logo/da-logo-small-paper-transparent.svg",
+  "pdf": "pdf/logo/da-logo-small-paper-transparent.pdf"
+ },
+ {
+  "src": "svg-compatible/logo/da-logo-small-oxblood-background.svg",
+  "png": "png/logo/da-logo-small-oxblood-background-1000px.png",
+  "width": 1000,
+  "master": "../logo/da-logo-small-oxblood.svg",
+  "transparent": false,
+  "page_bg": "#7a2229"
+ },
+ {
+  "src": "svg-compatible/logo/da-logo-small-oxblood-background.svg",
+  "png": "png/logo/da-logo-small-oxblood-background-4000px.png",
+  "width": 4000,
+  "master": "../logo/da-logo-small-oxblood.svg",
+  "transparent": false,
+  "page_bg": "#7a2229"
+ },
+ {
+  "src": "svg-compatible/logo/da-logo-small-oxblood-background.svg",
+  "pdf": "pdf/logo/da-logo-small-oxblood-background.pdf"
+ },
+ {
+  "src": "svg-compatible/logo/da-logo-small-oxblood-transparent.svg",
+  "png": "png/logo/da-logo-small-oxblood-transparent-1000px.png",
+  "width": 1000,
+  "master": "../logo/da-logo-small-oxblood.svg",
+  "transparent": true,
+  "page_bg": null
+ },
+ {
+  "src": "svg-compatible/logo/da-logo-small-oxblood-transparent.svg",
+  "png": "png/logo/da-logo-small-oxblood-transparent-4000px.png",
+  "width": 4000,
+  "master": "../logo/da-logo-small-oxblood.svg",
+  "transparent": true,
+  "page_bg": null
+ },
+ {
+  "src": "svg-compatible/logo/da-logo-small-oxblood-transparent.svg",
+  "pdf": "pdf/logo/da-logo-small-oxblood-transparent.pdf"
+ },
+ {
+  "src": "svg-compatible/logo/da-logo-small-night-background.svg",
+  "png": "png/logo/da-logo-small-night-background-1000px.png",
+  "width": 1000,
+  "master": "../logo/da-logo-small-night.svg",
+  "transparent": false,
+  "page_bg": "#1b1112"
+ },
+ {
+  "src": "svg-compatible/logo/da-logo-small-night-background.svg",
+  "png": "png/logo/da-logo-small-night-background-4000px.png",
+  "width": 4000,
+  "master": "../logo/da-logo-small-night.svg",
+  "transparent": false,
+  "page_bg": "#1b1112"
+ },
+ {
+  "src": "svg-compatible/logo/da-logo-small-night-background.svg",
+  "pdf": "pdf/logo/da-logo-small-night-background.pdf"
+ },
+ {
+  "src": "svg-compatible/logo/da-logo-small-night-transparent.svg",
+  "png": "png/logo/da-logo-small-night-transparent-1000px.png",
+  "width": 1000,
+  "master": "../logo/da-logo-small-night.svg",
+  "transparent": true,
+  "page_bg": null
+ },
+ {
+  "src": "svg-compatible/logo/da-logo-small-night-transparent.svg",
+  "png": "png/logo/da-logo-small-night-transparent-4000px.png",
+  "width": 4000,
+  "master": "../logo/da-logo-small-night.svg",
+  "transparent": true,
+  "page_bg": null
+ },
+ {
+  "src": "svg-compatible/logo/da-logo-small-night-transparent.svg",
+  "pdf": "pdf/logo/da-logo-small-night-transparent.pdf"
+ },
+ {
+  "src": "svg-compatible/seal/da-seal-346-paper.svg",
+  "png": "png/seal/da-seal-346-paper-1000px.png",
+  "width": 1000,
+  "master": "../seal/da-seal-346-paper.svg",
+  "transparent": true
+ },
+ {
+  "src": "svg-compatible/seal/da-seal-346-paper.svg",
+  "png": "png/seal/da-seal-346-paper-4000px.png",
+  "width": 4000,
+  "master": "../seal/da-seal-346-paper.svg",
+  "transparent": true
+ },
+ {
+  "src": "svg-compatible/seal/da-seal-346-paper.svg",
+  "pdf": "pdf/seal/da-seal-346-paper.pdf"
+ },
+ {
+  "src": "svg-compatible/seal/da-seal-346-oxblood.svg",
+  "png": "png/seal/da-seal-346-oxblood-1000px.png",
+  "width": 1000,
+  "master": "../seal/da-seal-346-oxblood.svg",
+  "transparent": true
+ },
+ {
+  "src": "svg-compatible/seal/da-seal-346-oxblood.svg",
+  "png": "png/seal/da-seal-346-oxblood-4000px.png",
+  "width": 4000,
+  "master": "../seal/da-seal-346-oxblood.svg",
+  "transparent": true
+ },
+ {
+  "src": "svg-compatible/seal/da-seal-346-oxblood.svg",
+  "pdf": "pdf/seal/da-seal-346-oxblood.pdf"
+ },
+ {
+  "src": "svg-compatible/seal/da-seal-346-night.svg",
+  "png": "png/seal/da-seal-346-night-1000px.png",
+  "width": 1000,
+  "master": "../seal/da-seal-346-night.svg",
+  "transparent": true
+ },
+ {
+  "src": "svg-compatible/seal/da-seal-346-night.svg",
+  "png": "png/seal/da-seal-346-night-4000px.png",
+  "width": 4000,
+  "master": "../seal/da-seal-346-night.svg",
+  "transparent": true
+ },
+ {
+  "src": "svg-compatible/seal/da-seal-346-night.svg",
+  "pdf": "pdf/seal/da-seal-346-night.pdf"
+ },
+ {
+  "src": "svg-compatible/pattern/da-pattern-401-paper-tile.svg",
+  "png": "png/pattern/da-pattern-401-paper-tile-90x126px.png",
+  "width": 90,
+  "master": "../pattern/da-pattern-401-paper.svg",
+  "transparent": false
+ },
+ {
+  "src": "svg-compatible/pattern/da-pattern-401-paper-tile.svg",
+  "png": "png/pattern/da-pattern-401-paper-tile-180x252px.png",
+  "width": 180,
+  "master": "../pattern/da-pattern-401-paper.svg",
+  "transparent": false
+ },
+ {
+  "src": "svg-compatible/pattern/da-pattern-401-paper-tile.svg",
+  "pdf": "pdf/pattern/da-pattern-401-paper-tile.pdf"
+ },
+ {
+  "tile": "../pattern/da-pattern-401-paper.svg",
+  "png": "png/pattern/da-pattern-401-paper-swatch-3000px.png",
+  "width": 3000,
+  "scale": 2.5
+ },
+ {
+  "src": "svg-compatible/pattern/da-pattern-401-oxblood-tile.svg",
+  "png": "png/pattern/da-pattern-401-oxblood-tile-90x126px.png",
+  "width": 90,
+  "master": "../pattern/da-pattern-401-oxblood.svg",
+  "transparent": false
+ },
+ {
+  "src": "svg-compatible/pattern/da-pattern-401-oxblood-tile.svg",
+  "png": "png/pattern/da-pattern-401-oxblood-tile-180x252px.png",
+  "width": 180,
+  "master": "../pattern/da-pattern-401-oxblood.svg",
+  "transparent": false
+ },
+ {
+  "src": "svg-compatible/pattern/da-pattern-401-oxblood-tile.svg",
+  "pdf": "pdf/pattern/da-pattern-401-oxblood-tile.pdf"
+ },
+ {
+  "tile": "../pattern/da-pattern-401-oxblood.svg",
+  "png": "png/pattern/da-pattern-401-oxblood-swatch-3000px.png",
+  "width": 3000,
+  "scale": 2.5
+ },
+ {
+  "src": "svg-compatible/pattern/da-pattern-401-night-tile.svg",
+  "png": "png/pattern/da-pattern-401-night-tile-90x126px.png",
+  "width": 90,
+  "master": "../pattern/da-pattern-401-night.svg",
+  "transparent": false
+ },
+ {
+  "src": "svg-compatible/pattern/da-pattern-401-night-tile.svg",
+  "png": "png/pattern/da-pattern-401-night-tile-180x252px.png",
+  "width": 180,
+  "master": "../pattern/da-pattern-401-night.svg",
+  "transparent": false
+ },
+ {
+  "src": "svg-compatible/pattern/da-pattern-401-night-tile.svg",
+  "pdf": "pdf/pattern/da-pattern-401-night-tile.pdf"
+ },
+ {
+  "tile": "../pattern/da-pattern-401-night.svg",
+  "png": "png/pattern/da-pattern-401-night-swatch-3000px.png",
+  "width": 3000,
+  "scale": 2.5
+ },
+ {
+  "src": "svg-compatible/pattern/da-pattern-401-quiet-tile.svg",
+  "png": "png/pattern/da-pattern-401-quiet-tile-90x126px.png",
+  "width": 90,
+  "master": "../pattern/da-pattern-401-quiet.svg",
+  "transparent": false
+ },
+ {
+  "src": "svg-compatible/pattern/da-pattern-401-quiet-tile.svg",
+  "png": "png/pattern/da-pattern-401-quiet-tile-180x252px.png",
+  "width": 180,
+  "master": "../pattern/da-pattern-401-quiet.svg",
+  "transparent": false
+ },
+ {
+  "src": "svg-compatible/pattern/da-pattern-401-quiet-tile.svg",
+  "pdf": "pdf/pattern/da-pattern-401-quiet-tile.pdf"
+ },
+ {
+  "tile": "../pattern/da-pattern-401-quiet.svg",
+  "png": "png/pattern/da-pattern-401-quiet-swatch-3000px.png",
+  "width": 3000,
+  "scale": 2.5
+ },
+ {
+  "src": "svg-compatible/pattern/da-pattern-406-paper-tile.svg",
+  "png": "png/pattern/da-pattern-406-paper-tile-90x126px.png",
+  "width": 90,
+  "master": "../pattern/da-pattern-406-paper.svg",
+  "transparent": false
+ },
+ {
+  "src": "svg-compatible/pattern/da-pattern-406-paper-tile.svg",
+  "png": "png/pattern/da-pattern-406-paper-tile-180x252px.png",
+  "width": 180,
+  "master": "../pattern/da-pattern-406-paper.svg",
+  "transparent": false
+ },
+ {
+  "src": "svg-compatible/pattern/da-pattern-406-paper-tile.svg",
+  "pdf": "pdf/pattern/da-pattern-406-paper-tile.pdf"
+ },
+ {
+  "tile": "../pattern/da-pattern-406-paper.svg",
+  "png": "png/pattern/da-pattern-406-paper-swatch-3000px.png",
+  "width": 3000,
+  "scale": 2.5
+ },
+ {
+  "src": "svg-compatible/pattern/da-pattern-406-oxblood-tile.svg",
+  "png": "png/pattern/da-pattern-406-oxblood-tile-90x126px.png",
+  "width": 90,
+  "master": "../pattern/da-pattern-406-oxblood.svg",
+  "transparent": false
+ },
+ {
+  "src": "svg-compatible/pattern/da-pattern-406-oxblood-tile.svg",
+  "png": "png/pattern/da-pattern-406-oxblood-tile-180x252px.png",
+  "width": 180,
+  "master": "../pattern/da-pattern-406-oxblood.svg",
+  "transparent": false
+ },
+ {
+  "src": "svg-compatible/pattern/da-pattern-406-oxblood-tile.svg",
+  "pdf": "pdf/pattern/da-pattern-406-oxblood-tile.pdf"
+ },
+ {
+  "tile": "../pattern/da-pattern-406-oxblood.svg",
+  "png": "png/pattern/da-pattern-406-oxblood-swatch-3000px.png",
+  "width": 3000,
+  "scale": 2.5
+ },
+ {
+  "src": "svg-compatible/pattern/da-pattern-406-night-tile.svg",
+  "png": "png/pattern/da-pattern-406-night-tile-90x126px.png",
+  "width": 90,
+  "master": "../pattern/da-pattern-406-night.svg",
+  "transparent": false
+ },
+ {
+  "src": "svg-compatible/pattern/da-pattern-406-night-tile.svg",
+  "png": "png/pattern/da-pattern-406-night-tile-180x252px.png",
+  "width": 180,
+  "master": "../pattern/da-pattern-406-night.svg",
+  "transparent": false
+ },
+ {
+  "src": "svg-compatible/pattern/da-pattern-406-night-tile.svg",
+  "pdf": "pdf/pattern/da-pattern-406-night-tile.pdf"
+ },
+ {
+  "tile": "../pattern/da-pattern-406-night.svg",
+  "png": "png/pattern/da-pattern-406-night-swatch-3000px.png",
+  "width": 3000,
+  "scale": 2.5
+ },
+ {
+  "src": "svg-compatible/pattern/da-pattern-406-quiet-tile.svg",
+  "png": "png/pattern/da-pattern-406-quiet-tile-90x126px.png",
+  "width": 90,
+  "master": "../pattern/da-pattern-406-quiet.svg",
+  "transparent": false
+ },
+ {
+  "src": "svg-compatible/pattern/da-pattern-406-quiet-tile.svg",
+  "png": "png/pattern/da-pattern-406-quiet-tile-180x252px.png",
+  "width": 180,
+  "master": "../pattern/da-pattern-406-quiet.svg",
+  "transparent": false
+ },
+ {
+  "src": "svg-compatible/pattern/da-pattern-406-quiet-tile.svg",
+  "pdf": "pdf/pattern/da-pattern-406-quiet-tile.pdf"
+ },
+ {
+  "tile": "../pattern/da-pattern-406-quiet.svg",
+  "png": "png/pattern/da-pattern-406-quiet-swatch-3000px.png",
+  "width": 3000,
+  "scale": 2.5
+ },
+ {
+  "src": "svg-compatible/pattern/da-pattern-417-paper-tile.svg",
+  "png": "png/pattern/da-pattern-417-paper-tile-400x300px.png",
+  "width": 400,
+  "master": "../pattern/da-pattern-417-paper.svg",
+  "transparent": false
+ },
+ {
+  "src": "svg-compatible/pattern/da-pattern-417-paper-tile.svg",
+  "png": "png/pattern/da-pattern-417-paper-tile-800x600px.png",
+  "width": 800,
+  "master": "../pattern/da-pattern-417-paper.svg",
+  "transparent": false
+ },
+ {
+  "src": "svg-compatible/pattern/da-pattern-417-paper-tile.svg",
+  "pdf": "pdf/pattern/da-pattern-417-paper-tile.pdf"
+ },
+ {
+  "tile": "../pattern/da-pattern-417-paper.svg",
+  "png": "png/pattern/da-pattern-417-paper-swatch-3000px.png",
+  "width": 3000,
+  "scale": 2
+ },
+ {
+  "src": "svg-compatible/pattern/da-pattern-417-oxblood-tile.svg",
+  "png": "png/pattern/da-pattern-417-oxblood-tile-400x300px.png",
+  "width": 400,
+  "master": "../pattern/da-pattern-417-oxblood.svg",
+  "transparent": false
+ },
+ {
+  "src": "svg-compatible/pattern/da-pattern-417-oxblood-tile.svg",
+  "png": "png/pattern/da-pattern-417-oxblood-tile-800x600px.png",
+  "width": 800,
+  "master": "../pattern/da-pattern-417-oxblood.svg",
+  "transparent": false
+ },
+ {
+  "src": "svg-compatible/pattern/da-pattern-417-oxblood-tile.svg",
+  "pdf": "pdf/pattern/da-pattern-417-oxblood-tile.pdf"
+ },
+ {
+  "tile": "../pattern/da-pattern-417-oxblood.svg",
+  "png": "png/pattern/da-pattern-417-oxblood-swatch-3000px.png",
+  "width": 3000,
+  "scale": 2
+ },
+ {
+  "src": "svg-compatible/pattern/da-pattern-417-night-tile.svg",
+  "png": "png/pattern/da-pattern-417-night-tile-400x300px.png",
+  "width": 400,
+  "master": "../pattern/da-pattern-417-night.svg",
+  "transparent": false
+ },
+ {
+  "src": "svg-compatible/pattern/da-pattern-417-night-tile.svg",
+  "png": "png/pattern/da-pattern-417-night-tile-800x600px.png",
+  "width": 800,
+  "master": "../pattern/da-pattern-417-night.svg",
+  "transparent": false
+ },
+ {
+  "src": "svg-compatible/pattern/da-pattern-417-night-tile.svg",
+  "pdf": "pdf/pattern/da-pattern-417-night-tile.pdf"
+ },
+ {
+  "tile": "../pattern/da-pattern-417-night.svg",
+  "png": "png/pattern/da-pattern-417-night-swatch-3000px.png",
+  "width": 3000,
+  "scale": 2
+ },
+ {
+  "src": "svg-compatible/pattern/da-pattern-417-quiet-tile.svg",
+  "png": "png/pattern/da-pattern-417-quiet-tile-400x300px.png",
+  "width": 400,
+  "master": "../pattern/da-pattern-417-quiet.svg",
+  "transparent": false
+ },
+ {
+  "src": "svg-compatible/pattern/da-pattern-417-quiet-tile.svg",
+  "png": "png/pattern/da-pattern-417-quiet-tile-800x600px.png",
+  "width": 800,
+  "master": "../pattern/da-pattern-417-quiet.svg",
+  "transparent": false
+ },
+ {
+  "src": "svg-compatible/pattern/da-pattern-417-quiet-tile.svg",
+  "pdf": "pdf/pattern/da-pattern-417-quiet-tile.pdf"
+ },
+ {
+  "tile": "../pattern/da-pattern-417-quiet.svg",
+  "png": "png/pattern/da-pattern-417-quiet-swatch-3000px.png",
+  "width": 3000,
+  "scale": 2
+ },
+ {
+  "src": "svg-compatible/pattern/da-pattern-420-paper-tile.svg",
+  "png": "png/pattern/da-pattern-420-paper-tile-440x360px.png",
+  "width": 440,
+  "master": "../pattern/da-pattern-420-paper.svg",
+  "transparent": false
+ },
+ {
+  "src": "svg-compatible/pattern/da-pattern-420-paper-tile.svg",
+  "png": "png/pattern/da-pattern-420-paper-tile-880x720px.png",
+  "width": 880,
+  "master": "../pattern/da-pattern-420-paper.svg",
+  "transparent": false
+ },
+ {
+  "src": "svg-compatible/pattern/da-pattern-420-paper-tile.svg",
+  "pdf": "pdf/pattern/da-pattern-420-paper-tile.pdf"
+ },
+ {
+  "tile": "../pattern/da-pattern-420-paper.svg",
+  "png": "png/pattern/da-pattern-420-paper-swatch-3000px.png",
+  "width": 3000,
+  "scale": 2
+ },
+ {
+  "src": "svg-compatible/pattern/da-pattern-420-oxblood-tile.svg",
+  "png": "png/pattern/da-pattern-420-oxblood-tile-440x360px.png",
+  "width": 440,
+  "master": "../pattern/da-pattern-420-oxblood.svg",
+  "transparent": false
+ },
+ {
+  "src": "svg-compatible/pattern/da-pattern-420-oxblood-tile.svg",
+  "png": "png/pattern/da-pattern-420-oxblood-tile-880x720px.png",
+  "width": 880,
+  "master": "../pattern/da-pattern-420-oxblood.svg",
+  "transparent": false
+ },
+ {
+  "src": "svg-compatible/pattern/da-pattern-420-oxblood-tile.svg",
+  "pdf": "pdf/pattern/da-pattern-420-oxblood-tile.pdf"
+ },
+ {
+  "tile": "../pattern/da-pattern-420-oxblood.svg",
+  "png": "png/pattern/da-pattern-420-oxblood-swatch-3000px.png",
+  "width": 3000,
+  "scale": 2
+ },
+ {
+  "src": "svg-compatible/pattern/da-pattern-420-night-tile.svg",
+  "png": "png/pattern/da-pattern-420-night-tile-440x360px.png",
+  "width": 440,
+  "master": "../pattern/da-pattern-420-night.svg",
+  "transparent": false
+ },
+ {
+  "src": "svg-compatible/pattern/da-pattern-420-night-tile.svg",
+  "png": "png/pattern/da-pattern-420-night-tile-880x720px.png",
+  "width": 880,
+  "master": "../pattern/da-pattern-420-night.svg",
+  "transparent": false
+ },
+ {
+  "src": "svg-compatible/pattern/da-pattern-420-night-tile.svg",
+  "pdf": "pdf/pattern/da-pattern-420-night-tile.pdf"
+ },
+ {
+  "tile": "../pattern/da-pattern-420-night.svg",
+  "png": "png/pattern/da-pattern-420-night-swatch-3000px.png",
+  "width": 3000,
+  "scale": 2
+ },
+ {
+  "src": "svg-compatible/pattern/da-pattern-420-quiet-tile.svg",
+  "png": "png/pattern/da-pattern-420-quiet-tile-440x360px.png",
+  "width": 440,
+  "master": "../pattern/da-pattern-420-quiet.svg",
+  "transparent": false
+ },
+ {
+  "src": "svg-compatible/pattern/da-pattern-420-quiet-tile.svg",
+  "png": "png/pattern/da-pattern-420-quiet-tile-880x720px.png",
+  "width": 880,
+  "master": "../pattern/da-pattern-420-quiet.svg",
+  "transparent": false
+ },
+ {
+  "src": "svg-compatible/pattern/da-pattern-420-quiet-tile.svg",
+  "pdf": "pdf/pattern/da-pattern-420-quiet-tile.pdf"
+ },
+ {
+  "tile": "../pattern/da-pattern-420-quiet.svg",
+  "png": "png/pattern/da-pattern-420-quiet-swatch-3000px.png",
+  "width": 3000,
+  "scale": 2
+ }
+]

@@ -17,6 +17,27 @@ The script **never writes into `brand/`**:
 
 **Last verified:** 2026-10-05, Python 3.11 and fontTools 4.66.1. All 31 files rebuilt identical.
 
+## The export pack (`brand/export/`)
+
+The pack holds ready-to-use PNG, PDF and compatible SVG files for every program, made from the masters. Four steps rebuild and check it; they need Node, Playwright and Chromium, plus the Python packages in `requirements.txt`:
+
+```
+python tools/brand/export_pack.py brand/export            # 1. compatible SVGs + job list
+node   tools/brand/export_pack.js brand/export            # 2. PNG and PDF (Chromium; CHROMIUM_PATH to choose a build)
+python tools/brand/export_pack.py --finish brand/export   # 3. trim each PDF page to the exact artwork size
+python tools/brand/verify_export.py brand/export          # 4. verify (510 checks on 2026-10-05, all passed)
+```
+
+**The export is not byte-for-byte reproducible.** PNG and PDF bytes vary with the Chromium version, unlike the masters. Their correctness is proven by the checks in step 4 instead. Their integrity is protected by `brand/export/MANIFEST.sha256`.
+
+**Problems found and fixed while building the pack:**
+
+| Problem | Fix |
+|---|---|
+| Many programs ignore the SVG even-odd rule, which would fill the D–A opening and spill the seal band. | The shapes are now worked out exactly in advance, using skia-pathops. |
+| Chromium clips and slightly shrinks a PDF whose size is not a whole number of pixels. | The artwork is printed on a whole-pixel box at exactly 1 unit = 1 px, then the page is trimmed. |
+| PNG pattern tiles with fractional sizes leave seams when repeated. | Tiles 401 and 406 are exported at 2.5× and 5×, which gives whole pixels. |
+
 ## What is in it
 
 | Path | Content |
