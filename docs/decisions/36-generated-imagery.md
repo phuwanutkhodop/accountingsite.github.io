@@ -161,3 +161,15 @@ These are references for the logic only. No shape is copied.
 - **Diamond:** 70 a diamond cut under the A's apex · 71 a four-point glint in the D's stem · 72 a stone on the A's crossbar · 73 one diamond full stop · 74 the D's top-left corner cut like a facet.
 - **Finance:** 75 a fine vertical stroke through the D, as in the baht sign ฿ · 76 two currency bars across the D's stem · 77 the accountant's double underline under the A · 78 two ledger lines cut across the mark.
 - **Both:** 79 baht stroke + apex diamond.
+
+**Round 9 (owner):** put a diamond-cut pattern inside the letters. Try many variants: tonal shading, D only, A only, large cut, small cut, and anything else worth trying.
+
+**Claude (80–94, all on base 45):**
+- **Cut lines** (hairline cuts in the background colour): 80 one brilliant across both letters · 81 large facets · 82 small facets · 89 brilliant in the D only · 90 brilliant in the A only.
+- **Tonal facets** (flat tones, light to dark; no gradients): 83 large · 84 small · 85 brilliant lit from the top left · 86 light at the top to dark at the foot · 87 D only · 88 A only · 93 tonal brilliant in the D · 94 tonal brilliant in the A.
+- **Step cut** (emerald cut: inset rules following the letter's outline): 91 both letters · 92 D only.
+
+**Notes:**
+- The overlap "window" in 45 is only a hairline sliver, so a gem set in it does not read; that option was dropped.
+- Tones are overlays of the paper or deep colour on the letter colour, so they hold on paper, oxblood and night.
+- Fine facets fill in below about 48 px. A chosen pattern will need a plain small-size version.
