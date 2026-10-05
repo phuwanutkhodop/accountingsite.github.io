@@ -404,3 +404,24 @@ Board: per the new rule, the round-2/3 files (172–195) were deleted. The board
 | 219 | A crescent of lattice. |
 
 The board shows only 208–219 and the logo spec. Round 4 files were deleted.
+
+**Seal round 5 verdict (owner):** too much. "Outside the box only a little."
+
+**Seal round 6 (220–231):** the classic seal (double rings, the name on an arc, the plain monogram), with exactly **one** small twist each:
+
+| # | Twist |
+|---|---|
+| 220 | A flower clasp at 12 o'clock splitting the name. |
+| 221 | The inner ring as a thin lattice band. |
+| 222 | The monogram in a small rose diamond frame. |
+| 223 | The inner ring as tiny diamonds. |
+| 224 | Three graded flowers in place of the second line. |
+| 225 | Four diamonds set in the rim. |
+| 226 | A faint flower watermark. |
+| 227 | A whisper of lattice in the centre. |
+| 228 | A fine necklace of diamonds. |
+| 229 | A double underline with flowers. |
+| 230 | A microtext rim. |
+| 231 | The flower clasp with the patterned monogram. |
+
+**Calibration noted:** rounds 1–3 were too conventional, and rounds 4–5 too far out. The target is a classic seal with one restrained detail.
