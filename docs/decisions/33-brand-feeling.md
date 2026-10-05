@@ -87,7 +87,7 @@ Contrast (WCAG): light ink 14.9, muted 5.5, oxblood text 8.7, button 8.8, brass 
 
 ## 4. Still open
 
-- Fine-detail picks from round 2 Part A (A1–A12).
+- Fine-detail picks (A1–A12) and the "too modern" extras (M1–M6). The owner asked for pictures, so round 5 is a visual click-to-pick sheet in the locked palette: https://claude.ai/artifact/67tjx6pCXbMwxNvrFwCmB2
 - What "something else" on the "not modern" list is.
 - Term 2: "bold and confident", defined the same way, on top of term 1.
 - How "minimal" and "bold" coexist.
