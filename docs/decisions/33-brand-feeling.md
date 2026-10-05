@@ -3,7 +3,7 @@
 **Ticket:** GitHub issue #33 (Wayfinder grilling)
 **Date:** 5 October 2026
 **Decided by:** the owner, in a grilling session with Claude
-**Status:** **in progress.** Term 1 ("minimal premium, not modern"): **complete** (colour, details, exclusions). Term 2 ("bold & confident") not started.
+**Status:** **in progress.** Term 1 ("minimal premium, not modern"): **complete** (colour, details, exclusions). Term 2 ("bold & confident"): **complete** (round 8). Brief in §5 awaits owner confirmation before #33 closes.
 
 ---
 
@@ -18,6 +18,7 @@
 7. **ตัวเลขและตราประทับใช้สีทองเหลืองทั้งสองโหมด** · ผู้เข้าชมครั้งแรกเห็นโหมดตามเครื่องของเขา
 8. **รายละเอียดประจำแบรนด์ 5 อย่าง:** กรอบเส้นคู่ · ผิวกระดาษ · ตราประทับอักษรย่อ · แถบแดงเลือดนกขอบฝีเข็ม · พื้นที่ว่างโดยตั้งใจ — **ไม่ใช้:** ตัวอักษรนำ · ปั๊มนูน
 9. **ห้ามเพิ่ม:** หัวเรื่องตัวหนาใหญ่ไม่มีเชิง · ป๊อปอัปและปุ่มแชทลอย — **อนุญาต:** ภาพถ่ายสต็อก · เอฟเฟกต์ตอนเลื่อน · วิดีโอ/สไลด์หน้าแรก
+10. **"กล้า มั่นใจ" มาจากสีและน้ำเสียง ไม่ใช่จากขนาด:** แถบเมนูแดง · สลับแถบสีทั้งหน้า · พูดถึงผลลัพธ์ของลูกค้า — ส่วนตัวอักษร ตัวเลข และการจัดวางยังเรียบ ประณีต พอดี
 
 ---
 
@@ -41,6 +42,24 @@
 | 14 | Allowed although common | **M1 stock photography · M2 scroll-reveal animation · M5 video backgrounds and sliders** are allowed. M4 (clinical pure white) was left unmarked; it cannot occur with the locked warm paper. |
 
 ---
+
+## 2b. Term 2 results (round 8, owner)
+
+How term 2 was found: round 6 (isolated thumbnails, one lever each) and round 7 (three whole landing pages) were **rejected by the owner** as not reflecting real use and too few to learn from. Round 8 worked: 11 dimensions × 6–8 options, each shown in the context where it is used, rated Like / No / Best (https://claude.ai/artifact/AYzCjWjK6MSKNtXz3rfTxR). **Method for #35 and later rounds:** many options per dimension, each in its real context.
+
+| Dim | Best | Also liked | Rejected | Reading |
+|---|---|---|---|---|
+| D1 Headline typeface | **1 Cormorant Garamond** (refined, high contrast) | — | — | Luxury-house fineness, not heavy serifs. Final face still chosen in #35, in this character. |
+| D2 Headline scale | **2 Measured, left** | 1 Framed & modest | — | Moderate, assured size. No monumental words, no huge statements. |
+| D3 Oxblood across a page | **5 Alternating bands** | 3 Oxblood opening | — | Boldness lives in colour rhythm: paper and oxblood/deep bands alternate down the page. |
+| D4 Voice | **3 Outcome** ("Close every month knowing exactly where you stand.") | 4 Question · 5 Direct instruction | — | Client-centred and practical. Not the firm's promise, craft or exclusivity. |
+| D5 Figures and dates | — | 1 Quiet table · 4 Month grid | — | Practical, readable figures. No giant numerals. |
+| D6 Services layout | **4 Title left, list right** | — | — | Calm editorial split. |
+| D7 Buttons | **1 Solid oxblood + outline** | — | — | Clear, conventional, rectangular. |
+| D8 Header | **3 Oxblood bar** | 2 Centred monogram · 4 Two tiers · 6 Framed header | — | A bold colour signature at the top of every page. |
+| D9 Article page | **1 Classic column** | 3 Oxblood title band · 6 Key facts first | — | Reading comfort first; colour band and key-facts box as options. |
+| D10 Between sections | **5 Seal on the rule** | 4 Stitched line | — | Signature marks (seal, stitch) do the punctuation. |
+| D11 Motion | **3 Rise** | 2 Gentle fade | **6 Parallax** | Quiet, short entrance motion only. |
 
 ## 3. Round 2 board
 
@@ -96,11 +115,15 @@ Contrast (WCAG): light ink 14.9, muted 5.5, oxblood text 8.7, button 8.8, brass 
 - **M5 video/sliders** count against the performance budget (#30): poster image first, no autoplay sound, pausable, and never the only carrier of key text.
 - **M1 stock photos**: allowed; the Design Library should still treat commissioned photography as the preferred source.
 
+## 5. The brief (for #34 and #35)
+
+**One rule:** *the firm is bold in colour and in what it says; it is minimal in type, layout and numbers.*
+
+- **Minimal premium, not modern:** luxury-house fineness; refined high-contrast serif headlines at a measured size, left-aligned; warm paper with grain; space and restraint; five signature details (double frame, paper grain, monogram seal, stitched oxblood band, deliberate emptiness). Never: rounded cards, soft shadows, gradients/glass/glow, sans-serif everywhere, illustrations/icon grids, giant heavy sans headlines, pop-ups or floating chat bubbles, editorial initials, blind emboss.
+- **Bold and confident:** an oxblood header bar on every page; oxblood and deep bands alternating down the page (an oxblood opening is allowed); solid oxblood buttons; the seal on rules between sections; a voice that speaks about the client's result, asks the owner's real question, or tells them plainly what to do next.
+- **Kept quiet on purpose:** figures in tables and calendar grids, not giant numerals; services as a calm title-left list; articles in a classic reading column (an oxblood title band or a key-facts box allowed); motion limited to a short rise or fade, never parallax.
+- **Palette:** O1 Oxblood by day, O9 Night Library by night, brass for figures and the seal, following the visitor's device.
+
 ## 4. Still open
 
-- Term 2: "bold and confident".
-  - Round 6 (isolated thumbnails, one lever each) **rejected by the owner**: small abstract tiles did not reflect real use. Lesson for later rounds and for #35: show complete pages with real content, not isolated levers.
-  - Round 7: the same full homepage (header, opening, services, tax calendar, how we work, insights, credentials, contact, footer) at three coherent levels — L1 Quiet authority · L2 Assured · L3 Commanding — with day/night, phone view and section labels (L2·4 etc.) so the owner can mix by section: https://claude.ai/artifact/R4gbwqyDNUect5KoLE2j4R
-  - Round 7 **rejected by the owner**: three whole landing pages only allow comparing landing pages; too few options to learn from. Owner asked for many options per dimension so detailed preferences can be collected.
-  - Round 8: research instrument with **11 dimensions × 6–8 options = 84 real page fragments**, each in the context where it is used (not only the landing page): D1 headline typeface · D2 headline scale · D3 oxblood across a whole page · D4 voice · D5 figures and dates · D6 services layout · D7 buttons and calls to action · D8 header and menu · D9 article page · D10 between sections · D11 motion. Each option rated Like / No / ★ Best, plus a note per dimension; one exported answer. Photography is excluded (needs real photos, #35). https://claude.ai/artifact/AYzCjWjK6MSKNtXz3rfTxR
-- How "minimal" and "bold" coexist.
+- Owner confirmation of the §5 brief, then close #33 and start #34.

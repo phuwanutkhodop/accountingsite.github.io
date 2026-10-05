@@ -2,7 +2,7 @@
 
 **Last updated:** Sunday, 5 October 2026
 **Last session:** Ticket #12 (Admin information architecture) started with the owner: frame locked (two levels — My Sites + per-site Admin; 9-area menu; always-visible page tree; Dashboard = live preview + "Needs attention"), then split into sub-tickets #24–#30 (12a–12g). A review pass added #31 (multi-site hosting model) and #32 (translation workflow), wired blocking edges, and set the landing rule (open the last-used site directly). Record: `docs/decisions/12-admin-ia.md`
-**Next session:** Continue #33 term 2 ("bold & confident") from the owner's picks on the round 6 picker; term 1 is complete (Oxblood day / Night Library, brass details, five signature details). Then #34 research, #35 directions. #24 (Admin shell) has open items after the identity.
+**Next session:** #33 brief (docs/decisions/33-brand-feeling.md §5) awaits owner confirmation; on yes, close #33 and start #34 research. #24 (Admin shell) has open items after the identity.
 
 ---
 
