@@ -86,8 +86,9 @@ def main(pack):
             cms = re.findall(rb'([-\d.]+) 0 0 ([-\d.]+) ([-\d.]+) ([-\d.]+) cm', PdfReader(j['pdf']).pages[0].get_contents().get_data())
             scale = 1.0
             for a, d_, e, f_ in cms[:2]: scale *= abs(float(a))
-            ok(abs(scale - .75) < 1e-4, f'{name}: drawing scale {scale:.6f} pt per unit, expected 0.75')
-            twin = sorted([x for x in jobs if x.get('src') == j['src'] and x.get('png')], key=lambda x: -x['width'])
+            ok(abs(scale - .75) < 1e-6, f'{name}: drawing scale {scale:.7f} pt per unit, expected 0.75')
+            # compare at the PNG nearest 1000 px wide: large enough to see detail, small enough that a 1.5 px blur hides engine anti-aliasing
+            twin = sorted([x for x in jobs if x.get('src') == j['src'] and x.get('png')], key=lambda x: (x['width'] > 1000, -x['width'] if x['width'] <= 1000 else x['width']))
             if twin:
                 ref = Image.open(twin[0]['png'])
                 with tempfile.TemporaryDirectory() as t:

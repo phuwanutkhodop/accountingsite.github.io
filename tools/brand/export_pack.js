@@ -35,9 +35,14 @@ const sized = (svg, W, H) => svg.replace('<svg ', `<svg width="${W}" height="${H
       // Chromium clips a PDF page's content at the last whole pixel and shrinks it slightly when the page size is
       // fractional; so print on a whole-pixel page with spare room, artwork at the top-left, untouched. Step 3
       // (export_pack.py --finish) then trims the page to the artwork's exact size.
+      // Chromium also snaps the <svg> box itself to whole pixels (and rescales the drawing to fit), so widen the
+      // viewBox to whole units at exactly 1 unit = 1 px; the extra room is empty and is trimmed away in step 3.
+      const [vx, vy] = svg.match(/viewBox="([\d.\s-]+)"/)[1].trim().split(/\s+/).map(Number);
+      const W2 = Math.ceil(w), H2 = Math.ceil(h);
+      const svg2 = sized(svg, W2, H2).replace(/viewBox="[^"]*"/, `viewBox="${vx} ${vy} ${W2} ${H2}" preserveAspectRatio="xMinYMin meet"`);
       const p = await browser.newPage();
-      await p.setContent(page0(sized(svg, w, h)));
-      await p.pdf({ path: target, width: `${Math.ceil(w) + 2}px`, height: `${Math.ceil(h) + 2}px`, printBackground: true, margin: { top: 0, right: 0, bottom: 0, left: 0 }, pageRanges: '1' });
+      await p.setContent(page0(svg2));
+      await p.pdf({ path: target, width: `${W2 + 2}px`, height: `${H2 + 2}px`, printBackground: true, margin: { top: 0, right: 0, bottom: 0, left: 0 }, pageRanges: '1' });
       await p.close();
     }
   }
