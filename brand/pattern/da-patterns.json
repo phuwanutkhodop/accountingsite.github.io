@@ -1,0 +1,39 @@
+{
+ "set": [
+  "401",
+  "406",
+  "417",
+  "420"
+ ],
+ "quiet": "paper version at 14% opacity over paper #F2EEEA",
+ "tiles": {
+  "401": {
+   "tile_px": [
+    36,
+    50.4
+   ],
+   "da_width_px": null
+  },
+  "406": {
+   "tile_px": [
+    36,
+    50.4
+   ],
+   "da_width_px": null
+  },
+  "417": {
+   "tile_px": [
+    200,
+    150
+   ],
+   "da_width_px": 92
+  },
+  "420": {
+   "tile_px": [
+    220,
+    180
+   ],
+   "da_width_px": 96
+  }
+ }
+}

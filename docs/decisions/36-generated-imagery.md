@@ -586,3 +586,12 @@ Patterns are numbered from 401, separate from the logo and seal numbers.
   - 418: D A rows with the alternation.
   - 419: D A set into the lattice.
   - 420: D A inside the diamond rings.
+
+**Pattern round 1 → owner:** **lock 401, 406, 417 and 420** as the company pattern set.
+
+### Patterns locked: 401 · 406 · 417 · 420
+
+- **Seamless repeat tiles:** `brand/pattern/da-pattern-{n}-{paper,oxblood,night,quiet}.svg`, with sizes in `da-patterns.json`. They were checked as tiled CSS backgrounds.
+- **Spec:** `docs/brand/da-patterns.md`, covering geometry, colours, minimum scale and use. The suggested role for each pattern is a proposal, still to be confirmed by the owner.
+- **Board:** now shows only the three locked sheets: patterns, seal 346 and logo 153.
+- **Next:** back to the Site Builder.
