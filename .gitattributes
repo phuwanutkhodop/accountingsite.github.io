@@ -1,0 +1,4 @@
+# Brand masters are preserved byte for byte: never convert their line endings (e.g. core.autocrlf on Windows),
+# or their checksums in brand/MANIFEST.sha256 would no longer match.
+brand/** -text
+tools/brand/fonts/** binary

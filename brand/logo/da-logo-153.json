@@ -1,0 +1,61 @@
+{
+ "design": "153",
+ "unit": "H = cap height of the D (190 units in the master files)",
+ "H_units": 190,
+ "mark_bbox_units": [
+  20.0,
+  16.33,
+  312.07,
+  193.67
+ ],
+ "ratios_of_H": {
+  "mark_width": 1.6425,
+  "mark_height": 1.0193,
+  "D_width": 0.934,
+  "overlap_D_A": 0.2989,
+  "tile_width": 0.2316,
+  "tile_height": 0.3242,
+  "ring_outer": "94% of tile half-width/height",
+  "ring_inner": "62% of tile half-width/height",
+  "ring_stroke": 0.00526,
+  "flower_radius": 0.0394,
+  "minor_petal_radius": 0.0205,
+  "pattern_origin_from_D_topleft": [
+   -0.1053,
+   -0.1053
+  ],
+  "name_cap_size": 0.0752,
+  "name_baseline_below_letters": 0.2316,
+  "clear_space": 0.25
+ },
+ "font": {
+  "letters": "Bodoni Moda Bold, optical size 11 (Google Fonts, OFL)",
+  "letter_size_units": 253.3333,
+  "name": "Cormorant Garamond SemiBold, capitals, tracking 0.20 em"
+ },
+ "colours": {
+  "paper": {
+   "background": "#f2eeea",
+   "letters": "#7a2229",
+   "rings": "#b07e80",
+   "flowers": "#d4d5d8"
+  },
+  "oxblood": {
+   "background": "#7a2229",
+   "letters": "#f6efe8",
+   "rings": "#c29998",
+   "flowers": "#85878c"
+  },
+  "night": {
+   "background": "#1b1112",
+   "letters": "#efe6dc",
+   "rings": "#be9491",
+   "flowers": "#85878c"
+  }
+ },
+ "min_size_px": {
+  "patterned": 96,
+  "plain_small_version_below": 96,
+  "plain_absolute_min": 16
+ }
+}

@@ -23,8 +23,15 @@ Run these three commands in order:
 
 ## Key rules (never break these)
 - All file paths must be relative (use ./ and ../) — never absolute paths like /en/...
-- Font: Instrument Serif for headings, Inter for body. No other fonts.
-- Colors: Navy and Soft Linen palette only. No new colors without design discussion.
+- **Visual identity is being replaced (owner, 2026-10-05).** Navy & Soft Linen and Instrument Serif + Inter are
+  retired for the builder and all future work. The new identity is decided in tickets #33 → #34 → #35. Until #35
+  closes, do not invent colours or fonts ad hoc; leave the existing hand-written pages as they are.
+- **The D.A. brand is locked (owner, 2026-10-05):** logo 153, brand seal 346, and patterns 401 · 406 · 417 · 420.
+  - Start at `brand/README.md`. It indexes the master files, the specs in `docs/brand/`, and the colours.
+  - `brand/` holds the **original masters and is read-only**. Never edit, redraw, recolour or replace a file there.
+  - Need a new size or format? Use `tools/brand/` and write the output elsewhere.
+  - Before any commit that touches `brand/` or `tools/brand/`, run `python tools/brand/build.py --check`.
+  - D A is always the full logo 153. The seal has no "CO., LTD." and no year.
 - No backend features. This is a static site — no servers, no databases.
 - Read every file before editing it. Never guess what is already in a file.
 - Do not write code in the first response of a new stage — ask questions first.
@@ -34,6 +41,9 @@ Run these three commands in order:
 accountingsite/
 ├── CLAUDE.md              ← you are here (auto-loaded briefing)
 ├── PROJECT-STATUS.md      ← read this first every session
+├── brand/               ← LOCKED brand masters (read-only) · start at brand/README.md
+├── tools/brand/         ← exact toolchain that rebuilds brand/ byte for byte
+├── docs/brand/          ← brand specs: logo 153, seal 346, patterns
 ├── core/
 │   ├── animations.js
 │   └── article-loader.js
