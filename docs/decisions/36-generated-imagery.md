@@ -188,3 +188,24 @@ These are references for the logic only. No shape is copied.
 - 104 tonal facets with cut lines
 
 All sit inside the letters of 45 and use flat tones or hairline cuts, with no gradients.
+
+**Round 10 verdict (owner):** likes **84, 85, 86, 93, 94**, all tonal facets. Asked to refine them.
+
+**Round 11 refinements (Claude), two versions of each:**
+- One light source, at the top left. Facet brightness comes from a real surface normal, not random noise.
+- A six-step tone ladder (paper or deep overlays on the letter colour), so the same artwork works on paper, oxblood and night.
+- A 0.7 px hairline at every facet edge, at 22% opacity, like a real cut.
+- Brilliants are centred on the letter's own geometry: the D's bowl turns about (82,115), and the A's body sits about (238,130).
+
+| From | Version 1 | Version 2 |
+|---|---|---|
+| 84 | 105 small lit facets | 106 finer, deeper relief |
+| 85 | 107 brilliant at the overlap | 108 brilliant at the centre of the mark |
+| 86 | 109 light to dark, top to foot | 110 light to dark, corner to corner |
+| 93 | 111 brilliant turning with the D's bowl | 112 the same, plus the A as one quiet light/deep split |
+| 94 | 113 brilliant in the A's body | 114 rays from the A's apex |
+
+**Next:**
+1. The owner narrows to one or two.
+2. Final craft: overlap and spacing, a plain small-size version, clear space, minimum size and lockups.
+3. Then the seal.
