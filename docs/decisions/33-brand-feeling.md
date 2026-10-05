@@ -3,7 +3,7 @@
 **Ticket:** GitHub issue #33 (Wayfinder grilling)
 **Date:** 5 October 2026
 **Decided by:** the owner, in a grilling session with Claude
-**Status:** **in progress.** Term 1 ("minimal premium, not modern") is partly defined; term 2 ("bold & confident") is not started.
+**Status:** **in progress.** Term 1 ("minimal premium, not modern"): colour family chosen (Oxblood), variation being picked; fine-detail picks pending. Term 2 ("bold & confident") not started.
 
 ---
 
@@ -14,6 +14,7 @@
 3. **โลกที่ใกล้ที่สุด:** แบรนด์หรูระดับ luxury house (เช่น Hermès, Aesop)
 4. **ความหรูมาจาก:** พื้นที่ว่างและความยับยั้ง + รายละเอียดประณีตและผิววัสดุ
 5. **ห้ามใช้:** การ์ดมุมมนกับเงานุ่ม · ไล่สี กระจก แสงเรือง · ตัวไม่มีเชิงทั้งเว็บ · ภาพการ์ตูนและไอคอนเรียงแถว
+6. **โทนสีที่เลือก:** Oxblood Library (แดงเลือดนก · ห้องสมุด) กำลังเลือกรูปแบบย่อยจาก 9 แบบ
 
 ---
 
@@ -29,6 +30,7 @@
 | 6 | Reference world | **Luxury house** (Hermès, Aesop, high-end watchmakers): warm, crafted, editorial, a sense of material and care. |
 | 7 | Where "premium" comes from | **Space and restraint + fine detail and material.** The owner asked for "fine detail and material" to be defined in depth. |
 | 8 | Colour | Owner rejected abstract colour moods: colour must be answered as **complete colour sets that fit the concept**. Round 2 shows six sets in context. |
+| 9 | Colour family | **B2 Oxblood Library** (owner, round 2). Owner asked for more variations within it → round 3. |
 
 ---
 
@@ -43,9 +45,23 @@ Fonts on the board are stand-ins; fonts are chosen in #35.
 
 ---
 
+## 3b. Round 3 board
+
+Oxblood Variations (private artifact): https://claude.ai/artifact/NSoC9wSWwFsg7QDKSh5Lz8
+
+Nine variations, one axis at a time, each with a WCAG contrast check:
+
+- **The red:** O1 Oxblood (original) · O2 Cordovan (browner) · O3 Bordeaux (purpler) · O4 Seal-paste Cinnabar (brighter, Chinese seal red)
+- **The paper:** O5 on cream · O6 on stone grey
+- **Partner colour:** O7 + brass · O8 + library green
+- **Dark-first:** O9 Night Library. Oxblood is too dark for text on dark paper (2.2:1), so it is used only as fills there.
+
+All light variations pass AA for body text, muted text and button text. O7's brass figures pass for large text only (4.3:1).
+
 ## 4. Still open
 
-- The owner's picks from the board (details yes/no, colour sets, mixes).
+- The owner's pick from round 3 (one variation, or a mix by axis).
+- Fine-detail picks from round 2 Part A (A1–A12).
 - What "something else" on the "not modern" list is.
 - Term 2: "bold and confident", defined the same way, on top of term 1.
 - How "minimal" and "bold" coexist.
