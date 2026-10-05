@@ -23,8 +23,9 @@ Run these three commands in order:
 
 ## Key rules (never break these)
 - All file paths must be relative (use ./ and ../) — never absolute paths like /en/...
-- Font: Instrument Serif for headings, Inter for body. No other fonts.
-- Colors: Navy and Soft Linen palette only. No new colors without design discussion.
+- **Visual identity is being replaced (owner, 2026-10-05).** Navy & Soft Linen and Instrument Serif + Inter are
+  retired for the builder and all future work. The new identity is decided in tickets #33 → #34 → #35. Until #35
+  closes, do not invent colours or fonts ad hoc; leave the existing hand-written pages as they are.
 - No backend features. This is a static site — no servers, no databases.
 - Read every file before editing it. Never guess what is already in a file.
 - Do not write code in the first response of a new stage — ask questions first.

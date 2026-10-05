@@ -2,7 +2,7 @@
 
 **Last updated:** Sunday, 5 October 2026
 **Last session:** Ticket #12 (Admin information architecture) started with the owner: frame locked (two levels — My Sites + per-site Admin; 9-area menu; always-visible page tree; Dashboard = live preview + "Needs attention"), then split into sub-tickets #24–#30 (12a–12g). A review pass added #31 (multi-site hosting model) and #32 (translation workflow), wired blocking edges, and set the landing rule (open the last-used site directly). Record: `docs/decisions/12-admin-ia.md`
-**Next session:** Resolve #24 (12a — Admin shell and navigation). Other unblocked tickets: #13, #14, #15, #16, #17, #20, #31, #32. Blocking edges are written in ticket bodies only (no native links yet) — check them by hand. Map: https://github.com/phuwanutkhodop/accountingsite.github.io/issues/1
+**Next session:** Continue #33 (define "minimal premium, not modern" and "bold & confident" with the owner, one term at a time), then finish #24 (Admin shell: Dashboard detail, states, shortcuts remain). Other unblocked tickets: #13, #14, #15, #16, #17, #20, #31, #32. Blocking edges are written in ticket bodies only (no native links yet) — check them by hand. Map: https://github.com/phuwanutkhodop/accountingsite.github.io/issues/1
 
 ---
 
@@ -20,7 +20,9 @@ The owner re-stated the original goal: **(1) build a ready-made website-builder 
 
 **Owner working preference (stated 5 Oct 2026):** the owner is not a coder or engineer. Claude decides technical questions itself, rigorously, and records the reasons; ask the owner only about what visitors see or what the owner must do.
 
-**Rules that still bind during the builder effort:** read every file before editing; relative paths only; Navy & Soft Linen; Instrument Serif + Inter for Latin (TH/ZH typography is ticket #15); static only.
+**Rules that still bind during the builder effort:** read every file before editing; relative paths only; static only.
+
+**Visual identity retired (owner, 5 Oct 2026):** Navy & Soft Linen and Instrument Serif + Inter are **no longer locked**. The owner wants a fully new look for the website *and* the Admin — feeling: **minimal and premium but not "modern", plus bold and confident**. Path: #33 define the feeling → #34 benchmark research → #35 three directions, owner picks. #15 (type specimen), #19 (migration) and #21 (section sample) now wait on #35. The "Locked architectural decisions" palette/font lines further down are superseded.
 
 ---
 
@@ -277,8 +279,8 @@ These have been made. Future sessions should treat them as fixed unless the user
 - **All paths relative** (`./` for current directory, `../` to go up). No `/en/...` absolute paths anywhere.
 - **`data-delay="N"`** is the canonical stagger attribute. `data-animate-delay` is legacy-tolerated but should not be used in new code.
 - **Comment-tier system:** 🟢 SAFE / 🟡 CARE / 🔴 STRUCTURE / 🔵 ALSO STRUCTURE / 📎 NOTE. Used consistently across HTML, CSS, JS.
-- **Palette is Navy & Soft Linen.** `--color-stone` `#FDFAF3`, navy primary, gold accent. No new accent colors without design discussion.
-- **Instrument Serif** for headings, **Inter** for body. No new font families without design discussion.
+- ~~**Palette is Navy & Soft Linen.**~~ *Superseded 5 Oct 2026 — see #33–#35.* `--color-stone` `#FDFAF3`, navy primary, gold accent. No new accent colors without design discussion.
+- ~~**Instrument Serif** for headings, **Inter** for body.~~ *Superseded 5 Oct 2026 — see #33–#35.* No new font families without design discussion.
 - **Ambient blob opacities** are 0.18 (navy) and 0.14 (gold) — defined in theme.css Section 17 (the BEM `--navy`/`--gold` variants). The legacy `-a`/`-b` definitions in motion.css are unused.
 - **Marquee duration** is 35s linear loop. Slowing or speeding requires design discussion.
 - **Reduced-motion** is fully respected — marquee `display:none`s, parallax disables, counters become instant. Do not weaken this.
