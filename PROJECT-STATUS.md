@@ -1,8 +1,8 @@
 # PROJECT-STATUS.md
 
 **Last updated:** Sunday, 5 October 2026
-**Last session:** Ticket #12 (Admin information architecture) started with the owner: frame locked (two levels — My Sites + per-site Admin; 9-area menu; always-visible page tree; Dashboard = live preview + "Needs attention"), then split into sub-tickets #24–#30 (12a–12g). Record: `docs/decisions/12-admin-ia.md`
-**Next session:** Resolve #24 (12a — Admin shell and navigation); then #25–#30. Other unblocked tickets: #13, #14, #15, #16, #17, #20. Map: https://github.com/phuwanutkhodop/accountingsite.github.io/issues/1
+**Last session:** Ticket #12 (Admin information architecture) started with the owner: frame locked (two levels — My Sites + per-site Admin; 9-area menu; always-visible page tree; Dashboard = live preview + "Needs attention"), then split into sub-tickets #24–#30 (12a–12g). A review pass added #31 (multi-site hosting model) and #32 (translation workflow), wired blocking edges, and set the landing rule (open the last-used site directly). Record: `docs/decisions/12-admin-ia.md`
+**Next session:** Resolve #24 (12a — Admin shell and navigation). Other unblocked tickets: #13, #14, #15, #16, #17, #20, #31, #32. Blocking edges are written in ticket bodies only (no native links yet) — check them by hand. Map: https://github.com/phuwanutkhodop/accountingsite.github.io/issues/1
 
 ---
 
