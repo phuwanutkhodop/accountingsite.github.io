@@ -237,3 +237,16 @@ All sit inside the letters of 45 and use flat tones or hairline cuts, with no gr
 - **Colour:** 133 deep tone on tone · 134 soft rose · 135 quiet deep rings with gold flowers · 136 D only.
 
 The board now shows round 13 and round 12 only, to keep it loading.
+
+**Round 13 verdict (owner):** **126** (eight-point flower). The flower shape is **locked**. Go deeper on colour, size, frequency and anything else.
+
+**Round 14 (137–151), with 126 at the left:**
+- **Colour:**
+  - 137 deep rings, gold flowers
+  - 138 rose rings, gold flowers
+  - 139 deep tone on tone
+  - 140 gold rings, cream flowers (oxblood flowers on cream letters)
+  - 141 whisper rings, gold flowers
+- **Frequency:** 142 denser (34 tile) · 143 sparser (56) · 144 few and bold (72).
+- **Flower size:** 145 small · 146 large · 147 large with one ring.
+- **Proportion and line:** 148 taller diamonds · 149 squarer · 150 finer lines with three rings · 151 flowers only, no rings.
