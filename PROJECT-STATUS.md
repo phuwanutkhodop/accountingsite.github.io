@@ -1,8 +1,8 @@
 # PROJECT-STATUS.md
 
 **Last updated:** Tuesday, 6 October 2026
-**Last session:** Ticket **#16 (tech stack)** decided and closed: no build step for our code (plain ES modules, relative imports); Admin UI in Preact + htm + signals (no JSX); every library vendored into `admin/vendor/` by `tools/vendor/` (byte-reproducible, never a runtime CDN); pure `admin/engine/` runs unchanged in browser and Node; in-house strict Mustache subset for presets; rich text stored as editor JSON and rendered by a whitelist renderer (the sanitiser); Tiptap 3.31.4 confirmed; strict CSP baseline. Proven by a browser spike. Record: `docs/decisions/16-tech-stack.md`. Before that: route correction (owner, 2026-10-06) put the builder core first and parked the brand track #33–#36.
-**Next session:** builder core, next ticket **#14 (Site Structure)**, then #13 → #17 → #20 → #22 → #23, with #24–#32 alongside. No new side tracks without the owner's explicit OK. The brand is kept for the later firm website (`brand/README.md`); #36 stays open only for a possible request for more patterns.
+**Last session:** Ticket **#14 (Site Structure)** decided and closed. Owner: header menu with one dropdown level; footer in headed columns. Claude: tree max 3 levels; clean addresses `/<lang>/<parent>/<slug>/` with one Latin slug shared by all languages; slug changes, moves and deletions create static redirect pages automatically; internal links stored by page id so they never break; link map and orphan warnings; tree, menus and redirects live in `site/site.json`. Record: `docs/decisions/14-site-structure.md`. Same day: #16 (tech stack) closed, record `docs/decisions/16-tech-stack.md`.
+**Next session:** builder core, next ticket **#13 (Design Library governance)**, then #17 → #20 → #22 → #23, with #24–#32 alongside. No new side tracks without the owner's explicit OK. The brand is kept for the later firm website (`brand/README.md`); #36 stays open only for a possible request for more patterns.
 ---
 
 ## Site Builder effort (started 5 Oct 2026) — READ THIS FIRST
