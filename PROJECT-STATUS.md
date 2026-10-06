@@ -1,8 +1,11 @@
 # PROJECT-STATUS.md
 
 **Last updated:** Tuesday, 6 October 2026
-**Last session:** Tickets **#16, #14, #13 and #17** decided and closed (records in `docs/decisions/`), plus a **plan review** (`docs/reviews/2026-10-06-plan-review.md`, 26 findings, each fixed or attached to its owner ticket). #17: drafts save automatically (browser + private drafts repo, at most once a minute); Publish lists every ready item, ticked, with dependencies paired; one Publish = one version, nameable; restore per item or whole site turns old source into drafts and never touches `admin/` or `library/`; two-device conflicts are shown side by side; public history is never rewritten. **Owner decision:** publishing requires every switched-on language.
-**Next session:** builder core, next ticket **#20 (create the token and prove a browser-only publish)**. It needs the owner at the keyboard to create the fine-grained token, so plan a short guided session. Then #22 → #23, with #24–#32 alongside. No new side tracks without the owner's explicit OK. The brand is kept for the later firm website (`brand/README.md`).
+**Last session:** Tickets **#16, #14, #13, #17 and #20** closed, plus a **plan review** (`docs/reviews/2026-10-06-plan-review.md`). **#20 proved the publish path for real:**
+- The owner created the private repo `accountingsite-drafts` and a fine-grained key: both repos, Contents read/write, Pages read, expires 7 October 2027.
+- A one-time test page published from the owner's Edge browser, was live in 34 s, had a stale update refused (HTTP 422), removed its files and round-tripped a draft. All 11 steps passed.
+- Record and verified owner guide: `docs/decisions/20-publish-proof.md`. The test page has been removed.
+**Next session:** #22 (clickable Admin) still waits on #21 and the #12 sub-tickets. Next is **#31 (multi-site hosting and security origin)**, the highest open review finding and Claude-decided. Then **#15 → #21** and the #24–#30 rounds. No new side tracks without the owner's explicit OK.
 ---
 
 ## Site Builder effort (started 5 Oct 2026) — READ THIS FIRST
