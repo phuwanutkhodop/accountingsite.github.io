@@ -9,7 +9,7 @@
   - a document-consistency audit;
   - a fact-check against primary sources (GitHub docs source, browser-compat-data 8.1.4, the WHATWG specs, Google);
 - every high finding was then re-checked by hand against the files.
-**Status:** findings recorded. Fixes are listed in §4; they are applied once the owner approves.
+**Status:** **applied, 6 October 2026** (owner: "แก้เลย"). Every finding is either fixed in the documents or attached to the ticket that owns it; see §4.
 
 ---
 
@@ -63,9 +63,36 @@
 | L3 | The rich-text link whitelist has no `page:`, `article:`, `tel:` or `#anchor` links, and the gate demands alt text even for decorative images. | Extend the whitelist; add a "decorative" flag. | #16 amend, #27 | today |
 | L4 | The policy on squashing git history has no owner. | Assign to #17. | #17 | earlier |
 
-## 4. Fix plan (pending owner approval)
+## 4. Outcome (applied 6 October 2026)
 
-1. **Amend today's records:** #13 (H4, M3, M4, M9), #14 (M1, M5) and #16 (M2 note, L3).
-2. **Fix stale documents:** PROJECT-STATUS, CLAUDE.md, #10's robots claim, and the threat-model note on research #4.
-3. **Edit issue bodies:** #23 (remove the brand blockers, re-scope the theme part) and #20 (main branch, two-repo token, expiry input, `.nojekyll`, LF and UTF-8 hashing).
-4. **Add requirements to the owner tickets,** as one comment each: #17 (H2, H3, L4), #31 (H1, M13), #27 (H5, M1, M13), #22 (M2), #15 (M7), #32/#19 (M8), #29 (M6), #30 (M9), #25/#28 (H6, M10, M14).
+**Owner decision taken during the review (M8):** publishing requires every **switched-on** language. A site may switch a language off. The firm's real site keeps EN + TH + ZH. Recorded in decision #11.
+
+**Fixed in the documents now:**
+- **Decision records:**
+  - #13: H4, M3, M4, M9;
+  - #14: M1, M5, M6, plus the H3 consequence;
+  - #16: M2 noted, M11, M12, L3;
+  - #11: M8, L3, H5;
+  - #10: M15, M1, H5.
+- **Research #4:** dated correction notes for H1 and H6.
+- **Status files:** PROJECT-STATUS and CLAUDE.md (L1).
+- **Issue bodies:** #23 and #20 rewritten (L2, H6, M10, M11, M12).
+
+**Attached to the owner tickets** (one comment each; each finding is resolved when that ticket closes):
+
+| Ticket | Findings |
+|---|---|
+| #17 | H2, H3, M3, M4, L4 |
+| #31 | H1, M4, M13 |
+| #27 | H5, H1 (SVG), M1, L3, M13 |
+| #22 | M2 (CSP preview test first) |
+| #15 | M7 |
+| #19 | M8 |
+| #32 | M8, H4 |
+| #18 | H1 (no third-party script) |
+| #29 | H1, M15, M6 |
+| #25 | H6, M14 |
+| #28 | M10, H2, M14 |
+| #21 | M16 |
+
+#23 must confirm every row above is closed before the final specification is written.

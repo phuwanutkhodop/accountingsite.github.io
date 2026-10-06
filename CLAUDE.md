@@ -62,7 +62,7 @@ accountingsite/
     ├── privacy.html
     ├── terms.html
     └── posts/
-        ├── articles.json          ← add new articles here
+        ├── articles.json          ← current hand-written site only; the builder replaces it (#19)
         ├── ARTICLES-README.txt    ← guide for adding articles
         └── article-template.html
 ```
@@ -71,7 +71,7 @@ accountingsite/
 **The project pivoted on 2026-10-05.** Before building more pages, the owner wants a
 **Site Builder** — a no-server, WordPress-premium-grade website builder that runs in the
 browser and publishes to GitHub Pages. The real firm website will be built *with* that
-builder afterwards. The existing site becomes Theme #1 and the builder's test bed.
+builder afterwards. The existing site becomes the builder's content-and-structure test bed, on a neutral test theme (route correction, 2026-10-06).
 
 The plan for the builder lives on the GitHub issue tracker as a **Wayfinder map**:
 https://github.com/phuwanutkhodop/accountingsite.github.io/issues/1

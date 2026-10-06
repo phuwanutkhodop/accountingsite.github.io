@@ -4,7 +4,7 @@
 **Date:** 6 October 2026
 **Decided by:** the owner for the three choices in §2; Claude for the technical choices in §3, under the owner's delegation
 **Inputs:** research #9 (design libraries) and #2 (premium builders); decisions #10 (content model), #11 (rendering), #14 (site structure), #16 (tech stack), #33 (light and dark token sets)
-**Status:** locked
+**Status:** locked. **Amended 6 October 2026** after the plan review (`docs/reviews/2026-10-06-plan-review.md`, findings H4, M3, M4, M9): §3.4 step 6, §3.7, §3.10 and §3.11.
 
 ---
 
@@ -17,6 +17,8 @@
 5. **ภาพตัวอย่างในคลังเป็นของจริงเสมอ:** ระบบวาดด้วยธีมปัจจุบัน ไม่ใช่รูปถ่ายเก่า จึงไม่ล้าสมัยเมื่อเปลี่ยนสี
 6. **ไม่มีการลบดีไซน์ที่ยังมีหน้าใช้อยู่** ทำได้แค่ติดป้าย "เลิกใช้" ป้ายนี้ซ่อนดีไซน์จากคลัง แต่หน้าเดิมยังแสดงผลตามปกติ
 7. **ดีไซน์ไม่มีสีหรือตัวอักษรตายตัว** ทุกชิ้นผูกกับธีม ดีไซน์ทุกชิ้นต้องอ่านชัดทั้งโหมดสว่างและโหมดมืด
+8. **ข้อความตัวอย่างไม่มีวันขึ้นเว็บจริง** ช่องข้อความเริ่มว่างเสมอ และระบบไม่ยอมให้ Publish ถ้ายังมีข้อความตัวอย่างค้างอยู่ *(เพิ่มหลังการตรวจ 6 ต.ค.)*
+9. **ดีไซน์ที่เก็บเข้าคลังจะขึ้นเว็บพร้อมการ Publish ครั้งถัดไป** ก่อนหน้านั้นเก็บเป็นฉบับร่างส่วนตัว *(เพิ่มหลังการตรวจ 6 ต.ค.)*
 
 ---
 
@@ -83,7 +85,7 @@ The owner's path, inside the Admin:
 3. **Strip step:** content is replaced by the type's placeholders in EN, TH and ZH, and the overrides become the new defaults.
 4. The owner gives it a name and a one-line purpose in three languages (Thai first) and a category. A live thumbnail renders immediately.
 5. The library check runs (§3.3). If it fails, the reason is shown in Thai and nothing is saved.
-6. The new preset is written to `library/`, a pinned copy is written to `site/presets/` (decision #10-6), and the page now points to it. **Nothing visible changes on the page.**
+6. The new preset and its pinned copy are saved **as a draft in the private drafts repo** (decision #10-7), and the page points to it in its draft. They reach the public `library/` and `site/presets/` (decision #10-6) **with the next Publish**, through the validation gate like any other change. The public repo still holds only published content. **Nothing visible changes on the page.** *(Amended: the first version wrote public files at once, outside Publish — review M3.)*
 
 **Claude sessions add presets as files** in `library/` through the same check, with tests. This is how the library grows quickly at the start (#21 builds the first set).
 
@@ -104,7 +106,8 @@ The owner's path, inside the Admin:
 
 ### 3.7 Usage index
 
-- The usage index is **computed, not stored:** the Admin derives it from `site/pages/*.json` whenever it loads source (decision #11 §3.7 cache). A computed index cannot drift (research #9 pitfall 3).
+- The usage index is **computed, not stored:** the Admin derives it from published pages, **drafts** and **page templates** whenever it loads source (decision #11 §3.7 cache). A computed index cannot drift (research #9 pitfall 3).
+- **Removal waits for every use:** a preset still used by a draft or a template counts as used. When the master library serves more than one site, removal also waits for #31's answer on how sites share it. *(Amended — review M4.)*
 - It powers:
   - "Used on N pages" in the library, with links to those pages;
   - the upgrade notices;
@@ -123,6 +126,16 @@ The owner's path, inside the Admin:
 - **Why:** the page's sections are already linked to their presets, so linking the page to the template as well would add a second, confusing kind of update for little benefit. Squarespace page layouts work the same way.
 - New templates are saved from an existing page ("save this page's layout as a template"). This is design only, the same as presets.
 
+### 3.10 Placeholders never reach the live site *(added — review H4)*
+
+- When a preset is placed on a page, its content fields **start empty**. The placeholder appears only as a grey hint inside the editor field, and as the content of library previews.
+- The validation gate (decision #11 §3.5) adds an **error**: a field whose value equals its placeholder in any language. Sample Thai or Chinese text therefore cannot be published by accident, even if it was pasted in.
+
+### 3.11 Contrast is checked at Publish too *(added — review M9)*
+
+- The library check (§3.3-4) proves contrast for each preset when it is saved. Editing the theme can still break contrast everywhere.
+- The validation gate therefore also checks every text/background **token pair of the current theme**, in both light and dark sets, against WCAG AA. A failing pair is an error. #30 sets the whole-page accessibility level on top of this.
+
 ---
 
 ## 4. Effects on other tickets
@@ -133,7 +146,8 @@ The owner's path, inside the Admin:
 - **#21 Section sample:** builds the first section types and presets against these rules, on the neutral test theme, and swaps in a second theme to prove that the token binding works.
 - **#22 Admin prototype:** the library screen, the picker, "Save design to library" and the upgrade notices.
 - **#26 Pages editing:** the add-section picker, the override panel and the constraint warnings.
-- **#30 Quality:** sets the whole-page accessibility level. The contrast rule in §3.3-4 already applies to every preset.
+- **#30 Quality:** sets the whole-page accessibility level. The contrast rules in §3.3-4 and §3.11 already apply to every preset and to the theme.
+- **#17 Drafts:** save-back is a draft change (§3.4 step 6); the drafts model must carry new presets and their pinned copies.
 
 ---
 
