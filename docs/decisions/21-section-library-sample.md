@@ -8,7 +8,7 @@
 - plan review finding **M16** (colour-mode names).
 
 **Prototype:** [Section Library Sample](https://claude.ai/artifact/KXF9kgSGvYtTJFXS46CUQC) (private). Source: [`21-section-library-sample/prototype/`](./21-section-library-sample/prototype/).
-**Status:** locked for the format. Owner quality review pending (§6). Resolves M16.
+**Status:** the **format** half is locked and resolves M16. **The quality half failed the owner's review (6 October 2026):** the nine presets are generic placeholders, "far from professional; nobody would pay for this". The ticket is reopened. Real presets will come from visual research of top professional work (§8).
 
 ---
 
@@ -89,3 +89,24 @@ A complaint about a design changes that preset, not the format.
 - **#22:** the Admin preview can render presets at any width directly, thanks to container queries. The library screen uses the same check report.
 - **#29:** the site setting "colour scheme: light / dark / follow device" lives in Settings.
 - **#31 §8:** `builder-library` is needed when the first **real** presets are written, not for this prototype. That owner step moves to the build phase.
+
+## 8. Owner review, 6 October 2026: not commercial grade
+
+**Owner's verdict:** the sample is far from professional. Squares, rounded buttons and standard layouts are worth nothing, because nobody would pay for them.
+
+**The owner's direction for the real library:**
+- study the work of top professional designers **by looking at it**, not from descriptions;
+- skip what is standard;
+- collect what is **scarce and distinctive** in the economic sense: details few sites have, which is what makes work worth paying for;
+- build those into real presets.
+
+**What stands from this ticket:**
+- the format (§2);
+- the library check;
+- the test themes, as plumbing only.
+
+**What does not stand:**
+- the nine presets as designs;
+- §4 as the whole quality bar. It is a floor, not a bar. The real bar comes from the visual research.
+
+**Blocker:** the session's network policy refuses every design gallery, studio site and brand site tried, among them Awwwards, Behance, Dribbble, Pentagram, Aesop, Pictet and Stripe. The owner must widen the network access before the research can start.

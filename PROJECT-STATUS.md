@@ -14,7 +14,8 @@
   - the #15 specimen on Windows and iPhone;
   - the #21 sample: which designs look unprofessional, and whether the test themes look neutral.
 - **Owner steps:** create the organization before #22. `builder-library` is needed only when real presets are written.
-**Next session:** **#22** (clickable Admin prototype). The owner creates the free GitHub organization first, with a guide. #22 also waits on the #12 sub-tickets (#24–#30); pick the next unblocked one. No new side tracks without the owner's explicit OK.
+**Owner verdict on #21 (6 Oct 2026): the sample designs are not commercial grade; #21 is reopened.** The format stands. The real presets must come from **visual research of top professional work** (scarce, distinctive details), which waits on the owner widening the session's network access (every design site is blocked). See `docs/decisions/21-section-library-sample.md` §8.
+**Next session:** the #21 visual research once the network allows it; then **#22** (clickable Admin prototype). The owner creates the free GitHub organization first, with a guide. #22 also waits on the #12 sub-tickets (#24–#30); pick the next unblocked one. No new side tracks without the owner's explicit OK.
 ---
 
 ## Site Builder effort (started 5 Oct 2026) — READ THIS FIRST
