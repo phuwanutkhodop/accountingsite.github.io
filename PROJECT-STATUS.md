@@ -1,8 +1,8 @@
 # PROJECT-STATUS.md
 
 **Last updated:** Tuesday, 6 October 2026
-**Last session:** Ticket **#14 (Site Structure)** decided and closed. Owner: header menu with one dropdown level; footer in headed columns. Claude: tree max 3 levels; clean addresses `/<lang>/<parent>/<slug>/` with one Latin slug shared by all languages; slug changes, moves and deletions create static redirect pages automatically; internal links stored by page id so they never break; link map and orphan warnings; tree, menus and redirects live in `site/site.json`. Record: `docs/decisions/14-site-structure.md`. Same day: #16 (tech stack) closed, record `docs/decisions/16-tech-stack.md`.
-**Next session:** builder core, next ticket **#13 (Design Library governance)**, then #17 → #20 → #22 → #23, with #24–#32 alongside. No new side tracks without the owner's explicit OK. The brand is kept for the later firm website (`brand/README.md`); #36 stays open only for a possible request for more patterns.
+**Last session:** Tickets **#16, #14 and #13** decided and closed (records in `docs/decisions/`). #13 Design Library: owner chose design-only save-back, pages keep their preset version until the owner upgrades, and the ten intent categories. Claude: five levels (theme · page template · section type · preset · instance), `major.minor` versions, semantic tokens only, a library check (strict template, no literals, renders in 3 languages × light/dark, AA contrast, works without JS), computed usage index, live sandboxed previews, deprecate-never-delete.
+**Next session:** builder core, next ticket **#17 (drafts, versions and rollback)**, then #20 → #22 → #23, with #24–#32 alongside. No new side tracks without the owner's explicit OK. The brand is kept for the later firm website (`brand/README.md`); #36 stays open only for a possible request for more patterns.
 ---
 
 ## Site Builder effort (started 5 Oct 2026) — READ THIS FIRST
