@@ -22,7 +22,7 @@
 |---|---|---|
 | 1 | Paid assets | **None for now** (2026-10-05): no paid fonts, no photographer, no paid stock. Answers #34 §12 questions 1 and 3 for now. #35 Direction C uses Cormorant Garamond 600/700, not a paid face. |
 | 2 | Imagery source | **Claude generates the brand imagery in code** (SVG), at luxury-house quality. Real partner and office photography is deferred, not cancelled. |
-| 3 | Firm name | **DA Accounting & Consulting Co., Ltd.** (owner, 2026-10-05). Replaces the "FN" placeholder. Owner asked for a full redesign drawing on external inspiration (round 2). Thai/Chinese names and founding year not yet given. |
+| 3 | Firm name | **D.A. Accounting & Consulting Co., Ltd.** (owner, 2026-10-05; always "D.A." with dots, never "DA"). Replaces the "FN" placeholder. Owner asked for a full redesign drawing on external inspiration (round 2). Thai/Chinese names and founding year not yet given. |
 
 Still open from #34 §12 (owner): partners' faces, heritage material, seal letters/script, homepage video. Round 1 below offers seal scripts to react to.
 
@@ -635,3 +635,8 @@ Patterns are numbered from 401, separate from the logo and seal numbers.
 **Originals:** unchanged. 34/34 fingerprints match and the rebuild is 31/31 identical.
 
 **Print colours (CMYK/Pantone):** to be agreed with the printer on the first job.
+
+### Owner note for later (2026-10-06): more patterns may be needed
+
+During #35 the owner said four patterns may be too few and could feel repetitive on a website, so patterns beyond 401 · 406 · 417 · 420 may be needed. **Revisit only when the owner raises it**, once patterns are tried on the website. Until then #35 uses the four locked patterns, and this ticket stays open for that question.
+

@@ -1,9 +1,8 @@
 # PROJECT-STATUS.md
 
-**Last updated:** Sunday, 5 October 2026
-**Last session:** Ticket #12 (Admin information architecture) started with the owner: frame locked (two levels — My Sites + per-site Admin; 9-area menu; always-visible page tree; Dashboard = live preview + "Needs attention"), then split into sub-tickets #24–#30 (12a–12g). A review pass added #31 (multi-site hosting model) and #32 (translation workflow), wired blocking edges, and set the landing rule (open the last-used site directly). Record: `docs/decisions/12-admin-ia.md`
-**Next session:** logo **locked as 153** (`docs/brand/da-logo-153.md`) and brand seal **locked as 346** (`docs/brand/da-seal-346.md`, masters in `brand/seal/`). Logo meanings confirmed by the owner. No rubber-stamp seal. Brand patterns **locked: 401 · 406 · 417 · 420** (`docs/brand/da-patterns.md`, tiles in `brand/pattern/`). **Brand preserved:** `brand/README.md` (index), `brand/MANIFEST.sha256`, toolchain `tools/brand/` (rebuilds all 31 masters byte for byte; `python tools/brand/build.py --check`), frozen snapshot branch `brand-v1.0` (never commit to it). Merged into `main` on 2026-10-05. **Export pack** `brand/export/`: PNG, PDF and compatible SVG for Canva, PowerPoint, Word, Illustrator, Figma and print; 510 of 510 checks passed; see `brand/export/README.md`. **Next: back to the Site Builder** (Wayfinder map, issue #1), unless the owner names another brand piece. Business cards later (not urgent).
-
+**Last updated:** Tuesday, 6 October 2026
+**Last session:** Ticket #35 (three visual directions) started. Owner decisions: two review rounds; compare brass and oxblood figures; firm name is always **"D.A."** with dots; use the four locked patterns for now (owner may ask for more patterns later; #36 stays open for that). **Round 1 board published:** https://claude.ai/artifact/CAdrbjPVRMLb44ixXLzxLM (homepage + Admin Dashboard × A Maison / B Atelier / C Haute Contrast, EN/TH/ZH, day/night, desktop/phone; ratings saved in the artifact's database `ratings/round1`). Record: `docs/decisions/35-visual-directions.md`.
+**Next session:** read the owner's ratings (ArtifactData → `ratings/round1` on the board), record them in `docs/decisions/35-visual-directions.md`, then build round 2 (services, tax calendar, article, contact) in the winning direction. Brand reference: `brand/README.md` (logo 153, seal 346, patterns 401 · 406 · 417 · 420; `brand/` is read-only).
 ---
 
 ## Site Builder effort (started 5 Oct 2026) — READ THIS FIRST
@@ -244,7 +243,7 @@ These are real but non-urgent. They are documented so they don't get lost across
 ### Pre-launch fixes (must address before launching the site)
 
 - **`example.com` placeholders** in canonical URLs, Open Graph URLs, JSON-LD URLs across `index.html` and `knowledge.html`. Replace with real domain. Quick find-and-replace once the domain is known.
-- **Firm name now known (owner, 5 Oct 2026): DA Accounting & Consulting Co., Ltd.** Thai and Chinese registered names, founding year and licence numbers still to be supplied. Old note: **`Your Firm Name` placeholders** in `<meta name="firm-name">`, JSON-LD `Organization` entries, and HTML `🟢 EDIT: firm name` markers. Replace once the real firm name is known.
+- **Firm name now known (owner, 5 Oct 2026): D.A. Accounting & Consulting Co., Ltd.** Thai and Chinese registered names, founding year and licence numbers still to be supplied. Old note: **`Your Firm Name` placeholders** in `<meta name="firm-name">`, JSON-LD `Organization` entries, and HTML `🟢 EDIT: firm name` markers. Replace once the real firm name is known.
 - **`hello@yourfirm.com` placeholders** in CTAs and contact links. Replace with real email.
 - **Privacy and Terms pages referenced but not yet existing.** Footer links to `./privacy.html` and `./terms.html` will 404 until those pages are built. Either build them in Stage 6 or remove the footer links until they exist.
 

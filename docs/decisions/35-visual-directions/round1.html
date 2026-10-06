@@ -1,0 +1,780 @@
+<title>D.A. Visual Directions</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Cormorant+SC:wght@500;600&family=Newsreader:opsz,wght@6..72,400;6..72,500&family=Hanken+Grotesk:wght@400;500;600&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=Trirong:wght@400;500;600&family=Taviraj:wght@400;500&family=IBM+Plex+Sans+Thai+Looped:wght@400;500;600&family=Sarabun:wght@400;500&family=Noto+Serif+SC:wght@400;500;600&family=Noto+Sans+SC:wght@400;500&display=swap">
+<style>
+/* Board chrome = quiet working surface around the preview; the preview (.site) carries the three directions.
+   Brand palette (locked #33 / brand/README.md): paper #F2EEEA · oxblood #7A2229 · night #1B1112 · rose · silver · brass for figures. */
+:root{
+  --b-bg:#ebe6e1; --b-panel:#f6f3ef; --b-ink:#1e1a1a; --b-mut:#675e5c; --b-line:#d6ccc4; --b-acc:#7a2229; --b-on-acc:#f6efe8; --b-soft:#e3dcd5;
+  --b-ui:"IBM Plex Sans Thai Looped","Hanken Grotesk",system-ui,sans-serif;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --b-bg:#140d0e; --b-panel:#1f1516; --b-ink:#efe6dc; --b-mut:#b9aaa0; --b-line:#4a3232; --b-acc:#b94a52; --b-on-acc:#fff6ee; --b-soft:#2a1c1d; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --b-bg:#140d0e; --b-panel:#1f1516; --b-ink:#efe6dc; --b-mut:#b9aaa0; --b-line:#4a3232; --b-acc:#b94a52; --b-on-acc:#fff6ee; --b-soft:#2a1c1d; color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--b-bg);color:var(--b-ink);font-family:var(--b-ui);font-size:14px;line-height:1.55}
+button{font:inherit;color:inherit}
+:focus-visible{outline:2px solid var(--b-acc);outline-offset:2px}
+
+.board{max-width:1680px;margin:0 auto;padding-block:20px 48px;padding-inline:16px}
+.intro{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:24px;align-items:end;margin-bottom:16px}
+.intro h1{font-family:"Cormorant Garamond","Trirong",serif;font-weight:500;font-size:34px;line-height:1.1;margin:0 0 6px;text-wrap:balance}
+.intro p{margin:0;color:var(--b-mut);max-width:70ch}
+.intro ul{margin:8px 0 0;padding-left:18px;color:var(--b-mut)}
+@media (max-width:860px){.intro{grid-template-columns:1fr}}
+
+.toolbar{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;display:flex;flex-wrap:wrap;gap:8px 14px;align-items:center;
+  background:var(--b-panel);border:1px solid var(--b-line);padding:8px 10px;margin-bottom:14px}
+.seg{display:flex;align-items:center;gap:6px}
+.seg>span{font-size:12px;color:var(--b-mut)}
+.seg .opts{display:flex;border:1px solid var(--b-line)}
+.seg button{border:0;background:transparent;padding:6px 10px;cursor:pointer;font-size:13px;white-space:nowrap}
+.seg button+button{border-left:1px solid var(--b-line)}
+.seg button[aria-pressed="true"]{background:var(--b-acc);color:var(--b-on-acc)}
+.seg.dir button{font-weight:600;min-width:36px}
+
+.work{display:grid;grid-template-columns:minmax(0,1fr) 380px;gap:16px;align-items:start}
+@media (max-width:1100px){.work{grid-template-columns:1fr}}
+
+.dircard{background:var(--b-panel);border:1px solid var(--b-line);padding:12px 14px;margin-bottom:12px;display:grid;grid-template-columns:auto minmax(0,1fr);gap:4px 14px}
+.dircard .k{font-family:"Cormorant Garamond",serif;font-size:40px;line-height:1;font-weight:600;color:var(--b-acc);grid-row:span 3}
+.dircard b{font-size:15px}
+.dircard p{margin:0;color:var(--b-mut);font-size:13px}
+.dircard .fonts{font-size:12px;color:var(--b-mut)}
+
+.stage{background:var(--b-soft);border:1px solid var(--b-line);padding:16px;display:flex;justify-content:center;overflow:hidden}
+.frame{width:100%;max-width:1280px;background:#fff;box-shadow:0 0 0 1px var(--b-line)}
+.frame.phone{width:390px;max-width:100%;border:10px solid #111;border-radius:34px;overflow:hidden;box-shadow:none}
+
+/* Rating panel */
+.rate{position:sticky;top:64px;background:var(--b-panel);border:1px solid var(--b-line);padding:12px 12px 14px;max-height:calc(100vh - 80px);overflow:auto}
+@media (max-width:1100px){.rate{position:static;max-height:none}}
+.rate h2{font-size:16px;margin:0 0 2px}
+.rate .hint{font-size:12px;color:var(--b-mut);margin:0 0 10px}
+.save{font-size:12px;color:var(--b-mut);margin-bottom:8px}
+.dim{border-top:1px solid var(--b-line);padding:9px 0}
+.dim .lab{display:flex;justify-content:space-between;gap:8px;align-items:baseline}
+.dim .lab b{font-size:13.5px}
+.dim .lab small{color:var(--b-mut);font-size:11px}
+.dim .what{font-size:12px;color:var(--b-mut);margin:2px 0 6px}
+.cells{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px}
+.cell{border:1px solid var(--b-line);padding:4px;display:grid;grid-template-columns:auto 1fr 1fr 1fr;gap:3px;align-items:center}
+.cell.cur{border-color:var(--b-acc)}
+.cell .d{font-weight:700;font-size:12px;padding:0 3px;color:var(--b-mut)}
+.cell.cur .d{color:var(--b-acc)}
+.cell button{border:1px solid var(--b-line);background:transparent;font-size:11px;padding:3px 0;cursor:pointer;line-height:1.2}
+.cell button[aria-pressed="true"].like{background:#2f5d3a;color:#fff;border-color:#2f5d3a}
+.cell button[aria-pressed="true"].no{background:#7a2229;color:#fff;border-color:#7a2229}
+.cell button[aria-pressed="true"].best{background:#7d5f28;color:#fff;border-color:#7d5f28}
+.note{width:100%;margin-top:6px;font:inherit;font-size:12px;border:1px solid var(--b-line);background:transparent;color:inherit;padding:5px 6px;resize:vertical;min-height:30px}
+.choice{display:flex;flex-wrap:wrap;gap:6px;margin-top:4px}
+.choice button{border:1px solid var(--b-line);background:transparent;padding:5px 9px;font-size:12px;cursor:pointer}
+.choice button[aria-pressed="true"]{background:var(--b-acc);color:var(--b-on-acc);border-color:var(--b-acc)}
+
+/* =====================================================================
+   THE SITE PREVIEW — tokens, three directions, three languages, two modes
+   ===================================================================== */
+.site{container-type:inline-size;container-name:site;
+  --paper:#f2eeea; --ink:#1e1a1a; --muted:#675e5c; --hair:#d6ccc4; --ox:#7a2229; --on-ox:#f6efe8;
+  --brass:#7d5f28; --brass-l:#c4a06a; --deep:#3a1316; --on-deep:#f2e8e0; --rose:#b07e80; --rose-d:#c29998;
+  --fig-paper:var(--brass); --fig-dark:var(--brass-l);
+  background:var(--paper);color:var(--ink);position:relative;overflow:hidden;
+  font-family:var(--fb);font-size:var(--fs-b);line-height:var(--lh-b);font-weight:400;
+  -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+.site[data-mode="night"]{--paper:#1b1112; --ink:#efe6dc; --muted:#b9aaa0; --hair:#4a3232; --ox:#8f2a31; --on-ox:#f6efe8;
+  --brass:#c4a06a; --deep:#4b171c; --rose:#be9491; --rose-d:#be9491}
+.site[data-fig="ox"]{--fig-paper:var(--ox); --fig-dark:var(--rose-d)}
+.site[data-fig="ox"][data-mode="night"]{--fig-paper:var(--rose)}
+
+/* Type roles per direction (Latin face first so Latin words keep the brand face; script face second) */
+.site[data-dir="A"]{--lat-d:"Cormorant Garamond"; --lat-b:"Newsreader"; --lat-u:"Cormorant SC";
+  --th-d:"Trirong"; --th-b:"Taviraj"; --th-u:"Sarabun"; --zh-d:"Noto Serif SC"; --zh-b:"Noto Serif SC"; --zh-u:"Noto Serif SC";
+  --wd:400; --wd-zh:400; --wd-th:400; --hs:56px; --fs-b0:18px}
+.site[data-dir="B"]{--lat-d:"Cormorant Garamond"; --lat-b:"Hanken Grotesk"; --lat-u:"Hanken Grotesk";
+  --th-d:"Trirong"; --th-b:"IBM Plex Sans Thai Looped"; --th-u:"IBM Plex Sans Thai Looped"; --zh-d:"Noto Serif SC"; --zh-b:"Noto Sans SC"; --zh-u:"Noto Sans SC";
+  --wd:500; --wd-zh:500; --wd-th:400; --hs:54px; --fs-b0:16.5px}
+.site[data-dir="C"]{--lat-d:"Cormorant Garamond"; --lat-b:"Source Serif 4"; --lat-u:"Hanken Grotesk";
+  --th-d:"Trirong"; --th-b:"Trirong"; --th-u:"Sarabun"; --zh-d:"Noto Serif SC"; --zh-b:"Noto Serif SC"; --zh-u:"Noto Sans SC";
+  --wd:600; --wd-zh:600; --wd-th:600; --hs:52px; --fs-b0:17px}
+.site{--sc-d:var(--zh-d); --sc-b:var(--zh-b); --sc-u:var(--zh-u)}
+.site:lang(en){--k-d:1; --k-b:1; --lh-b:1.6; --lh-d:1.08; --wdx:var(--wd)}
+.site:lang(th){--sc-d:var(--th-d); --sc-b:var(--th-b); --sc-u:var(--th-u); --k-d:.84; --k-b:.95; --lh-b:1.75; --lh-d:1.32; --wdx:var(--wd-th)}
+.site:lang(zh-Hans){--k-d:.8; --k-b:.92; --lh-b:1.8; --lh-d:1.3; --wdx:var(--wd-zh)}
+.site{--fd:var(--lat-d),var(--sc-d),serif; --fb:var(--lat-b),var(--sc-b),serif; --fu:var(--lat-u),var(--sc-u),sans-serif;
+  --fs-b:calc(var(--fs-b0) * var(--k-b))}
+.site[data-dir="B"]{--fb:var(--lat-b),var(--sc-b),sans-serif}
+.site:lang(th)[data-dir="B"] .cap, .site:lang(zh-Hans) .cap{letter-spacing:.04em;text-transform:none}
+
+/* Paper grain (signature detail A6) — generated noise, no image licence */
+.grain{position:absolute;inset:0;pointer-events:none;z-index:0;opacity:var(--grain-o,.06);mix-blend-mode:multiply;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .2 0 0 0 0 .12 0 0 0 0 .1 0 0 0 1 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+.site[data-mode="night"] .grain{mix-blend-mode:screen;--grain-o:.05;filter:invert(1)}
+.site[data-dir="A"]{--grain-o:.085} .site[data-dir="B"]{--grain-o:.04} .site[data-dir="C"]{--grain-o:.06}
+
+.site *{box-sizing:border-box}
+.site a{color:inherit;text-decoration:none}
+.site .wrap{position:relative;z-index:1;max-width:1180px;margin:0 auto;padding-inline:clamp(20px,5cqw,56px)}
+.site section,.site header,.site footer{position:relative}
+
+/* Bands: each surface sets local colours so components read the same everywhere */
+.bp{--bg:var(--paper); --fg:var(--ink); --mut:var(--muted); --line:var(--hair); --figc:var(--fig-paper); --btn-bg:var(--ox); --btn-fg:var(--on-ox); --ln:var(--ink);
+  background:var(--bg);color:var(--fg)}
+.bo{--bg:var(--ox); --fg:var(--on-ox); --mut:color-mix(in srgb,var(--on-ox) 78%,var(--ox)); --line:color-mix(in srgb,var(--on-ox) 30%,var(--ox)); --figc:var(--brass-l); --btn-bg:var(--on-ox); --btn-fg:#7a2229; --ln:var(--on-ox);
+  background:var(--bg);color:var(--fg)}
+.bd{--bg:var(--deep); --fg:var(--on-deep); --mut:color-mix(in srgb,var(--on-deep) 74%,var(--deep)); --line:color-mix(in srgb,var(--on-deep) 22%,var(--deep)); --figc:var(--fig-dark); --btn-bg:var(--on-deep); --btn-fg:#3a1316; --ln:var(--on-deep);
+  background:var(--bg);color:var(--fg)}
+.site[data-mode="night"] .bp .grain{opacity:.05}
+
+.site h1,.site h2,.site h3{font-family:var(--fd);font-weight:var(--wdx);margin:0;text-wrap:balance;letter-spacing:0}
+.site h1{font-size:calc(var(--hs) * var(--k-d));line-height:var(--lh-d)}
+.site h2{font-size:calc(36px * var(--k-d));line-height:calc(var(--lh-d) + .04)}
+.site h3{font-size:calc(24px * var(--k-d));line-height:1.3}
+.site:lang(en) h1 em,.site:lang(en) h2 em{font-style:italic}
+.site:lang(th) em,.site:lang(zh-Hans) em{font-style:normal}
+.site p{margin:0}
+.site .cap{font-family:var(--fu);font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--mut);font-weight:500}
+.site[data-dir="A"]:lang(en) .cap{font-size:15px;letter-spacing:.12em;text-transform:lowercase}
+.site .lede{font-size:calc(var(--fs-b) * 1.12);color:var(--mut);max-width:34em}
+.site .fig{color:var(--figc);font-variant-numeric:lining-nums tabular-nums;font-feature-settings:"lnum" 1,"tnum" 1}
+
+/* Buttons — solid oxblood + outline, square (D7) */
+.site .btns{display:flex;flex-wrap:wrap;gap:12px}
+.site .btn{display:inline-flex;align-items:center;gap:8px;padding:13px 22px;font-family:var(--fu);font-size:14px;font-weight:500;letter-spacing:.06em;border:1px solid var(--btn-bg);background:var(--btn-bg);color:var(--btn-fg);cursor:pointer}
+.site:lang(en) .btn{text-transform:uppercase;font-size:12.5px;letter-spacing:.12em}
+.site[data-dir="A"]:lang(en) .btn{text-transform:none;font-size:16px;letter-spacing:.04em}
+.site .btn.line{background:transparent;color:var(--ln);border-color:var(--ln)}
+.site .btn .arr{font-family:var(--fb)}
+
+/* Signature details */
+.site .dframe{border:1px solid var(--line);outline:1px solid var(--line);outline-offset:6px}
+.site .stitch{height:1px;background-image:repeating-linear-gradient(90deg,currentColor 0 7px,transparent 7px 13px);opacity:.55}
+.site .stitched{position:relative}
+.site .stitched::before,.site .stitched::after{content:"";position:absolute;left:0;right:0;height:1px;z-index:1;
+  background-image:repeating-linear-gradient(90deg,var(--rose-d) 0 7px,transparent 7px 13px);opacity:.75}
+.site .stitched::before{top:9px} .site .stitched::after{bottom:9px}
+.site .sealrule{display:flex;align-items:center;gap:0;padding-block:8px}
+.site .sealrule::before,.site .sealrule::after{content:"";flex:1;height:1px;background:var(--line)}
+.site .sealrule img{width:168px;height:168px;margin-inline:28px}
+
+/* Header bar (D8: oxblood bar on every page) */
+.site .hd{background:var(--ox);color:var(--on-ox);position:relative;z-index:2}
+.site .hd .wrap{display:flex;align-items:center;gap:24px;min-height:72px}
+.site .brand{display:flex;align-items:center;gap:12px;margin-right:auto}
+.site .brand img{height:34px;width:auto;display:block}
+.site .brand span{font-family:var(--lat-d),serif;font-size:19px;letter-spacing:.02em;font-weight:500;white-space:nowrap}
+.site[data-dir="B"] .brand span{font-size:18px}
+.site[data-dir="C"] .brand span{font-weight:600}
+.site .nav{display:flex;gap:22px;font-family:var(--fu);font-size:14px;letter-spacing:.04em}
+.site:lang(en) .nav{font-size:13px;letter-spacing:.1em;text-transform:uppercase}
+.site[data-dir="A"]:lang(en) .nav{text-transform:none;font-size:16px;letter-spacing:.03em}
+.site .nav a{white-space:nowrap;opacity:.9;padding-block:4px;border-bottom:1px solid transparent}
+.site .nav a.on{border-bottom-color:currentColor;opacity:1}
+.site .tools{display:flex;align-items:center;gap:14px;font-family:var(--fu);font-size:12.5px}
+.site .tools button{background:none;border:0;color:inherit;cursor:pointer;padding:4px 2px;font:inherit;opacity:.75}
+.site .tools button[aria-pressed="true"]{opacity:1;border-bottom:1px solid currentColor}
+.site .tools .sep{width:1px;height:16px;background:currentColor;opacity:.35}
+.site .hd .btn{padding:9px 14px;--btn-bg:var(--on-ox);background:transparent;color:var(--on-ox);border-color:color-mix(in srgb,var(--on-ox) 70%,transparent)}
+.site .menu{display:none;font-family:var(--fu);font-size:13px;letter-spacing:.1em;text-transform:uppercase;border:1px solid currentColor;padding:7px 10px}
+
+/* Hero */
+.site .hero .wrap{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:clamp(28px,6cqw,88px);align-items:center}
+.site .hero .txt{display:grid;gap:22px;justify-items:start}
+.site[data-dir="A"] .hero{padding-block:96px 104px}
+.site[data-dir="A"] .hero .panel{aspect-ratio:4/5;display:grid;place-items:center;background:var(--paper) url(a/p406-quiet.svg) repeat;background-size:36px auto}
+.site[data-dir="A"][data-mode="night"] .hero .panel{background-image:none;background-color:var(--paper)}
+.site[data-dir="A"][data-mode="night"] .hero .panel::before{content:"";position:absolute;inset:0;background:url(a/p406-night.svg) repeat;background-size:36px auto;opacity:.32}
+.site .panel{position:relative}
+.site .panel img.seal{width:min(52%,200px);height:auto;position:relative}
+.site[data-dir="B"] .hero{padding-block:84px 0}
+.site[data-dir="B"] .hero .wrap{padding-bottom:84px}
+.site[data-dir="B"] .hero .panel{aspect-ratio:1/1;background:url(a/p417-oxblood.svg) repeat;background-size:150px auto;border:1px solid color-mix(in srgb,var(--on-ox) 35%,transparent)}
+.site[data-dir="B"] .hero .panel::after{content:"";position:absolute;inset:10px;border:1px dashed color-mix(in srgb,var(--on-ox) 55%,transparent)}
+.site[data-dir="B"] .ribbon{height:26px;background:url(a/p401-paper.svg) repeat-x;background-size:auto 26px}
+.site[data-dir="B"][data-mode="night"] .ribbon{background-image:url(a/p401-night.svg)}
+.site[data-dir="C"] .hero{padding-block:72px}
+.site[data-dir="C"] .hero .frame2{border:1px solid var(--brass-l);outline:1px solid var(--brass-l);outline-offset:7px;padding:clamp(28px,5cqw,64px)}
+.site[data-dir="C"] .hero .wrap{display:block}
+.site[data-dir="C"] .hero .in{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:clamp(28px,5cqw,72px);align-items:center}
+.site[data-dir="C"] .hero .panel{aspect-ratio:5/6;background:#1b1112 url(a/p420-night.svg) repeat;background-size:220px auto;border:1px solid color-mix(in srgb,var(--brass-l) 60%,transparent)}
+.site[data-dir="C"] .hero .panel img.seal{position:absolute;width:min(78%,280px);left:-18%;bottom:-10%}
+.site[data-dir="C"] .hero .rule{width:64px;height:1px;background:var(--brass-l)}
+
+/* Sections */
+.site .sec{padding-block:88px}
+.site .sec.tight{padding-block:64px}
+.site .head{display:flex;justify-content:space-between;align-items:end;gap:24px;margin-bottom:36px}
+.site .head .cap{margin-bottom:12px}
+
+/* Glance table (figures) */
+.site table{width:100%;border-collapse:collapse}
+.site th{font-family:var(--fu);font-weight:500;font-size:12.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--mut);text-align:left;padding:0 12px 12px 0;border-bottom:1px solid var(--fg)}
+.site:lang(th) th,.site:lang(zh-Hans) th{text-transform:none;letter-spacing:.02em;font-size:13.5px}
+.site td{padding:16px 12px 16px 0;border-bottom:1px solid var(--line);vertical-align:top}
+.site td .sub{display:block;font-size:.86em;color:var(--mut)}
+.site td.fig,.site th.num{text-align:right;padding-right:0}
+.site td.fig{font-size:1.18em;white-space:nowrap}
+.site[data-dir="C"] td.fig{font-weight:600}
+.site .foot{font-size:13px;color:var(--mut);margin-top:14px}
+
+/* Services: title left, list right (D6) */
+.site .split{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:clamp(28px,6cqw,96px)}
+.site .split .left{display:grid;gap:18px;align-content:start}
+.site .svc{list-style:none;margin:0;padding:0;border-top:1px solid var(--fg)}
+.site .svc li{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:20px;padding:20px 0;border-bottom:1px solid var(--line)}
+.site .svc h3{font-size:calc(23px * var(--k-d))}
+.site .svc p{color:var(--mut)}
+
+/* Outcome band */
+.site .outcome .wrap{display:grid;gap:22px;max-width:980px}
+.site .outcome blockquote{margin:0;font-family:var(--fd);font-weight:var(--wdx);font-size:calc(40px * var(--k-d));line-height:calc(var(--lh-d) + .06);text-wrap:balance}
+.site:lang(en) .outcome blockquote{font-style:italic}
+.site[data-dir="C"] .outcome .rule{width:64px;height:1px;background:var(--brass-l)}
+.site .outcome p{color:var(--mut);max-width:40em}
+
+/* Calendar month grid */
+.site .cal{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:clamp(24px,5cqw,64px);align-items:start}
+.site .grid{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));border-top:1px solid var(--fg);border-left:1px solid var(--line)}
+.site .grid .wd{font-family:var(--fu);font-size:12px;letter-spacing:.08em;color:var(--mut);padding:8px;border-right:1px solid var(--line);border-bottom:1px solid var(--line);text-transform:uppercase}
+.site .grid .c{min-height:92px;padding:8px;border-right:1px solid var(--line);border-bottom:1px solid var(--line);display:flex;flex-direction:column;gap:5px}
+.site .grid .c .n{font-size:18px;line-height:1}
+.site .grid .c.off .n{color:var(--mut);opacity:.6}
+.site .grid .c.hol{background:color-mix(in srgb,var(--fg) 4%,transparent)}
+.site .grid .c.due{box-shadow:inset 0 2px 0 var(--figc)}
+.site .grid .ev{font-size:11.5px;line-height:1.3;color:var(--fg)}
+.site .grid .ev.h{color:var(--mut);font-style:italic}
+.site:lang(th) .grid .ev.h,.site:lang(zh-Hans) .grid .ev.h{font-style:normal}
+.site .grid .dot{display:none;width:6px;height:6px;background:var(--figc);border-radius:50%}
+.site .deadl{list-style:none;margin:0;padding:0;border-top:1px solid var(--fg)}
+.site .deadl li{display:grid;grid-template-columns:5.2em minmax(0,1fr);gap:14px;padding:13px 0;border-bottom:1px solid var(--line)}
+.site .deadl .fig{font-size:1.15em}
+
+/* Insights */
+.site .cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(18px,3cqw,36px)}
+.site .card{display:grid;gap:12px;align-content:start;border-top:1px solid var(--fg);padding-top:16px}
+.site .card .thumb{aspect-ratio:3/2;background-repeat:repeat}
+.site[data-dir="A"] .card .thumb{background-image:url(a/p406-quiet.svg);background-size:30px auto}
+.site[data-dir="A"][data-mode="night"] .card .thumb{background-image:url(a/p406-night.svg);opacity:.55}
+.site[data-dir="B"] .card .thumb{background-image:url(a/p417-paper.svg);background-size:150px auto}
+.site[data-dir="B"][data-mode="night"] .card .thumb{background-image:url(a/p417-night.svg)}
+.site[data-dir="C"] .card .thumb{background-color:#1b1112;background-image:url(a/p420-night.svg);background-size:180px auto}
+.site .card .meta{font-size:13px;color:var(--mut);font-family:var(--fu)}
+.site .card h3{font-size:calc(22px * var(--k-d))}
+.site .more{font-family:var(--fu);font-size:13px;letter-spacing:.08em;border-bottom:1px solid currentColor;padding-bottom:2px;white-space:nowrap}
+
+/* Contact */
+.site .contact .wrap{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,.8fr);gap:clamp(28px,6cqw,88px);align-items:start}
+.site .contact .box{display:grid;gap:20px}
+.site[data-dir="A"] .contact .boxwrap{padding:clamp(28px,5cqw,56px)}
+.site .lines{display:grid;gap:0;border-top:1px solid var(--line)}
+.site .lines div{display:grid;grid-template-columns:7em minmax(0,1fr);gap:12px;padding:12px 0;border-bottom:1px solid var(--line)}
+.site .lines span:first-child{color:var(--mut);font-family:var(--fu);font-size:13px}
+.site .ex{font-size:12px;color:var(--mut)}
+
+/* Footer */
+.site .ft{padding-block:56px 40px}
+.site .ft .wrap{display:grid;grid-template-columns:minmax(0,1.2fr) repeat(3,minmax(0,.6fr));gap:32px}
+.site .ft img.lock{width:150px;height:auto;display:block;margin-bottom:14px}
+.site .ft h4{font-family:var(--fu);font-weight:500;font-size:12px;letter-spacing:.12em;text-transform:uppercase;margin:0 0 10px;opacity:.75}
+.site .ft ul{list-style:none;margin:0;padding:0;display:grid;gap:6px;font-size:14px}
+.site .ft .legal{grid-column:1/-1;display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;font-size:12.5px;opacity:.75;border-top:1px solid var(--line);padding-top:18px;margin-top:8px}
+.site[data-dir="B"] .ft{padding-top:0}
+.site[data-dir="B"] .ft .ribbon{margin-bottom:48px}
+.site[data-dir="C"] .ft{background-color:#1b1112;--bg:#1b1112;--fg:#efe6dc;--line:#4a3232;color:#efe6dc}
+.site[data-dir="C"] .ft::before{content:"";position:absolute;inset:0;background:url(a/p417-night.svg) repeat;background-size:200px auto;opacity:.16}
+
+/* Motion (D11): A fade, B/C short rise; honours reduced motion */
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+@keyframes riseIn{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+.site.play [data-m]{animation:var(--anim) .55s cubic-bezier(.2,.6,.2,1) both;animation-delay:calc(var(--i,0) * 70ms)}
+.site[data-dir="A"]{--anim:fadeIn} .site[data-dir="B"],.site[data-dir="C"]{--anim:riseIn}
+@media (prefers-reduced-motion:reduce){.site.play [data-m]{animation:none}}
+
+@container site (max-width: 1100px){ .site .tools .t-lang,.site .tools .sep{display:none} .site .nav{gap:16px} .site .hd .wrap{gap:18px} }
+/* Phone (container query: the same page at 390 px) */
+@container site (max-width: 760px){
+  .site .nav,.site .tools .t-lang,.site .hd .btn,.site .tools .sep{display:none}
+  .site .menu{display:inline-block}
+  .site .hd .wrap{min-height:60px;gap:12px}
+  .site .brand img{height:28px}
+  .site .brand span{font-size:16px}
+  .site > *{--hs:38px}
+  .site .cin{grid-template-columns:1fr!important}
+  .site .hero .wrap,.site[data-dir="C"] .hero .in,.site .split,.site .cal,.site .contact .wrap{grid-template-columns:1fr}
+  .site[data-dir="A"] .hero{padding-block:56px 64px}
+  .site[data-dir="A"] .hero .panel{aspect-ratio:3/2}
+  .site[data-dir="B"] .hero{padding-top:52px} .site[data-dir="B"] .hero .wrap{padding-bottom:52px}
+  .site[data-dir="B"] .hero .panel{aspect-ratio:3/2}
+  .site[data-dir="C"] .hero{padding-block:40px}
+  .site[data-dir="C"] .hero .frame2{padding:24px 20px;outline-offset:5px}
+  .site[data-dir="C"] .hero .panel{aspect-ratio:4/3;margin-left:22%}
+  .site[data-dir="C"] .hero .panel img.seal{width:58%;left:-30%;bottom:-14%}
+  .site .sec{padding-block:56px} .site .sec.tight{padding-block:44px}
+  .site h2{font-size:calc(29px * var(--k-d))}
+  .site .outcome blockquote{font-size:calc(28px * var(--k-d))}
+  .site .svc li{grid-template-columns:1fr;gap:6px}
+  .site .head{flex-direction:column;align-items:start}
+  .site .grid .c{min-height:48px;padding:5px;align-items:center}
+  .site .grid .ev{display:none}
+  .site .grid .dot{display:block}
+  .site .grid .wd{padding:6px 2px;text-align:center;font-size:11px}
+  .site .grid .c .n{font-size:15px}
+  .site .cards{grid-template-columns:1fr}
+  .site .card{grid-template-columns:96px minmax(0,1fr);gap:4px 14px}
+  .site .card .thumb{grid-row:span 3;aspect-ratio:1/1}
+  .site .ft .wrap{grid-template-columns:1fr 1fr}
+  .site .ft .wrap>div:first-child{grid-column:1/-1}
+  .site .sealrule img{width:160px;height:160px;margin-inline:14px}
+  .site table .hide-s{display:none}
+}
+
+/* =================== ADMIN (one Dashboard screen) =================== */
+.adm{--a-top:var(--ox); min-height:720px; display:grid; grid-template-rows:auto 1fr; font-family:var(--fu); font-size:14px; line-height:1.5}
+.site[data-dir="A"] .adm{font-family:var(--fb);font-size:15px}
+.adm .top{background:var(--ox);color:var(--on-ox);display:flex;align-items:center;gap:16px;padding:0 16px;min-height:56px;position:relative;z-index:1}
+.adm .top img{height:26px}
+.adm .top .site-name{font-family:var(--lat-d),serif;font-size:17px;font-weight:500;margin-right:auto;white-space:nowrap}
+.adm .top .site-name small{font-family:var(--fu);font-size:12px;opacity:.7;margin-left:6px}
+.adm .langs{display:flex;border:1px solid color-mix(in srgb,var(--on-ox) 40%,transparent)}
+.adm .langs span{padding:4px 9px;font-size:12px}
+.adm .langs span.on{background:var(--on-ox);color:#7a2229}
+.adm .dev{font-size:12px;opacity:.85}
+.adm .pub{background:var(--on-ox);color:#7a2229;border:0;padding:8px 14px;font:inherit;font-weight:600;font-size:13px;cursor:pointer}
+.adm .pub .fig{color:#7a2229}
+.adm .body{display:grid;grid-template-columns:200px 230px minmax(0,1fr);min-height:0;position:relative;z-index:1}
+.adm .side{border-right:1px solid var(--line);padding:10px 0;background:color-mix(in srgb,var(--fg) 3%,var(--bg))}
+.adm .side a{display:grid;padding:7px 16px;line-height:1.25;border-left:2px solid transparent}
+.adm .side a small{font-size:11px;color:var(--mut)}
+.adm .side a.on{border-left-color:var(--ox);background:color-mix(in srgb,var(--ox) 9%,transparent)}
+.site[data-mode="night"] .adm .side a.on{border-left-color:var(--rose)}
+.adm .tree{border-right:1px solid var(--line);padding:14px 14px}
+.adm .tree h4,.adm .main h4{font-family:var(--fu);font-weight:500;font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--mut);margin:0 0 8px}
+.adm .tree ul{list-style:none;margin:0;padding:0;display:grid;gap:2px}
+.adm .tree li{display:flex;justify-content:space-between;gap:6px;padding:4px 0;font-size:13.5px}
+.adm .tree li.sub{padding-left:16px}
+.adm .tree .st{display:flex;gap:3px;font-size:10px;font-family:"Hanken Grotesk",sans-serif;letter-spacing:.04em}
+.adm .tree .st i{font-style:normal;border:1px solid var(--line);padding:0 3px;color:var(--mut)}
+.adm .tree .st i.miss{border-color:var(--ox);color:var(--ox)}
+.site[data-mode="night"] .adm .tree .st i.miss{border-color:var(--rose);color:var(--rose)}
+.adm .main{padding:22px 26px;display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);gap:22px;align-content:start}
+.adm .main h2{grid-column:1/-1;font-size:calc(30px * var(--k-d))}
+.adm .main h2 small{display:block;font-family:var(--fu);font-size:13px;color:var(--mut);font-weight:400;margin-top:4px}
+.adm .pv{border:1px solid var(--line)}
+.adm .pv .bar{display:flex;justify-content:space-between;padding:7px 10px;font-size:12px;color:var(--mut);border-bottom:1px solid var(--line)}
+.adm .pv .mini{height:250px;overflow:hidden;position:relative}
+.adm .pv .mini .scale{transform:scale(.36);transform-origin:0 0;width:278%;pointer-events:none}
+.adm .att{border-top:1px solid var(--fg)}
+.adm .att li{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:10px;align-items:center;padding:11px 0;border-bottom:1px solid var(--line)}
+.adm ul{list-style:none;margin:0;padding:0}
+.adm .att .act{font-size:12.5px;border:1px solid var(--ln);padding:4px 9px;white-space:nowrap}
+.adm .att .lvl{display:inline-block;width:7px;height:7px;margin-right:8px;background:var(--ox);vertical-align:middle}
+.adm .att .lvl.lo{background:var(--brass)}
+.adm .vers li{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:10px;padding:9px 0;border-bottom:1px solid var(--line);font-size:13.5px}
+.adm .vers .fig{font-size:13px}
+.adm .stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border-top:1px solid var(--fg);grid-column:1/-1}
+.adm .stats div{padding:12px 12px 12px 0;border-bottom:1px solid var(--line)}
+.adm .stats .fig{display:block;font-size:26px;line-height:1.1;font-family:var(--fb)}
+.adm .stats span:last-child{font-size:12.5px;color:var(--mut)}
+.adm .phonebar{display:none}
+@container site (max-width: 760px){
+  .adm .body{grid-template-columns:1fr}
+  .adm .side,.adm .tree,.adm .pv,.adm .dev,.adm .langs{display:none}
+  .adm .main{grid-template-columns:1fr;padding:18px 16px 90px}
+  .adm .phonebar{display:flex;position:absolute;left:0;right:0;bottom:0;gap:10px;padding:12px 16px;background:var(--bg);border-top:1px solid var(--line);z-index:2}
+  .adm .phonebar .pub{flex:1;background:var(--ox);color:var(--on-ox);padding:12px}
+  .adm .phonebar .pub .fig{color:var(--on-ox)}
+  .adm .phonebar .note2{font-size:12px;color:var(--mut);align-self:center;max-width:46%}
+  .adm .stats{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .adm{position:relative}
+}
+</style>
+
+<div class="board">
+  <div class="intro">
+    <div>
+      <h1>แนวหน้าตาเว็บ 3 แนว · รอบที่ 1</h1>
+      <p>หน้าแรกและหน้าหลังบ้าน (Dashboard) ของ D.A. Accounting &amp; Consulting ในแนว A · B · C สลับดูได้ครบทั้ง 3 ภาษา กลางวัน/กลางคืน และคอม/มือถือ แล้วให้คะแนนทีละด้านทางขวา</p>
+    </div>
+    <ul>
+      <li>ทุกแนวใช้โลโก้ 153 ตรา 346 ลวดลาย 401 · 406 · 417 · 420 และชุดสีที่ล็อกไว้ ไม่มีสีหรือเครื่องหมายใหม่</li>
+      <li>ยังไม่มีภาพถ่าย ช่องภาพใช้ลวดลายแบรนด์แทน · ข้อมูลติดต่อเป็นตัวอย่าง · วันกำหนดยื่นในปฏิทินต้องตรวจซ้ำก่อนใช้จริง</li>
+      <li>สลับแนวเร็ว ๆ ด้วยปุ่ม A B C (หรือกดเลข 1 2 3) หน้าจะอยู่ตำแหน่งเดิม เทียบกันได้ทันที</li>
+    </ul>
+  </div>
+
+  <div class="toolbar" role="toolbar" aria-label="ตัวเลือกการแสดงผล">
+    <div class="seg dir"><span>แนว</span><div class="opts" id="t-dir"></div></div>
+    <div class="seg"><span>หน้า</span><div class="opts" id="t-scr"></div></div>
+    <div class="seg"><span>ภาษา</span><div class="opts" id="t-lang"></div></div>
+    <div class="seg"><span>โหมด</span><div class="opts" id="t-mode"></div></div>
+    <div class="seg"><span>อุปกรณ์</span><div class="opts" id="t-dev"></div></div>
+    <div class="seg"><span>สีตัวเลข</span><div class="opts" id="t-fig"></div></div>
+    <div class="seg"><div class="opts"><button id="replay" type="button">เล่นการเคลื่อนไหวอีกครั้ง</button></div></div>
+  </div>
+
+  <div class="work">
+    <div>
+      <div class="dircard" id="dircard"></div>
+      <div class="stage"><div class="frame" id="frame"><div class="site" id="site"></div></div></div>
+    </div>
+    <aside class="rate" aria-label="ให้คะแนน">
+      <h2>ให้คะแนนทีละด้าน</h2>
+      <p class="hint">แต่ละด้านกด ชอบ / ไม่ ได้ทุกแนว และกด ★ ให้แนวที่ดีที่สุดได้ 1 แนว พิมพ์หมายเหตุได้ทุกข้อ บันทึกอัตโนมัติ Claude อ่านผลได้โดยตรง</p>
+      <div class="save" id="save">กำลังเชื่อมต่อที่บันทึก…</div>
+      <div id="dims"></div>
+    </aside>
+  </div>
+</div>
+
+<script>
+(function(){
+"use strict";
+/* ---------- content (EN / TH / ZH-Hans) ---------- */
+const L = (en,th,zh)=>({en,th,zh});
+const FIRM = "D.A. Accounting & Consulting";
+const T = {
+  nav:[L("Services","บริการ","服务"),L("Tax calendar","ปฏิทินภาษี","税务日历"),L("Insights","บทความ","专业文章"),L("About","เกี่ยวกับเรา","关于我们"),L("Contact","ติดต่อ","联系我们")],
+  book:L("Book a consultation","นัดปรึกษา","预约咨询"),
+  menu:L("Menu","เมนู","菜单"),
+  day:L("Day","กลางวัน","日间"), night:L("Night","กลางคืน","夜间"),
+  eyebrow:L("Accounting · Tax · Advisory","บัญชี · ภาษี · ที่ปรึกษาธุรกิจ","会计 · 税务 · 咨询"),
+  h1:L("Close every month knowing <em>exactly</em> where you stand.","ปิดบัญชีทุกเดือน<br>รู้ชัดว่าธุรกิจของคุณ<br>ยืนอยู่ตรงไหน","每月结账，<br>清楚掌握企业的真实状况。"),
+  lede:L("We keep your books, file your returns on time, and tell you in plain words what the numbers mean for your next decision.",
+         "เราดูแลบัญชี ยื่นภาษีตรงเวลา และอธิบายตัวเลขด้วยภาษาที่เข้าใจง่าย ให้คุณตัดสินใจก้าวต่อไปได้อย่างมั่นใจ",
+         "我们为您记账、按时申报纳税，并用通俗的语言说明这些数字对您下一步决策的意义。"),
+  seeSvc:L("See our services","ดูบริการของเรา","查看服务"),
+  glanceCap:L("This month","เดือนนี้","本月"),
+  glanceH:L("October filings at a glance","กำหนดยื่นเดือนตุลาคม","十月申报一览"),
+  thReturn:L("Return","แบบที่ต้องยื่น","申报项目"), thFor:L("For","งวด","所属期间"), thPaper:L("Paper","ยื่นแบบกระดาษ","纸质申报"), thOnline:L("Online","ยื่นออนไลน์","网上申报"),
+  rows:[
+    [L("PND 1, 3, 53","ภ.ง.ด.1, 3, 53","PND 1、3、53"),L("Withholding tax","ภาษีหัก ณ ที่จ่าย","预扣税"),[10,7],[10,15]],
+    [L("PP 30","ภ.พ.30","PP 30"),L("Value added tax","ภาษีมูลค่าเพิ่ม","增值税"),[10,15],[10,26]],
+    [L("SSO 1-10","สปส.1-10","SSO 1-10"),L("Social security contributions","เงินสมทบประกันสังคม","社会保险缴款"),[10,15],[10,15]],
+  ],
+  period:L("September 2026","กันยายน 2026","2026年9月"),
+  glanceFoot:L("Online dates apply while the Revenue Department’s e-filing extension is in force. 23 October is a public holiday, so the VAT online date moves to Monday 26 October.",
+               "วันยื่นออนไลน์ใช้ได้เมื่อกรมสรรพากรยังขยายเวลายื่นทางอินเทอร์เน็ต · 23 ตุลาคมเป็นวันหยุดราชการ วันยื่น ภ.พ.30 ออนไลน์จึงเลื่อนเป็นวันจันทร์ที่ 26 ตุลาคม",
+               "网上申报日期以税务厅延长网上申报期限的规定仍然有效为前提。10月23日为公众假日，增值税网上申报顺延至10月26日（星期一）。"),
+  svcCap:L("Services","บริการ","服务"),
+  svcH:L("What we take off your desk every month","งานที่เรารับไปจากโต๊ะของคุณทุกเดือน","我们每月替您分担的工作"),
+  svcP:L("One team keeps your books, your filings and your year-end in step, so nothing is left to the last day.",
+         "ทีมเดียวดูแลทั้งบัญชี การยื่นภาษี และการปิดงบสิ้นปีให้สอดคล้องกัน ไม่มีงานไหนต้องรอทำวันสุดท้าย",
+         "同一个团队统筹您的账务、申报和年终结账，不把任何事情拖到最后一天。"),
+  svc:[
+    [L("Bookkeeping and monthly close","บันทึกบัญชีและปิดงวดรายเดือน","记账与月结"),L("Your ledger reconciled to the bank every month, with a short report you can read in five minutes.","บัญชีแยกประเภทกระทบยอดกับธนาคารทุกเดือน พร้อมรายงานสั้นที่อ่านจบใน 5 นาที","每月与银行对账，并附上一份五分钟就能读完的简报。")],
+    [L("VAT and withholding tax","ภาษีมูลค่าเพิ่มและภาษีหัก ณ ที่จ่าย","增值税与预扣税"),L("PP 30 and PND 1, 3 and 53 prepared, checked and filed before the deadline.","จัดทำ ตรวจ และยื่น ภ.พ.30 ภ.ง.ด.1, 3 และ 53 ก่อนถึงกำหนด","PP 30 及 PND 1、3、53 在截止日前编制、复核并申报。")],
+    [L("Payroll and social security","เงินเดือนและประกันสังคม","薪资与社会保险"),L("Payslips, SSO contributions and the year-end PND 1 Kor, all from one record.","สลิปเงินเดือน เงินสมทบประกันสังคม และ ภ.ง.ด.1ก สิ้นปี จากข้อมูลชุดเดียว","工资单、社保缴款及年度 PND 1 Kor，全部来自同一套记录。")],
+    [L("Year-end closing","ปิดบัญชีสิ้นปี","年终结账"),L("Financial statements ready for your auditor, and PND 50 filed on time.","งบการเงินพร้อมส่งผู้สอบบัญชี และยื่น ภ.ง.ด.50 ตรงเวลา","备妥供审计师审核的财务报表，并按时申报 PND 50。")],
+    [L("BOI reporting","งานรายงาน BOI","BOI 申报"),L("Raw-material balances, production formulas and the reports BOI asks for.","ยอดคงเหลือวัตถุดิบ สูตรการผลิต และรายงานที่ BOI กำหนด","原材料结余、生产配方及 BOI 要求的各项报告。")],
+    [L("Advice before you decide","คำปรึกษาก่อนตัดสินใจ","决策前的咨询"),L("A straight answer on tax and accounts before you sign, buy or hire.","คำตอบตรงประเด็นเรื่องภาษีและบัญชี ก่อนคุณเซ็นสัญญา ซื้อ หรือจ้างคน","在签约、采购或招聘之前，就税务和账务给您明确的答复。")],
+  ],
+  quote:L("You should never learn about a deadline from a penalty notice.","คุณไม่ควรรู้ว่าเลยกำหนดยื่นภาษี จากหนังสือแจ้งเบี้ยปรับ","您不该在收到罚款通知时，才知道错过了申报期限。"),
+  quoteP:L("We keep your tax calendar, so your attention can stay on the business.","เราดูแลปฏิทินภาษีให้ คุณจึงทุ่มความสนใจให้ธุรกิจได้เต็มที่","我们替您盯紧税务日历，您可以专心经营。"),
+  calCap:L("Tax calendar","ปฏิทินภาษี","税务日历"),
+  calH:L("October 2026","ตุลาคม 2026","2026年10月"),
+  wd:{en:["Mon","Tue","Wed","Thu","Fri","Sat","Sun"],th:["จ.","อ.","พ.","พฤ.","ศ.","ส.","อา."],zh:["一","二","三","四","五","六","日"]},
+  ev:{7:[L("WHT paper","หัก ณ ที่จ่าย (กระดาษ)","预扣税（纸质）")],13:[L("Public holiday","วันหยุดราชการ","公众假日"),"h"],
+      15:[L("VAT paper · SSO · WHT online","ภ.พ.30 (กระดาษ) · ประกันสังคม · หัก ณ ที่จ่าย (ออนไลน์)","增值税（纸质）· 社保 · 预扣税（网上）")],
+      23:[L("Public holiday","วันหยุดราชการ","公众假日"),"h"],26:[L("VAT online","ภ.พ.30 (ออนไลน์)","增值税（网上）")]},
+  dl:[[7,L("Withholding tax returns, paper filing","ยื่นแบบภาษีหัก ณ ที่จ่ายแบบกระดาษ","预扣税纸质申报")],
+      [15,L("VAT paper filing · social security · withholding tax online","ภ.พ.30 แบบกระดาษ · ประกันสังคม · หัก ณ ที่จ่ายออนไลน์","增值税纸质申报 · 社保缴款 · 预扣税网上申报")],
+      [26,L("VAT online filing (moved from the 23rd)","ภ.พ.30 ออนไลน์ (เลื่อนจากวันที่ 23)","增值税网上申报（由23日顺延）")]],
+  calAll:L("Full calendar","ดูปฏิทินทั้งปี","查看全年日历"),
+  insCap:L("Insights","บทความ","专业文章"),
+  insH:L("Plain answers to the questions clients ask us","คำตอบตรง ๆ สำหรับคำถามที่ลูกค้าถามเราบ่อย","客户常问问题的直白解答"),
+  insAll:L("All insights","บทความทั้งหมด","全部文章"),
+  ins:[
+    [L("VAT","ภาษีมูลค่าเพิ่ม","增值税"),L("e-Tax Invoice: what changes when your company switches","e-Tax Invoice: เปลี่ยนแล้วบริษัทต้องทำอะไรบ้าง","电子税务发票：企业转换后有哪些变化"),[9,28],6],
+    [L("Withholding tax","หัก ณ ที่จ่าย","预扣税"),L("The withholding tax rates you will use every month","อัตราภาษีหัก ณ ที่จ่ายที่ใช้ทุกเดือน","每月都会用到的预扣税税率"),[9,14],4],
+    [L("Year-end","ปิดงบ","年终"),L("Your first year-end: what to prepare before the auditor arrives","ปิดงบปีแรก: เตรียมอะไรก่อนผู้สอบบัญชีเข้าตรวจ","首个年终结账：审计师到来前要准备什么"),[9,2],7],
+  ],
+  minRead:L("min read","นาที","分钟阅读"),
+  conCap:L("Contact","ติดต่อ","联系我们"),
+  conH:L("Tell us where your books stand today.","เล่าให้เราฟังว่าบัญชีของคุณตอนนี้เป็นอย่างไร","告诉我们您的账目现状。"),
+  conP:L("We will tell you plainly what it takes to put them right, and what it costs.","เราจะบอกตรง ๆ ว่าต้องทำอะไรให้ถูกต้อง และมีค่าใช้จ่ายเท่าไร","我们会直接告诉您需要做些什么才能理顺，以及费用多少。"),
+  line:L("Message us on LINE","ทักทาง LINE","通过 LINE 联系"),
+  lines:[[L("Email","อีเมล","电子邮件"),"hello@example.com"],[L("LINE","LINE","LINE"),"@example"],[L("Telephone","โทรศัพท์","电话"),"02 000 0000"],[L("Office hours","เวลาทำการ","办公时间"),L("Mon–Fri, 9:00–18:00","จันทร์–ศุกร์ 9:00–18:00","周一至周五 9:00–18:00")]],
+  example:L("Sample contact details for this prototype.","ข้อมูลติดต่อตัวอย่างสำหรับต้นแบบนี้","此原型中的联系方式为示例。"),
+  ftLine:L("Accounting, tax and advisory for companies in Thailand.","บัญชี ภาษี และที่ปรึกษาสำหรับบริษัทในประเทศไทย","为在泰国经营的企业提供会计、税务与咨询服务。"),
+  ftH:[L("Services","บริการ","服务"),L("Firm","บริษัท","公司"),L("Language","ภาษา","语言")],
+  ftFirm:[L("About","เกี่ยวกับเรา","关于我们"),L("Insights","บทความ","专业文章"),L("Contact","ติดต่อ","联系我们")],
+  legal:L("© 2026 D.A. Accounting & Consulting Co., Ltd.","© 2026 บริษัท D.A. Accounting & Consulting จำกัด","© 2026 D.A. Accounting & Consulting Co., Ltd."),
+  privacy:L("Privacy · Terms","นโยบายความเป็นส่วนตัว · ข้อกำหนด","隐私政策 · 使用条款"),
+};
+const MON = {en:["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],th:["ม.ค.","ก.พ.","มี.ค.","เม.ย.","พ.ค.","มิ.ย.","ก.ค.","ส.ค.","ก.ย.","ต.ค.","พ.ย.","ธ.ค."]};
+function dshort(m,d,lang){ if(lang==="zh") return m+"月"+d+"日"; return d+" "+MON[lang][m-1]; }
+function dlong(m,d,lang){ if(lang==="zh") return "2026年"+m+"月"+d+"日"; return d+" "+MON[lang][m-1]+" 2026"; }
+
+/* ---------- Admin content (Thai first with English underneath; EN = English only; ZH page uses Thai Admin) ---------- */
+const AM = [["แดชบอร์ด","Dashboard"],["หน้าเว็บ","Pages"],["บทความ","Articles"],["โครงสร้างเว็บ","Site Structure"],["คลังดีไซน์","Design Library"],["รูปและไฟล์","Media"],["SEO","Search & sharing"],["เวอร์ชัน","Versions"],["ตั้งค่า","Settings"]];
+const AT = {
+  title:["ภาพรวมเว็บไซต์","Site overview"], sub:["เว็บไซต์เผยแพร่ล่าสุด 4 ต.ค. 2026 เวลา 16:20","Last published 4 Oct 2026, 16:20"],
+  tree:["หน้าเว็บ","Pages"], live:["หน้าเว็บจริงตอนนี้","Live site now"], open:["เปิดหน้าเว็บ","Open site"],
+  att:["ต้องดูแล","Needs attention"], ver:["เวอร์ชันล่าสุด","Recent versions"],
+  pub:["เผยแพร่","Publish"], preview:["ดูตัวอย่าง","Preview"],
+  items:[["hi","บทความ “e-Tax Invoice” ยังไม่มีฉบับภาษาจีน","The “e-Tax Invoice” article has no Chinese version yet","แปล","Translate"],
+         ["hi","ลิงก์เสีย 1 ลิงก์ในหน้า “บริการ”","1 broken link on the Services page","แก้ไข","Fix"],
+         ["lo","รูป 2 รูปยังไม่มีคำอธิบายภาพ","2 images have no description (alt text)","เพิ่มคำอธิบาย","Add"],
+         ["lo","ปฏิทินภาษีเดือนพฤศจิกายนยังเป็นฉบับร่าง","The November tax calendar is still a draft","เปิดดู","Open"]],
+  vers:[["แก้ราคาและข้อความหน้า “บริการ”","Edited the Services page",[10,4],"16:20"],["เพิ่มบทความ “อัตราภาษีหัก ณ ที่จ่าย”","Added the withholding tax article",[9,14],"10:05"],["เปลี่ยนรูปหน้าแรก","Changed the homepage image",[9,2],"09:40"]],
+  stats:[["12","หน้า","pages"],["18","บทความ","articles"],["3","ภาษา","languages"]],
+  pages:[["หน้าแรก","Home",""],["บริการ","Services",""],["ทำบัญชีรายเดือน","Monthly bookkeeping","s"],["ภาษี","Tax","s"],["BOI","BOI","s"],["ปฏิทินภาษี","Tax calendar",""],["บทความ","Insights","zh"],["เกี่ยวกับเรา","About",""],["ติดต่อ","Contact",""]],
+  phone:["จัดหน้าและจัดโครงเว็บทำบนคอมพิวเตอร์หรือแท็บเล็ต","Arrange pages on a computer or tablet"],
+  changes:["3 รายการ","3 changes"]
+};
+
+/* ---------- directions ---------- */
+const DIRS = {
+  A:{name:"Maison", th:"ห้องสมุดเงียบ", idea:"กระดาษเป็นหลัก สีแดงเป็นเหตุการณ์: แถบแดงที่หัวเว็บ แถบเข้ม 1 แถบ และแถบฝีเข็มที่ท้ายเว็บ ตัวมีเชิงทั้งหน้า ผิวกระดาษชัด ตราอยู่ในพื้นที่ว่าง",
+     fonts:"อังกฤษ Cormorant Garamond + Newsreader · ไทย Trirong + Taviraj · จีน Noto Serif SC (宋体ทั้งหน้า)",
+     plan:{hero:"bp",glance:"bp",svc:"bp",seal:true,outcome:"bd",cal:"bp",ins:"bp",contact:"bp",ft:"bo"}},
+  B:{name:"Atelier", th:"สมุดบัญชีที่ใช้งานจริง", idea:"จังหวะสีกล้าที่สุด: เปิดหน้าด้วยแถบแดง สลับกระดาษกับแถบเข้มตลอดหน้า ปฏิทินบนแถบเข้มตัวเลขทองเหลือง หัวเรื่องมีเชิง เนื้อความไม่มีเชิงแบบไทยมีหัว อ่านง่ายบนมือถือ",
+     fonts:"อังกฤษ Cormorant Garamond + Hanken Grotesk · ไทย Trirong + IBM Plex Sans Thai Looped · จีน Noto Serif SC + Noto Sans SC",
+     plan:{hero:"bo",glance:"bp",svc:"bp",seal:false,outcome:"bo",cal:"bd",ins:"bp",contact:"bd",ft:"bo"}},
+  C:{name:"Haute Contrast", th:"ห้องรับรองยามค่ำ", idea:"แถบเข้มนำทั้งหน้า ตัวหัวเรื่องหนักขึ้นแต่ขนาดเท่าเดิม กรอบเส้นคู่ทองเหลือง ตราใหญ่ที่สุด ลวดลาย 420 เป็นภาพหลัก ทองเหลืองอยู่ที่ตัวเลขและเส้นเท่านั้น ไม่อยู่บนหัวเรื่อง",
+     fonts:"อังกฤษ Cormorant Garamond 600 + Source Serif 4 · ไทย Trirong 600 / 400 · จีน Noto Serif SC 600 / 400",
+     plan:{hero:"bd",glance:"bp",svc:"bp",seal:false,outcome:"bd",cal:"bd",ins:"bp",contact:"bd",ft:"ft"}},
+};
+
+/* ---------- state ---------- */
+const S = {dir:"A", scr:"site", lang:"en", mode:(matchMedia("(prefers-color-scheme: dark)").matches?"night":"day"), dev:"desk", fig:"brass"};
+try{ const s=JSON.parse(localStorage.getItem("da35-view")||"null"); if(s) Object.assign(S,s); }catch(e){}
+function saveView(){ try{ localStorage.setItem("da35-view",JSON.stringify(S)); }catch(e){} }
+
+const esc = s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const tr = o=>o[S.lang];           // trusted literal content (may contain <em>)
+
+function sealFor(band){ const m=S.mode==="night"; if(band==="bo") return "a/seal-oxblood.svg"; if(band==="bd"||m) return "a/seal-night.svg"; return "a/seal-paper.svg"; }
+function sec(band,cls,inner,i){ return `<section class="${band} ${cls}" data-m style="--i:${i}"><div class="grain"></div>${inner}</section>`; }
+
+function header(){
+  const nav=T.nav.map((n,i)=>`<a href="#" class="${i===0?"on":""}">${tr(n)}</a>`).join("");
+  const lb=[["en","EN"],["th","ไทย"],["zh","中文"]].map(([k,l])=>`<button type="button" data-set-lang="${k}" aria-pressed="${S.lang===k}">${l}</button>`).join("");
+  const md=S.mode==="night"?T.day:T.night;
+  return `<header class="hd"><div class="wrap">
+    <a class="brand" href="#"><img src="a/small-oxblood.svg" alt=""><span>${FIRM}</span></a>
+    <nav class="nav">${nav}</nav>
+    <div class="tools"><span class="t-lang" style="display:flex;gap:10px">${lb}</span><span class="sep"></span><button type="button" data-toggle-mode>${tr(md)}</button></div>
+    <a class="btn" href="#">${tr(T.book)}</a><span class="menu">${tr(T.menu)}</span>
+  </div></header>`;
+}
+function hero(p){
+  const txt=`<div class="txt">${S.dir==="C"?'<div class="rule"></div>':""}<div class="cap">${tr(T.eyebrow)}</div><h1>${tr(T.h1)}</h1><p class="lede">${tr(T.lede)}</p>
+     <div class="btns"><a class="btn" href="#">${tr(T.book)}</a><a class="btn line" href="#">${tr(T.seeSvc)}</a></div></div>`;
+  if(S.dir==="A") return sec(p.hero,"hero",`<div class="wrap">${txt}<div class="panel dframe"><img class="seal" src="${sealFor("bp")}" alt="D.A. seal"></div></div>`,0);
+  if(S.dir==="B") return sec(p.hero,"hero",`<div class="wrap">${txt}<div class="panel"></div></div><div class="ribbon"></div>`,0);
+  return sec(p.hero,"hero",`<div class="wrap"><div class="frame2"><div class="in">${txt}<div class="panel"><img class="seal" src="a/seal-night.svg" alt="D.A. seal"></div></div></div></div>`,0);
+}
+function glance(p){
+  const rows=T.rows.map(r=>`<tr><td>${tr(r[0])}<span class="sub">${tr(r[1])}</span></td><td class="hide-s">${tr(T.period)}</td>
+    <td class="fig">${dshort(r[2][0],r[2][1],S.lang)}</td><td class="fig">${dshort(r[3][0],r[3][1],S.lang)}</td></tr>`).join("");
+  return sec(p.glance,"sec tight",`<div class="wrap"><div class="head"><div><div class="cap">${tr(T.glanceCap)}</div><h2>${tr(T.glanceH)}</h2></div></div>
+    <div style="overflow-x:auto"><table><thead><tr><th>${tr(T.thReturn)}</th><th class="hide-s">${tr(T.thFor)}</th><th class="num">${tr(T.thPaper)}</th><th class="num">${tr(T.thOnline)}</th></tr></thead><tbody>${rows}</tbody></table></div>
+    <p class="foot">${tr(T.glanceFoot)}</p></div>`,1);
+}
+function services(p){
+  const li=T.svc.map(s=>`<li><h3>${tr(s[0])}</h3><p>${tr(s[1])}</p></li>`).join("");
+  const st=S.dir==="B"?`<div class="wrap" style="padding-bottom:0"><div class="stitch"></div></div>`:"";
+  return st+sec(p.svc,"sec",`<div class="wrap split"><div class="left"><div class="cap">${tr(T.svcCap)}</div><h2>${tr(T.svcH)}</h2><p class="lede">${tr(T.svcP)}</p><div><a class="btn line" href="#">${tr(T.seeSvc)}</a></div></div><ul class="svc">${li}</ul></div>`,2);
+}
+function sealRule(){ return `<div class="bp" style="position:relative"><div class="wrap sealrule"><img src="${sealFor("bp")}" alt="D.A. seal"></div></div>`; }
+function outcome(p){
+  const cls=S.dir==="B"?"sec outcome stitched":"sec outcome";
+  return sec(p.outcome,cls,`<div class="wrap">${S.dir==="C"?'<div class="rule"></div>':""}<blockquote>${tr(T.quote)}</blockquote><p>${tr(T.quoteP)}</p></div>`,3);
+}
+function calendar(p){
+  const wd=T.wd[S.lang].map(d=>`<div class="wd">${d}</div>`).join("");
+  let cells=""; const lead=3; // 1 Oct 2026 is a Thursday (Mon-first grid)
+  for(let i=0;i<lead;i++) cells+=`<div class="c off"><span class="n fig">${28+i}</span></div>`;
+  for(let d=1; d<=31; d++){ const e=T.ev[d]; const hol=e&&e[1]==="h"; const dow=(lead+d-1)%7;
+    cells+=`<div class="c${hol?" hol":""}${e&&!hol?" due":""}${dow>=5?" we":""}"><span class="n fig">${d}</span>${e?`<span class="ev${hol?" h":""}">${tr(e[0])}</span>${hol?"":'<i class="dot"></i>'}`:""}</div>`; }
+  for(let i=1;i<=1;i++) cells+=`<div class="c off"><span class="n fig">${i}</span></div>`;
+  const dl=T.dl.map(x=>`<li><span class="fig">${dshort(10,x[0],S.lang)}</span><span>${tr(x[1])}</span></li>`).join("");
+  return sec(p.cal,"sec",`<div class="wrap"><div class="head"><div><div class="cap">${tr(T.calCap)}</div><h2>${tr(T.calH)}</h2></div><a class="more" href="#">${tr(T.calAll)} →</a></div>
+    <div class="cal"><div class="grid">${wd}${cells}</div><ul class="deadl">${dl}</ul></div></div>`,4);
+}
+function insights(p){
+  const c=T.ins.map(x=>`<a class="card" href="#"><div class="thumb"></div><div class="meta">${tr(x[0])} · <span class="fig">${dlong(x[2][0],x[2][1],S.lang)}</span> · <span class="fig">${x[3]}</span> ${tr(T.minRead)}</div><h3>${tr(x[1])}</h3></a>`).join("");
+  return sec(p.ins,"sec",`<div class="wrap"><div class="head"><div><div class="cap">${tr(T.insCap)}</div><h2>${tr(T.insH)}</h2></div><a class="more" href="#">${tr(T.insAll)} →</a></div><div class="cards">${c}</div></div>`,5);
+}
+function contact(p){
+  const lines=T.lines.map(l=>`<div><span>${tr(l[0])}</span><span class="${typeof l[1]==="string"?"fig":""}">${typeof l[1]==="string"?esc(l[1]):tr(l[1])}</span></div>`).join("");
+  const box=`<div class="box"><div class="cap">${tr(T.conCap)}</div><h2>${tr(T.conH)}</h2><p class="lede">${tr(T.conP)}</p><div class="btns"><a class="btn" href="#">${tr(T.book)}</a><a class="btn line" href="#">${tr(T.line)}</a></div></div>`;
+  const inner=`<div class="lines">${lines}</div><p class="ex" style="margin-top:10px">${tr(T.example)}</p>`;
+  if(S.dir==="A") return sec(p.contact,"sec contact",`<div class="wrap" style="display:block"><div class="dframe boxwrap"><div style="display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,.8fr);gap:clamp(24px,5cqw,64px)" class="cin">${box}<div>${inner}</div></div></div></div>`,6);
+  return sec(p.contact,"sec contact",`<div class="wrap">${box}<div>${inner}</div></div>`,6);
+}
+function footer(p){
+  const band=p.ft==="ft"?"":p.ft; const lock=p.ft==="bo"?"a/lockup-oxblood.svg":"a/lockup-night.svg";
+  const svc=T.svc.slice(0,4).map(s=>`<li>${tr(s[0])}</li>`).join("");
+  const firm=T.ftFirm.map(s=>`<li>${tr(s)}</li>`).join("");
+  const lang=`<li>English</li><li>ภาษาไทย</li><li>简体中文</li>`;
+  const cls=(S.dir==="A"?"stitched ":"")+"ft "+band;
+  return `<footer class="${cls}" data-m style="--i:7">${S.dir==="B"?'<div class="ribbon"></div>':""}<div class="wrap">
+    <div><img class="lock" src="${lock}" alt="${FIRM}"><p style="max-width:26em;opacity:.85">${tr(T.ftLine)}</p></div>
+    <div><h4>${tr(T.ftH[0])}</h4><ul>${svc}</ul></div><div><h4>${tr(T.ftH[1])}</h4><ul>${firm}</ul></div><div><h4>${tr(T.ftH[2])}</h4><ul>${lang}</ul></div>
+    <div class="legal"><span>${tr(T.legal)}</span><span>${tr(T.privacy)}</span></div></div></footer>`;
+}
+function siteHTML(){
+  const p=DIRS[S.dir].plan;
+  return header()+hero(p)+glance(p)+services(p)+(p.seal?sealRule():"")+outcome(p)+calendar(p)+insights(p)+contact(p)+footer(p);
+}
+function miniHero(){ const p=DIRS[S.dir].plan; return header()+hero(p); }
+
+function adminHTML(){
+  const en=S.lang==="en"; const a=x=>en?x[1]:x[0];
+  const sub=x=>en?"":`<small>${x[1]}</small>`;
+  const side=AM.map((m,i)=>`<a href="#" class="${i===0?"on":""}"><span>${a(m)}</span>${sub(m)}</a>`).join("");
+  const tree=AT.pages.map(pg=>`<li class="${pg[2]==="s"?"sub":""}"><span>${a(pg)}</span><span class="st"><i>TH</i><i>EN</i><i class="${pg[2]==="zh"?"miss":""}">ZH</i></span></li>`).join("");
+  const att=AT.items.map(it=>`<li><span><i class="lvl ${it[0]==="lo"?"lo":""}"></i>${en?it[2]:it[1]}</span><a class="act" href="#">${en?it[4]:it[3]}</a></li>`).join("");
+  const ver=AT.vers.map(v=>`<li><span>${en?v[1]:v[0]}</span><span class="fig">${dshort(v[2][0],v[2][1],en?"en":"th")} · ${v[3]}</span></li>`).join("");
+  const st=AT.stats.map(s=>`<div><span class="fig">${s[0]}</span><span>${en?s[2]:s[1]}</span></div>`).join("");
+  const savedLang=S.lang; // mini preview follows the site language being edited
+  const mini=miniHero();
+  return `<div class="adm bp"><div class="grain"></div>
+   <div class="top"><img src="a/small-oxblood.svg" alt=""><span class="site-name">${FIRM}<small>▾</small></span>
+     <span class="langs"><span class="${savedLang==="th"?"on":""}">TH</span><span class="${savedLang==="en"?"on":""}">EN</span><span class="${savedLang==="zh"?"on":""}">ZH</span></span>
+     <span class="dev">${en?"Desktop · Tablet · Phone":"คอม · แท็บเล็ต · มือถือ"}</span>
+     <span class="dev">${a(AT.preview)}</span>
+     <button class="pub" type="button">${a(AT.pub)} (<span class="fig">3</span>)</button></div>
+   <div class="body">
+     <nav class="side">${side}</nav>
+     <div class="tree"><h4>${a(AT.tree)}</h4><ul>${tree}</ul></div>
+     <div class="main">
+       <h2>${a(AT.title)}<small>${a(AT.sub)}</small></h2>
+       <div class="stats">${st}</div>
+       <div><h4>${a(AT.att)}</h4><ul class="att">${att}</ul></div>
+       <div class="pv"><div class="bar"><span>${a(AT.live)}</span><span>${a(AT.open)} →</span></div><div class="mini"><div class="scale">${mini}</div></div></div>
+       <div style="grid-column:1/-1"><h4>${a(AT.ver)}</h4><ul class="vers">${ver}</ul></div>
+     </div>
+   </div>
+   <div class="phonebar"><span class="note2">${a(AT.phone)}</span><button class="pub" type="button">${a(AT.pub)} · ${a(AT.changes)}</button></div>
+  </div>`;
+}
+
+/* ---------- render ---------- */
+const site=document.getElementById("site"), frame=document.getElementById("frame");
+function render(play){
+  site.dataset.dir=S.dir; site.dataset.mode=S.mode; site.dataset.fig=S.fig;
+  site.lang = S.lang==="zh"?"zh-Hans":S.lang;
+  site.innerHTML = S.scr==="site"?siteHTML():adminHTML();
+  frame.className="frame"+(S.dev==="phone"?" phone":"");
+  const d=DIRS[S.dir];
+  document.getElementById("dircard").innerHTML=`<span class="k">${S.dir}</span><b>${d.name} · ${d.th}</b><p>${d.idea}</p><span class="fonts">${d.fonts}</span>`;
+  if(play){ site.classList.remove("play"); void site.offsetWidth; site.classList.add("play"); }
+  buildToolbar(); markCurrent(); saveView();
+}
+site.addEventListener("click",e=>{
+  const l=e.target.closest("[data-set-lang]"); if(l){ e.preventDefault(); S.lang=l.dataset.setLang; render(false); return; }
+  const m=e.target.closest("[data-toggle-mode]"); if(m){ e.preventDefault(); S.mode=S.mode==="night"?"day":"night"; render(false); return; }
+  if(e.target.closest("a,button")) e.preventDefault();
+});
+
+const OPTS = {
+  dir:[["A","A"],["B","B"],["C","C"]],
+  scr:[["site","หน้าแรก"],["admin","หลังบ้าน"]],
+  lang:[["en","EN"],["th","ไทย"],["zh","中文"]],
+  mode:[["day","กลางวัน"],["night","กลางคืน"]],
+  dev:[["desk","คอม"],["phone","มือถือ"]],
+  fig:[["brass","ทองเหลือง"],["ox","แดงเลือดนก"]],
+};
+function buildToolbar(){
+  for(const k in OPTS){ const el=document.getElementById("t-"+k);
+    el.innerHTML=OPTS[k].map(([v,l])=>`<button type="button" data-k="${k}" data-v="${v}" aria-pressed="${S[k]===v}">${l}</button>`).join(""); }
+}
+document.querySelector(".toolbar").addEventListener("click",e=>{
+  const b=e.target.closest("button[data-k]"); if(b){ const k=b.dataset.k; if(S[k]===b.dataset.v) return; S[k]=b.dataset.v; render(k==="dir"); }
+});
+document.getElementById("replay").addEventListener("click",()=>render(true));
+document.addEventListener("keydown",e=>{
+  if(e.target.closest("textarea,input")) return;
+  const map={"1":"A","2":"B","3":"C"}; if(map[e.key]&&S.dir!==map[e.key]){ S.dir=map[e.key]; render(true); }
+});
+
+/* ---------- ratings ---------- */
+const DIMS = [
+  ["head","หัวเรื่อง (ตัวอังกฤษ)","Headline type","ความประณีตและน้ำหนักของตัวหัวเรื่อง Cormorant ในแต่ละแนว"],
+  ["body","ตัวเนื้อความ","Body text","อ่านสบายไหม ทั้งบนคอมและมือถือ"],
+  ["thai","ตัวอักษรไทย","Thai type","สลับเป็น ไทย แล้วดูหัวเรื่อง เนื้อความ ตาราง"],
+  ["zh","ตัวอักษรจีน","Chinese type","สลับเป็น 中文 แล้วดู 宋体 / 黑体"],
+  ["dose","ปริมาณสีแดงและจังหวะแถบสี","Oxblood dosage","น้อย (A) · สลับทั้งหน้า (B) · แถบเข้มนำ (C)"],
+  ["hdr","ส่วนหัวเว็บ","Header","แถบแดง โลโก้ ชื่อบริษัท เมนู"],
+  ["hero","ส่วนแรกของหน้า","Hero","ข้อความเปิด ปุ่ม และภาพตรา/ลวดลาย"],
+  ["sig","รายละเอียดประจำแบรนด์","Signature details","กรอบเส้นคู่ · ผิวกระดาษ · ตรา · แถบฝีเข็ม · พื้นที่ว่าง"],
+  ["pat","การใช้ลวดลายแทนภาพ","Patterns as imagery","406 (A) · 417 + 401 (B) · 420 (C)"],
+  ["figs","ตารางตัวเลขและปฏิทิน","Figures & calendar","ตารางกำหนดยื่น และปฏิทินรายเดือน"],
+  ["nightm","โหมดกลางคืน","Night mode","สลับเป็น กลางคืน"],
+  ["phone","บนมือถือ","Phone","สลับเป็น มือถือ"],
+  ["admin","หน้าหลังบ้าน","Admin","สลับเป็น หลังบ้าน"],
+  ["motion","การเคลื่อนไหว","Motion","กด เล่นการเคลื่อนไหวอีกครั้ง: A ค่อย ๆ ปรากฏ · B, C ลอยขึ้นสั้น ๆ"],
+  ["overall","โดยรวม","Overall","ถ้าต้องเลือกวันนี้"],
+];
+let R = {dims:{}, figColor:"", next:"", updated:""};
+try{ const s=JSON.parse(localStorage.getItem("da35-r1")||"null"); if(s) R=s; }catch(e){}
+function dimState(k){ return R.dims[k]||(R.dims[k]={A:"",B:"",C:"",best:"",note:""}); }
+function buildDims(){
+  let h=DIMS.map(([k,th,en,what])=>{ const st=dimState(k);
+    const cells=["A","B","C"].map(d=>`<div class="cell" data-d="${d}"><span class="d">${d}</span>
+      <button type="button" class="like" data-r="${k}|${d}|like" aria-pressed="${st[d]==="like"}" title="ชอบ">ชอบ</button>
+      <button type="button" class="no" data-r="${k}|${d}|no" aria-pressed="${st[d]==="no"}" title="ไม่">ไม่</button>
+      <button type="button" class="best" data-r="${k}|${d}|best" aria-pressed="${st.best===d}" title="ดีที่สุด">★</button></div>`).join("");
+    return `<div class="dim"><div class="lab"><b>${th}</b><small>${en}</small></div><div class="what">${what}</div><div class="cells">${cells}</div>
+      <textarea class="note" id="n-${k}" data-n="${k}" rows="1" placeholder="หมายเหตุ (ถ้ามี)">${esc(st.note||"")}</textarea></div>`; }).join("");
+  const fc=[["brass","ทองเหลือง"],["ox","แดงเลือดนก"],["either","ได้ทั้งคู่"]].map(([v,l])=>`<button type="button" data-fc="${v}" aria-pressed="${R.figColor===v}">${l}</button>`).join("");
+  const nx=[["A","A"],["B","B"],["C","C"],["mix","ผสม (ระบุในหมายเหตุ)"]].map(([v,l])=>`<button type="button" data-nx="${v}" aria-pressed="${R.next===v}">${l}</button>`).join("");
+  h+=`<div class="dim"><div class="lab"><b>สีตัวเลข</b><small>Figure colour</small></div><div class="what">สลับ สีตัวเลข ที่แถบด้านบน แล้วดูตารางและปฏิทิน (บนพื้นเข้ม แดงเลือดนกจะใช้ชมพูกุหลาบของโลโก้ เพราะแดงบนพื้นเข้มอ่านไม่ออก)</div><div class="choice">${fc}</div></div>`;
+  h+=`<div class="dim"><div class="lab"><b>รอบ 2 ทำต่อแนวไหน</b><small>Carry into round 2</small></div><div class="what">รอบ 2 จะทำหน้าบริการ ปฏิทินภาษี บทความ และติดต่อ ในแนวที่เลือก</div><div class="choice">${nx}</div>
+     <textarea class="note" id="n-next" data-n="__next" rows="2" placeholder="ถ้าผสม บอกว่าเอาอะไรจากแนวไหน">${esc(R.nextNote||"")}</textarea></div>`;
+  document.getElementById("dims").innerHTML=h; markCurrent();
+}
+function markCurrent(){ document.querySelectorAll(".cell").forEach(c=>c.classList.toggle("cur",c.dataset.d===S.dir)); }
+document.getElementById("dims").addEventListener("click",e=>{
+  const b=e.target.closest("button"); if(!b) return;
+  if(b.dataset.r){ const [k,d,v]=b.dataset.r.split("|"); const st=dimState(k);
+    if(v==="best") st.best = st.best===d?"":d; else st[d] = st[d]===v?"":v;
+    if(v==="best"&&st.best===d&&st[d]==="no") st[d]="";
+    if(v==="no"&&st.best===d) st.best="";
+  } else if(b.dataset.fc){ R.figColor = R.figColor===b.dataset.fc?"":b.dataset.fc; }
+  else if(b.dataset.nx){ R.next = R.next===b.dataset.nx?"":b.dataset.nx; }
+  else return;
+  buildDims(); queueSave();
+});
+document.getElementById("dims").addEventListener("input",e=>{
+  const t=e.target.closest("textarea[data-n]"); if(!t) return;
+  if(t.dataset.n==="__next") R.nextNote=t.value; else dimState(t.dataset.n).note=t.value;
+  queueSave(true);
+});
+
+const saveEl=document.getElementById("save");
+let db=null, docRef=null, timer=null, writing=false, again=false, dirty=false;
+function setSave(t){ saveEl.textContent=t; }
+function queueSave(slow){
+  dirty=true; R.updated=new Date().toISOString();
+  try{ localStorage.setItem("da35-r1",JSON.stringify(R)); }catch(e){}
+  clearTimeout(timer); timer=setTimeout(flush, slow?1200:500);
+  setSave(db?"กำลังบันทึก…":"บันทึกไว้ในเบราว์เซอร์นี้ (ยังไม่ได้ส่งถึง Claude)");
+}
+async function flush(){
+  if(!docRef) return;
+  if(writing){ again=true; return; }
+  writing=true;
+  try{ await docRef.set(JSON.parse(JSON.stringify(R))); dirty=false; setSave("บันทึกแล้ว · Claude อ่านผลได้"); }
+  catch(err){ setSave("บันทึกไม่สำเร็จ ("+(err&&err.code||"error")+") ผลยังอยู่ในเบราว์เซอร์นี้"); }
+  writing=false; if(again){ again=false; flush(); }
+}
+buildDims(); render(true);
+(async()=>{
+  for(let i=0;i<30&&!window.claude;i++) await new Promise(r=>setTimeout(r,100));
+  try{ db = window.claude ? await window.claude.use("db") : null; }catch(e){ db=null; }
+  if(!db){ setSave("บันทึกไว้ในเบราว์เซอร์นี้ (ยังไม่ได้ส่งถึง Claude)"); return; }
+  docRef = db.doc("ratings/round1");
+  try{
+    const snap = await docRef.get();
+    if(snap.exists && !dirty){ const d=snap.data(); if(d&&d.dims){ R=d; try{ localStorage.setItem("da35-r1",JSON.stringify(R)); }catch(e){} buildDims(); } setSave("บันทึกแล้ว · Claude อ่านผลได้"); }
+    else if(Object.keys(R.dims).some(k=>{const s=R.dims[k];return s.A||s.B||s.C||s.best||s.note;})){ flush(); }
+    else setSave("พร้อมบันทึก · Claude อ่านผลได้");
+  }catch(err){ setSave("เชื่อมต่อที่บันทึกไม่ได้ ผลจะเก็บในเบราว์เซอร์นี้"); }
+})();
+})();
+</script>
