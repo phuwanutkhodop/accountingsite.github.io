@@ -118,7 +118,7 @@ User phuwanutkhodop  (everything the token touches)
 
 | When | Step | Takes |
 |---|---|---|
-| Before #21 (first presets) | Create the public repo `builder-library`, then add it to the existing key. Editing a fine-grained key's repository list is the expected path; if GitHub offers no edit, make a new key with the same settings (#20 §5). | ~3 min |
+| Before the first **real** presets are written (build phase; #21's prototype did not need it) | Create the public repo `builder-library`, then add it to the existing key. Editing a fine-grained key's repository list is the expected path; if GitHub offers no edit, make a new key with the same settings (#20 §5). | ~3 min |
 | Before #22 (first Admin code) | Create the free organization `<admin-org>`, then install the Claude GitHub app on it so sessions can push the Admin. Claude creates the repo and its Pages setting, or guides the owner. | ~5 min |
 | Adding a site (#25 designs the screen) | Create `<site>` (public) and `<site>-drafts` (private, with a README), switch Pages on for `<site>`, add both to the key. The Admin then writes the `sites.json` entry and the empty `site/` source. | ~5 min |
 

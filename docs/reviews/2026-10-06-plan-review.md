@@ -103,5 +103,6 @@
 |---|---|---|
 | 2026-10-06 | #17 (`docs/decisions/17-drafts-versions-rollback.md`) | H2, H3, M3, M4, L4 |
 | 2026-10-06 | #20 (`docs/decisions/20-publish-proof.md`) | M11, M12; H6 and M10 confirmed in a real browser, and their designs (owner-entered expiry date; content-based live check) are recorded for #25 and #28 |
+| 2026-10-06 | #21 (`docs/decisions/21-section-library-sample.md`) | M16 (section tone plain / tinted / bold; site scheme light / dark / follow device) |
 | 2026-10-06 | #15 (`docs/decisions/15-type-system.md`) | M7 (one loading recipe: self-hosted, subset at Publish with HarfBuzz WASM, proven under #16's policy) |
 | 2026-10-06 | #31 (`docs/decisions/31-multi-site-hosting.md`) | H1 (Admin on its own origin; hard rules A1–A4, S1–S3 handed to #18, #22, #25, #27, #28, #29), M4, M13 |

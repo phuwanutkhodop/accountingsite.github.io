@@ -1,16 +1,20 @@
 # PROJECT-STATUS.md
 
 **Last updated:** Tuesday, 6 October 2026
-**Last session:** Tickets **#31** (multi-site hosting and security origin) and **#15** (trilingual type system) closed.
+**Last session:** Tickets **#31**, **#15** and **#21** closed.
+- **#21** (`docs/decisions/21-section-library-sample.md`; sample: https://claude.ai/artifact/KXF9kgSGvYtTJFXS46CUQC): the preset format is proven.
+  - 9 presets × 3 languages restyle from tokens alone across two neutral test themes (A "Slate" sans, B "Paper" serif).
+  - The automatic library check caught 9 of 9 deliberately broken presets; every colour pair passes contrast (lowest 6.07:1).
+  - Format additions: scoped token-only preset CSS; the generator-owned `<section>` wrapper; container queries; the universal tone (plain / tinted / bold); a quality bar for real presets.
 - **#15** (`docs/decisions/15-type-system.md`; specimen: https://claude.ai/artifact/GHqZLEnpmiRVAau4KWdQnX):
-  - fonts in 3 roles (display, body, UI), each with a Latin, Thai and Chinese family;
-  - every face normalised to one x-height;
-  - **no Google Fonts**: every face is self-hosted and cut at Publish to the characters the site uses, with HarfBuzz's WASM subsetter (proven under the Admin's strict policy). Chinese costs 58 KB per weight against 692 KB from Google.
-  - **Owner check pending:** open the specimen on Windows and iPhone and report Thai mark clipping and the size-matching preference.
-- **#31** (`docs/decisions/31-multi-site-hosting.md`): the Admin moves to its own origin (a free GitHub organization), one key covers every site plus `builder-library`, and the drafts repo has a size bar.
-  - Owner steps: create `builder-library` before #21; create the organization before #22.
-- Earlier the same day: #16, #14, #13, #17 and #20 closed, plus the plan review. #20 proved browser-only publish (live in 34 s; the key expires 7 October 2027).
-**Next session:** **#21** (section sample on the neutral test theme; the owner creates `builder-library` first), then #22 (the owner creates the organization first) and the #24–#30 rounds. No new side tracks without the owner's explicit OK.
+  - fonts in 3 roles, each with Latin, Thai and Chinese families, normalised to one x-height;
+  - no Google Fonts; every face is subset at Publish with HarfBuzz WASM (proven under the strict policy).
+- **#31** (`docs/decisions/31-multi-site-hosting.md`): the Admin on its own origin (a free GitHub organization); one key; a repo pair per site.
+- **Owner reviews pending:**
+  - the #15 specimen on Windows and iPhone;
+  - the #21 sample: which designs look unprofessional, and whether the test themes look neutral.
+- **Owner steps:** create the organization before #22. `builder-library` is needed only when real presets are written.
+**Next session:** **#22** (clickable Admin prototype). The owner creates the free GitHub organization first, with a guide. #22 also waits on the #12 sub-tickets (#24–#30); pick the next unblocked one. No new side tracks without the owner's explicit OK.
 ---
 
 ## Site Builder effort (started 5 Oct 2026) — READ THIS FIRST

@@ -7,6 +7,7 @@
 **Status:** locked. **Amended 6 October 2026** after the plan review (`docs/reviews/2026-10-06-plan-review.md`, findings H4, M3, M4, M9): §3.4 step 6, §3.7, §3.10 and §3.11.
 **Amended 6 October 2026 by #31** (`docs/decisions/31-multi-site-hosting.md` §3-7, §7): the master library is its own repo, `builder-library`; save-back writes the master there at once, and the pinned copy ships with Publish. Removal waits for zero use across every site.
 **Amended 6 October 2026 by #15** (`docs/decisions/15-type-system.md`): `theme.json` gains `font.roles` (display, body and UI, each with Latin, Thai and Chinese families); the library check gains the font rules of #15 decision 10.
+**Amended 6 October 2026 by #21** (`docs/decisions/21-section-library-sample.md` §2): presets carry scoped, token-only `css`; the generator owns the `<section>` wrapper; container queries at three shared breakpoints; `tone` (plain / tinted / bold) is universal; field kinds expand into template values; a shared base; the quality bar in §4 there.
 
 ---
 
