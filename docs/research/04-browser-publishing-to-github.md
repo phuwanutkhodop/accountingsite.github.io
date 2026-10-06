@@ -164,6 +164,7 @@ Verified live (5 Oct 2026) with `Origin: https://phuwanutkhodop.github.io`: the 
 > - Decision #10 later gave the same token access to a **private drafts repo** holding unpublished drafts and original photos, which may carry GPS data. A leak now exposes private material, not only "website integrity".
 > - The shared origin (point 2 below) is no longer hypothetical: #18 widgets, #29 analytics and SVG uploads could all put third-party code on the Admin's origin.
 > - **#31 owns the fix:** the origin and custom-domain plan, plus hard rules for #18, #27 and #29.
+> - **Resolved by #31** (`docs/decisions/31-multi-site-hosting.md`): the Admin runs on its own origin under a separate free GitHub organization; §5.1 there replaces this threat model.
 
 The token grants **write to one public website repository** and nothing else (no account access, no other repos, no org). Worst realistic outcome of a leak: an attacker defaces or deletes the firm's website until the owner revokes the token and rolls back (§2.5 H5 — history makes this a 2-minute recovery). There is no customer data in the repo (it must stay that way; Pages is public). So the asset is "website integrity", not "financial data".
 

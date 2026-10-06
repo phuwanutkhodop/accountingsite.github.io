@@ -1,18 +1,20 @@
 # PROJECT-STATUS.md
 
 **Last updated:** Tuesday, 6 October 2026
-**Last session:** Tickets **#16, #14, #13, #17 and #20** closed, plus a **plan review** (`docs/reviews/2026-10-06-plan-review.md`). **#20 proved the publish path for real:**
-- The owner created the private repo `accountingsite-drafts` and a fine-grained key: both repos, Contents read/write, Pages read, expires 7 October 2027.
-- A one-time test page published from the owner's Edge browser, was live in 34 s, had a stale update refused (HTTP 422), removed its files and round-tripped a draft. All 11 steps passed.
-- Record and verified owner guide: `docs/decisions/20-publish-proof.md`. The test page has been removed.
-**Next session:** #22 (clickable Admin) still waits on #21 and the #12 sub-tickets. Next is **#31 (multi-site hosting and security origin)**, the highest open review finding and Claude-decided. Then **#15 → #21** and the #24–#30 rounds. No new side tracks without the owner's explicit OK.
+**Last session:** Ticket **#31 (multi-site hosting and security origin)** closed — the last open high finding of the plan review (H1, plus M4 and M13). Record: `docs/decisions/31-multi-site-hosting.md`.
+- **The Admin gets its own origin:** a free GitHub organization (`https://<admin-org>.github.io/admin/`), one Admin for all sites. No Admin code ever goes into a site repo.
+- **One key** covers every site repo, each site's private `<site>-drafts` repo and the library repo `builder-library`, never the Admin.
+- Drafts repos keep 4096 px image masters (GPS removed) with a size bar and a roll-over when full.
+- **Owner steps, when their ticket starts (guides then):** create `builder-library` before #21; create the organization before #22.
+- Earlier the same day: #16, #14, #13, #17 and #20 closed, plus the plan review. #20 proved browser-only publish (live in 34 s; key expires 7 October 2027).
+**Next session:** **#15 → #21** (the owner creates `builder-library` at the start of #21), then #22 (the owner creates the organization first) and the #24–#30 rounds. No new side tracks without the owner's explicit OK.
 ---
 
 ## Site Builder effort (started 5 Oct 2026) — READ THIS FIRST
 
 The owner re-stated the original goal: **(1) build a ready-made website-builder system first, (2) then build the real firm website with it.** Stages 6–10 below are therefore **paused**, not cancelled; they resume *inside* the builder once it exists.
 
-**What the builder is:** a no-server Admin at `/admin/` on the published site, WordPress-premium in feel, publishing to GitHub Pages with one click via a repo-scoped GitHub token. Curated sections, a growing Design Library, deep Site Structure editing, EN/TH/ZH from day one, Thai Admin UI. Full destination, locked principles, fog and out-of-scope list are on the map issue.
+**What the builder is:** a no-server Admin at `/admin/` on **its own origin** (a free GitHub organization, one Admin for all sites — decision #31), WordPress-premium in feel, publishing to GitHub Pages with one click via a repo-scoped GitHub token. Curated sections, a growing Design Library, deep Site Structure editing, EN/TH/ZH from day one, Thai Admin UI. Full destination, locked principles, fog and out-of-scope list are on the map issue.
 
 **How work is organised:** the plan is a Wayfinder map on GitHub Issues — issue #1 is the map; tickets #2–#23 are its children with native "blocked by" links, so the frontier is visible in GitHub's UI. Labels: `wayfinder:research` (agent-resolved), `wayfinder:grilling` (decided with the owner), `wayfinder:prototype` (something to react to), `wayfinder:task`. **One ticket per session.** Resolution = comment the answer, close the ticket, add one line to the map's "Decisions so far".
 

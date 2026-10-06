@@ -5,6 +5,7 @@
 **Decided by:** the owner for the three choices in §2; Claude for the technical choices in §3, under the owner's delegation
 **Inputs:** research #9 (design libraries) and #2 (premium builders); decisions #10 (content model), #11 (rendering), #14 (site structure), #16 (tech stack), #33 (light and dark token sets)
 **Status:** locked. **Amended 6 October 2026** after the plan review (`docs/reviews/2026-10-06-plan-review.md`, findings H4, M3, M4, M9): §3.4 step 6, §3.7, §3.10 and §3.11.
+**Amended 6 October 2026 by #31** (`docs/decisions/31-multi-site-hosting.md` §3-7, §7): the master library is its own repo, `builder-library`; save-back writes the master there at once, and the pinned copy ships with Publish. Removal waits for zero use across every site.
 
 ---
 
@@ -107,7 +108,7 @@ The owner's path, inside the Admin:
 ### 3.7 Usage index
 
 - The usage index is **computed, not stored:** the Admin derives it from published pages, **drafts** and **page templates** whenever it loads source (decision #11 §3.7 cache). A computed index cannot drift (research #9 pitfall 3).
-- **Removal waits for every use:** a preset still used by a draft or a template counts as used. When the master library serves more than one site, removal also waits for #31's answer on how sites share it. *(Amended — review M4.)*
+- **Removal waits for every use:** a preset still used by a draft or a template counts as used. When the master library serves more than one site, removal also waits for zero use across **every** site, and for every site to be readable (#31 §7). *(Amended — review M4; resolved by #31.)*
 - It powers:
   - "Used on N pages" in the library, with links to those pages;
   - the upgrade notices;

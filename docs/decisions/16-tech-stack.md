@@ -6,6 +6,7 @@
 **Inputs:** research #3 (CMS landscape), #4 (browser publishing and security), #6 (rich-text editors), #7 (image pipeline); decisions #10 (content model), #11 (rendering strategy)
 **Evidence:** a hands-on spike on 6 October 2026, described in §4
 **Status:** locked. **Amended 6 October 2026** after the plan review (`docs/reviews/2026-10-06-plan-review.md`, findings M2, M11, M12, L3): decision 6's link list, and §4.1.
+**Amended 6 October 2026 by #31** (`docs/decisions/31-multi-site-hosting.md`): the §3 layout is the root of the Admin's own repo, `<admin-org>/<admin-org>.github.io`, on its own origin. `connect-src` adds the sites' origins for the live check. The Admin repo holds no HTML besides its two `index.html` files and no SVG (rule A1).
 
 ---
 
@@ -68,7 +69,7 @@ tools/vendor/         package.json + lockfile, the esbuild entry files, build.mj
 package.json          { "private": true, "type": "module" }; no runtime dependencies
 ```
 
-Everything inside `admin/` refers to other files by relative path, so the Admin can move to its own repo later if #31 needs that.
+Everything inside `admin/` refers to other files by relative path, so it moves unchanged into the Admin repo that #31 decided.
 
 **Planned vendor set:**
 

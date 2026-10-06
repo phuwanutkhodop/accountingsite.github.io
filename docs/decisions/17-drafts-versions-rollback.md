@@ -10,7 +10,7 @@
 - research #2 §3.8 and research #4 §2.5 (history API);
 - plan review findings H2, H3, M3, M4 and L4 (`docs/reviews/2026-10-06-plan-review.md`).
 
-**Status:** locked
+**Status:** locked. **Amended 6 October 2026 by #31** (`docs/decisions/31-multi-site-hosting.md`): one drafts repo per site; the master of a saved design goes straight to `builder-library`.
 
 ---
 
@@ -63,7 +63,7 @@ A draft is **one item**: the unit that can be ticked in the Publish list. The ki
 | Theme | `site/theme.json` |
 | Settings | the identity and language fields of `site/site.json` |
 | a media asset | rendition files waiting under `drafts/media/<id>/` (review H5), plus its `site/media.json` entry |
-| a library design | a new preset and its pinned copy, from save-back (review M3, #13 §3.4) |
+| a library design | the page's reference to a newly saved preset and its pinned copy; the master is already in `builder-library` (review M3, #13 §3.4, #31 §3-7) |
 
 The draft file is `drafts/<kind>/<id>.json` in the private repo:
 
@@ -147,7 +147,7 @@ Restore-Of: <commit sha>        (restores only)
 ### 3.8 Git history policy (resolves review L4)
 
 - **The public repo's history is never rewritten:** no squash, no force-push. Versions are permanent, and every rollback depends on them.
-- **The drafts repo is not rewritten in v1 either.** Its size is watched with the budget and warning from #27 and #31 (review M13). Compacting it, if ever needed, will be a separate owner-confirmed maintenance step, designed then.
+- **The drafts repo is not rewritten in v1 either.** Its size is watched with the budget and warning from #31 §6 (review M13). When it is full, a **roll-over** to a fresh drafts repo replaces rewriting (#31 §6).
 
 ---
 
