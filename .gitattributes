@@ -1,3 +1,7 @@
+# Text files use LF everywhere, so the Admin's git blob hashes match on every machine (plan review M11, #20).
+# The brand rules below come later and therefore win for their paths.
+* text=auto eol=lf
+
 # Brand masters are preserved byte for byte: never convert their line endings (e.g. core.autocrlf on Windows),
 # or their checksums in brand/MANIFEST.sha256 would no longer match.
 brand/** -text
