@@ -1,9 +1,8 @@
 # PROJECT-STATUS.md
 
-**Last updated:** Sunday, 5 October 2026
-**Last session:** Ticket #12 (Admin information architecture) started with the owner: frame locked (two levels — My Sites + per-site Admin; 9-area menu; always-visible page tree; Dashboard = live preview + "Needs attention"), then split into sub-tickets #24–#30 (12a–12g). A review pass added #31 (multi-site hosting model) and #32 (translation workflow), wired blocking edges, and set the landing rule (open the last-used site directly). Record: `docs/decisions/12-admin-ia.md`
-**Next session:** logo **locked as 153** (`docs/brand/da-logo-153.md`) and brand seal **locked as 346** (`docs/brand/da-seal-346.md`, masters in `brand/seal/`). Logo meanings confirmed by the owner. No rubber-stamp seal. Brand patterns **locked: 401 · 406 · 417 · 420** (`docs/brand/da-patterns.md`, tiles in `brand/pattern/`). **Brand preserved:** `brand/README.md` (index), `brand/MANIFEST.sha256`, toolchain `tools/brand/` (rebuilds all 31 masters byte for byte; `python tools/brand/build.py --check`), frozen snapshot branch `brand-v1.0` (never commit to it). Merged into `main` on 2026-10-05. **Export pack** `brand/export/`: PNG, PDF and compatible SVG for Canva, PowerPoint, Word, Illustrator, Figma and print; 510 of 510 checks passed; see `brand/export/README.md`. **Next: back to the Site Builder** (Wayfinder map, issue #1), unless the owner names another brand piece. Business cards later (not urgent).
-
+**Last updated:** Tuesday, 6 October 2026
+**Last session:** Ticket **#16 (tech stack)** decided and closed: no build step for our code (plain ES modules, relative imports); Admin UI in Preact + htm + signals (no JSX); every library vendored into `admin/vendor/` by `tools/vendor/` (byte-reproducible, never a runtime CDN); pure `admin/engine/` runs unchanged in browser and Node; in-house strict Mustache subset for presets; rich text stored as editor JSON and rendered by a whitelist renderer (the sanitiser); Tiptap 3.31.4 confirmed; strict CSP baseline. Proven by a browser spike. Record: `docs/decisions/16-tech-stack.md`. Before that: route correction (owner, 2026-10-06) put the builder core first and parked the brand track #33–#36.
+**Next session:** builder core, next ticket **#14 (Site Structure)**, then #13 → #17 → #20 → #22 → #23, with #24–#32 alongside. No new side tracks without the owner's explicit OK. The brand is kept for the later firm website (`brand/README.md`); #36 stays open only for a possible request for more patterns.
 ---
 
 ## Site Builder effort (started 5 Oct 2026) — READ THIS FIRST
@@ -20,9 +19,9 @@ The owner re-stated the original goal: **(1) build a ready-made website-builder 
 
 **Owner working preference (stated 5 Oct 2026):** the owner is not a coder or engineer. Claude decides technical questions itself, rigorously, and records the reasons; ask the owner only about what visitors see or what the owner must do.
 
-**Rules that still bind during the builder effort:** read every file before editing; relative paths only; static only.
+**Rules that still bind during the builder effort:** read every file before editing; relative paths only; static only. Builder code follows `docs/decisions/16-tech-stack.md`: no build step, libraries only from `admin/vendor/`, `admin/engine/` stays pure.
 
-**Visual identity retired (owner, 5 Oct 2026):** Navy & Soft Linen and Instrument Serif + Inter are **no longer locked**. The owner wants a fully new look for the website *and* the Admin — feeling: **minimal and premium but not "modern", plus bold and confident**. Path: #33 define the feeling → #34 benchmark research → #35 three directions, owner picks. #15 (type specimen), #19 (migration) and #21 (section sample) now wait on #35. The "Locked architectural decisions" palette/font lines further down are superseded.
+**Route correction (owner, 6 Oct 2026):** the identity path below is parked; the builder uses a neutral test theme, and the firm identity comes in the firm-website effort. **Visual identity retired (owner, 5 Oct 2026):** Navy & Soft Linen and Instrument Serif + Inter are **no longer locked**. The owner wants a fully new look for the website *and* the Admin — feeling: **minimal and premium but not "modern", plus bold and confident**. Path: #33 define the feeling → #34 benchmark research → #35 three directions, owner picks. #15 (type specimen), #19 (migration) and #21 (section sample) now wait on #35. The "Locked architectural decisions" palette/font lines further down are superseded.
 
 ---
 
@@ -244,7 +243,7 @@ These are real but non-urgent. They are documented so they don't get lost across
 ### Pre-launch fixes (must address before launching the site)
 
 - **`example.com` placeholders** in canonical URLs, Open Graph URLs, JSON-LD URLs across `index.html` and `knowledge.html`. Replace with real domain. Quick find-and-replace once the domain is known.
-- **Firm name now known (owner, 5 Oct 2026): DA Accounting & Consulting Co., Ltd.** Thai and Chinese registered names, founding year and licence numbers still to be supplied. Old note: **`Your Firm Name` placeholders** in `<meta name="firm-name">`, JSON-LD `Organization` entries, and HTML `🟢 EDIT: firm name` markers. Replace once the real firm name is known.
+- **Firm name now known (owner, 5 Oct 2026): D.A. Accounting & Consulting Co., Ltd.** Thai and Chinese registered names, founding year and licence numbers still to be supplied. Old note: **`Your Firm Name` placeholders** in `<meta name="firm-name">`, JSON-LD `Organization` entries, and HTML `🟢 EDIT: firm name` markers. Replace once the real firm name is known.
 - **`hello@yourfirm.com` placeholders** in CTAs and contact links. Replace with real email.
 - **Privacy and Terms pages referenced but not yet existing.** Footer links to `./privacy.html` and `./terms.html` will 404 until those pages are built. Either build them in Stage 6 or remove the footer links until they exist.
 

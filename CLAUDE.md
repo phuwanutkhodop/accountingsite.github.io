@@ -23,9 +23,10 @@ Run these three commands in order:
 
 ## Key rules (never break these)
 - All file paths must be relative (use ./ and ../) — never absolute paths like /en/...
-- **Visual identity is being replaced (owner, 2026-10-05).** Navy & Soft Linen and Instrument Serif + Inter are
-  retired for the builder and all future work. The new identity is decided in tickets #33 → #34 → #35. Until #35
-  closes, do not invent colours or fonts ad hoc; leave the existing hand-written pages as they are.
+- **Builder first, firm brand later (owner route correction, 2026-10-06).** The Site Builder is built and tested on a
+  neutral test theme; it must stay theme-agnostic. The firm's identity (brand track #33–#36, #35 parked) is applied
+  in the later firm-website effort. Do not start new brand or side-track work without the owner's explicit OK.
+  Navy & Soft Linen and Instrument Serif + Inter stay retired; leave the existing hand-written pages as they are.
 - **The D.A. brand is locked (owner, 2026-10-05):** logo 153, brand seal 346, and patterns 401 · 406 · 417 · 420.
   - Start at `brand/README.md`. It indexes the master files, the specs in `docs/brand/`, and the colours.
   - `brand/` holds the **original masters and is read-only**. Never edit, redraw, recolour or replace a file there.
@@ -35,6 +36,9 @@ Run these three commands in order:
   - Before any commit that touches `brand/` or `tools/brand/`, run `python tools/brand/build.py --check`.
   - D A is always the full logo 153. The seal has no "CO., LTD." and no year.
 - No backend features. This is a static site — no servers, no databases.
+- **Builder code (decision #16, `docs/decisions/16-tech-stack.md`):** plain ES modules with no build step; Admin UI in
+  Preact + htm; third-party code only from `admin/vendor/` (rebuilt with `tools/vendor/`), never from a CDN at runtime;
+  `admin/engine/` stays pure (no DOM, fetch, Intl, clock or randomness) and runs unchanged in Node.
 - Read every file before editing it. Never guess what is already in a file.
 - Do not write code in the first response of a new stage — ask questions first.
 
@@ -71,8 +75,8 @@ builder afterwards. The existing site becomes Theme #1 and the builder's test be
 
 The plan for the builder lives on the GitHub issue tracker as a **Wayfinder map**:
 https://github.com/phuwanutkhodop/accountingsite.github.io/issues/1
-Every session on the builder: read the map first, pick the next unblocked ticket, resolve
-one ticket per session. See PROJECT-STATUS.md → "Site Builder effort".
+Every session on the builder: read the map first (including its route-correction note), pick
+the next unblocked **builder-core** ticket, resolve one ticket per session. See PROJECT-STATUS.md → "Site Builder effort".
 
 ## User profile
 - Non-technical user. Avoid jargon. Explain in plain language.
