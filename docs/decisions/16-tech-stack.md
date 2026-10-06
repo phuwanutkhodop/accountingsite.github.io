@@ -7,6 +7,7 @@
 **Evidence:** a hands-on spike on 6 October 2026, described in §4
 **Status:** locked. **Amended 6 October 2026** after the plan review (`docs/reviews/2026-10-06-plan-review.md`, findings M2, M11, M12, L3): decision 6's link list, and §4.1.
 **Amended 6 October 2026 by #31** (`docs/decisions/31-multi-site-hosting.md`): the §3 layout is the root of the Admin's own repo, `<admin-org>/<admin-org>.github.io`, on its own origin. `connect-src` adds the sites' origins for the live check. The Admin repo holds no HTML besides its two `index.html` files and no SVG (rule A1).
+**Amended 6 October 2026 by #15** (`docs/decisions/15-type-system.md`): the vendor set gains `harfbuzz-subset.wasm` (harfbuzzjs 1.6.3, MIT), loaded only at Publish; published pages use `font-src 'self'`.
 
 ---
 

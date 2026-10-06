@@ -1,13 +1,16 @@
 # PROJECT-STATUS.md
 
 **Last updated:** Tuesday, 6 October 2026
-**Last session:** Ticket **#31 (multi-site hosting and security origin)** closed — the last open high finding of the plan review (H1, plus M4 and M13). Record: `docs/decisions/31-multi-site-hosting.md`.
-- **The Admin gets its own origin:** a free GitHub organization (`https://<admin-org>.github.io/admin/`), one Admin for all sites. No Admin code ever goes into a site repo.
-- **One key** covers every site repo, each site's private `<site>-drafts` repo and the library repo `builder-library`, never the Admin.
-- Drafts repos keep 4096 px image masters (GPS removed) with a size bar and a roll-over when full.
-- **Owner steps, when their ticket starts (guides then):** create `builder-library` before #21; create the organization before #22.
-- Earlier the same day: #16, #14, #13, #17 and #20 closed, plus the plan review. #20 proved browser-only publish (live in 34 s; key expires 7 October 2027).
-**Next session:** **#15 → #21** (the owner creates `builder-library` at the start of #21), then #22 (the owner creates the organization first) and the #24–#30 rounds. No new side tracks without the owner's explicit OK.
+**Last session:** Tickets **#31** (multi-site hosting and security origin) and **#15** (trilingual type system) closed.
+- **#15** (`docs/decisions/15-type-system.md`; specimen: https://claude.ai/artifact/GHqZLEnpmiRVAau4KWdQnX):
+  - fonts in 3 roles (display, body, UI), each with a Latin, Thai and Chinese family;
+  - every face normalised to one x-height;
+  - **no Google Fonts**: every face is self-hosted and cut at Publish to the characters the site uses, with HarfBuzz's WASM subsetter (proven under the Admin's strict policy). Chinese costs 58 KB per weight against 692 KB from Google.
+  - **Owner check pending:** open the specimen on Windows and iPhone and report Thai mark clipping and the size-matching preference.
+- **#31** (`docs/decisions/31-multi-site-hosting.md`): the Admin moves to its own origin (a free GitHub organization), one key covers every site plus `builder-library`, and the drafts repo has a size bar.
+  - Owner steps: create `builder-library` before #21; create the organization before #22.
+- Earlier the same day: #16, #14, #13, #17 and #20 closed, plus the plan review. #20 proved browser-only publish (live in 34 s; the key expires 7 October 2027).
+**Next session:** **#21** (section sample on the neutral test theme; the owner creates `builder-library` first), then #22 (the owner creates the organization first) and the #24–#30 rounds. No new side tracks without the owner's explicit OK.
 ---
 
 ## Site Builder effort (started 5 Oct 2026) — READ THIS FIRST

@@ -6,6 +6,7 @@
 **Inputs:** research #9 (design libraries) and #2 (premium builders); decisions #10 (content model), #11 (rendering), #14 (site structure), #16 (tech stack), #33 (light and dark token sets)
 **Status:** locked. **Amended 6 October 2026** after the plan review (`docs/reviews/2026-10-06-plan-review.md`, findings H4, M3, M4, M9): §3.4 step 6, §3.7, §3.10 and §3.11.
 **Amended 6 October 2026 by #31** (`docs/decisions/31-multi-site-hosting.md` §3-7, §7): the master library is its own repo, `builder-library`; save-back writes the master there at once, and the pinned copy ships with Publish. Removal waits for zero use across every site.
+**Amended 6 October 2026 by #15** (`docs/decisions/15-type-system.md`): `theme.json` gains `font.roles` (display, body and UI, each with Latin, Thai and Chinese families); the library check gains the font rules of #15 decision 10.
 
 ---
 

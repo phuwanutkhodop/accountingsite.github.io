@@ -10,6 +10,7 @@
 
 It also uses the locked brief (#33) and the earlier typography report `docs/research/05-thai-chinese-typography.md`. Section 8 lists where this report replaces #05.
 **Evidence warning:** the network proxy blocked direct visits to almost every brand, foundry and design-press site. Most brand observations therefore come from **search-result summaries**, not from inspecting the sites. Font sizes and licences are the exception: they were **measured first-hand** from the Google Fonts API and the `google/fonts` repository. Section 9 lists what #35 must check in a real browser.
+> **Note, 6 October 2026:** for the builder, decision #15 (`docs/decisions/15-type-system.md`) replaces cn-font-split with HarfBuzz's subsetter, measures the figures check (§9 #11) and settles loading.
 
 ---
 
