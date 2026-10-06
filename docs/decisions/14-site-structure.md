@@ -4,7 +4,7 @@
 **Date:** 6 October 2026
 **Decided by:** the owner, for what visitors see (§2), and Claude, under the owner's delegation of technical choices (§3)
 **Inputs:** research #2 (premium builders, §3.4), #8 (multilingual SEO/AEO); decisions #10 (content model), #11 (rendering), #12 (Admin IA), #16 (tech stack)
-**Status:** locked
+**Status:** locked. **Amended 6 October 2026** after the plan review (`docs/reviews/2026-10-06-plan-review.md`, findings H3, M1, M5, M6): §3.3, §3.4, §3.7, §3.9 and §3.10.
 
 ---
 
@@ -17,6 +17,7 @@
 5. **เปลี่ยนชื่อที่อยู่ ย้ายหน้า หรือลบหน้าได้โดยลิงก์เดิมไม่เสีย** ระบบจะพาคนที่เปิดลิงก์เก่าไปหน้าใหม่อัตโนมัติ เวลาลบหน้า ระบบจะถามว่าจะให้คนที่เปิดลิงก์เก่าไปที่หน้าไหน
 6. **ลิงก์ภายในเว็บไม่มีวันเสีย** เพราะระบบจำว่าลิงก์ไปที่ "หน้าไหน" ไม่ได้จำที่อยู่ ทุกหน้ามีรายการ "หน้าที่ลิงก์มาหาหน้านี้" และระบบเตือนหน้าที่ไม่มีใครลิงก์ถึง
 7. **หน้าแต่ละหน้ามี 3 สถานะ:** อยู่ในเมนู · ไม่อยู่ในเมนูแต่เปิดได้ด้วยลิงก์ · ฉบับร่าง และมีสวิตช์ "ซ่อนจาก Google" แยกต่างหาก
+8. **บทความก็ได้รับการคุ้มครองเหมือนหน้าเว็บ** เปลี่ยนชื่อที่อยู่บทความ หรือย้ายหน้ารวมบทความ ลิงก์เก่าก็ยังพาไปถูกที่ *(เพิ่มหลังการตรวจ 6 ต.ค.)*
 
 ---
 
@@ -55,6 +56,7 @@
 - The slug is suggested from the English title and is editable. It must be 2–60 characters, unique among siblings, and must not be a reserved name: `admin`, `site`, `library`, `media`, `en`, `th`, `zh`, `assets`, `404`.
 - **Changing a slug after publishing is allowed** and creates a redirect automatically (§3.4). The Admin warns first: "people who saved the old address will be forwarded". *This relaxes research #8 §4.7 ("immutable after publish"); Principle 2 on the map asks for slug changes with automatic redirects.*
 - **Articles** are not pages in the tree. Each article lives under the page that lists the articles: `/<lang>/<listing-page-path>/<article-slug>/`. Taxonomy and the listing itself → #27.
+- **Articles have a permanent `id` too,** exactly like pages, and their slug can change on the same terms. Their source file is named by id, not by slug (*amends decision #10 §3*, `site/articles/<id>.json`), so per-article history survives a slug change. *(Added — review M1.)*
 - **Page identity is not the address.** Each page has a permanent `id`, assigned when it is created and never changed. Slugs, parents and addresses can change; the id does not.
 
 ### 3.4 Redirects without a server
@@ -66,12 +68,13 @@ GitHub Pages cannot send server redirects. The generator therefore writes a **re
 - A visible link in the page's language, for the rare visitor who sees the page.
 
 Rules:
-- **Redirects are created automatically** when a slug changes, a page moves in the tree, or a page is deleted (§3.6). The owner can also add one by hand in Site Structure › Redirects: old address → a page, or → an outside address.
+- **Redirects are created automatically** when a slug changes, a page moves in the tree, or a page is deleted (§3.6). **This covers every address under the changed one:** child pages and grandchildren, and every article under a listing page whose address changed, plus article slug changes and deleted articles. *(Widened — review M1.)* The owner can also add one by hand in Site Structure › Redirects: old address → a page, or → an outside address.
 - **Chains are collapsed.** If A → B and B later → C, the generator writes A → C.
 - **Loops, and a redirect sitting on an address a live page uses, are validation errors** (decision #11 §3.5).
 - Redirect pages are generator-owned (`generated.json`, decision #11 §3.4), kept until the owner removes the rule, and never listed in the sitemap.
 - No practical cap. Each redirect page is about 1 KB × 3 languages. The Admin warns above 500 rules.
 - **A trilingual `404.html`** is generated at the site root, which is the only place Pages looks for it. It picks its language from the path (`/th/…` → Thai). It offers the homepage, search when #27 adds it, and the main menu.
+  - **The one exception to "relative paths only":** Pages serves this file at whatever wrong address was requested, so relative links would break. Its stylesheet and links use **site-absolute paths built from `siteUrl`** (`/accountingsite.github.io/…` today, `/…` after a custom domain). The validation gate allows absolute paths in this file only. *(Added — review M5.)*
 - The current hand-written pages (`/en/knowledge.html`, `/en/posts/*.html` …) receive redirects through the same mechanism when #19 migrates them.
 
 ### 3.5 Menus
@@ -91,7 +94,7 @@ Rules:
 
 ### 3.7 Internal links never break
 
-- Internal links are stored **by page id**, never by address: `page:<id>` or `page:<id>#<anchor>` in rich-text link marks (decision #16 §2-6) and in preset link fields.
+- Internal links are stored **by id**, never by address: `page:<id>`, `page:<id>#<anchor>` or `article:<id>` in rich-text link marks (decision #16 §2-6) and in preset link fields. *(`article:` added — review M1.)*
 - The generator turns them into **relative** addresses (project rule) for each language. Renaming or moving a page therefore updates every link to it on the next Publish.
 - Section anchors are stable ids stored on the section instance, so renaming a heading does not break `#anchor` links.
 - **What the owner sees:**
@@ -105,7 +108,7 @@ Already decided in #11: publishing requires all three languages. A page cannot e
 
 ### 3.9 Root and breadcrumbs
 
-- The site root `/` stays the language chooser and the `x-default` (research #8 §2.2). The generator owns it from now on.
+- The site root `/` keeps its **instant redirect to `/en/`**, and the generator owns it from now on. Because Google treats an instant meta refresh as a permanent redirect, **the root is not part of any hreflang set:** `x-default` points to the English version on every page, including the homepage (`/en/`). This is the pattern research #8 §2.2 already uses for non-homepage pages. *(Amended — review M6: research #8 had declared the redirecting root as `x-default`, which hreflang does not allow.)*
 - Breadcrumbs come from the tree, in the page's language. `BreadcrumbList` JSON-LD is always generated (research #8). Whether breadcrumbs are visible on the page is a preset choice.
 
 ### 3.10 Where it is stored (amends decision #10 §3)
@@ -113,6 +116,7 @@ Already decided in #11: publishing requires all three languages. A page cannot e
 - `site/site.json` holds the **tree** as one ordered nesting of page ids, plus the **menus** and the **redirect rules**.
 - Each `site/pages/<id>.json` holds the slug, SEO fields and sections. **`parent` moves out of the page file into the tree.**
 - *Why:* reordering or moving a page changes one file instead of several sibling files, and the tree cannot contradict itself.
+- **Drafts consequence (for #17):** because several unpublished items can touch `site.json`, a draft must record its own tree, menu and redirect changes **as operations tied to that item** (for example "add page X under Services at position 3"), not as a whole copy of `site.json`. Publishing item A applies only A's operations to the published `site.json`. Without this, publishing one page could leak another page's unpublished menu change. *(Added — review H3; the mechanism is #17's to define.)*
 
 ---
 

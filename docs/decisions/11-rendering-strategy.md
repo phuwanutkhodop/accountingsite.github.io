@@ -4,7 +4,7 @@
 **Date:** 5 October 2026
 **Decided by:** the owner, in a grilling session with Claude. The owner delegated every technical choice to Claude ("I am not a coder or engineer — think these through rigorously"). Those choices are recorded in §3 with their reasons.
 **Inputs:** decision #10 (content model), research #4 (browser publishing), #8 (multilingual SEO/AEO), #9 (design libraries)
-**Status:** locked
+**Status:** locked. **Amended 6 October 2026** after the plan review (`docs/reviews/2026-10-06-plan-review.md`): owner decision 2 refined by the owner (M8); §3.5 alt-text rule (L3); §3.10 image note (H5).
 
 ---
 
@@ -14,7 +14,7 @@
 2. **ทุกครั้งที่กด Publish ระบบสร้างเว็บใหม่ทั้งหมด แต่ส่งขึ้นเฉพาะไฟล์ที่เปลี่ยนจริง** ก่อนยืนยัน คุณจะเห็นรายการว่าหน้าไหนจะเปลี่ยน
 3. **ตรวจก่อนส่ง:** ถ้ามีลิงก์เสีย ช่องว่าง หรือข้อมูลไม่ครบ ปุ่ม Publish จะกดไม่ได้ และระบบบอกเป็นภาษาไทยว่าต้องแก้ตรงไหน
 4. **ไม่มีเว็บพังครึ่ง ๆ:** ถ้าเกิดปัญหากลางทาง จะไม่มีอะไรถูกส่งขึ้น เว็บเดิมยังอยู่ครบ
-5. **ต้องครบสามภาษาก่อน Publish:** ถ้าภาษาใดยังว่าง จะ Publish หน้านั้นไม่ได้ งานจะเก็บเป็นฉบับร่างระหว่างรอแปล
+5. **ภาษาที่เปิดใช้ต้องครบทุกภาษาก่อน Publish:** ถ้าภาษาที่เปิดใช้ภาษาใดยังว่าง จะ Publish หน้านั้นไม่ได้ งานจะเก็บเป็นฉบับร่างระหว่างรอแปล ปิดบางภาษาของเว็บได้ (เช่นเว็บทดสอบที่มีแค่อังกฤษ) แต่เว็บจริงของบริษัทเปิดครบสามภาษา *(เจ้าของปรับ 6 ต.ค. 2026)*
 6. **วันที่บนหน้าภาษาไทยใช้ปีคริสต์ศักราช** เช่น 5 ตุลาคม 2026
 7. **พรีวิวตรงกับของจริงทุกตัวอักษร** เพราะใช้เครื่องสร้างหน้าตัวเดียวกัน
 8. **ปลอดภัยต่อของเดิม:** ระบบไม่แตะไฟล์ที่ตัวเองไม่ได้สร้าง หน้าเว็บที่เขียนด้วยมือในปัจจุบันจึงอยู่ครบจนกว่าจะย้ายเข้าระบบ (ตั๋ว #19)
@@ -26,7 +26,7 @@
 | # | Question | Decision | Why |
 |---|---|---|---|
 | 1 | Where pages are rendered | **Pre-rendered at publish time** (confirms decision #10 §2-1). Everything a person or a bot reads is in the HTML file: all text, navigation, article lists, language links, images, and all JSON-LD. **JavaScript may only add extras:** on-site search, calculators (extension slot), animations, the marquee, form submission. **Every generated page must be fully readable and navigable with JavaScript off.** | Most AI crawlers and link-preview fetchers (LINE, Facebook) do not run JavaScript (research #8 §AEO). |
-| 2 | Missing translations | **Publishing requires all three languages.** An item (page or article) whose required text fields are empty in any of EN/TH/ZH cannot be published. Publish is disabled, with a list of the missing fields by language. Work waits as a draft. Deliberate `hiddenIn` on a section (decision #10) is still allowed: hiding a section on purpose is not the same as a missing translation. | The owner wants every published item complete in all three languages. This also keeps the hreflang matrix complete on every page, with no special cases. |
+| 2 | Missing translations | **Publishing requires every switched-on language** *(refined by the owner, 6 October 2026 — review M8; was "all three languages")*. A site can switch a language off in Settings (research #8 §4.5): a switched-off language generates nothing and appears nowhere, including hreflang. The firm's real site keeps EN + TH + ZH switched on, as locked on the map. An item (page or article) whose required text fields are empty in any switched-on language cannot be published. Publish is disabled, with a list of the missing fields by language. Work waits as a draft. Deliberate `hiddenIn` on a section (decision #10) is still allowed: hiding a section on purpose is not the same as a missing translation. | The owner wants every published item complete in all three languages. This also keeps the hreflang matrix complete on every page, with no special cases. |
 | 3 | Year format on Thai pages | **Gregorian (ค.ศ.)**: `5 ตุลาคม 2026`. EN: `5 October 2026`. ZH: `2026年10月5日`. Machine-readable dates are ISO 8601 in `<time datetime>`, in JSON-LD and in sitemaps. | Owner choice. Answers research #8 open question 6.5. |
 
 ---
@@ -77,7 +77,7 @@ Incremental "regenerate only dependent pages" is rejected: one missed dependency
 - an absolute internal path (project rule: relative only)
 - hreflang pairs that are not reciprocal, or a canonical that is not self-referencing (research #8)
 - JSON-LD that does not parse, or lacks the fields required for its type
-- an image without alt text in any language
+- an image without alt text in any switched-on language, unless the image is flagged **decorative** (empty `alt`, research #7) *(amended — review L3)*
 - a page without `<title>` or meta description
 - leftover placeholders such as `example.com`, `Your Firm Name` or `hello@yourfirm.com`
 
@@ -118,7 +118,7 @@ Incremental "regenerate only dependent pages" is rejected: one missed dependency
 ### 3.10 Scale limits (checked, not a concern)
 
 - The recursive tree read truncates at 100,000 entries or 7 MB; this site will have a few thousand files at most.
-- Write limits (80 content-creating requests per minute) matter only for binaries, and images are already uploaded at media time (research #7).
+- Write limits (80 content-creating requests per minute, 500 per hour) matter only for binaries. *Amended (review H5):* image renditions are **not** in the public repo before Publish. They wait in the private drafts repo, and Publish copies them into `media/`. Uploads to the drafts repo are throttled and can resume after an interruption (#27).
 - Revisit only if output exceeds ~5,000 files.
 
 ---

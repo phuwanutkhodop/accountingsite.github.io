@@ -160,6 +160,11 @@ Verified live (5 Oct 2026) with `Origin: https://phuwanutkhodop.github.io`: the 
 
 ### 4.1 Threat model for a single-owner tool
 
+> **Update, 6 October 2026 (plan review H1, `docs/reviews/2026-10-06-plan-review.md`):** this threat model is out of date.
+> - Decision #10 later gave the same token access to a **private drafts repo** holding unpublished drafts and original photos, which may carry GPS data. A leak now exposes private material, not only "website integrity".
+> - The shared origin (point 2 below) is no longer hypothetical: #18 widgets, #29 analytics and SVG uploads could all put third-party code on the Admin's origin.
+> - **#31 owns the fix:** the origin and custom-domain plan, plus hard rules for #18, #27 and #29.
+
 The token grants **write to one public website repository** and nothing else (no account access, no other repos, no org). Worst realistic outcome of a leak: an attacker defaces or deletes the firm's website until the owner revokes the token and rolls back (§2.5 H5 — history makes this a 2-minute recovery). There is no customer data in the repo (it must stay that way; Pages is public). So the asset is "website integrity", not "financial data".
 
 The three ways the token can leak from a browser-only Admin:
@@ -193,6 +198,7 @@ Key insight: *no* client-side option survives XSS while the Admin is open and un
 ### 4.4 Expiry behaviour and renewal UX
 
 * On expiry GitHub **revokes** the token; it "can no longer be used to authenticate … It is not possible to restore an expired or revoked token." Every API call returns `401`. [[21]](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/token-expiration-and-revocation)
+* **Correction, 6 October 2026 (plan review H6):** a browser page **cannot** read the header described in the next point. GitHub's CORS `Access-Control-Expose-Headers` lists only ETag, Link, the rate-limit headers, X-OAuth-Scopes, X-Accepted-OAuth-Scopes and X-Poll-Interval. The Admin therefore asks the owner for the expiry date when the token is pasted, and treats any `401` as "renew your key" (#20, #25).
 * The API tells you the date in advance: the live response header `github-authentication-token-expiration: 2026-10-05 09:13:19 UTC` was observed in this research. Admin should read it on P1 and show "Token expires in N days" from 14 days out.
 * GitHub emails the account when a token is about to expire (stated in GitHub's 2021 changelog; the exact lead time is not documented in the pages read for this ticket). [[30]](https://github.blog/changelog/2021-07-26-expiration-options-for-personal-access-tokens/)
 * Renewal UX: on any `401` → clear stored token → show a screen that (a) explains "your publishing key has expired — nothing is lost", (b) deep-links to the pre-filled token form (§5 step 3 URL), (c) has a paste box, (d) re-runs P1–P3 and resumes the pending publish from the draft held in the browser. GitHub also offers **Regenerate** on an existing fine-grained token in the token's settings page, which keeps the same name/permissions and issues a new secret.

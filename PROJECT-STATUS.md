@@ -1,7 +1,7 @@
 # PROJECT-STATUS.md
 
 **Last updated:** Tuesday, 6 October 2026
-**Last session:** Tickets **#16, #14 and #13** decided and closed (records in `docs/decisions/`). #13 Design Library: owner chose design-only save-back, pages keep their preset version until the owner upgrades, and the ten intent categories. Claude: five levels (theme · page template · section type · preset · instance), `major.minor` versions, semantic tokens only, a library check (strict template, no literals, renders in 3 languages × light/dark, AA contrast, works without JS), computed usage index, live sandboxed previews, deprecate-never-delete.
+**Last session:** Tickets **#16, #14 and #13** decided and closed (records in `docs/decisions/`). Then a **plan review** at the owner's request (`docs/reviews/2026-10-06-plan-review.md`): 6 high, 16 medium and 4 low findings across the earlier and today's work. All of them are fixed in the documents or attached to their owner tickets. **Owner decision:** publishing requires every *switched-on* language; a site may switch a language off, and the firm's real site keeps EN + TH + ZH.
 **Next session:** builder core, next ticket **#17 (drafts, versions and rollback)**, then #20 → #22 → #23, with #24–#32 alongside. No new side tracks without the owner's explicit OK. The brand is kept for the later firm website (`brand/README.md`); #36 stays open only for a possible request for more patterns.
 ---
 
@@ -21,7 +21,7 @@ The owner re-stated the original goal: **(1) build a ready-made website-builder 
 
 **Rules that still bind during the builder effort:** read every file before editing; relative paths only; static only. Builder code follows `docs/decisions/16-tech-stack.md`: no build step, libraries only from `admin/vendor/`, `admin/engine/` stays pure.
 
-**Route correction (owner, 6 Oct 2026):** the identity path below is parked; the builder uses a neutral test theme, and the firm identity comes in the firm-website effort. **Visual identity retired (owner, 5 Oct 2026):** Navy & Soft Linen and Instrument Serif + Inter are **no longer locked**. The owner wants a fully new look for the website *and* the Admin — feeling: **minimal and premium but not "modern", plus bold and confident**. Path: #33 define the feeling → #34 benchmark research → #35 three directions, owner picks. #15 (type specimen), #19 (migration) and #21 (section sample) now wait on #35. The "Locked architectural decisions" palette/font lines further down are superseded.
+**Route correction (owner, 6 Oct 2026):** the identity path below is parked; the builder uses a neutral test theme, and the firm identity comes in the firm-website effort. **Visual identity retired (owner, 5 Oct 2026):** Navy & Soft Linen and Instrument Serif + Inter are **no longer locked**. The owner wants a fully new look for the website *and* the Admin — feeling: **minimal and premium but not "modern", plus bold and confident**. Path: #33 define the feeling → #34 benchmark research → #35 three directions, owner picks. *(Superseded by the route correction: #15, #19 and #21 no longer wait on #35.)* The "Locked architectural decisions" palette/font lines further down are superseded.
 
 ---
 
@@ -272,7 +272,7 @@ These are real but non-urgent. They are documented so they don't get lost across
 
 These have been made. Future sessions should treat them as fixed unless the user explicitly raises them:
 
-- **Manifest-driven publishing.** Single source of truth = `/en/posts/articles.json`.
+- ~~**Manifest-driven publishing.** Single source of truth = `/en/posts/articles.json`.~~ *Superseded for the builder (decisions #10, #14): article source is `site/articles/<id>.json`, and pages are generated at Publish. `articles.json` stays only until #19 migrates the current site.*
 - **`.insight-card`** is the canonical card primitive. New card types should be modifiers (`.insight-card--featured`, etc.), not parallel systems.
 - **BEM naming** (`block`, `block__element`, `block--modifier`) is canonical. No camelCase, no hyphenated-flat names.
 - **All paths relative** (`./` for current directory, `../` to go up). No `/en/...` absolute paths anywhere.
