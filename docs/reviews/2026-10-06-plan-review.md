@@ -102,3 +102,4 @@
 | Date | Ticket | Findings closed |
 |---|---|---|
 | 2026-10-06 | #17 (`docs/decisions/17-drafts-versions-rollback.md`) | H2, H3, M3, M4, L4 |
+| 2026-10-06 | #20 (`docs/decisions/20-publish-proof.md`) | M11, M12; H6 and M10 confirmed in a real browser, and their designs (owner-entered expiry date; content-based live check) are recorded for #25 and #28 |
