@@ -1,8 +1,8 @@
 # PROJECT-STATUS.md
 
 **Last updated:** Tuesday, 6 October 2026
-**Last session:** Tickets **#16, #14 and #13** decided and closed (records in `docs/decisions/`). Then a **plan review** at the owner's request (`docs/reviews/2026-10-06-plan-review.md`): 6 high, 16 medium and 4 low findings across the earlier and today's work. All of them are fixed in the documents or attached to their owner tickets. **Owner decision:** publishing requires every *switched-on* language; a site may switch a language off, and the firm's real site keeps EN + TH + ZH.
-**Next session:** builder core, next ticket **#17 (drafts, versions and rollback)**, then #20 → #22 → #23, with #24–#32 alongside. No new side tracks without the owner's explicit OK. The brand is kept for the later firm website (`brand/README.md`); #36 stays open only for a possible request for more patterns.
+**Last session:** Tickets **#16, #14, #13 and #17** decided and closed (records in `docs/decisions/`), plus a **plan review** (`docs/reviews/2026-10-06-plan-review.md`, 26 findings, each fixed or attached to its owner ticket). #17: drafts save automatically (browser + private drafts repo, at most once a minute); Publish lists every ready item, ticked, with dependencies paired; one Publish = one version, nameable; restore per item or whole site turns old source into drafts and never touches `admin/` or `library/`; two-device conflicts are shown side by side; public history is never rewritten. **Owner decision:** publishing requires every switched-on language.
+**Next session:** builder core, next ticket **#20 (create the token and prove a browser-only publish)**. It needs the owner at the keyboard to create the fine-grained token, so plan a short guided session. Then #22 → #23, with #24–#32 alongside. No new side tracks without the owner's explicit OK. The brand is kept for the later firm website (`brand/README.md`).
 ---
 
 ## Site Builder effort (started 5 Oct 2026) — READ THIS FIRST

@@ -96,3 +96,9 @@
 | #21 | M16 |
 
 #23 must confirm every row above is closed before the final specification is written.
+
+### Resolved since
+
+| Date | Ticket | Findings closed |
+|---|---|---|
+| 2026-10-06 | #17 (`docs/decisions/17-drafts-versions-rollback.md`) | H2, H3, M3, M4, L4 |
