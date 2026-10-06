@@ -4,7 +4,7 @@
 **Date:** 6 October 2026
 **Decided by:** the owner, with Claude
 **Inputs:** decision #33 (brand feeling), research #34 §11 (the three directions), the locked brand (`brand/README.md`)
-**Status:** **in progress.** Round 1 published and waiting for the owner's ratings.
+**Status:** **parked (owner route correction, 2026-10-06).** Round 1 is published. The ticket resumes in the firm-website effort, because the firm's identity is not part of the Site Builder. See the note on map #1.
 
 ---
 
@@ -59,7 +59,7 @@ Source: `docs/decisions/35-visual-directions/round1.html`. Assets are published 
 - Thai and Chinese headlines broke in the middle of a word at desktop width. They now break at phrase boundaries.
 - The Thai menu wrapped below about 1100 px. The language switch now moves out of the bar at that width.
 
-## 5. Next
+## 5. Next (when resumed in the firm-website effort)
 
 1. The owner rates round 1 on the board.
 2. Claude reads `ratings/round1`, records the result here, and builds round 2 in the winning direction.

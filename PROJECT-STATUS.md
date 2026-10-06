@@ -1,8 +1,8 @@
 # PROJECT-STATUS.md
 
 **Last updated:** Tuesday, 6 October 2026
-**Last session:** Ticket #35 (three visual directions) started. Owner decisions: two review rounds; compare brass and oxblood figures; firm name is always **"D.A."** with dots; use the four locked patterns for now (owner may ask for more patterns later; #36 stays open for that). **Round 1 board published:** https://claude.ai/artifact/CAdrbjPVRMLb44ixXLzxLM (homepage + Admin Dashboard × A Maison / B Atelier / C Haute Contrast, EN/TH/ZH, day/night, desktop/phone; ratings saved in the artifact's database `ratings/round1`). Record: `docs/decisions/35-visual-directions.md`.
-**Next session:** read the owner's ratings (ArtifactData → `ratings/round1` on the board), record them in `docs/decisions/35-visual-directions.md`, then build round 2 (services, tax calendar, article, contact) in the winning direction. Brand reference: `brand/README.md` (logo 153, seal 346, patterns 401 · 406 · 417 · 420; `brand/` is read-only).
+**Last session:** Ticket #35 round 1 board published (https://claude.ai/artifact/CAdrbjPVRMLb44ixXLzxLM). Then the owner spotted that the project had drifted from the goal ("build the website builder first"). **Route correction (owner, 2026-10-06):** the brand track #33–#36 is off the critical path and #35 is parked. The builder is built on a neutral test theme. The Admin gets its own neutral look. #15, #19 and #21 are unblocked, and #15 is re-scoped to the trilingual type system. The map (#1) carries the correction note. The firm name is always "D.A." with dots.
+**Next session:** builder core. Start with **#16 (tech stack)**, a technical decision Claude makes and records, then #14 → #13 → #17 → #20 → #22 → #23, with #24–#32 alongside. No new side tracks without the owner's explicit OK. The brand is kept for the later firm website (`brand/README.md`); #36 stays open only for a possible request for more patterns.
 ---
 
 ## Site Builder effort (started 5 Oct 2026) — READ THIS FIRST
@@ -21,7 +21,7 @@ The owner re-stated the original goal: **(1) build a ready-made website-builder 
 
 **Rules that still bind during the builder effort:** read every file before editing; relative paths only; static only.
 
-**Visual identity retired (owner, 5 Oct 2026):** Navy & Soft Linen and Instrument Serif + Inter are **no longer locked**. The owner wants a fully new look for the website *and* the Admin — feeling: **minimal and premium but not "modern", plus bold and confident**. Path: #33 define the feeling → #34 benchmark research → #35 three directions, owner picks. #15 (type specimen), #19 (migration) and #21 (section sample) now wait on #35. The "Locked architectural decisions" palette/font lines further down are superseded.
+**Route correction (owner, 6 Oct 2026):** the identity path below is parked; the builder uses a neutral test theme, and the firm identity comes in the firm-website effort. **Visual identity retired (owner, 5 Oct 2026):** Navy & Soft Linen and Instrument Serif + Inter are **no longer locked**. The owner wants a fully new look for the website *and* the Admin — feeling: **minimal and premium but not "modern", plus bold and confident**. Path: #33 define the feeling → #34 benchmark research → #35 three directions, owner picks. #15 (type specimen), #19 (migration) and #21 (section sample) now wait on #35. The "Locked architectural decisions" palette/font lines further down are superseded.
 
 ---
 
