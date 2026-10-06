@@ -1,0 +1,564 @@
+{
+ "group": "luxury",
+ "sites_reviewed": [
+  "hermes.com_us_en",
+  "rolex.com",
+  "patek.com_en_home",
+  "bottegaveneta.com_en-us",
+  "therow.com",
+  "lemaire.fr",
+  "aman.com",
+  "rosewoodhotels.com_en_default"
+ ],
+ "failed": [
+  "hermes.com_us_en"
+ ],
+ "partial": {
+  "patek.com_en_home": "cookie banner over lower third of desktop frames; phone videos black",
+  "lemaire.fr": "geo modal + scrim over every frame",
+  "bottegaveneta.com_en-us": "phone frames mostly covered by cookie banner",
+  "aman.com": "hero video 'Player error'",
+  "rosewoodhotels.com_en_default": "hero and one carousel rendered empty"
+ },
+ "findings": [
+  {
+   "site": "rolex.com",
+   "id": "rolex-1",
+   "name": "Visitor switches for motion and contrast",
+   "what": "Footer bottom bar, separated from the link columns by a full-width 1px light-grey rule on the #F8F8F8 footer ground. Left: globe glyph + current country ('United States', 15px). Right, flush with the content edge: two labelled toggle switches, each a ~36x18px pill (black track, white knob) followed by a 15px regular label: 'Reduce motion' and 'Contrast active'. Same size and weight as every other footer link; no icon, no 'accessibility' badge, no floating widget. On phone the two switches repeat, stacked under the locale line. Inferred behaviour: Reduce motion pauses the hero video, the pinned-hero/rising-panel effect and carousels; Contrast swaps text/background tokens to a higher-contrast set.",
+   "evidence": {
+    "frame": "shots/rolex.com/desktop-03.jpg",
+    "box": [
+     100,
+     830,
+     1240,
+     70
+    ],
+    "also": [
+     "shots/rolex.com/phone-04.jpg"
+    ]
+   },
+   "crop": "findings/crops/rolex-1.jpg",
+   "why_valuable": "Accessibility presented as a courtesy the house extends, not as a compliance overlay (compare the floating accessibility widget on Rosewood). Making motion visibly optional signals that the motion is deliberate; almost no site exposes these preferences as first-class, labelled controls.",
+   "rarity": 4,
+   "buildable": "css+small-js: each switch sets data-motion / data-contrast on <html> and remembers it in localStorage; all motion is authored under :root:not([data-motion=reduce]) and also honours prefers-reduced-motion; contrast is a colour-token swap. Without JS the switches are hidden and the OS-level prefers-reduced-motion / prefers-contrast media queries still apply.",
+   "fit_professional": 5,
+   "role": "footer",
+   "three_languages": "yes: short plain labels, no case or tracking (e.g. 'ลดการเคลื่อนไหว' / '减少动态效果')."
+  },
+  {
+   "site": "rolex.com",
+   "id": "rolex-2",
+   "name": "Footer with two heading scales",
+   "what": "A three-column sitemap footer (columns at x~318/622/927, pitch ~305px, block centred). Columns 1-2 group the brand narrative under 24px bold headings ('Rolex watches and accessories', 'Watchmaking', 'Oyster Story', 'About Rolex', 'Sports and Arts', 'Buying and servicing'), each followed by 1-17 links at 15px regular on a 27px line. Column 3 groups the utilities ('Help and support', 'Accessibility', 'Media', 'Official channels', 'Our platforms') under 15px bold heads. Groups are separated by space only (~28px); no rules, no boxes; tiny 13px glyphs only before social names. The heading size alone tells the reader which links are 'the story' and which are 'service'.",
+   "evidence": {
+    "frame": "shots/rolex.com/desktop-03.jpg",
+    "box": [
+     300,
+     0,
+     830,
+     780
+    ],
+    "also": [
+     "shots/rolex.com/desktop-04.jpg"
+    ]
+   },
+   "crop": "findings/crops/rolex-2.jpg",
+   "why_valuable": "Turns the footer into a table of contents with chapter titles instead of a uniform link dump; the hierarchy is editorial, not decorative.",
+   "rarity": 3,
+   "buildable": "css: two heading classes inside a 3-column grid; no JS.",
+   "fit_professional": 4,
+   "role": "footer",
+   "three_languages": "yes: no case or tracking involved; Thai heads need ~1.5 line-height and may wrap to two lines."
+  },
+  {
+   "site": "rolex.com",
+   "id": "rolex-3",
+   "name": "Triptych rising over a dimmed hero",
+   "what": "Below a full-bleed hero video (headline ~70px bold sans, white, centred, with a 13px tracked uppercase eyebrow above), the hero appears to stay in place and darken to roughly 70% black while three portrait panels (~398x610px each, 8px gaps, 8px corner radius, block ~1210px wide and centred) slide up over it. The three panels pair three kinds of subject: product (Datejust), person (an artist of the 'Rolex family'), technical detail (Cyclops lens). Each caption is bottom-centred: 13px uppercase eyebrow in a wide extended face tracked ~0.15em over a 34px bold title. In the captured frame the third panel sits ~17px lower than the first two, consistent with a staggered per-column rise (inferred). On phone the panels become a horizontal carousel with the next panel peeking.",
+   "evidence": {
+    "frame": "shots/rolex.com/desktop-01.jpg",
+    "box": [
+     0,
+     165,
+     1430,
+     735
+    ],
+    "also": [
+     "shots/rolex.com/desktop-00.jpg",
+     "shots/rolex.com/phone-01.jpg"
+    ]
+   },
+   "crop": "findings/crops/rolex-3.jpg",
+   "why_valuable": "The hero is not replaced but put into shadow, so the triptych reads as a foreground layer: depth without 3D. The product / person / detail rhythm gives a single row three different kinds of evidence.",
+   "rarity": 3,
+   "buildable": "css+small-js: position:sticky hero with an overlay whose opacity follows scroll (or CSS scroll-driven animation where supported) and a small translateY stagger per column. Without JS: hero, then an ordinary three-column row.",
+   "fit_professional": 3,
+   "role": "opening",
+   "three_languages": "with care: the tracked uppercase eyebrow must become an untracked small bold label in Thai/Chinese; titles must be allowed two lines."
+  },
+  {
+   "site": "rolex.com",
+   "id": "rolex-4",
+   "name": "Signature sign-off before the footer",
+   "what": "The last content block ends, then the full logo (crown + wordmark, ~135x75px, in brand green and gold) sits alone, centred, on white with ~40px above and ~80px below, like a signature under a letter. Only then a modest left-aligned 'Share' row and the grey footer. Nothing else shares that band. The homepage itself is short: hero, triptych, one collection banner, sign-off.",
+   "evidence": {
+    "frame": "shots/rolex.com/desktop-02.jpg",
+    "box": [
+     0,
+     560,
+     1430,
+     300
+    ],
+    "also": [
+     "shots/rolex.com/phone-02.jpg"
+    ]
+   },
+   "crop": "findings/crops/rolex-4.jpg",
+   "why_valuable": "Ending the page with the mark, in silence, is a gesture of authorship; it costs only space and makes every page feel finished and signed. It is the natural home for a firm's seal.",
+   "rarity": 3,
+   "buildable": "css: a centred figure band in the page template; no JS.",
+   "fit_professional": 5,
+   "role": "footer",
+   "three_languages": "yes: no text."
+  },
+  {
+   "site": "patek.com_en_home",
+   "id": "patek-1",
+   "name": "Light caps headings in one bronze accent, serif reading text",
+   "what": "Each story block: eyebrow 13px uppercase regular sans (Open Sans) in warm grey; headline ~34px Open Sans Light (weight 300), uppercase, near-normal tracking, line-height ~1.1, in a warm taupe-bronze (~#8B7965), at most two lines; body in Lora serif 16/26 near-black, measure ~480px (~60 characters), with italics for craft terms ('guillochage'); then an outline pill button (1px taupe border, 13px uppercase taupe text). That taupe-bronze is the only colour on the page outside photographs: eyebrows, headings, button text and even the consent button use it. The pairing inverts the usual convention: display in a thin sans, reading text in a serif. Blocks sit in two halves (image 588px, 126px gutter, text column) with the text starting ~115-185px below the image top, so it reads low-set rather than centred.",
+   "evidence": {
+    "frame": "shots/patek.com_en_home/desktop-04.jpg",
+    "box": [
+     100,
+     180,
+     1240,
+     452
+    ],
+    "also": [
+     "shots/patek.com_en_home/desktop-03.jpg",
+     "shots/patek.com_en_home/desktop-07.jpg"
+    ]
+   },
+   "crop": "findings/crops/patek-1.jpg",
+   "why_valuable": "Weight-300 caps whisper rather than shout, and one metallic-warm accent reads as material (bronze, leather) rather than 'brand colour'. The serif body gives the text the voice of a printed brochure.",
+   "rarity": 3,
+   "buildable": "css: two families, one accent token; no JS.",
+   "fit_professional": 5,
+   "role": "type-system",
+   "three_languages": "with care: uppercase is a no-op in Thai/Chinese, so the heading relies on weight and colour; needs Thai/Chinese faces with a true light weight (e.g. Noto Sans Thai / Noto Sans SC Light) and serif companions (Noto Serif Thai / Noto Serif SC)."
+  },
+  {
+   "site": "bottegaveneta.com_en-us",
+   "id": "bottega-1",
+   "name": "Services shown as the tools of the craft",
+   "what": "Section label 'BESPOKE SERVICES' (14px caps, centred). Below it three square photographs (~377px each, butt-joined with 4px white seams, the row inset 150px from both edges) of single objects on the same pale-grey seamless backdrop: a stacked wooden swatch box ('Make an appointment'), a brass hot-foil letter stamp ('Personalization'), a leather certificate wallet over a fan of colour samples ('Certificate of Craft'). One caption per tile, 14px caps, centred ~50px below. No descriptions, icons or arrows. ~180px of empty space before the footer rule.",
+   "evidence": {
+    "frame": "shots/bottegaveneta.com_en-us/desktop-03.jpg",
+    "box": [
+     140,
+     0,
+     1160,
+     480
+    ],
+    "also": [
+     "shots/bottegaveneta.com_en-us/desktop-02.jpg",
+     "shots/bottegaveneta.com_en-us/desktop-04.jpg"
+    ]
+   },
+   "crop": "findings/crops/bottega-1.jpg",
+   "why_valuable": "Each service is represented by the physical tool that performs it: material honesty instead of pictograms. The viewer infers craft from the objects; nothing has to be claimed in words.",
+   "rarity": 3,
+   "buildable": "needs-bespoke-assets: one consistent still-life shoot (same backdrop, light and angle). Layout is plain css and needs no JS.",
+   "fit_professional": 4,
+   "role": "services",
+   "three_languages": "yes: one short caption per tile; drop the caps transform in Thai/Chinese."
+  },
+  {
+   "site": "bottegaveneta.com_en-us",
+   "id": "bottega-2",
+   "name": "Whisper section titles",
+   "what": "Section titles are set at the same ~14px regular caps as captions and buttons ('BESPOKE SERVICES'; footer heads 'STORE LOCATOR', 'NEED HELP?'). Apart from the logotype the page has effectively one text size. Hierarchy comes from spacing (~110px above a section title, ~50px below) and from image scale (full-bleed, then halves, then thirds). In the crop the title sits right under a full-bleed photograph and carries no more weight than a museum label.",
+   "evidence": {
+    "frame": "shots/bottegaveneta.com_en-us/desktop-02.jpg",
+    "box": [
+     0,
+     480,
+     1440,
+     420
+    ],
+    "also": [
+     "shots/bottegaveneta.com_en-us/desktop-04.jpg"
+    ]
+   },
+   "crop": "findings/crops/bottega-2.jpg",
+   "why_valuable": "Refusing to enlarge headings lets the photographs carry the page and makes every word feel like a label in a gallery: restraint that is visibly deliberate.",
+   "rarity": 3,
+   "buildable": "css: a single type size token plus spacing scale; no JS.",
+   "fit_professional": 3,
+   "role": "type-system",
+   "three_languages": "yes: one size works in all scripts; Thai needs ~1.6 line-height at this small size."
+  },
+  {
+   "site": "bottegaveneta.com_en-us",
+   "id": "bottega-3",
+   "name": "Square label-plate buttons on photographs",
+   "what": "Calls to action are white rectangles with a 1px black border, 0 radius, ~226x40px, 14px caps with slight tracking (~0.04em), placed in pairs 12px apart at bottom centre of a photograph, under a one-line season label ('WINTER 2026', 14px white caps). The same plate is used on every image and alone ('DISCOVER MORE').",
+   "evidence": {
+    "frame": "shots/bottegaveneta.com_en-us/desktop-00.jpg",
+    "box": [
+     440,
+     740,
+     560,
+     100
+    ],
+    "also": [
+     "shots/bottegaveneta.com_en-us/desktop-01.jpg",
+     "shots/bottegaveneta.com_en-us/desktop-02.jpg"
+    ]
+   },
+   "crop": "findings/crops/bottega-3.jpg",
+   "why_valuable": "Reads like a printed label stitched onto the image rather than a UI widget; the opposite of the rounded pill.",
+   "rarity": 2,
+   "buildable": "css: no JS.",
+   "fit_professional": 4,
+   "role": "other",
+   "three_languages": "yes: remove caps/tracking for Thai/Chinese; the plate must grow with longer Thai labels."
+  },
+  {
+   "site": "therow.com",
+   "id": "therow-1",
+   "name": "One photograph is the whole homepage",
+   "what": "The home page is a single full-length portrait photograph shown at full viewport width, so it runs ~2.5 viewports tall (page height 2810px): scrolling pans down the figure (face, waist, feet) and then the footer arrives. No headline, no button, no slider. The one-line 13px navigation floats over the image with no background. The photo is grainy and naturally lit, subject off-centre to the right. On phone the same image fits the figure head to toe in one screen.",
+   "evidence": {
+    "frame": "shots/therow.com/desktop-00.jpg",
+    "box": [
+     0,
+     0,
+     1440,
+     900
+    ],
+    "also": [
+     "shots/therow.com/desktop-01.jpg",
+     "shots/therow.com/desktop-02.jpg",
+     "shots/therow.com/desktop-03.jpg",
+     "shots/therow.com/phone-00.jpg"
+    ],
+    "note": "crop is the four consecutive desktop frames side by side, scaled to 345px each"
+   },
+   "crop": "findings/crops/therow-1.jpg",
+   "why_valuable": "Total confidence: the house trusts one image to do all the work, and scrolling becomes one slow camera move instead of a sequence of sections.",
+   "rarity": 5,
+   "buildable": "needs-bespoke-assets: one tall photograph made for the purpose. The layout is plain css (img width:100%; height:auto) and works without JS.",
+   "fit_professional": 2,
+   "role": "opening",
+   "three_languages": "yes: no text on the image. Fit is low for a home page that must explain services; usable for an 'about the firm' page (e.g. one tall image of the office staircase or facade)."
+  },
+  {
+   "site": "therow.com",
+   "id": "therow-2",
+   "name": "Locale block fenced by a vertical hairline",
+   "what": "Footer, first column: two label-over-value pairs, 'Choose language:' / 'English' and 'Select country:' / 'United States', in the same 13px as everything else, separated from the four link columns by a single 1px light-grey vertical rule (~115px tall). Link columns are evenly pitched (~266px); the newsletter at far right is an underlined field with a '>' and a consent checkbox; 'The Row (c) 2026' centred beneath. On phone the pairs become the first two rows of the footer list ('Choose Language: English >').",
+   "evidence": {
+    "frame": "shots/therow.com/desktop-03.jpg",
+    "box": [
+     40,
+     690,
+     1360,
+     170
+    ],
+    "also": [
+     "shots/therow.com/phone-01.jpg"
+    ]
+   },
+   "crop": "findings/crops/therow-2.jpg",
+   "why_valuable": "Language and country are presented as settings with a current value, quietly fenced off from navigation: precise, calm, and exactly the device a three-language site needs.",
+   "rarity": 3,
+   "buildable": "css: a native <details> or plain links to /en/ /th/ /zh/; no JS needed.",
+   "fit_professional": 5,
+   "role": "footer",
+   "three_languages": "yes: write each language name in its own script (English / ไทย / 简体中文)."
+  },
+  {
+   "site": "therow.com",
+   "id": "therow-3",
+   "name": "Text-only header with parenthetical counts",
+   "what": "The header is one line of 13px regular text with no icons: seven sections left-aligned from x=20 with ~30px gaps, a thin wide-tracked logotype (~0.35em) centred, five utilities right-aligned. Counts are written inline in parentheses ('Bag (0)') instead of a coloured badge; Lemaire does the same ('CART (0)', 'MENU (0)').",
+   "evidence": {
+    "frame": "shots/therow.com/desktop-00.jpg",
+    "box": [
+     0,
+     0,
+     1440,
+     60
+    ]
+   },
+   "crop": "findings/crops/therow-3.jpg",
+   "why_valuable": "Counts and states expressed typographically keep the header a line of text rather than a toolbar; it reads like a printed index.",
+   "rarity": 2,
+   "buildable": "css: no JS (a count can be written at build time, e.g. 'Insights (24)').",
+   "fit_professional": 3,
+   "role": "navigation",
+   "three_languages": "yes: parentheses work in all scripts (use full-width （） in Chinese)."
+  },
+  {
+   "site": "lemaire.fr",
+   "id": "lemaire-1",
+   "name": "Exposed index header",
+   "what": "On desktop the whole menu is printed in the header as a small table of contents: no dropdowns, no hamburger. Logotype 'LEMAIRE' (wide-tracked caps) top-left; then four short columns of 12px uppercase links tracked ~0.08em on a 23px line, starting at x~247 / 484 / 721 / 958 (every 237px, columns 3/5/7/9 of a 12-column grid): 'NEW ARRIVALS' | 'WOMEN, MEN, GIFTS' | 'BAGS, SHOES, ACCESSORIES, OBJECTS' | 'SHOWS, PROJECTS, STORES, ABOUT'; a fifth, right-aligned column holds the utilities 'CART (0), SEARCH, MY ACCOUNT, WISHLIST'. The header band is ~180px tall and the first image starts below it. Phone collapses to 'LEMAIRE   MENU (0)'.",
+   "evidence": {
+    "frame": "shots/lemaire.fr/desktop-00.jpg",
+    "box": [
+     0,
+     0,
+     1440,
+     110
+    ],
+    "also": [
+     "shots/lemaire.fr/phone-00.jpg"
+    ]
+   },
+   "crop": "findings/crops/lemaire-1.jpg",
+   "why_valuable": "Shows the whole house at once, like the contents page of a catalogue: honest about scope, readable in one glance, and a signal that the site is curated rather than endless.",
+   "rarity": 4,
+   "buildable": "css: a <nav> of column lists on the page grid, no JS; on phone a <details> disclosure.",
+   "fit_professional": 5,
+   "role": "navigation",
+   "three_languages": "with care: caps/tracking drop out in Thai/Chinese; Thai labels run ~30% longer, so columns need a min-width and items may wrap to two lines."
+  },
+  {
+   "site": "lemaire.fr",
+   "id": "lemaire-2",
+   "name": "Bottom-aligned scattered grid, labels above",
+   "what": "A category band on the 12-column grid: a small image (237x296, columns 1-2) labelled 'WOMEN', a second small image (237x296, columns 4-5) labelled 'JEWELLERY', columns 6-8 left empty, and a large image (475x594, columns 9-12) bleeding off the right edge labelled 'MEN'. All three share one bottom edge (y~748) while their tops differ, so the labels (12px tracked caps, set ~10px above each image, never on it) step up with the image heights. ~90px of empty space above and below. A geo-location modal and grey scrim cover the centre of the captured frame.",
+   "evidence": {
+    "frame": "shots/lemaire.fr/desktop-01.jpg",
+    "box": [
+     0,
+     100,
+     1440,
+     680
+    ]
+   },
+   "crop": "findings/crops/lemaire-2.jpg",
+   "why_valuable": "Mixed scale on a shared baseline reads as a deliberate gallery hang rather than a card grid; the empty columns are the luxury.",
+   "rarity": 4,
+   "buildable": "css: CSS grid with align-items:end and explicit column spans; no JS.",
+   "fit_professional": 3,
+   "role": "grid-system",
+   "three_languages": "with care: labels above images work in all scripts; drop caps/tracking in Thai/Chinese."
+  },
+  {
+   "site": "lemaire.fr",
+   "id": "lemaire-3",
+   "name": "Two-voice caption: sans caps names, serif figures",
+   "what": "Product caption under the image: name in 12px BrownStd uppercase tracked ~0.08em, wrapping to two lines; price '990€' right-aligned on the first line's baseline in Garamond Premier (lining figures, ~15px); a third line '1 color' in grey Garamond. The same split runs through the footer: heads in Brown caps ('WORLDWIDE SHIPPING & RETURNS', 'CUSTOMER SERVICE'), every factual line (hours, phone numbers 'France : +33 1 72 95 21 21', the newsletter sentence) in Garamond.",
+   "evidence": {
+    "frame": "shots/lemaire.fr/desktop-02.jpg",
+    "box": [
+     1075,
+     255,
+     365,
+     560
+    ],
+    "also": [
+     "shots/lemaire.fr/desktop-03.jpg",
+     "shots/lemaire.fr/desktop-04.jpg"
+    ]
+   },
+   "crop": "findings/crops/lemaire-3.jpg",
+   "why_valuable": "The sans names things, the serif states facts. Numbers set in a book face feel considered rather than transactional, and the right-aligned figure makes a ledger-like edge.",
+   "rarity": 3,
+   "buildable": "css: no JS.",
+   "fit_professional": 4,
+   "role": "data-presentation",
+   "three_languages": "with care: Thai/Chinese names cannot be caps, so use the sans at medium weight untracked; the serif voice maps to Noto Serif Thai / Noto Serif SC; keep figures in the Latin serif."
+  },
+  {
+   "site": "lemaire.fr",
+   "id": "lemaire-4",
+   "name": "Quiet room before an inverted footer",
+   "what": "After the dark 'SERVICES' band the page gives almost a full viewport of blank warm paper (#FDFBF9): only the tracked 'LEMAIRE' wordmark (~120px wide) centred, and the newsletter block pinned to the top of the rightmost column (Brown caps head + Garamond sentence 'A space dedicated to the LEMAIRE universe, where you can discover writings and other curiosities.' + an underline field). The link lists sit at the very bottom with an inverted hierarchy: group heads are muted grey sentence-case 12px ('About', 'Help', 'Social', 'Legal'), the links under them darker 12px tracked caps. Locale selectors 'France ^  English ^' bottom-right at ~10px. The country modal and scrim overlay the captured frames.",
+   "evidence": {
+    "frame": "shots/lemaire.fr/desktop-05.jpg",
+    "box": [
+     0,
+     0,
+     1440,
+     900
+    ],
+    "also": [
+     "shots/lemaire.fr/desktop-04.jpg",
+     "shots/lemaire.fr/phone-05.jpg"
+    ]
+   },
+   "crop": "findings/crops/lemaire-4.jpg",
+   "why_valuable": "Silence as the closing gesture: the footer is a room you walk into rather than a dump of links. Muted heads over darker links make the content, not the labels, the loudest thing.",
+   "rarity": 3,
+   "buildable": "css: no JS (a firm would shorten the room to ~60vh).",
+   "fit_professional": 4,
+   "role": "footer",
+   "three_languages": "yes: the inverted hierarchy relies on colour, not case."
+  },
+  {
+   "site": "aman.com",
+   "id": "aman-1",
+   "name": "Gazetteer footer with status notes",
+   "what": "The footer opens with two 24px Lyon serif headings, 'More information' and 'Destinations'. Under 'Destinations' every one of the ~50 properties is listed in three columns (pitch ~353px), grouped by region heads in 13px dark sans ('Americas & Caribbean', 'Europe, Middle East & Africa', 'Asia') and continued under 'Asia (continued).', a printed-book continuation label. Each entry is 'Name, Country' in 13px grey Whitney with a lifecycle note after a comma: 'Opening 2028', 'Opening 2030', 'Coming Soon', 'Reopening Soon'. The left column lists corporate pages with sub-brands indented by a typed hyphen ('- Aman Essentials', '- Janu'), then an outline 'Contact Us' plate. A hairline, then one bottom row: wordmark left, 'Follow us on:' with monochrome glyphs, 'Copyright 2026, Aman Group S.a.r.l.' in serif with old-style figures.",
+   "evidence": {
+    "frame": "shots/aman.com/desktop-06.jpg",
+    "box": [
+     0,
+     60,
+     1440,
+     700
+    ],
+    "also": [
+     "shots/aman.com/desktop-05.jpg"
+    ]
+   },
+   "crop": "findings/crops/aman-1.jpg",
+   "why_valuable": "Exhaustive plain-text completeness signals scale without boasting; the status notes make the list feel alive and honest (what is open, what is coming). '(continued).' and hyphen indents are book conventions almost nobody uses on the web.",
+   "rarity": 4,
+   "buildable": "css: plain lists in a multi-column grid; no JS.",
+   "fit_professional": 4,
+   "role": "footer",
+   "three_languages": "yes: plain lists; in Chinese use a full-width comma (，) or a middle dot between name and status."
+  },
+  {
+   "site": "aman.com",
+   "id": "aman-2",
+   "name": "Text figures in running prose",
+   "what": "In serif body copy, numbers use old-style (lower-case) figures, e.g. 'across 36 hotels and resorts in 21 countries' and 'Copyright 2026', so they sit at x-height like words and do not jump out of the line. Dashes are spaced en dashes ('spirit – across'). Labels and lists set in the sans ('Opening 2028') keep lining figures.",
+   "evidence": {
+    "frame": "shots/aman.com/desktop-01.jpg",
+    "box": [
+     20,
+     725,
+     920,
+     115
+    ],
+    "also": [
+     "shots/aman.com/desktop-06.jpg"
+    ],
+    "note": "crop upscaled 1.5x for legibility"
+   },
+   "crop": "findings/crops/aman-2.jpg",
+   "why_valuable": "Book typography: numbers become part of the sentence instead of shouting like statistics, a detail only typographically literate teams bother with. For an accounting firm it separates narrative numbers (quiet, old-style) from table numbers (lining, tabular).",
+   "rarity": 3,
+   "buildable": "css: font-variant-numeric: oldstyle-nums proportional-nums on prose, lining-nums tabular-nums in tables and fee lists; needs a font with the onum feature.",
+   "fit_professional": 5,
+   "role": "type-system",
+   "three_languages": "with care: Thai and Chinese faces have no old-style figures; list the Latin serif first in the font stack so digits inside Thai/Chinese text come from it, or keep lining figures in those languages."
+  },
+  {
+   "site": "aman.com",
+   "id": "aman-3",
+   "name": "Pinned intro beside a carousel with a faded tail",
+   "what": "Section 'Seasonal Experiences': the left third holds the heading (~28px Lyon serif) and a two-line 14px serif intro aligned to the top of the images; the right two-thirds hold a carousel of cards (325px square images, ~48px gaps). The last visible card is cut by the right margin and set to ~40% opacity (image, label and text together) to say 'more'. No arrows or dots: progress is a ~440px 1px track in light stone (#DAD5CF) with a ~110px darker segment (#85807A). Each card: 10px caps category tracked ~0.2em in grey, 19px serif title, 14px serif body, then 'Discover more' (14px sans) with a 1px underline set ~6px below the text.",
+   "evidence": {
+    "frame": "shots/aman.com/desktop-02.jpg",
+    "box": [
+     0,
+     100,
+     1440,
+     690
+    ],
+    "also": [
+     "shots/aman.com/phone-02.jpg"
+    ]
+   },
+   "crop": "findings/crops/aman-3.jpg",
+   "why_valuable": "Fading instead of chopping makes the overflow intentional; a hairline progress bar is the quietest possible navigation, and the fixed intro keeps the section's argument in view while the cards move.",
+   "rarity": 3,
+   "buildable": "css+small-js: horizontal scroll-snap row with a mask-image fade on the trailing edge; the progress segment needs a scroll listener (or scroll-driven animation). Without JS: a natively scrollable row with the fade still applied.",
+   "fit_professional": 4,
+   "role": "knowledge",
+   "three_languages": "with care: the tracked caps category becomes an untracked small label in Thai/Chinese; Thai titles need room for three lines."
+  },
+  {
+   "site": "rosewoodhotels.com_en_default",
+   "id": "rosewood-1",
+   "name": "Engraved caps against a hairline serif",
+   "what": "Two voices with nothing in between. Voice 1: Engravers Gothic Bold, a wide, heavy, engraved-letterhead caps face, tracked ~0.25em at 10-14px for every label, place name, button and footer head ('THE ROSEWOOD EDIT', 'GUEST IN RESIDENCE', 'CONTACT US'), occasionally as display ('SUITE SOJOURN', ~40px, on a photograph). Voice 2: Austin Light, a hairline, high-contrast, slightly condensed serif, for headlines ('At Ease' ~44px), navigation (14px sentence case), body and links. Headlines swap one word into the italic ('At Ease', 'The Autumn Reset'). Buttons are small black plates (~80x46) carrying 9px engraved caps. Rules are tinted sage-grey (#CACCBF) on ivory (#FAFBF5); forest green (#023C2D) appears only on the Reserve button.",
+   "evidence": {
+    "frame": "shots/rosewoodhotels.com_en_default/desktop-06.jpg",
+    "box": [
+     20,
+     690,
+     1260,
+     210
+    ],
+    "also": [
+     "shots/rosewoodhotels.com_en_default/desktop-07.jpg",
+     "shots/rosewoodhotels.com_en_default/desktop-02.jpg"
+    ],
+    "note": "crop stacks desktop-06 [20, 690, 1260, 210] (top) over desktop-07 [20, 200, 1260, 700] (bottom)"
+   },
+   "crop": "findings/crops/rosewood-1.jpg",
+   "why_valuable": "It reproduces the hierarchy of engraved stationery (heavy little caps for the letterhead, fine serif for the letter), which carries institutional authority with no ornament at all.",
+   "rarity": 3,
+   "buildable": "css: needs licensed fonts; free stand-ins are a wide engraved caps face and a light Didone (e.g. Bodoni Moda). No JS.",
+   "fit_professional": 5,
+   "role": "type-system",
+   "three_languages": "with care: tracked caps and italic swaps do not exist in Thai/Chinese; map the label voice to a small bold untracked sans and the italic emphasis to colour or weight."
+  },
+  {
+   "site": "rosewoodhotels.com_en_default",
+   "id": "rosewood-2",
+   "name": "Plinth button and numeric pager",
+   "what": "A full-bleed image banner (~380px tall) with a centred ~40px engraved-caps title and a 20px serif sub-line. Its call to action is not a button on the photo but a full-width black band welded to the image's bottom edge (~65px tall) with 'DISCOVER' in 9px white tracked caps, centred. Beneath, the slide position is given as numerals, not dots: '1 —— 3', bold 11px figures with a ~24px hairline between them.",
+   "evidence": {
+    "frame": "shots/rosewoodhotels.com_en_default/desktop-06.jpg",
+    "box": [
+     0,
+     109,
+     1440,
+     510
+    ]
+   },
+   "crop": "findings/crops/rosewood-2.jpg",
+   "why_valuable": "The band works like a plinth under an artwork: the image stays clean and the action becomes architectural. The numeric pager states the count plainly (where you are, how many) instead of anonymous dots.",
+   "rarity": 4,
+   "buildable": "css+small-js: the band and the pager are plain css; only the slider needs a little JS. Without JS the slides stack and the pager is hidden.",
+   "fit_professional": 3,
+   "role": "other",
+   "three_languages": "with care: the band label must be untracked in Thai/Chinese; numerals are universal."
+  },
+  {
+   "site": "rosewoodhotels.com_en_default",
+   "id": "rosewood-3",
+   "name": "Gallery-hang carousel",
+   "what": "Property carousel with one centred portrait slide (~450x600) and its neighbours far away (~290px gaps), cut by the viewport edges so only slivers show (~204px each side). Under each slide: 13px engraved caps name tracked ~0.25em ('ROSEWOOD HONG KONG'), 14px serif location ('Hong Kong SAR'), 14px serif 'Discover' with a 1px underline. No arrows visible in the frame.",
+   "evidence": {
+    "frame": "shots/rosewoodhotels.com_en_default/desktop-01.jpg",
+    "box": [
+     0,
+     160,
+     1440,
+     730
+    ],
+    "also": [
+     "shots/rosewoodhotels.com_en_default/phone-01.jpg"
+    ]
+   },
+   "crop": "findings/crops/rosewood-3.jpg",
+   "why_valuable": "Wide gaps make each slide an object on a wall rather than an item in a strip; the cropped neighbours suggest more without crowding.",
+   "rarity": 3,
+   "buildable": "css+small-js: scroll-snap with large gaps, centred via scroll-padding. Without JS: a horizontally scrollable row.",
+   "fit_professional": 3,
+   "role": "other",
+   "three_languages": "with care: the caps name must become an untracked label in Thai/Chinese."
+  }
+ ],
+ "site_notes": {
+  "hermes.com_us_en": "FAILED: bot wall on every desktop frame ('Verification Required' slider captcha) and phone frame ('Access is temporarily restricted'). Nothing reviewable.",
+  "rolex.com": "One family, Helvetica Now Text, in three working sizes (15px links/body, 24px bold section heads, ~34-70px bold display; ratio ~1.6), plus a wide extended caps face (RolexFont-S) reserved for eyebrows only (13px, tracked ~0.15em). Colour: white and #F8F8F8 grounds, near-black text, Rolex green only on the 'Change' button and social glyphs, gold only in the crown. Content block ~1210px centred. Motion: hero video, pinned/dimmed hero with rising panels, and the visitor can switch motion off. The homepage is strikingly short (hero, triptych, one banner, sign-off): brevity as confidence. A country-selector strip sits above the header on first load.",
+  "patek.com_en_home": "Two families: Open Sans Light (300) uppercase for display (~34-40px) and eyebrows (13px), Lora serif 16/26 for body; one accent, a warm taupe-bronze, for headings, eyebrows and outline pill buttons. Grid: 120px side margins, image/text halves of 588px with a 126px gutter, text low-set against the image; rows separated by 120-200px. Signals: gsap, lenis smooth scroll, splitting, lottie, custom cursor, oldstyle/tabular numerals in CSS. Hero is a 3-slide video with a vertical dot pager at the right edge. Content device worth noting: 'Our commitment to service', a single dated pledge (service any watch made since 1839) given its own module. Capture caveat: cookie banner covers the lower ~30% of every desktop frame; phone hero videos rendered black.",
+  "bottegaveneta.com_en-us": "One proprietary sans at essentially one size (~14px) for nav, labels, buttons, section titles and footer; the serif logotype is the only other voice; a red wordmark appears once over an image as the sole colour accent. Full-bleed images with 12px white seams; the services row inset 150px. Footer divided into bands by full-bleed 1px black rules (locator | newsletter, then four link columns, then a centred 'United States (English)' line, then a grey (c) line). Signals: barba page transitions (not visible). Phone frames are dominated by the cookie banner.",
+  "therow.com": "One family (Basic Commercial) at one size, 13px, for everything; the logotype is thin wide-tracked caps (~0.35em). No accent colour: photograph, white, near-black #1C1B1B. Header split: seven sections left, logo centred, five utilities right. Homepage = one image + footer (page height 2810px). Signals: gsap, barba, WebGL (nothing visible). Only two phone frames captured (image, footer list).",
+  "lemaire.fr": "Two voices: BrownStd (geometric sans) uppercase tracked ~0.08em at 12px for nav, labels and product names; Garamond Premier for all running text and figures (prices, phone numbers, hours; lining figures). 12-column grid of 120px with ~10px outer margin; nav columns land on columns 3/5/7/9. Colour: warm paper #FDFBF9, aubergine-black #100A0D, one dark band (#141011) for services. Signals: barba, grain/noise, drop caps in CSS (not visible). Capture caveat: a country/language modal with grey scrim covers the centre of every frame.",
+  "aman.com": "Lyon Display/Text serif for headings and body, Whitney ScreenSmart sans for micro labels, links and footer lists. Sizes: 10px caps labels tracked ~0.2em, 14px body, 19px card titles, 28-31px section titles (ratio ~1.5). Old-style figures in serif prose. Colour: stone paper #F3EEE8, a darker band #E6E1DB to group sections, charcoal #313234 'Reserve' plate, nothing else. 24px outer margins; 2:1 image pairs (914 + 440px, 38px gutter) with matched heights. Phone: a full-width charcoal 'Reserve' bar fixed to the bottom (common on hotel sites). Capture caveat: hero video shows 'Player error'.",
+  "rosewoodhotels.com_en_default": "Engravers Gothic Bold (wide engraved caps) for labels, buttons, footer heads and occasional display; Austin Light and Austin Light Italic (hairline serif) for headlines, sentence-case nav, body; Swiss 721 Black Condensed loaded but not seen. Colour: ivory #FAFBF5, linen panel #F0EEE1, forest green #023C2D only on 'Reserve', black plates for secondary actions, rules tinted sage-grey #CACCBF. Header: on load a centred wordmark row, hairline, then 'GLOBAL' selector | serif nav | Reserve; after scroll a single row. Phone: full-width green 'Reserve' bar fixed at the bottom. A floating third-party accessibility widget sits bottom-right (contrast with Rolex's built-in switches). Capture caveat: the hero (desktop-00) and one mid-page carousel (desktop-04/05) rendered mostly empty: videos or lazy images not captured."
+ }
+}

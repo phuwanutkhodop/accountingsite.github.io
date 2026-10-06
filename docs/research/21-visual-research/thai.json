@@ -1,0 +1,414 @@
+{
+ "group": "thai",
+ "findings": [
+  {
+   "site": "cadsondemak.com",
+   "id": "cadsondemak-3",
+   "name": "Thai and Latin cut as one voice (matched companion type)",
+   "what": "All titles and UI use Graphik TH, the Thai companion of Graphik, with 'Graphik Thai Loop' loaded as a second family. Measured on the title 'Keychron Keycap กับภาษาไทย…' (~28px semibold, white on black): Latin cap height 20px, Latin x-height 15px, Thai consonant body 17px. Thai sits between x-height and cap height (1.13 x the x-height, 0.85 x the cap height) with the same stroke weight and terminals, so a mixed line reads as one colour. Two-line Thai titles use a 42px line pitch (1.5), so the vowels and tone marks above clear the line above. In display graphics, loopless bold carries the main phrase and looped light Thai is the counter-voice: 'ฟอนต์ฟรี' is loopless bold orange over 'ฟรีฟอนต์' looped light white, and 'ระหว่าง SEASON 5 บรรทัด' mixes looped light Thai with small Latin caps.",
+   "evidence": {
+    "frame": "shots/cadsondemak.com/desktop-01.jpg",
+    "crop": [
+     940,
+     100,
+     420,
+     160
+    ],
+    "also": [
+     {
+      "frame": "shots/cadsondemak.com/desktop-02.jpg",
+      "crop": [
+       836,
+       560,
+       514,
+       340
+      ]
+     }
+    ],
+    "crop_file": "findings/crops/cadsondemak-3.jpg"
+   },
+   "why_valuable": "Mixed Thai/English lines usually look like two fonts fighting. Here they share weight, size and rhythm, which is the clearest sign of Thai-native craft. Using looped and loopless as a deliberate contrast (formal against modern) is a lever only Thai typography has.",
+   "rarity": 4,
+   "buildable": "needs-bespoke-assets (font choice). Free families built the same way: IBM Plex Sans Thai + IBM Plex Sans Thai Looped with IBM Plex Sans/Serif, or Noto Sans Thai / Noto Sans Thai Looped / Noto Serif Thai with Noto Sans/Serif. Pure CSS once self-hosted.",
+   "fit_professional": 5,
+   "role": "type-system",
+   "three_languages": "yes: this is the multi-script recipe itself. For Chinese, pick the CJK family that matches the Latin weight and keep CJK and Thai body line-height at 1.6 or more."
+  },
+  {
+   "site": "cadsondemak.com",
+   "id": "cadsondemak-2",
+   "name": "Type-as-cover article cards",
+   "what": "Article grid of 3 columns (cards ~408x510px, 18px gap, 16px radius). Each card's 'image' is typography: the article's key word in giant letterforms cropped by the card edge, for example 'บรี ไทย' at ~190px white on red, 'น้ำเสียงใหม่ คนเดิม' stacked as outline, fill, outline in blue, Thai keycaps on black, and a cropped serif 'สร้าง' overlapping itself. Card text block at the top left: category label (12px bold: 'Type', 'Thought'), title 28px semibold in mixed Thai/Latin, then a right-aligned byline 'Article by **Name**' (13px, regular plus bold). Grounds are flat colours (red, black, cream, pale grey). No photographs.",
+   "evidence": {
+    "frame": "shots/cadsondemak.com/desktop-01.jpg",
+    "crop": [
+     90,
+     60,
+     1270,
+     530
+    ],
+    "crop_file": "findings/crops/cadsondemak-2.jpg"
+   },
+   "why_valuable": "Replaces stock photos with imagery made from the content itself. Every cover is unique but follows one system. Costs nothing to produce and is clearly authored.",
+   "rarity": 4,
+   "buildable": "css (oversized text, overflow:hidden, -webkit-text-stroke for the outline echo, colour tokens per category). Needs no JS and degrades to plain text.",
+   "fit_professional": 4,
+   "role": "knowledge",
+   "three_languages": "yes: Thai words and Chinese characters both crop well at display size. Use a loopless bold Thai face for outlined text, because outlines on thin looped Thai break up."
+  },
+  {
+   "site": "cadsondemak.com",
+   "id": "cadsondemak-4",
+   "name": "Language offered as an 'Edition'",
+   "what": "Bottom-left of the footer, below a 1px full-width rule: 'Explore more content in **English Edition**'. The words are 13px grey; the link is bold white and underlined. The other language is offered as a parallel edition of a publication, not as a flag or an 'EN | TH' toggle.",
+   "evidence": {
+    "frame": "shots/cadsondemak.com/desktop-03.jpg",
+    "crop": [
+     60,
+     820,
+     760,
+     60
+    ],
+    "crop_file": "findings/crops/cadsondemak-4.jpg"
+   },
+   "why_valuable": "Treats each language as an edited edition, which implies the content was written for that reader rather than machine-translated. It frames the switch in publishing language.",
+   "rarity": 4,
+   "buildable": "css (a plain link). No JS.",
+   "fit_professional": 4,
+   "role": "navigation",
+   "three_languages": "yes: 'อ่านฉบับภาษาไทย' and '中文版' work naturally."
+  },
+  {
+   "site": "cadsondemak.com",
+   "id": "cadsondemak-1",
+   "name": "Rotating multi-script greeting with a script index",
+   "what": "Full-width hero band under a 4px dashed black rule (a 'perforation'). One word, the greeting, is set in a heavy sans at roughly 20vw (cap height ~270px at 1440) and deliberately cropped by both viewport edges ('Welcome' runs off the right). Under it, one row of the scripts the studio covers (Latin, Bahasa & Tagalog, Vietnamese, Thai, Lao, Khmer, Burmese) in a ~36px light sans spread across the width; the script now on show is set bold italic ('Latin' bold while 'Welcome' shows). Each step swaps the greeting word, the bold item in the index and the ground colour: desktop frame = cyan with a yellow wedge, phone frame = magenta with a green wedge showing the Lao greeting with 'Lao' bolded. On phone the index turns 90 degrees into a vertical column at the left edge, so the greeting keeps the full width. Above the band, the site title in hairline condensed caps (~190px) also bleeds off both edges.",
+   "evidence": {
+    "frame": "shots/cadsondemak.com/desktop-00.jpg",
+    "crop": [
+     0,
+     260,
+     1440,
+     640
+    ],
+    "also": [
+     {
+      "frame": "shots/cadsondemak.com/phone-00.jpg",
+      "crop": [
+       0,
+       420,
+       780,
+       760
+      ]
+     }
+    ],
+    "crop_file": "findings/crops/cadsondemak-1.jpg"
+   },
+   "why_valuable": "Shows that the site speaks several languages as the opening gesture instead of hiding it in a flag dropdown. The bolded index turns an animation into something you can read, like a table of contents. Huge cropped type shows confidence.",
+   "rarity": 5,
+   "buildable": "css+small-js (swap every ~3s, stop when the user prefers reduced motion). Without JS: the first greeting plus the full index, still complete.",
+   "fit_professional": 3,
+   "role": "opening",
+   "three_languages": "yes: made for it. A quiet firm version could cycle 'Welcome / ยินดีต้อนรับ / 欢迎' on a muted ground, with the index 'English · ไทย · 中文' doubling as the language switch. Give Thai a line box of 1.3 or more so the vowels above the line are not cut off when cropped."
+  },
+  {
+   "site": "capellahotels.com_en_capella-bangkok",
+   "id": "capella-1",
+   "name": "Indented body column that survives on phone",
+   "what": "Desktop: section title in Goudy Light caps (~50px, slight tracking) at x=150. Lede in Goudy ~30px grey #6F6F6F in the left half. Body in Calibre 15px/20px grey #777 in a narrow 340px column starting at x~820, the right half, followed by a small underlined caps link 'RESORT PROGRAMMING'. The image below breaks out to x=37, further left than the text margin. Phone: the lede stays on the heading margin (~35 CSS px) while the body and link are indented ~50 CSS px further, so the two-column relationship survives as an indent instead of collapsing to one left edge. The image again starts left of the text margin and bleeds off the right edge.",
+   "evidence": {
+    "frame": "shots/capellahotels.com_en_capella-bangkok/phone-01.jpg",
+    "crop": [
+     0,
+     90,
+     780,
+     900
+    ],
+    "also": [
+     {
+      "frame": "shots/capellahotels.com_en_capella-bangkok/desktop-01.jpg",
+      "crop": [
+       0,
+       150,
+       1440,
+       500
+      ]
+     }
+    ],
+    "crop_file": "findings/crops/capella-1.jpg"
+   },
+   "why_valuable": "Keeps book-like hanging structure on small screens, where almost every template collapses to a single flush edge. Costs one CSS rule.",
+   "rarity": 3,
+   "buildable": "css (margin-inline-start on body blocks at narrow widths; a 12-column grid offset on desktop). No JS.",
+   "fit_professional": 5,
+   "role": "grid-system",
+   "three_languages": "yes: an indent works in every script, and it suits longer Thai lines well."
+  },
+  {
+   "site": "rosewoodhotels.com_en_bangkok",
+   "id": "rosewood-bkk-1",
+   "duplicate_of": "luxury.json rosewood-1 (same Rosewood design system, seen on rosewoodhotels.com/en/default)",
+   "name": "Engraved wide caps + light condensed serif (two-voice system)",
+   "what": "Labels, section kickers and venue names are in Engravers Gothic: wide, flat-sided, heavy caps at ~13px with ~0.3em tracking ('DINING', 'SALTWATER POOL', 'NAN BEI'). Headings are in Austin Light, a light, narrow, high-contrast serif, at ~44px/1.1 in sentence case. Body is the same light serif at ~18px. The main nav is also in that serif, sentence case, ~15px, which is unusual (nav is rarely serif or lower case). Buttons use the wide caps at 10px, tracked, in square black blocks (Reserve 103x46, no radius) or with a 1px hairline outline. Ground is warm off-white #FAFBF5; one accent, deep green #023C2D, is used only for Reserve.",
+   "evidence": {
+    "frame": "shots/rosewoodhotels.com_en_bangkok/desktop-03.jpg",
+    "crop": [
+     30,
+     390,
+     400,
+     340
+    ],
+    "also": [
+     {
+      "frame": "shots/rosewoodhotels.com_en_bangkok/desktop-07.jpg",
+      "crop": [
+       480,
+       700,
+       480,
+       140
+      ]
+     }
+    ],
+    "crop_file": "findings/crops/rosewood-bkk-1.jpg"
+   },
+   "why_valuable": "Wide engraved caps call up stationery and engraving (letterheads, banknotes), the authority of a private bank. Tiny-and-wide against large-and-narrow gives strong hierarchy from only two families.",
+   "rarity": 3,
+   "buildable": "needs-bespoke-assets (licensed fonts). A CSS substitute is any wide grotesk at 600 weight with 0.25em tracking plus a light condensed serif.",
+   "fit_professional": 4,
+   "role": "type-system",
+   "three_languages": "with care: the tracked-caps voice has no Thai or Chinese equivalent. Map it to a smaller, bolder loopless Thai with no tracking, and to CJK with at most 0.1em letter-spacing."
+  },
+  {
+   "site": "pwc.com_th_en.html",
+   "id": "pwc-1",
+   "name": "Pivot-phrase headline",
+   "what": "The hero is one sentence over a photo, split into three lines. Lead clause in ITC Charter 32px regular, white. The pivot 'so you can' in Charter bold at ~84px with tight leading (~0.9). Continuation back at 32px regular. Left-aligned at x=30. Ratio ~2.6:1. Then an outlined white square-cornered button 'Learn more >' (148x52).",
+   "evidence": {
+    "frame": "shots/pwc.com_th_en.html/desktop-00.jpg",
+    "crop": [
+     0,
+     130,
+     720,
+     300
+    ],
+    "crop_file": "findings/crops/pwc-1.jpg"
+   },
+   "why_valuable": "Emphasis by scale inside one sentence, rather than a coloured or italic accent word, gives a spoken rhythm and a quotable promise.",
+   "rarity": 3,
+   "buildable": "css. No JS.",
+   "fit_professional": 4,
+   "role": "opening",
+   "three_languages": "with care: word order differs, so the pivot must be written per language (e.g. 'เพื่อให้คุณ', '让您'). The big Thai line needs line-height 1.25 or more, never 0.9, or the marks above clip."
+  },
+  {
+   "site": "capellahotels.com_en_capella-bangkok",
+   "id": "capella-2",
+   "name": "Awards as a captioned register",
+   "what": "3-column grid (columns ~420px from x=80) of award marks in their own colours, about 160px tall. Under each: a 2-line Goudy Light caps title (~24px) naming the award and year, then one 15px grey (#888) Calibre line stating exactly what was won ('Capella Bangkok – No.2', 'Three MICHELIN Keys – An extraordinary stay', 'Côte by Mauro Colagreco'). Rows ~120px apart, with no cards, borders or shadows. A second register, 'Health & Sustainability', repeats the pattern.",
+   "evidence": {
+    "frame": "shots/capellahotels.com_en_capella-bangkok/desktop-06.jpg",
+    "crop": [
+     60,
+     150,
+     1260,
+     680
+    ],
+    "crop_file": "findings/crops/capella-2.jpg"
+   },
+   "why_valuable": "Specific, checkable claims (rank, category, year) are what make proof believable. It reads like a register or catalogue, not a logo wall.",
+   "rarity": 2,
+   "buildable": "css. No JS.",
+   "fit_professional": 5,
+   "role": "proof",
+   "three_languages": "yes: but the titles must carry hierarchy through size and weight, not caps, in Thai and Chinese. For a firm, entries could read 'Chambers Asia-Pacific 2026 — Band 2, Tax' or 'TFAC registration no. …'."
+  },
+  {
+   "site": "rosewoodhotels.com_en_bangkok",
+   "id": "rosewood-bkk-2",
+   "duplicate_of": "luxury.json rosewood-3 (same Rosewood design system, seen on rosewoodhotels.com/en/default)",
+   "name": "Centre-stage carousel with clipped wings",
+   "what": "The active slide sits dead centre (portrait image 450x590). The neighbouring slides are cut by the viewport edges, with only ~200px of each showing, and the gutters between are ~290px of empty ground (templates use ~24px). The active image is ~15% taller than its neighbours (590 against 510). Only the active slide carries text: a wide-caps label, 2 lines of serif body and an underlined 'Discover'. The neighbours show only their wide-caps label ('NAIL BAR', 'FITNESS STUDIO').",
+   "evidence": {
+    "frame": "shots/rosewoodhotels.com_en_bangkok/desktop-07.jpg",
+    "crop": [
+     0,
+     100,
+     1440,
+     740
+    ],
+    "crop_file": "findings/crops/rosewood-bkk-2.jpg"
+   },
+   "why_valuable": "Generous empty space reads as luxury. It turns a carousel into a gallery wall that shows one thing at a time.",
+   "rarity": 3,
+   "buildable": "css+small-js (scroll-snap to centre plus a class on the active slide). Without JS: a horizontal scroll-snap strip that still works.",
+   "fit_professional": 3,
+   "role": "services",
+   "three_languages": "yes"
+  },
+  {
+   "site": "rosewoodhotels.com_en_bangkok",
+   "id": "rosewood-bkk-3",
+   "duplicate_of": "luxury.json rosewood-2 (same Rosewood design system, seen on rosewoodhotels.com/en/default)",
+   "name": "CTA band fused to the image + numeric slide counter",
+   "what": "Full-bleed promo image (1440x395, darkened ~30%) with a centred wide-caps headline (~40px) and 3 lines of serif body. Directly under it, with no gap, a full-width black band 64px tall holds one tiny caps label 'SHOP NOW' (10px, 0.3em tracking); the whole band is the button. 40px below, pagination is set as type: '1 —— 3' (wide-caps numerals ~11px with a 24px hairline between), centred. The same counter is used on the dining carousel ('1 —— 2').",
+   "evidence": {
+    "frame": "shots/rosewoodhotels.com_en_bangkok/desktop-06.jpg",
+    "crop": [
+     0,
+     100,
+     1440,
+     540
+    ],
+    "crop_file": "findings/crops/rosewood-bkk-3.jpg"
+   },
+   "why_valuable": "The button becomes part of the structure, like a plinth under the picture, instead of a pill. The counter shows how many there are, like page numbers in a book.",
+   "rarity": 3,
+   "buildable": "css (the counter needs a little JS for the live number; without JS it shows a static total).",
+   "fit_professional": 3,
+   "role": "navigation",
+   "three_languages": "yes: numerals work everywhere. Set the Thai label without tracking."
+  },
+  {
+   "site": "capellahotels.com_en_capella-bangkok",
+   "id": "capella-3",
+   "name": "Warm blush fade under the sticky header",
+   "what": "The fixed white header (two rows, 70px + 43px, with a 1px light-grey rule between) ends in a ~40px strip that fades from blush #F8EAE1 to transparent, not a grey drop shadow. Content scrolls under it. It is present in every frame.",
+   "evidence": {
+    "frame": "shots/capellahotels.com_en_capella-bangkok/desktop-02.jpg",
+    "crop": [
+     0,
+     0,
+     1440,
+     200
+    ],
+    "crop_file": "findings/crops/capella-3.jpg"
+   },
+   "why_valuable": "A shadow tinted with the brand's warm neutral feels like paper and light rather than software chrome. Tiny effort, rarely done.",
+   "rarity": 3,
+   "buildable": "css (a gradient pseudo-element on the sticky header).",
+   "fit_professional": 3,
+   "role": "navigation",
+   "three_languages": "yes"
+  },
+  {
+   "site": "pwc.com_th_en.html",
+   "id": "pwc-2",
+   "name": "Brand slab composited into the photograph",
+   "what": "The orange (#FE611C) parallelogram (skewed ~30 degrees, ~1:5) appears in every photo, in the hero and in the 16:9 card thumbnails. It sits in the middle ground: it passes behind the people and foreground objects (the hologram table and the people overlap it) and in front of the background, at the same angle every time, sometimes as two offset slabs.",
+   "evidence": {
+    "frame": "shots/pwc.com_th_en.html/desktop-01.jpg",
+    "crop": [
+     40,
+     0,
+     1360,
+     200
+    ],
+    "also": [
+     {
+      "frame": "shots/pwc.com_th_en.html/desktop-00.jpg",
+      "crop": [
+       380,
+       420,
+       1060,
+       260
+      ]
+     }
+    ],
+    "crop_file": "findings/crops/pwc-2.jpg"
+   },
+   "why_valuable": "One brand gesture built into the photograph makes generic stock look commissioned and owned.",
+   "rarity": 3,
+   "buildable": "needs-bespoke-assets (compositing per photo). A CSS overlay with clip-path is possible but loses the 'behind the subject' depth.",
+   "fit_professional": 3,
+   "role": "other",
+   "three_languages": "yes"
+  },
+  {
+   "site": "tilleke.com",
+   "id": "tilleke-1",
+   "name": "Footprint map in one flat brand colour",
+   "what": "A two-column band on navy #002043. Left (x150-640): section label (28px red rule + small caps), Poppins SemiBold H2 ~50px on two lines, a red text link with an arrow, then a 2x2 stat grid (numerals ~60px regular, labels Source Sans 16px; the rows are separated by 50px white hairlines aligned to each stat). Right (~55%): Southeast Asia drawn as flat red #ED2726 shapes with no basemap or labels, and white pins on the office cities. The map is cut by the top of the band and bleeds off the right edge. The numbers count up: desktop caught 163+/89/41/5 mid-count and phone shows 174+/95/43/6.",
+   "evidence": {
+    "frame": "shots/tilleke.com/desktop-01.jpg",
+    "crop": [
+     140,
+     90,
+     1300,
+     540
+    ],
+    "crop_file": "findings/crops/tilleke-1.jpg"
+   },
+   "why_valuable": "Turns the presence claim ('6 offices') into a single, owned graphic shape in the brand colour, plainer and stronger than a pin map.",
+   "rarity": 2,
+   "buildable": "needs-bespoke-assets (one SVG map) + css. The count-up is small JS; without JS the final numbers show.",
+   "fit_professional": 4,
+   "role": "proof",
+   "three_languages": "yes"
+  }
+ ],
+ "site_notes": {
+  "cadsondemak.com": "Thai type foundry's magazine, and the only assigned site that is Thai-first. One family, Graphik TH (loopless) plus Graphik Thai Loop (looped), across all sizes: 12px bold labels, 28px semibold titles, ~36px light index, and huge display type. Flat saturated grounds (cyan, red, magenta, black, cream) with no photography; typography is the image. Thin 'perforation' dashed rule, custom cursor, video slider with '1 / 10' and a 470px progress track. A cookie banner covers part of each frame. Captured late (arrived after the first pass); 4 findings.",
+  "rosewoodhotels.com_en_bangkok": "All 3 findings confirm, on the Bangkok property, the same Rosewood system the luxury group recorded from rosewoodhotels.com/en/default (luxury.json rosewood-1/2/3). Treat them as duplicates when merging. Two families: Engravers Gothic (wide caps) and Austin Light/Italic (light condensed serif). About 4 sizes (10-11 / 15 / 18 / 44px). Off-white #FAFBF5, black and one deep green #023C2D; square buttons only, no radius anywhere. Desktop hero video did not render (empty cream frame with a 'Discover' button). Phone: full-width deep-green 'Reserve' bar fixed at the bottom. No Thai text on the English page.",
+  "capellahotels.com_en_capella-bangkok": "Goudy Light (caps headings ~50px, lede ~30px in grey) and Calibre (body 15px grey, nav small tracked caps). Text uses only two greys (#6F6F6F lede, #777 body). Wide asymmetric spacing: title at x=150, body column at x=820. Desktop hero did not render (white frame). The phone hero shows the star mark and wordmark centred on a full-bleed photo with an underlined 'WATCH VIDEO'. No contact sheet existed, so I built my own from the single frames. No Thai text.",
+  "pwc.com_th_en.html": "Headings in PwC ITC Charter (serif), UI in PwC Helvetica Neue, one orange accent. The /en page mixes Thai and English article titles in the same card styles. No Thai webfont is served, so Thai renders in the device fallback (Loma on our capture machine). This is the main evidence for the Thai typesetting notes below: font mismatch, compound words split across lines, broken underlines, and Thai titles running 3-4 lines where English runs 2. Otherwise a corporate card feed with 'Load more' and 'View all'.",
+  "tilleke.com": "English page only, with no Thai text visible. Poppins SemiBold headings, Source Sans Pro body 16px, navy #002043 + red #ED2726. The hero uses the wordmark itself as the headline (~90px) and a site search as the main action. Section labels are a short red rule + small caps (common). The rest is a standard corporate template (slider dots, cards, 'TOP' button).",
+  "mandarinoriental.com_en_bangkok_chao-phraya-river": "0 findings. Futura PT caps headings (~36px 'STAY', 'DINE') with an inline 'View All >' beside them, AvenirNext body, black two-tier nav, pale-sage pill buttons, carousels with dots, FAQ accordion, black footer. The hero image did not load (grey placeholder gradient) and room images were still showing spinners. A standard hotel template. No Thai text.",
+  "wcp.co.th": "Did not load as intended. The domain now serves an unrelated Thai classified-ads forum ('WGAME'), and the re-capture is identical. Not reviewed. Thai there is 13px in the device fallback."
+ },
+ "thai_typesetting": {
+  "caveat": "Screenshots come from a headless Linux machine. Any Thai text a site does not serve as a webfont is drawn in that machine's fallback font (Loma, a looped monoline sans). On a Mac it would be Thonburi/Sukhumvit, and on Windows Leelawadee UI/Tahoma. Judgements of PwC's Thai therefore describe the fallback problem, not PwC's intent.",
+  "coverage": "Thai text was visible on only 2 of the 7 assigned sites (PwC, Cadson Demak), plus the forum at wcp.co.th and sa-accounttax.com in the baseline. The luxury Bangkok hotels show no Thai at all on their /en pages.",
+  "measurements": [
+   {
+    "site": "cadsondemak.com",
+    "font": "Graphik TH semibold ~28px",
+    "latin_cap_px": 20,
+    "latin_x_px": 15,
+    "thai_body_px": 17,
+    "thai_over_x": 1.13,
+    "thai_over_cap": 0.85,
+    "line_pitch": "42px = 1.5 (2-line title)"
+   },
+   {
+    "site": "pwc.com_th_en.html",
+    "font": "Charter 32px + Thai fallback (Loma)",
+    "latin_cap_px": 23,
+    "latin_x_px": 17,
+    "thai_body_px": 19,
+    "thai_over_x": 1.12,
+    "thai_over_cap": 0.83,
+    "line_pitch": "45px = 1.4 headings; body ~17px on ~30px = ~1.75"
+   },
+   {
+    "site": "sa-accounttax.com (baseline)",
+    "font": "Prompt 16px body (loopless)",
+    "line_pitch": "24px = 1.5"
+   }
+  ],
+  "rules_for_builder": [
+   "Every theme declares its own Thai family and its own CJK family, self-hosted. Never let Thai fall back. PwC shows looped monoline Thai next to a bracketed serif, with serif digits ('2569') inside Thai lines.",
+   "Choose Thai type by its partner. A Thai face designed with the Latin face (Graphik TH; free: IBM Plex Sans Thai with IBM Plex, Noto Sans/Serif Thai with Noto) keeps weight and terminals in step. In both measured pairs the size ratio was already right at the same font-size (Thai body ~1.12x the Latin x-height), so the mismatch to fix is style, not size.",
+   "Loopless Thai for display, UI and modern voices (every premium Thai example here). Looped Thai for long reading and formal documents. Offer both per theme, and allow loop against loopless as a deliberate contrast, as Cadson does.",
+   "Thai line-height: headings 1.4-1.5 and body 1.6-1.8. Never use the 0.9-1.1 display leading that Latin themes use, or the vowels and tone marks above clip (risk on 'so you can'-style pivots and cropped display type).",
+   "Line breaks: the browser's dictionary splits compounds and idioms ('ของผู้ | บริโภค', 'ความ | ท้าทาย', 'ผู้ | จัดการ', 'หัว | เลี้ยวหัวต่อ', 'สภาพปกติ | ใหม่', 'ผู้ | คว้าโอกาส'; SA: 'เหมาะสม | ที่สุด', 'ไม่ | ต้อง'). For headings, give authors a 'keep together' phrase mark (a nowrap span) and/or explicit break points (<wbr>/ZWSP), and use text-wrap: balance. Test word-break: keep-all per browser before relying on it.",
+   "Never centre long Thai paragraphs. SA Accounting centres them and gets ragged edges on both sides plus orphans like '17 | ปี'.",
+   "Underlines: skip-ink breaks the underline around below-base vowels and descenders (ุ ู ฏ ฎ) in PwC's Thai link titles, so it looks chopped. For Thai links use text-underline-offset of 0.3em or more, a hairline under the block, or colour alone.",
+   "No caps, tracking or italic in Thai or Chinese. Remap the 'tracked caps label' voice (Rosewood, Capella, our own eyebrow) to small bold Thai with letter-spacing 0. Remap the 'italic accent word' (our site's gold italic) to colour or weight. Oblique Thai looks broken.",
+   "Thai titles ran 3-4 lines where English ran 2 in the same card width (PwC). Cards must allow variable title height, or clamp Thai at 3 lines rather than 2.",
+   "Digits: Thai copy uses Buddhist-era years (2569) and Arabic digits. Make sure the Thai face's digits match the Latin face's. Thai numerals (๐-๙) appeared nowhere."
+  ],
+  "evidence_crops": {
+   "thai-ts-1": "PwC desktop-01 [40,215,920,130]: Charter Latin title beside a Thai title in fallback Loma; 'ผู้ | บริโภค' split; Charter digits '2569' inside the Thai line.",
+   "thai-ts-2": "PwC desktop-07 [40,120,840,420]: underlined Thai link titles with skip-ink gaps; body ~17px at ~30px pitch; 'ความ | ท้าทาย' and 'ผู้ | จัดการ' splits.",
+   "thai-ts-3": "sa-accounttax desktop-01 [100,70,620,290] + [0,650,1440,130]: Prompt loopless body 16px/24px; centred Thai paragraphs with orphans.",
+   "thai-ts-4": "PwC desktop-04 [735,455,660,300]: 4-line Thai card titles; 'หัว | เลี้ยวหัวต่อ' and 'ผู้ | คว้าโอกาส' splits; Charter and Loma mixed in one title."
+  }
+ },
+ "failed_sites": [
+  "wcp.co.th (domain now hosts an unrelated Thai classified-ads forum; re-capture identical)",
+  "farmgroup.co.th, scb.co.th (excluded by instruction: being re-captured)"
+ ],
+ "partial_captures": [
+  "rosewoodhotels.com_en_bangkok, capellahotels.com_en_capella-bangkok, mandarinoriental.com_en_bangkok_chao-phraya-river: desktop hero image/video did not render in the capture"
+ ]
+}
