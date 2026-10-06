@@ -1,8 +1,8 @@
 # PROJECT-STATUS.md
 
 **Last updated:** Tuesday, 6 October 2026
-**Last session:** Ticket #35 round 1 board published (https://claude.ai/artifact/CAdrbjPVRMLb44ixXLzxLM). Then the owner spotted that the project had drifted from the goal ("build the website builder first"). **Route correction (owner, 2026-10-06):** the brand track #33–#36 is off the critical path and #35 is parked. The builder is built on a neutral test theme. The Admin gets its own neutral look. #15, #19 and #21 are unblocked, and #15 is re-scoped to the trilingual type system. The map (#1) carries the correction note. The firm name is always "D.A." with dots.
-**Next session:** builder core. Start with **#16 (tech stack)**, a technical decision Claude makes and records, then #14 → #13 → #17 → #20 → #22 → #23, with #24–#32 alongside. No new side tracks without the owner's explicit OK. The brand is kept for the later firm website (`brand/README.md`); #36 stays open only for a possible request for more patterns.
+**Last session:** Ticket **#16 (tech stack)** decided and closed: no build step for our code (plain ES modules, relative imports); Admin UI in Preact + htm + signals (no JSX); every library vendored into `admin/vendor/` by `tools/vendor/` (byte-reproducible, never a runtime CDN); pure `admin/engine/` runs unchanged in browser and Node; in-house strict Mustache subset for presets; rich text stored as editor JSON and rendered by a whitelist renderer (the sanitiser); Tiptap 3.31.4 confirmed; strict CSP baseline. Proven by a browser spike. Record: `docs/decisions/16-tech-stack.md`. Before that: route correction (owner, 2026-10-06) put the builder core first and parked the brand track #33–#36.
+**Next session:** builder core, next ticket **#14 (Site Structure)**, then #13 → #17 → #20 → #22 → #23, with #24–#32 alongside. No new side tracks without the owner's explicit OK. The brand is kept for the later firm website (`brand/README.md`); #36 stays open only for a possible request for more patterns.
 ---
 
 ## Site Builder effort (started 5 Oct 2026) — READ THIS FIRST
@@ -19,7 +19,7 @@ The owner re-stated the original goal: **(1) build a ready-made website-builder 
 
 **Owner working preference (stated 5 Oct 2026):** the owner is not a coder or engineer. Claude decides technical questions itself, rigorously, and records the reasons; ask the owner only about what visitors see or what the owner must do.
 
-**Rules that still bind during the builder effort:** read every file before editing; relative paths only; static only.
+**Rules that still bind during the builder effort:** read every file before editing; relative paths only; static only. Builder code follows `docs/decisions/16-tech-stack.md`: no build step, libraries only from `admin/vendor/`, `admin/engine/` stays pure.
 
 **Route correction (owner, 6 Oct 2026):** the identity path below is parked; the builder uses a neutral test theme, and the firm identity comes in the firm-website effort. **Visual identity retired (owner, 5 Oct 2026):** Navy & Soft Linen and Instrument Serif + Inter are **no longer locked**. The owner wants a fully new look for the website *and* the Admin — feeling: **minimal and premium but not "modern", plus bold and confident**. Path: #33 define the feeling → #34 benchmark research → #35 three directions, owner picks. #15 (type specimen), #19 (migration) and #21 (section sample) now wait on #35. The "Locked architectural decisions" palette/font lines further down are superseded.
 

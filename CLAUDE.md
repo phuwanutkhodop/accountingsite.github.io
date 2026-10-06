@@ -36,6 +36,9 @@ Run these three commands in order:
   - Before any commit that touches `brand/` or `tools/brand/`, run `python tools/brand/build.py --check`.
   - D A is always the full logo 153. The seal has no "CO., LTD." and no year.
 - No backend features. This is a static site — no servers, no databases.
+- **Builder code (decision #16, `docs/decisions/16-tech-stack.md`):** plain ES modules with no build step; Admin UI in
+  Preact + htm; third-party code only from `admin/vendor/` (rebuilt with `tools/vendor/`), never from a CDN at runtime;
+  `admin/engine/` stays pure (no DOM, fetch, Intl, clock or randomness) and runs unchanged in Node.
 - Read every file before editing it. Never guess what is already in a file.
 - Do not write code in the first response of a new stage — ask questions first.
 
