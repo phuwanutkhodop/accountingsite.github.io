@@ -16,7 +16,7 @@
 - **Owner steps:** create the organization before #22. `builder-library` is needed only when real presets are written.
 **Owner verdict on #21 (6 Oct 2026): the sample designs are not commercial grade; #21 is reopened.** The format stands. Real presets come from **visual research of top professional work**: 92 sites captured, 114 findings from 4 groups so far, and the images are in the private repo `builder-research`.
 **➡ Next session (local, from 7 Oct 2026): read `docs/handoff/2026-10-07-cloud-to-local.md` first.** It lists where everything is, the owner's pending choice (how much more research), and the remaining steps: rarity numbers → a board for the owner → real presets.
-**7 Oct 2026 (first local session):** moved to this computer (`builder-research` cloned next to this folder; PR #46 merged). Rarity numbers done: `docs/research/21-visual-research/rarity.md`. Still pending: the owner's research choice (1/2/3), then the owner board.
+**7 Oct 2026 (first local session):** moved to this computer (`builder-research` cloned next to this folder; PR #46 merged). Rarity numbers done: `docs/research/21-visual-research/rarity.md`. The owner chose research option 1. The studio and award group is reviewed (35 triaged, the best 12 in full), and a synthesis of all findings is written. Both are in the private `builder-research` repo (`findings/studio-award.*`, `findings/synthesis.md`). Whether to copy their text into this public repo is still the owner's call. **Next: the owner board** (synthesis §6).
 ---
 
 ## Site Builder effort (started 5 Oct 2026) — READ THIS FIRST

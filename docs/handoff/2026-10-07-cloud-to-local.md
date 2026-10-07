@@ -49,7 +49,8 @@ where the cloud session stopped. The owner is moving to a local Claude Code sess
 way financial statements do: figure · unit · label · note · "as at" date, and dated registers of work. It is the
 natural signature for an accounting firm.
 
-**Open choice put to the owner (answer pending):**
+**Open choice put to the owner. Answered 7 Oct 2026: option 1.** Done the same day: 35 sites triaged, the best 12
+reviewed. Results and the synthesis of all findings are in `builder-research/findings/` (`studio-award.*`, `synthesis.md`).
 1. *Economical (recommended):* one reviewer for the best 12 studio and award sites, then synthesise.
 2. *Complete:* review all ~34 studio and award sites.
 3. *Stop:* synthesise from the 114 findings.
