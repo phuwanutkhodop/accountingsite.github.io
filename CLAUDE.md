@@ -39,6 +39,9 @@ Run these three commands in order:
 - **Builder code (decision #16, `docs/decisions/16-tech-stack.md`):** plain ES modules with no build step; Admin UI in
   Preact + htm; third-party code only from `admin/vendor/` (rebuilt with `tools/vendor/`), never from a CDN at runtime;
   `admin/engine/` stays pure (no DOM, fetch, Intl, clock or randomness) and runs unchanged in Node.
+- **Hosting (decision #31, `docs/decisions/31-multi-site-hosting.md`):** Admin code lives only in the Admin repo under its own
+  GitHub organization, never in a site repo. Each site = a public repo + a private `<site>-drafts` repo; the library is
+  `builder-library`. One publishing key covers those, never the Admin.
 - Read every file before editing it. Never guess what is already in a file.
 - Do not write code in the first response of a new stage — ask questions first.
 

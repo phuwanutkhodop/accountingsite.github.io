@@ -2,6 +2,7 @@
 
 **Ticket:** Wayfinder research issue #5 · **Date:** 2026-10-05 · **Status:** research only — no theme files changed.
 **Locked Latin pair (do not change):** Instrument Serif (headings) + Inter (body).
+> **Superseded in part, 6 October 2026:** the Latin pair is retired (#33), and loading from Google Fonts is replaced by self-hosted fonts subset at Publish (decision #15, `docs/decisions/15-type-system.md`). The typesetting findings still apply.
 
 Measurements marked **[measured]** were taken on 2026-10-05 by downloading the live CSS from `fonts.googleapis.com` and reading `Content-Length` of every WOFF2 slice on `fonts.gstatic.com` (Chrome user-agent, so WOFF2 + `unicode-range` were served). Other facts are cited inline.
 

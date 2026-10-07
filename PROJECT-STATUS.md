@@ -1,18 +1,28 @@
 # PROJECT-STATUS.md
 
 **Last updated:** Tuesday, 6 October 2026
-**Last session:** Tickets **#16, #14, #13, #17 and #20** closed, plus a **plan review** (`docs/reviews/2026-10-06-plan-review.md`). **#20 proved the publish path for real:**
-- The owner created the private repo `accountingsite-drafts` and a fine-grained key: both repos, Contents read/write, Pages read, expires 7 October 2027.
-- A one-time test page published from the owner's Edge browser, was live in 34 s, had a stale update refused (HTTP 422), removed its files and round-tripped a draft. All 11 steps passed.
-- Record and verified owner guide: `docs/decisions/20-publish-proof.md`. The test page has been removed.
-**Next session:** #22 (clickable Admin) still waits on #21 and the #12 sub-tickets. Next is **#31 (multi-site hosting and security origin)**, the highest open review finding and Claude-decided. Then **#15 → #21** and the #24–#30 rounds. No new side tracks without the owner's explicit OK.
+**Last session:** Tickets **#31**, **#15** and **#21** closed.
+- **#21** (`docs/decisions/21-section-library-sample.md`; sample: https://claude.ai/artifact/KXF9kgSGvYtTJFXS46CUQC): the preset format is proven.
+  - 9 presets × 3 languages restyle from tokens alone across two neutral test themes (A "Slate" sans, B "Paper" serif).
+  - The automatic library check caught 9 of 9 deliberately broken presets; every colour pair passes contrast (lowest 6.07:1).
+  - Format additions: scoped token-only preset CSS; the generator-owned `<section>` wrapper; container queries; the universal tone (plain / tinted / bold); a quality bar for real presets.
+- **#15** (`docs/decisions/15-type-system.md`; specimen: https://claude.ai/artifact/GHqZLEnpmiRVAau4KWdQnX):
+  - fonts in 3 roles, each with Latin, Thai and Chinese families, normalised to one x-height;
+  - no Google Fonts; every face is subset at Publish with HarfBuzz WASM (proven under the strict policy).
+- **#31** (`docs/decisions/31-multi-site-hosting.md`): the Admin on its own origin (a free GitHub organization); one key; a repo pair per site.
+- **Owner reviews pending:**
+  - the #15 specimen on Windows and iPhone;
+  - the #21 sample: which designs look unprofessional, and whether the test themes look neutral.
+- **Owner steps:** create the organization before #22. `builder-library` is needed only when real presets are written.
+**Owner verdict on #21 (6 Oct 2026): the sample designs are not commercial grade; #21 is reopened.** The format stands. Real presets come from **visual research of top professional work**: 92 sites captured, 114 findings from 4 groups so far, and the images are in the private repo `builder-research`.
+**➡ Next session (local, from 7 Oct 2026): read `docs/handoff/2026-10-07-cloud-to-local.md` first.** It lists where everything is, the owner's pending choice (how much more research), and the remaining steps: rarity numbers → a board for the owner → real presets.
 ---
 
 ## Site Builder effort (started 5 Oct 2026) — READ THIS FIRST
 
 The owner re-stated the original goal: **(1) build a ready-made website-builder system first, (2) then build the real firm website with it.** Stages 6–10 below are therefore **paused**, not cancelled; they resume *inside* the builder once it exists.
 
-**What the builder is:** a no-server Admin at `/admin/` on the published site, WordPress-premium in feel, publishing to GitHub Pages with one click via a repo-scoped GitHub token. Curated sections, a growing Design Library, deep Site Structure editing, EN/TH/ZH from day one, Thai Admin UI. Full destination, locked principles, fog and out-of-scope list are on the map issue.
+**What the builder is:** a no-server Admin at `/admin/` on **its own origin** (a free GitHub organization, one Admin for all sites — decision #31), WordPress-premium in feel, publishing to GitHub Pages with one click via a repo-scoped GitHub token. Curated sections, a growing Design Library, deep Site Structure editing, EN/TH/ZH from day one, Thai Admin UI. Full destination, locked principles, fog and out-of-scope list are on the map issue.
 
 **How work is organised:** the plan is a Wayfinder map on GitHub Issues — issue #1 is the map; tickets #2–#23 are its children with native "blocked by" links, so the frontier is visible in GitHub's UI. Labels: `wayfinder:research` (agent-resolved), `wayfinder:grilling` (decided with the owner), `wayfinder:prototype` (something to react to), `wayfinder:task`. **One ticket per session.** Resolution = comment the answer, close the ticket, add one line to the map's "Decisions so far".
 

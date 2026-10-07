@@ -9,6 +9,7 @@
 - plan review findings H6, M10, M11 and M12.
 
 **Status:** done. Every step passed on the first real run.
+**Follow-up (#31, `docs/decisions/31-multi-site-hosting.md` §8):** the key later also covers `builder-library` and each new site's two repos. It never covers the Admin, which lives under a separate GitHub organization.
 
 ---
 

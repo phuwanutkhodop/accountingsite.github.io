@@ -5,6 +5,8 @@
 **Decided by:** the owner, in a grilling session with Claude
 **Inputs:** research #3 (CMS landscape), #4 (browser publishing), #7 (images), #8 (multilingual SEO), #9 (design libraries)
 **Status:** locked. **Amended 6 October 2026** after the plan review (`docs/reviews/2026-10-06-plan-review.md`): the robots claim (M15), article file names (M1, via #14), image renditions before Publish (H5).
+**Amended 6 October 2026 by #31** (`docs/decisions/31-multi-site-hosting.md`): `admin/` and `library/` leave the site repo — the Admin runs from its own origin and the library has its own repo; the drafts repo is one per site; decision 8 stores a 4096 px **master** instead of the raw original.
+**Amended 6 October 2026 by #21** (`docs/decisions/21-section-library-sample.md` §2-4): the colour-mode override in decision 5a is now the section **tone** `plain / tinted / bold`; the site's colour scheme is light / dark / follow-device (review M16).
 
 ---
 

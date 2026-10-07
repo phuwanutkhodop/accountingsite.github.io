@@ -1,0 +1,9 @@
+{
+  "private": true,
+  "description": "PROTOTYPE (#15) — throwaway type-specimen builder; not Admin code",
+  "type": "module",
+  "devDependencies": {
+    "harfbuzzjs": "1.6.3",
+    "playwright-core": "*"
+  }
+}
