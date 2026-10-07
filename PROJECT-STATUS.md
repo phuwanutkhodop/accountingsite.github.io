@@ -17,7 +17,13 @@
 **Owner verdict on #21 (6 Oct 2026): the sample designs are not commercial grade; #21 is reopened.** The format stands. Real presets come from **visual research of top professional work**: 92 sites captured, 114 findings from 4 groups so far, and the images are in the private repo `builder-research`.
 **➡ Next session (local, from 7 Oct 2026): read `docs/handoff/2026-10-07-cloud-to-local.md` first.** It lists where everything is, the owner's pending choice (how much more research), and the remaining steps: rarity numbers → a board for the owner → real presets.
 **7 Oct 2026 (first local session):** moved to this computer (`builder-research` cloned next to this folder; PR #46 merged). Rarity numbers done: `docs/research/21-visual-research/rarity.md`. The owner chose research option 1. The studio and award group is reviewed (35 triaged, the best 12 in full), and a synthesis of all findings is written. Both are in the private `builder-research` repo (`findings/studio-award.*`, `findings/synthesis.md`). **Owner decision (7 Oct 2026): new research text stays private**, so do not copy it into this public repo. The earlier group files here stay as they are.
-**Owner board published (7 Oct 2026):** https://claude.ai/artifact/52fmRo9YhVoCp4mbSfjMNY (private). It has 55 cards, each ticked want / maybe / no. The picks are saved in the page's database, collection `picks`; read them with the `ArtifactData` tool. The source is in `builder-research/board/`. **Next:** read the owner's picks, then build real presets from them (handoff §3 step 3, quality bar in synthesis §5).
+**Owner board published (7 Oct 2026):** https://claude.ai/artifact/52fmRo9YhVoCp4mbSfjMNY (private). It has 55 cards, each ticked want / maybe / no. The picks are saved in the page's database, collection `picks`; read them with the `ArtifactData` tool. The source is in `builder-research/board/`.
+**Owner verdict on the board (7 Oct 2026):** 4 want, 6 maybe, 42 no, 3 left blank.
+- **Want:** `lazard-1` transactions ledger, `lgc-2` letterhead footer, `press-stripe-2` contents gauge, `theatlantic-1` "(From 2015)" stamp.
+- **Maybe:** `cadsondemak-3`, `cr-1`, `lazard-2`, `pictet-3`, `tekt-2`, `vercel-2`.
+- **The owner's ruling, in their words:** most options are idiosyncratic details with no value; mixing them in is noise; **the target is high value that clients will pay for, not rarity.**
+- **Consequences:** rarity × fit is withdrawn as the selection criterion. The synthesis' five families and the "working-paper signature" judgement did not survive the owner's review.
+- **Do not build presets from the synthesis.** The next step is to agree with the owner on what "value a client pays for" means, then re-screen.
 ---
 
 ## Site Builder effort (started 5 Oct 2026) — READ THIS FIRST
