@@ -60,7 +60,8 @@ reviewed. Results and the synthesis of all findings are in `builder-research/fin
    **Done 7 Oct 2026 (local session):** `docs/research/21-visual-research/rarity.md`. Own or licensed type on 87% of top
    sites against 1 of 8 baseline sites; Lenis smooth scrolling on all 4 paid templates against 1 of 18 finance, law and
    consulting sites. The CSS counts are weak (presence, not use; inline CSS missed); its §5 says how to fix the capture.
-2. **Board for the owner** (owner's method: many options, each in real context):
+2. **Board for the owner** (owner's method: many options, each in real context). **Published 7 Oct 2026:**
+   https://claude.ai/artifact/52fmRo9YhVoCp4mbSfjMNY. The picks are in its database (`picks`); the source is in `builder-research/board/`.
    - group the findings by role (opening, navigation, proof/data, process, people, knowledge, contact, footer, type system);
    - show each finding with its crop, then the owner picks;
    - publish it as a private artifact, with the images taken from `builder-research`.
