@@ -6,7 +6,7 @@ Live URL: https://phuwanutkhodop.github.io/accountingsite.github.io/en/
 GitHub repo: https://github.com/phuwanutkhodop/accountingsite.github.io
 
 ## Local folder on this computer
-C:\Users\User\OneDrive\Accdocsystem\accountingsite
+C:\Users\User\OneDrive\GitHubWebsite\Accountingsite
 
 ## First thing to do every session
 READ PROJECT-STATUS.md before doing anything else. It tells you:
