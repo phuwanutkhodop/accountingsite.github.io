@@ -1,7 +1,16 @@
 # PROJECT-STATUS.md
 
 **Last updated:** Wednesday, 7 October 2026
-**Last session:** Tickets **#31**, **#15** and **#21** closed.
+
+**➡ NEXT SESSION: back to the builder core.**
+- **Owner's priority (7 Oct 2026):** the builder system is the "แกนหลัก", the backbone, and always comes first. Design work (#21 real presets) is **parked** until the owner reopens it.
+- **Where to start:**
+  - read the Wayfinder map (issue #1) and the "Site Builder effort" section below;
+  - pick the next unblocked **builder-core** ticket.
+- **Owner step still open:** create the free GitHub organization for the Admin before #22.
+- Do not continue #21 research or presets unless the owner asks. Where #21 stopped is recorded below.
+
+**Earlier sessions:** Tickets **#31**, **#15** and **#21** closed.
 - **#21** (`docs/decisions/21-section-library-sample.md`; sample: https://claude.ai/artifact/KXF9kgSGvYtTJFXS46CUQC): the preset format is proven.
   - 9 presets × 3 languages restyle from tokens alone across two neutral test themes (A "Slate" sans, B "Paper" serif).
   - The automatic library check caught 9 of 9 deliberately broken presets; every colour pair passes contrast (lowest 6.07:1).
@@ -15,7 +24,7 @@
   - the #21 sample: which designs look unprofessional, and whether the test themes look neutral.
 - **Owner steps:** create the organization before #22. `builder-library` is needed only when real presets are written.
 **Owner verdict on #21 (6 Oct 2026): the sample designs are not commercial grade; #21 is reopened.** The format stands. Real presets come from **visual research of top professional work**: 92 sites captured, 114 findings from 4 groups so far, and the images are in the private repo `builder-research`.
-**➡ Next session (local, from 7 Oct 2026): read `docs/handoff/2026-10-07-cloud-to-local.md` first.** It lists where everything is, the owner's pending choice (how much more research), and the remaining steps: rarity numbers → a board for the owner → real presets.
+**#21 handoff:** `docs/handoff/2026-10-07-cloud-to-local.md` lists where the research is. Read it only when design resumes.
 **7 Oct 2026 (first local session):** moved to this computer (`builder-research` cloned next to this folder; PR #46 merged). Rarity numbers done: `docs/research/21-visual-research/rarity.md`. The owner chose research option 1. The studio and award group is reviewed (35 triaged, the best 12 in full), and a synthesis of all findings is written. Both are in the private `builder-research` repo (`findings/studio-award.*`, `findings/synthesis.md`). **Owner decision (7 Oct 2026): new research text stays private**, so do not copy it into this public repo. The earlier group files here stay as they are.
 **Owner board published (7 Oct 2026):** https://claude.ai/artifact/52fmRo9YhVoCp4mbSfjMNY (private). It has 55 cards, each ticked want / maybe / no. The picks are saved in the page's database, collection `picks`; read them with the `ArtifactData` tool. The source is in `builder-research/board/`.
 **Owner verdict on the board (7 Oct 2026):** 4 want, 6 maybe, 42 no, 3 left blank.
@@ -23,7 +32,18 @@
 - **Maybe:** `cadsondemak-3`, `cr-1`, `lazard-2`, `pictet-3`, `tekt-2`, `vercel-2`.
 - **The owner's ruling, in their words:** most options are idiosyncratic details with no value; mixing them in is noise; **the target is high value that clients will pay for, not rarity.**
 - **Consequences:** rarity × fit is withdrawn as the selection criterion. The synthesis' five families and the "working-paper signature" judgement did not survive the owner's review.
-- **Do not build presets from the synthesis.** The next step is to agree with the owner on what "value a client pays for" means, then re-screen.
+- **Do not build presets from the synthesis.**
+- **#21 is parked here (owner, 7 Oct 2026).** When design resumes, start with two questions to the owner (asked, not yet answered):
+  1. Who is "the client who pays":
+     - (a) the firm's clients, who visit the site and decide to hire;
+     - (b) businesses that buy a site made with the builder;
+     - (c) both.
+  2. Why the owner chose the 4 "want" cards. Claude's reading, not yet confirmed: each helps a reader find, judge or trust something, while the rejected cards were visual signatures that serve design taste.
+- **Proposed value test (not yet agreed).** Keep an option only if all three hold:
+  - it does something for the client (helps them decide, find or trust);
+  - most high-priced top sites have it and cheap templates lack it (one site only is a warning sign);
+  - the client would miss it if it were removed.
+- **Then:** re-screen the existing material against the agreed test (no new reviewer), aiming at about 10–15 options, each with its reason in client-value terms.
 ---
 
 ## Site Builder effort (started 5 Oct 2026) — READ THIS FIRST

@@ -1,5 +1,8 @@
 # Handoff — 7 October 2026: from the cloud session to a local session
 
+> **Parked, 7 Oct 2026 (owner):** the builder core comes first. This #21 design work waits until the owner reopens
+> it. Its latest state and the open questions are in `PROJECT-STATUS.md` ("#21 is parked here").
+
 **Read this after `PROJECT-STATUS.md`.** It holds everything the next chat needs to continue the builder work exactly
 where the cloud session stopped. The owner is moving to a local Claude Code session because of the cloud budget.
 
