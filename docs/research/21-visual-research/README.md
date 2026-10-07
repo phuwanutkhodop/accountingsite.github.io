@@ -17,6 +17,10 @@ from what top professional work does that ordinary sites do not. See `../../deci
 - the **baseline**: paid accounting-firm templates, Big-4 Thailand, a Thai accounting firm and our own current site. It
   records what "ordinary" looks like (`baseline.md`).
 
+**Rarity numbers** (`rarity.md`, made by `tools/rarity.py` from every capture's `signals.json`): which typefaces,
+CSS techniques and script libraries the top sites use, against the baseline. The typeface and library counts are
+reliable. The CSS counts are only a hint: they show what a stylesheet contains, not what the page uses.
+
 **Still to review:** design studios (about 19 sites) and award winners (about 15 sites).
 
 **Screenshots and crops are not in this repository:** they are other companies' work, kept for private review only.

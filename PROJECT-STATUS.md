@@ -1,6 +1,6 @@
 # PROJECT-STATUS.md
 
-**Last updated:** Tuesday, 6 October 2026
+**Last updated:** Wednesday, 7 October 2026
 **Last session:** Tickets **#31**, **#15** and **#21** closed.
 - **#21** (`docs/decisions/21-section-library-sample.md`; sample: https://claude.ai/artifact/KXF9kgSGvYtTJFXS46CUQC): the preset format is proven.
   - 9 presets × 3 languages restyle from tokens alone across two neutral test themes (A "Slate" sans, B "Paper" serif).
@@ -16,6 +16,7 @@
 - **Owner steps:** create the organization before #22. `builder-library` is needed only when real presets are written.
 **Owner verdict on #21 (6 Oct 2026): the sample designs are not commercial grade; #21 is reopened.** The format stands. Real presets come from **visual research of top professional work**: 92 sites captured, 114 findings from 4 groups so far, and the images are in the private repo `builder-research`.
 **➡ Next session (local, from 7 Oct 2026): read `docs/handoff/2026-10-07-cloud-to-local.md` first.** It lists where everything is, the owner's pending choice (how much more research), and the remaining steps: rarity numbers → a board for the owner → real presets.
+**7 Oct 2026 (first local session):** moved to this computer (`builder-research` cloned next to this folder; PR #46 merged). Rarity numbers done: `docs/research/21-visual-research/rarity.md`. Still pending: the owner's research choice (1/2/3), then the owner board.
 ---
 
 ## Site Builder effort (started 5 Oct 2026) — READ THIS FIRST

@@ -55,7 +55,10 @@ natural signature for an accounting firm.
 3. *Stop:* synthesise from the 114 findings.
 
 **After that choice, the remaining steps:**
-1. **Rarity numbers:** count each technique across all `signals.json` and compare top sites with the baseline. This has not been done yet.
+1. **Rarity numbers:** count each technique across all `signals.json` and compare top sites with the baseline.
+   **Done 7 Oct 2026 (local session):** `docs/research/21-visual-research/rarity.md`. Own or licensed type on 87% of top
+   sites against 1 of 8 baseline sites; Lenis smooth scrolling on all 4 paid templates against 1 of 18 finance, law and
+   consulting sites. The CSS counts are weak (presence, not use; inline CSS missed); its §5 says how to fix the capture.
 2. **Board for the owner** (owner's method: many options, each in real context):
    - group the findings by role (opening, navigation, proof/data, process, people, knowledge, contact, footer, type system);
    - show each finding with its crop, then the owner picks;
